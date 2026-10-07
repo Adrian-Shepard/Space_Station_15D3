@@ -1,0 +1,70 @@
+=== SS15 Log started at 2026-10-07 21:35:44 ===
+[21:35:44.713] [Info] [Logger] Logging initialized, file: D:\Games\Space_Station_15\SS15.Client\bin\Debug\net10.0\ss15_log.txt
+[21:35:44.722] [Info] [Program] Application starting
+[21:35:45.079] [Info] [MainGame] OnLoad started
+[21:35:45.086] [Info] [Tex] Floor loaded, handle=1
+[21:35:45.088] [Info] [Tex] Space loaded, handle=2
+[21:35:45.109] [Info] [Tex] Wall single, handle=3
+[21:35:45.110] [Info] [Tex] Wall NS, handle=4
+[21:35:45.120] [Info] [Tex] Wall WE, handle=5
+[21:35:45.128] [Info] [MainGame] All textures loaded
+[21:35:45.299] [Info] [MainGame] SpriteBatch created
+[21:35:45.303] [Info] [GL] Vendor:   ATI Technologies Inc.
+[21:35:45.304] [Info] [GL] Renderer: Radeon RX 570 Series
+[21:35:45.304] [Info] [GL] Version:  4.6.0 Core Profile Context 26.1.1.251211
+[21:35:45.305] [Info] [GL] GLSL:     4.60
+[21:35:45.306] [Info] [GL] Default framebuffer depth bits: 0 (0 = need custom FBO)
+[21:35:45.310] [Info] [MainGame] Window size: 800x600
+[21:35:45.316] [Info] [Framebuffer] Created FBO=1 Color=20 Depth=1 800x600
+[21:35:45.383] [Info] [MainGame] Input initialized
+[21:35:45.449] [Info] [MainGame] GameState initialized. Map: 255x255
+[21:35:45.475] [Info] [MainGame] Player spawn: <4080  4080>
+[21:35:45.477] [Info] [MainGame] Tile under player (127,127): Floor
+[21:35:45.478] [Info] [World3D] Creating Shader3D...
+[21:35:45.518] [Info] [Shader3D] Compiling vertex shader...
+[21:35:45.554] [Info] [Shader3D] VertexShader compiled OK
+[21:35:45.554] [Info] [Shader3D] Compiling fragment shader...
+[21:35:45.556] [Info] [Shader3D] FragmentShader compiled OK
+[21:35:45.557] [Info] [Shader3D] Linking program...
+[21:35:45.558] [Info] [Shader3D] Program linked OK. Id=4
+[21:35:45.560] [Info] [Shader3D] Uniform OK: uModel at loc 0
+[21:35:45.574] [Info] [Shader3D] Uniform OK: uView at loc 1
+[21:35:45.592] [Info] [Shader3D] Uniform OK: uProjection at loc 5
+[21:35:45.594] [Info] [Shader3D] Uniform OK: uTexture at loc 9
+[21:35:45.595] [Info] [Shader3D] Uniform OK: uLightDir at loc 10
+[21:35:45.595] [Info] [Shader3D] Uniform OK: uAmbientColor at loc 11
+[21:35:45.602] [Info] [Shader3D] Uniform OK: uLightColor at loc 12
+[21:35:45.602] [Info] [Shader3D] Uniform OK: uViewPos at loc 13
+[21:35:45.603] [Info] [World3D] Building cube mesh...
+[21:35:45.608] [Info] [Mesh] Created VAO=2 VBO=3 EBO=4 verts=24 indices=36
+[21:35:45.609] [Info] [World3D] Building floor mesh...
+[21:35:45.610] [Info] [Mesh] Created VAO=3 VBO=5 EBO=6 verts=4 indices=6
+[21:35:45.610] [Info] [World3D] WorldRenderer3D initialized
+[21:35:45.611] [Info] [World3D] Textures assigned. Wall=3, Floor=1
+[21:35:45.611] [Info] [MainGame] World3D initialized
+[21:35:45.711] [Info] [MainGame] HUD initialized
+[21:35:45.719] [Info] [MainGame] OnLoad complete
+[21:35:45.819] [Trace] [Camera] Pos=(127,50,1,60,127,50) Yaw=0,00 Pitch=0,00 Tile=(127,127)=Floor
+[21:35:45.825] [Info] [World3D] First Draw. Camera=(127,5,1,6,127,5) Viewport=800x600
+[21:35:45.826] [Info] [World3D] Yaw=0,00 Pitch=0,00 ViewRadius=20
+[21:35:45.827] [Info] [World3D] Tile at camera: (127,127) = Floor
+[21:35:46.334] [Info] [Perf] FPS=29,6 Player=0,01ms Atmos=0,00ms Render=3,15ms Tiles=627
+[21:35:46.830] [Trace] [Camera] Pos=(127,50,1,60,127,50) Yaw=0,00 Pitch=0,00 Tile=(127,127)=Floor
+[21:35:47.350] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=3,69ms Tiles=627
+[21:35:47.846] [Trace] [Camera] Pos=(127,50,1,60,127,50) Yaw=0,00 Pitch=0,00 Tile=(127,127)=Floor
+[21:35:48.366] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=2,96ms Tiles=627
+[21:35:48.863] [Trace] [Camera] Pos=(127,50,1,60,127,50) Yaw=0,00 Pitch=0,00 Tile=(127,127)=Floor
+[21:35:49.383] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=3,01ms Tiles=627
+[21:35:49.879] [Trace] [Camera] Pos=(127,50,1,60,127,50) Yaw=0,00 Pitch=0,00 Tile=(127,127)=Floor
+[21:35:50.400] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=2,74ms Tiles=574
+[21:35:50.896] [Trace] [Camera] Pos=(128,32,1,60,128,09) Yaw=0,57 Pitch=0,87 Tile=(128,128)=Floor
+[21:35:51.415] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=2,95ms Tiles=629
+[21:35:51.896] [Trace] [Camera] Pos=(125,00,1,60,131,12) Yaw=3,43 Pitch=0,64 Tile=(125,131)=Floor
+[21:35:52.432] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=3,75ms Tiles=578
+[21:35:52.912] [Trace] [Camera] Pos=(120,71,1,60,128,87) Yaw=5,06 Pitch=0,82 Tile=(120,128)=Floor
+[21:35:53.448] [Info] [Perf] FPS=58,1 Player=0,01ms Atmos=0,00ms Render=2,90ms Tiles=616
+[21:35:53.928] [Trace] [Camera] Pos=(120,71,1,60,128,87) Yaw=5,14 Pitch=1,40 Tile=(120,128)=Floor
+[21:35:54.450] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=0,00ms Render=2,78ms Tiles=585
+[21:35:54.931] [Trace] [Camera] Pos=(120,71,1,60,128,87) Yaw=5,14 Pitch=1,40 Tile=(120,128)=Floor
+[21:35:55.466] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=2,75ms Tiles=585
+[21:35:55.857] [Info] [Program] Application exited normally
