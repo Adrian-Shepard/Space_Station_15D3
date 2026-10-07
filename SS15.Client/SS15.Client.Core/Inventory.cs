@@ -1,3 +1,4 @@
+//Inventory.cs
 using System;
 using SS15.Client.Player;
 

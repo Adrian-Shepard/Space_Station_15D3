@@ -1,3 +1,4 @@
+//BagItem.cs
 namespace SS15.Client.Core
 {
     public class BagItem : Item

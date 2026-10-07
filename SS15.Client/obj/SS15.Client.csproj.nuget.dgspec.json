@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Games\\Space_Station_15\\Space_Station_15D3\\SS15.Client\\SS15.Client.csproj": {}
+    "D:\\Games\\Space_Station_15\\SS15.Client\\SS15.Client.csproj": {}
   },
   "projects": {
-    "D:\\Games\\Space_Station_15\\Space_Station_15D3\\Engine.Rendering\\Engine.Rendering.csproj": {
+    "D:\\Games\\Space_Station_15\\Engine.Rendering\\Engine.Rendering.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Games\\Space_Station_15\\Space_Station_15D3\\Engine.Rendering\\Engine.Rendering.csproj",
+        "projectUniqueName": "D:\\Games\\Space_Station_15\\Engine.Rendering\\Engine.Rendering.csproj",
         "projectName": "Engine.Rendering",
-        "projectPath": "D:\\Games\\Space_Station_15\\Space_Station_15D3\\Engine.Rendering\\Engine.Rendering.csproj",
+        "projectPath": "D:\\Games\\Space_Station_15\\Engine.Rendering\\Engine.Rendering.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "D:\\Games\\Space_Station_15\\Space_Station_15D3\\Engine.Rendering\\obj\\",
+        "outputPath": "D:\\Games\\Space_Station_15\\Engine.Rendering\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -359,14 +359,14 @@
         }
       }
     },
-    "D:\\Games\\Space_Station_15\\Space_Station_15D3\\SS15.Client\\SS15.Client.csproj": {
+    "D:\\Games\\Space_Station_15\\SS15.Client\\SS15.Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Games\\Space_Station_15\\Space_Station_15D3\\SS15.Client\\SS15.Client.csproj",
+        "projectUniqueName": "D:\\Games\\Space_Station_15\\SS15.Client\\SS15.Client.csproj",
         "projectName": "SS15.Client",
-        "projectPath": "D:\\Games\\Space_Station_15\\Space_Station_15D3\\SS15.Client\\SS15.Client.csproj",
+        "projectPath": "D:\\Games\\Space_Station_15\\SS15.Client\\SS15.Client.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "D:\\Games\\Space_Station_15\\Space_Station_15D3\\SS15.Client\\obj\\",
+        "outputPath": "D:\\Games\\Space_Station_15\\SS15.Client\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -381,8 +381,8 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "D:\\Games\\Space_Station_15\\Space_Station_15D3\\Engine.Rendering\\Engine.Rendering.csproj": {
-                "projectPath": "D:\\Games\\Space_Station_15\\Space_Station_15D3\\Engine.Rendering\\Engine.Rendering.csproj"
+              "D:\\Games\\Space_Station_15\\Engine.Rendering\\Engine.Rendering.csproj": {
+                "projectPath": "D:\\Games\\Space_Station_15\\Engine.Rendering\\Engine.Rendering.csproj"
               }
             }
           }

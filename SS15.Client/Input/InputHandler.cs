@@ -1,3 +1,4 @@
+//Engine.Rendering
 #nullable disable
 using System;
 using System.Numerics;
@@ -30,6 +31,7 @@ namespace SS15.Client.Input
         public event Action<int, int, float> ModifyNitrogen;
         public event Action<int, int, float> ModifyCarbonDioxide;
         public event Action<int, int, float> ModifyTemperature;
+        public event Action<int, int, float> ModifyPlasma;   // ← добавлено
 
         private bool _leftPrev;
         private bool _qPrev, _ePrev, _rPrev;
@@ -54,25 +56,9 @@ namespace SS15.Client.Input
 
         public void Update(float deltaTime)
         {
-<<<<<<< Updated upstream
-            Vector2 mouseScreen = new Vector2(_mouse.Position.X, _mouse.Position.Y);
-            Vector2 cameraPos = _getCameraPosition();
-            float zoom = _getZoom();
-            Vector2 scale = _getScale();
-
-            // Экранные координаты -> виртуальные -> мировые
-            Vector2 virtualScreen = mouseScreen / scale; // делим на масштаб, получаем виртуальные координаты
-            Vector2 mouseWorld = cameraPos + virtualScreen / zoom;
-            int mouseTileX = (int)(mouseWorld.X / _map.TileSize);
-            int mouseTileY = (int)(mouseWorld.Y / _map.TileSize);
-
-            // Левая кнопка мыши
-            if (_mouse.IsButtonPressed(MouseButton.Left) && !_leftPrev)
-=======
-            // Мышь
+            // Мышь — FPS-обзор
             Vector2 curMouse = new Vector2(_mouse.Position.X, _mouse.Position.Y);
             if (!_mouseInitialized)
->>>>>>> Stashed changes
             {
                 _lastMousePos = curMouse;
                 _mouseInitialized = true;
@@ -114,33 +100,10 @@ namespace SS15.Client.Input
             if (IsPressed(Key.C, ref _cPrev)) PlaceLamp?.Invoke(tx, ty);
             if (IsPressed(Key.G, ref _gPrev)) RemoveObject?.Invoke(tx, ty);
 
-<<<<<<< Updated upstream
-            // Выбор активного слота
-=======
->>>>>>> Stashed changes
             for (int i = 0; i <= 9; i++)
                 if (IsPressed(Key.Number0 + i, ref _slotPrev[i]))
                     SelectSlot?.Invoke(i);
 
-<<<<<<< Updated upstream
-            // Модификаторы атмосферы (зажатие)
-            if (_keyboard.IsKeyPressed(Key.U))
-                ModifyOxygen?.Invoke(mouseTileX, mouseTileY, 1f);
-            if (_keyboard.IsKeyPressed(Key.J))
-                ModifyOxygen?.Invoke(mouseTileX, mouseTileY, -1f);
-            if (_keyboard.IsKeyPressed(Key.O))
-                ModifyNitrogen?.Invoke(mouseTileX, mouseTileY, 1f);
-            if (_keyboard.IsKeyPressed(Key.L))
-                ModifyNitrogen?.Invoke(mouseTileX, mouseTileY, -1f);
-            if (_keyboard.IsKeyPressed(Key.N))
-                ModifyCarbonDioxide?.Invoke(mouseTileX, mouseTileY, 0.1f);
-            if (_keyboard.IsKeyPressed(Key.M))
-                ModifyCarbonDioxide?.Invoke(mouseTileX, mouseTileY, -0.1f);
-            if (_keyboard.IsKeyPressed(Key.I))
-                ModifyTemperature?.Invoke(mouseTileX, mouseTileY, 10f);
-            if (_keyboard.IsKeyPressed(Key.K))
-                ModifyTemperature?.Invoke(mouseTileX, mouseTileY, -10f);
-=======
             if (_keyboard.IsKeyPressed(Key.U)) ModifyOxygen?.Invoke(tx, ty, 1f);
             if (_keyboard.IsKeyPressed(Key.J)) ModifyOxygen?.Invoke(tx, ty, -1f);
             if (_keyboard.IsKeyPressed(Key.O)) ModifyNitrogen?.Invoke(tx, ty, 1f);
@@ -151,7 +114,6 @@ namespace SS15.Client.Input
             if (_keyboard.IsKeyPressed(Key.K)) ModifyTemperature?.Invoke(tx, ty, -10f);
             if (_keyboard.IsKeyPressed(Key.Y)) ModifyPlasma?.Invoke(tx, ty, 1f);
             if (_keyboard.IsKeyPressed(Key.H)) ModifyPlasma?.Invoke(tx, ty, -1f);
->>>>>>> Stashed changes
         }
 
         private bool IsPressed(Key key, ref bool prev)

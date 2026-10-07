@@ -12,7 +12,13 @@ namespace SS15.Client.Core
 
         private TileType[,] _tiles;
         public Dictionary<(int x, int y), List<Item>> ItemsOnGround { get; } = new();
-        public Dictionary<(int x, int y), bool> DoorStates { get; } = new();
+
+        // ===== Двери =====
+        // Одна логическая дверь может занимать несколько тайлов.
+        // Все тайлы одной двери имеют одинаковый groupId и общее состояние.
+        public Dictionary<(int x, int y), int> DoorGroups { get; } = new();
+        public Dictionary<int, bool> DoorGroupStates { get; } = new();
+        private int _nextDoorGroupId = 1;
 
         public GameMap(int width, int height, int tileSize)
         {
@@ -66,15 +72,47 @@ namespace SS15.Client.Core
             return true;
         }
 
-        public bool IsDoorOpen(int x, int y)
+        // ===== Двери: API =====
+
+        public int NewDoorGroup() => _nextDoorGroupId++;
+
+        public void RegisterDoorTile(int x, int y, int groupId)
         {
-            return DoorStates.TryGetValue((x, y), out bool open) && open;
+            DoorGroups[(x, y)] = groupId;
+            if (!DoorGroupStates.ContainsKey(groupId))
+                DoorGroupStates[groupId] = false;
         }
 
+        public int GetDoorGroupId(int x, int y)
+        {
+            return DoorGroups.TryGetValue((x, y), out int id) ? id : -1;
+        }
+
+        /// Состояние всей группы (двери). Отдельный тайл не имеет своего состояния.
+        public bool IsDoorOpen(int x, int y)
+        {
+            if (DoorGroups.TryGetValue((x, y), out int gid))
+                return DoorGroupStates.TryGetValue(gid, out bool open) && open;
+            return false;
+        }
+
+        /// Устанавливает состояние для всей группы.
         public void SetDoorOpen(int x, int y, bool open)
         {
-            DoorStates[(x, y)] = open;
+            if (DoorGroups.TryGetValue((x, y), out int gid))
+                DoorGroupStates[gid] = open;
         }
+
+        public List<(int x, int y)> GetDoorTilesInGroup(int groupId)
+        {
+            var list = new List<(int x, int y)>();
+            foreach (var kvp in DoorGroups)
+                if (kvp.Value == groupId)
+                    list.Add(kvp.Key);
+            return list;
+        }
+
+        // ===== Предметы =====
 
         public void AddItemToTile(int x, int y, Item item)
         {

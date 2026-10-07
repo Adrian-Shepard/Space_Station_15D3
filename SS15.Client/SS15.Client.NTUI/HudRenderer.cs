@@ -23,6 +23,7 @@ namespace SS15.Client.NTUI
         private StatusBars _thirstBar;
         private HandsHud _handsHud;
         private PocketHud _pocketHud;
+        private CompassHud _compassHud;
 
         private Texture2D _slotTexture;
         private Texture2D _whiteTexture;
@@ -70,6 +71,7 @@ namespace SS15.Client.NTUI
             _thirstBar = new StatusBars(slotTexture, whiteTexture);
             _handsHud = new HandsHud(armsPreviewTexture, itemTexture, whiteTexture);
             _pocketHud = new PocketHud(pocketTexture, itemTexture);
+            _compassHud = new CompassHud(whiteTexture, whiteTexture, fontRenderer);
         }
 
         public void Draw(
@@ -83,10 +85,6 @@ namespace SS15.Client.NTUI
 
             _spriteBatch.Begin(projection, view);
 
-<<<<<<< Updated upstream
-            // Верхний левый блок
-=======
->>>>>>> Stashed changes
             float barX = HudMargin;
             float barY = HudMargin;
 
@@ -122,14 +120,6 @@ namespace SS15.Client.NTUI
             var mouseAtmosNullable = _atmosphereSystem.GetAtmosphereAt(mouseTileX, mouseTileY);
             if (mouseAtmosNullable.HasValue)
             {
-<<<<<<< Updated upstream
-                _fontRenderer.DrawText(_spriteBatch, "Cursor Atmos:", new Vector2(barX, textY + 200), 0.5f, new Color(0, 0, 0, 1));
-                _fontRenderer.DrawText(_spriteBatch, $"  P: {mouseAtmos.Pressure:F1} kPa", new Vector2(barX, textY + 220), 0.5f, new Color(0, 0, 0, 1));
-                _fontRenderer.DrawText(_spriteBatch, $"  T: {mouseAtmos.Temperature - 273.15f:F1} C", new Vector2(barX, textY + 240), 0.5f, new Color(0, 0, 0, 1));
-                _fontRenderer.DrawText(_spriteBatch, $"  O2: {mouseAtmos.OxygenPercent:F1}%", new Vector2(barX, textY + 260), 0.5f, new Color(0, 0, 0, 1));
-                _fontRenderer.DrawText(_spriteBatch, $"  N2: {mouseAtmos.NitrogenPercent:F1}%", new Vector2(barX, textY + 280), 0.5f, new Color(0, 0, 0, 1));
-                _fontRenderer.DrawText(_spriteBatch, $"  CO2: {mouseAtmos.CarbonDioxidePercent:F2}%", new Vector2(barX, textY + 300), 0.5f, new Color(0, 0, 0, 1));
-=======
                 var mouseAtmos = mouseAtmosNullable.Value;
                 _fontRenderer.DrawText(_spriteBatch, "Cursor Atmos:", new Vector2(barX, textY + 220), 0.5f, new Color(0, 0, 0, 1));
                 _fontRenderer.DrawText(_spriteBatch, $"  P: {mouseAtmos.Pressure:F1} kPa", new Vector2(barX, textY + 240), 0.5f, new Color(0, 0, 0, 1));
@@ -138,19 +128,23 @@ namespace SS15.Client.NTUI
                 _fontRenderer.DrawText(_spriteBatch, $"  N2: {mouseAtmos.NitrogenPercent:F1}%", new Vector2(barX, textY + 300), 0.5f, new Color(0, 0, 0, 1));
                 _fontRenderer.DrawText(_spriteBatch, $"  CO2: {mouseAtmos.CarbonDioxidePercent:F2}%", new Vector2(barX, textY + 320), 0.5f, new Color(0, 0, 0, 1));
                 _fontRenderer.DrawText(_spriteBatch, $"  Plasma: {mouseAtmos.PlasmaPercent:F1}%", new Vector2(barX, textY + 340), 0.5f, new Color(0, 0, 0, 1));
->>>>>>> Stashed changes
             }
 
             bool powered = _powerSystem.IsPowered(mouseTileX, mouseTileY);
             _fontRenderer.DrawText(_spriteBatch, $"Powered: {(powered ? "Yes" : "No")}", new Vector2(barX, textY + 320), 0.5f, powered ? new Color(0, 0.8f, 0, 1) : new Color(0, 0, 0, 1));
 
-            _fontRenderer.DrawText(_spriteBatch, "U/J: O2  I/K: Temp  O/L: N2  N/M: CO2  T: Wall  B: Door  Z: Wire  V: Gen  C: Lamp  X: Switch Hand  E: Pocket  R: Use", new Vector2(barX, textY + 340), 0.4f, new Color(0, 0, 0, 1));
+            _fontRenderer.DrawText(_spriteBatch, "U/J: O2  I/K: Temp  O/L: N2  N/M: CO2  Y/H: Plasma  T: Wall  B: Door  Z: Wire  V: Gen  C: Lamp  X: Switch Hand  E: Pocket  R: Use", new Vector2(barX, textY + 360), 0.4f, new Color(0, 0, 0, 1));
 
             // Производительность
             float fpsX = screenWidth - 250;
             float fpsY = HudMargin;
             _fontRenderer.DrawText(_spriteBatch, $"FPS: {fps:F0}", new Vector2(fpsX, fpsY), 0.5f, new Color(0, 0, 0, 1));
             DrawPerformanceGraph(fpsX, fpsY + 20, playerUpdateMs, atmosUpdateMs, powerUpdateMs, healthUpdateMs, renderMs);
+
+            // ===== Компас =====
+            float bearingRad = MathF.Atan2(MathF.Cos(_player.Direction), -MathF.Sin(_player.Direction));
+            float bearingDeg = (bearingRad * 180f / MathF.PI + 360f) % 360f;
+            _compassHud.Draw(_spriteBatch, bearingDeg, screenWidth);
 
             // Нижняя часть HUD
             float panelX = (screenWidth - 66) / 2f;

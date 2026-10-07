@@ -1,6 +1,7 @@
 #nullable disable
 using Silk.NET.OpenGL;
 using System;
+using System.Collections.Generic;
 using System.Numerics;
 using SS15.Client.Core;
 
@@ -11,8 +12,10 @@ namespace SS15.Client.Render
         public uint Program { get; private set; }
         private GL _gl;
 
-        private const string VertSrc = @"
-#version 460 core
+        private readonly Dictionary<string, int> _uniformCache = new(16);
+        private readonly float[] _matrixBuffer = new float[16];
+
+        private const string VertSrc = @"#version 460 core
 layout(location = 0) in vec3 aPosition;
 layout(location = 1) in vec3 aNormal;
 layout(location = 2) in vec2 aTexCoord;
@@ -21,21 +24,21 @@ out vec3 vNormal;
 out vec2 vTexCoord;
 out vec3 vWorldPos;
 
-uniform mat4 uModel;
+uniform vec3 uModelPos;
+uniform vec3 uModelScale;
 uniform mat4 uView;
 uniform mat4 uProjection;
 
 void main()
 {
-    vec4 world = uModel * vec4(aPosition, 1.0);
-    vWorldPos = world.xyz;
-    vNormal = mat3(uModel) * aNormal;
+    vec3 worldPos = aPosition * uModelScale + uModelPos;
+    vWorldPos = worldPos;
+    vNormal = aNormal;
     vTexCoord = aTexCoord;
-    gl_Position = uProjection * uView * world;
+    gl_Position = uProjection * uView * vec4(worldPos, 1.0);
 }";
 
-        private const string FragSrc = @"
-#version 460 core
+        private const string FragSrc = @"#version 460 core
 in vec3 vNormal;
 in vec2 vTexCoord;
 in vec3 vWorldPos;
@@ -95,8 +98,8 @@ void main()
 
             Logger.Info("Shader3D", $"Program linked OK. Id={Program}");
 
-            // Проверяем все uniform
-            CheckUniform("uModel");
+            CheckUniform("uModelPos");
+            CheckUniform("uModelScale");
             CheckUniform("uView");
             CheckUniform("uProjection");
             CheckUniform("uTexture");
@@ -108,11 +111,20 @@ void main()
 
         private void CheckUniform(string name)
         {
-            int loc = _gl.GetUniformLocation(Program, name);
+            int loc = GetLoc(name);
             if (loc < 0)
                 Logger.Warn("Shader3D", $"Uniform NOT FOUND: {name}");
             else
                 Logger.Info("Shader3D", $"Uniform OK: {name} at loc {loc}");
+        }
+
+        private int GetLoc(string name)
+        {
+            if (_uniformCache.TryGetValue(name, out int loc))
+                return loc;
+            loc = _gl.GetUniformLocation(Program, name);
+            _uniformCache[name] = loc;
+            return loc;
         }
 
         private uint CompileShader(ShaderType type, string src)
@@ -135,35 +147,35 @@ void main()
 
         public void SetMatrix4(string name, Matrix4x4 m)
         {
-            int loc = _gl.GetUniformLocation(Program, name);
+            int loc = GetLoc(name);
             if (loc < 0) return;
 
-            var t = Matrix4x4.Transpose(m);
-            float[] arr =
-            {
-                t.M11, t.M12, t.M13, t.M14,
-                t.M21, t.M22, t.M23, t.M24,
-                t.M31, t.M32, t.M33, t.M34,
-                t.M41, t.M42, t.M43, t.M44
-            };
+            _matrixBuffer[0]  = m.M11; _matrixBuffer[1]  = m.M12;
+            _matrixBuffer[2]  = m.M13; _matrixBuffer[3]  = m.M14;
+            _matrixBuffer[4]  = m.M21; _matrixBuffer[5]  = m.M22;
+            _matrixBuffer[6]  = m.M23; _matrixBuffer[7]  = m.M24;
+            _matrixBuffer[8]  = m.M31; _matrixBuffer[9]  = m.M32;
+            _matrixBuffer[10] = m.M33; _matrixBuffer[11] = m.M34;
+            _matrixBuffer[12] = m.M41; _matrixBuffer[13] = m.M42;
+            _matrixBuffer[14] = m.M43; _matrixBuffer[15] = m.M44;
 
             unsafe
             {
-                fixed (float* p = arr)
+                fixed (float* p = _matrixBuffer)
                     _gl.UniformMatrix4(loc, 1, false, p);
             }
         }
 
         public void SetVector3(string name, Vector3 v)
         {
-            int loc = _gl.GetUniformLocation(Program, name);
+            int loc = GetLoc(name);
             if (loc < 0) return;
             _gl.Uniform3(loc, v.X, v.Y, v.Z);
         }
 
         public void SetInt(string name, int value)
         {
-            int loc = _gl.GetUniformLocation(Program, name);
+            int loc = GetLoc(name);
             if (loc < 0) return;
             _gl.Uniform1(loc, value);
         }
@@ -172,6 +184,7 @@ void main()
         {
             if (Program != 0) _gl.DeleteProgram(Program);
             Program = 0;
+            _uniformCache.Clear();
         }
     }
 }

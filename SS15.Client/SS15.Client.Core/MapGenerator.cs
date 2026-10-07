@@ -1,3 +1,4 @@
+//MapGenerator.cs
 using System;
 using SS15.Client.Core;
 

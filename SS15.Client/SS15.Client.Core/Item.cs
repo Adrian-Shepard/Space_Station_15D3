@@ -1,3 +1,4 @@
+//Item.cs
 namespace SS15.Client.Core
 {
     public enum ItemType

@@ -3,6 +3,7 @@ using System;
 using System.Numerics;
 using Silk.NET.Input;
 using SS15.Client.Core;
+
 namespace SS15.Client.Player
 {
     public class PlayerController
@@ -38,15 +39,6 @@ namespace SS15.Client.Player
             float speed = Speed * deltaTime;
             float mx = 0, my = 0;
 
-<<<<<<< Updated upstream
-            Vector2 newPos = new Vector2(Position.X + movement.X, Position.Y);
-            if (_map.IsWalkable(newPos, PlayerHalf))
-                Position = new Vector2(newPos.X, Position.Y);
-
-            newPos = new Vector2(Position.X, Position.Y + movement.Y);
-            if (_map.IsWalkable(newPos, PlayerHalf))
-                Position = new Vector2(Position.X, newPos.Y);
-=======
             if (_keyboard.IsKeyPressed(Key.W)) { mx += dirX * speed; my += dirY * speed; }
             if (_keyboard.IsKeyPressed(Key.S)) { mx -= dirX * speed; my -= dirY * speed; }
             if (_keyboard.IsKeyPressed(Key.A)) { mx += dirY * speed; my -= dirX * speed; }
@@ -57,7 +49,6 @@ namespace SS15.Client.Player
 
             newPos = new Vector2(Position.X, Position.Y + my);
             if (_map.IsWalkable(newPos, PlayerHalf)) Position = new Vector2(Position.X, newPos.Y);
->>>>>>> Stashed changes
         }
     }
 }

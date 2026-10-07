@@ -1,3 +1,4 @@
+//PrimitiveBatch.cs
 #nullable disable
 
 using Silk.NET.OpenGL;

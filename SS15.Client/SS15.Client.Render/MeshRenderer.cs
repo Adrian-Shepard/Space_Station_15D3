@@ -20,29 +20,35 @@ namespace SS15.Client.Render
             Shader = shader;
         }
 
-        public void Begin(int viewportWidth, int viewportHeight)
+        /// Начало кадра: состояние GL + свет + камера — один раз на кадр.
+        public void Begin(int viewportWidth, int viewportHeight, Matrix4x4 view, Matrix4x4 proj, Vector3 cameraPos)
         {
             _gl.Viewport(0, 0, (uint)viewportWidth, (uint)viewportHeight);
             _gl.Enable(EnableCap.DepthTest);
             _gl.DepthFunc(DepthFunction.Less);
             _gl.DepthMask(true);
             _gl.Disable(EnableCap.CullFace);
-            Shader.Use();
-        }
 
-        public void Draw(Mesh mesh, Texture2D texture, Matrix4x4 model,
-            Matrix4x4 view, Matrix4x4 proj, Vector3 cameraPos)
-        {
             Shader.Use();
-            texture.Bind(TextureUnit.Texture0);
+
+            // Постоянные uniform'ы — один раз на кадр
             Shader.SetInt("uTexture", 0);
-            Shader.SetMatrix4("uModel", model);
-            Shader.SetMatrix4("uView", view);
-            Shader.SetMatrix4("uProjection", proj);
-            Shader.SetVector3("uViewPos", cameraPos);
             Shader.SetVector3("uLightDir", LightDir);
             Shader.SetVector3("uAmbientColor", Ambient);
             Shader.SetVector3("uLightColor", LightColor);
+
+            // Камера — один раз на кадр
+            Shader.SetMatrix4("uView", view);
+            Shader.SetMatrix4("uProjection", proj);
+            Shader.SetVector3("uViewPos", cameraPos);
+        }
+
+        /// Отрисовка меша. Только 2 uniform + bind текстуры на объект.
+        public void Draw(Mesh mesh, Texture2D texture, Vector3 pos, Vector3 scale)
+        {
+            texture.Bind(TextureUnit.Texture0);
+            Shader.SetVector3("uModelPos", pos);
+            Shader.SetVector3("uModelScale", scale);
             mesh.Draw();
         }
 

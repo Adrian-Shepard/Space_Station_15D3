@@ -1,3 +1,4 @@
+//Texture2D.cs
 #nullable disable
 using Silk.NET.OpenGL;
 using StbImageSharp;

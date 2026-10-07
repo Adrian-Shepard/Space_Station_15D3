@@ -22,4 +22,3 @@ D:\Games\Space_Station_15\Engine.Rendering\obj\Debug\net10.0\Engine.Rendering.dl
 D:\Games\Space_Station_15\Engine.Rendering\obj\Debug\net10.0\refint\Engine.Rendering.dll
 D:\Games\Space_Station_15\Engine.Rendering\obj\Debug\net10.0\Engine.Rendering.pdb
 D:\Games\Space_Station_15\Engine.Rendering\obj\Debug\net10.0\ref\Engine.Rendering.dll
-D:\Games\Space_Station_15\Engine.Rendering\obj\Debug\net10.0\Engine.Rendering.sourcelink.json

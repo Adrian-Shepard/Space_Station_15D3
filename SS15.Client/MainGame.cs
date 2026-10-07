@@ -13,14 +13,14 @@ using SS15.Client.Render;
 using SS15.Client.Render.GeneratedSprites;
 using SS15.Client.Systems;
 using SS15.Client.Objects;
-using Framebuffer = SS15.Client.Render.Framebuffer;   // ← алиас обязателен
+using Framebuffer = SS15.Client.Render.Framebuffer;   // алиас обязателен
 
 namespace SS15.Client
 {
     public class MainGame : GraphicsDevice
     {
         private SpriteBatch _spriteBatch;
-        private IInputContext _inputContext;   // держим живым, иначе GC отберёт ввод
+        private IInputContext _inputContext;
         private IKeyboard _keyboard;
         private IMouse _mouse;
 
@@ -51,6 +51,9 @@ namespace SS15.Client
         private Vector2 _windowScale;
 
         private DateTime _lastCamLog = DateTime.MinValue;
+
+        // Ширина двери в тайлах. 2 = двойная дверь (стандарт для SS15).
+        private const int DoorWidth = 2;
 
         public MainGame() : base(800, 600, "Space Station 15 — 3D")
         {
@@ -90,23 +93,12 @@ namespace SS15.Client
             Logger.Info("MainGame", $"GameState initialized. Map: {_gameState.Map.Width}x{_gameState.Map.Height}");
             Logger.Info("MainGame", $"Player spawn: {_gameState.Player.Position}");
 
-<<<<<<< Updated upstream
-            // Рендерер мира
-            _worldRenderer = new WorldRenderer(_spriteBatch, _camera, _gameState.Map, _gameState.Player, _gameState.Power);
-            _worldRenderer.SetTextures(
-                _floorTex, _spaceTex, _wallSingleTex,
-                _wallNorthSouthTex, _wallWestEastTex,
-                _wallEastSouthTex, _wallNorthEastTex, _wallSouthWestTex, _wallWestNorthTex,
-                _gridTex, _playerTex, _itemTex,
-                _whiteTexture,
-                _generatorTex, _lampOnTex, _lampOffTex,
-                _doorOpenTex, _doorClosedTex);
-=======
             int spawnTx = (int)(_gameState.Player.Position.X / _gameState.Map.TileSize);
             int spawnTy = (int)(_gameState.Player.Position.Y / _gameState.Map.TileSize);
             var spawnTile = _gameState.Map.GetTile(spawnTx, spawnTy);
             Logger.Info("MainGame", $"Tile under player ({spawnTx},{spawnTy}): {spawnTile}");
 
+            // Рендерер 3D
             _camera3D = new Camera3D
             {
                 ViewportWidth = (int)_actualWidth,
@@ -118,7 +110,6 @@ namespace SS15.Client
                 _gameState.Map,
                 _gameState.Power,
                 _gameState.Atmosphere);
->>>>>>> Stashed changes
 
             _world3D.SetTextures(
                 _wallSingleTex, _wallNSTex, _wallWETex,
@@ -268,15 +259,29 @@ namespace SS15.Client
             _inputHandler.ModifyNitrogen += OnModifyNitrogen;
             _inputHandler.ModifyCarbonDioxide += OnModifyCarbonDioxide;
             _inputHandler.ModifyTemperature += OnModifyTemperature;
+            _inputHandler.ModifyPlasma += OnModifyPlasma;
         }
 
         private void OnLeftClick(int tx, int ty)
         {
             if (_gameState.Map.GetTile(tx, ty) == TileType.Door)
             {
-                bool open = _gameState.Map.IsDoorOpen(tx, ty);
-                _gameState.Map.SetDoorOpen(tx, ty, !open);
-                _gameState.Atmosphere.SetDoorState(tx, ty, !open);
+                int gid = _gameState.Map.GetDoorGroupId(tx, ty);
+                if (gid > 0)
+                {
+                    bool open = _gameState.Map.IsDoorOpen(tx, ty);
+                    bool newState = !open;
+
+                    // Состояние группы — одно на всех
+                    _gameState.Map.SetDoorOpen(tx, ty, newState);
+
+                    // Обновляем атмосферу на ВСЕХ тайлах группы
+                    var tiles = _gameState.Map.GetDoorTilesInGroup(gid);
+                    foreach (var (dx, dy) in tiles)
+                        _gameState.Atmosphere.SetDoorState(dx, dy, newState);
+
+                    Logger.Info("Door", $"Door group={gid} state -> {newState} ({tiles.Count} tiles)");
+                }
             }
             else
             {
@@ -307,7 +312,64 @@ namespace SS15.Client
             _gameState.Atmosphere.SetWall(x, y, true);
         }
 
-        private void OnPlaceDoor(int x, int y) { SetTile(x, y, TileType.Door); _gameState.Atmosphere.SetDoorState(x, y, false); }
+        /// Дверь шириной DoorWidth тайлов. Ориентация — по направлению игрока.
+        /// Если смотрит на восток/запад — дверь идёт вдоль Z (вертикально на карте).
+        /// Если смотрит на север/юг — вдоль X (горизонтально).
+        private void OnPlaceDoor(int x, int y)
+        {
+            float dirX = MathF.Cos(_gameState.Player.Direction);
+            float dirY = MathF.Sin(_gameState.Player.Direction);
+            bool facingEastWest = MathF.Abs(dirX) > MathF.Abs(dirY);
+
+            // Проверяем все тайлы будущей двери
+            for (int i = 0; i < DoorWidth; i++)
+            {
+                int tx = facingEastWest ? x : x + i;
+                int ty = facingEastWest ? y + i : y;
+                if (!CanPlaceDoorTile(tx, ty))
+                {
+                    Logger.Warn("Door", $"Cannot place door at ({tx},{ty}): tile occupied");
+                    return;
+                }
+            }
+
+            // Создаём группу и регистрируем все тайлы
+            int gid = _gameState.Map.NewDoorGroup();
+            for (int i = 0; i < DoorWidth; i++)
+            {
+                int tx = facingEastWest ? x : x + i;
+                int ty = facingEastWest ? y + i : y;
+                PlaceDoorTile(tx, ty, gid);
+                _gameState.Atmosphere.SetDoorState(tx, ty, false);
+            }
+
+            Logger.Info("Door", $"Placed door group={gid} at ({x},{y}) width={DoorWidth} " +
+                $"orientation={(facingEastWest ? "NS" : "EW")}");
+        }
+
+        private bool CanPlaceDoorTile(int x, int y)
+        {
+            if (x < 0 || x >= _gameState.Map.Width || y < 0 || y >= _gameState.Map.Height)
+                return false;
+            var t = _gameState.Map.GetTile(x, y);
+            return t != TileType.Wall && t != TileType.ReinforcedWall && t != TileType.Door;
+        }
+
+        private void PlaceDoorTile(int x, int y, int groupId)
+        {
+            var obj = ObjectFactory.Create(TileType.Door);
+            if (obj != null)
+            {
+                _gameState.Map.SetTile(x, y, obj.TileType);
+                obj.OnPlaced(_gameState.Map, x, y);
+            }
+            else
+            {
+                _gameState.Map.SetTile(x, y, TileType.Door);
+            }
+            _gameState.Map.RegisterDoorTile(x, y, groupId);
+        }
+
         private void OnPlaceWire(int x, int y) => SetTile(x, y, TileType.Wire);
         private void OnPlaceGenerator(int x, int y) => SetTile(x, y, TileType.Generator);
         private void OnPlaceLamp(int x, int y) => SetTile(x, y, TileType.Lamp);
@@ -379,18 +441,11 @@ namespace SS15.Client
             }
         }
 
-<<<<<<< Updated upstream
-        private void OnModifyOxygen(int x, int y, float delta) => _gameState.Atmosphere.ModifyOxygen(x, y, delta);
-        private void OnModifyNitrogen(int x, int y, float delta) => _gameState.Atmosphere.ModifyNitrogen(x, y, delta);
-        private void OnModifyCarbonDioxide(int x, int y, float delta) => _gameState.Atmosphere.ModifyCarbonDioxide(x, y, delta);
-        private void OnModifyTemperature(int x, int y, float delta) => _gameState.Atmosphere.ModifyTemperature(x, y, delta);
-=======
         private void OnModifyOxygen(int x, int y, float d) => _gameState.Atmosphere.ModifyOxygen(x, y, d);
         private void OnModifyNitrogen(int x, int y, float d) => _gameState.Atmosphere.ModifyNitrogen(x, y, d);
         private void OnModifyCarbonDioxide(int x, int y, float d) => _gameState.Atmosphere.ModifyCarbonDioxide(x, y, d);
         private void OnModifyTemperature(int x, int y, float d) => _gameState.Atmosphere.ModifyTemperature(x, y, d);
         private void OnModifyPlasma(int x, int y, float d) => _gameState.Atmosphere.ModifyPlasma(x, y, d);
->>>>>>> Stashed changes
 
         private void UpdateCamera3D()
         {
@@ -420,17 +475,11 @@ namespace SS15.Client
 
         protected override void OnUpdate(double deltaTime)
         {
-<<<<<<< Updated upstream
-            var sw = System.Diagnostics.Stopwatch.StartNew();
-            _gameState.Update((float)deltaTime);
-            _playerUpdateMs = (float)sw.Elapsed.TotalMilliseconds;
-=======
             var (p, a, pw, h) = _gameState.Update((float)deltaTime);
             _playerUpdateMs = p;
             _atmosUpdateMs = a;
             _powerUpdateMs = pw;
             _healthUpdateMs = h;
->>>>>>> Stashed changes
 
             _inputHandler.Update((float)deltaTime);
             UpdateCamera3D();
@@ -451,8 +500,6 @@ namespace SS15.Client
 
             _world3D.Draw(_camera3D);
 
-            // Замеряем сразу после отрисовки мира, чтобы HUD в этом же кадре
-            // получил актуальное значение, а не значение прошлого кадра
             sw.Stop();
             _renderMs = (float)sw.Elapsed.TotalMilliseconds;
 
