@@ -1,990 +1,137 @@
-=== SS15 Log started at 2026-10-08 11:57:31 ===
-[11:57:31.617] [Info] [Logger] Logging initialized, file: D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\ss15_log.txt
-[11:57:31.627] [Info] [Program] Application starting
-[11:57:31.943] [Info] [MainGame] OnLoad started
-[11:57:31.992] [Info] [MainGame] All textures loaded
-[11:57:32.152] [Info] [MainGame] SpriteBatch created
-[11:57:32.154] [Info] [GL] Vendor:   ATI Technologies Inc.
-[11:57:32.155] [Info] [GL] Renderer: Radeon RX 570 Series
-[11:57:32.155] [Info] [GL] Version:  4.6.0 Core Profile Context 26.1.1.251211
-[11:57:32.156] [Info] [GL] GLSL:     4.60
-[11:57:32.157] [Info] [GL] Default framebuffer depth bits: 0 (0 = need custom FBO)
-[11:57:32.163] [Info] [MainGame] Window size: 800x600
-[11:57:32.170] [Info] [Framebuffer] Created FBO=1 Color=22 Depth=1 800x600
-[11:57:32.241] [Info] [MainGame] Input initialized
-[11:57:32.329] [Info] [MainGame] GameState initialized. Map: 255x255
-[11:57:32.379] [Info] [MainGame] Player spawn: <4080  4080>
-[11:57:32.385] [Info] [MainGame] Tile under player (127,127): Floor
-[11:57:32.390] [Info] [World3D] Creating Shader3D...
-[11:57:32.395] [Info] [Shader3D] Compiling vertex shader...
-[11:57:32.408] [Info] [Shader3D] VertexShader compiled OK
-[11:57:32.439] [Info] [Shader3D] Compiling fragment shader...
-[11:57:32.446] [Info] [Shader3D] FragmentShader compiled OK
-[11:57:32.450] [Info] [Shader3D] Linking program...
-[11:57:32.451] [Info] [Shader3D] Program linked OK. Id=4
-[11:57:32.453] [Info] [Shader3D] Uniform OK: uModelPos at loc 0
-[11:57:32.453] [Info] [Shader3D] Uniform OK: uModelScale at loc 1
-[11:57:32.455] [Info] [Shader3D] Uniform OK: uView at loc 2
-[11:57:32.456] [Info] [Shader3D] Uniform OK: uProjection at loc 6
-[11:57:32.457] [Info] [Shader3D] Uniform OK: uTexture at loc 10
-[11:57:32.457] [Info] [Shader3D] Uniform OK: uLightDir at loc 11
-[11:57:32.458] [Info] [Shader3D] Uniform OK: uAmbientColor at loc 12
-[11:57:32.462] [Info] [Shader3D] Uniform OK: uLightColor at loc 13
-[11:57:32.463] [Info] [Shader3D] Uniform OK: uViewPos at loc 14
-[11:57:32.464] [Info] [Shader3D] Uniform OK: uUnlit at loc 15
-[11:57:32.465] [Info] [World3D] Building meshes...
-[11:57:32.470] [Info] [Mesh] Created VAO=2 VBO=3 EBO=4 verts=24 indices=36
-[11:57:32.472] [Info] [Mesh] Created VAO=3 VBO=5 EBO=6 verts=4 indices=6
-[11:57:32.473] [Info] [Mesh] Created VAO=4 VBO=7 EBO=8 verts=4 indices=6
-[11:57:32.473] [Info] [Mesh] Created VAO=5 VBO=9 EBO=10 verts=4 indices=6
-[11:57:32.474] [Info] [Mesh] Created VAO=6 VBO=11 EBO=12 verts=4 indices=6
-[11:57:32.475] [Info] [Mesh] Created VAO=7 VBO=13 EBO=14 verts=4 indices=6
-[11:57:32.480] [Info] [Mesh] Created VAO=8 VBO=15 EBO=16 verts=4 indices=6
-[11:57:32.482] [Info] [Mesh] Created VAO=9 VBO=17 EBO=18 verts=4 indices=6
-[11:57:32.483] [Info] [Mesh] Created VAO=10 VBO=19 EBO=20 verts=4 indices=6
-[11:57:32.483] [Info] [Mesh] Created VAO=11 VBO=21 EBO=22 verts=4 indices=6
-[11:57:32.484] [Info] [Mesh] Created VAO=12 VBO=23 EBO=24 verts=4 indices=6
-[11:57:32.486] [Info] [Mesh] Created VAO=13 VBO=25 EBO=26 verts=4 indices=6
-[11:57:32.487] [Info] [Mesh] Created VAO=14 VBO=27 EBO=28 verts=4 indices=6
-[11:57:32.488] [Info] [Mesh] Created VAO=15 VBO=29 EBO=30 verts=4 indices=6
-[11:57:32.489] [Info] [Mesh] Created VAO=16 VBO=31 EBO=32 verts=4 indices=6
-[11:57:32.490] [Info] [Mesh] Created VAO=17 VBO=33 EBO=34 verts=24 indices=36
-[11:57:32.490] [Info] [World3D] WorldRenderer3D initialized
-[11:57:32.491] [Info] [World3D] Textures assigned. Wall=5, Wire=7, Highlight=21
-[11:57:32.496] [Info] [MainGame] World3D initialized
-[11:57:32.546] [Info] [MainGame] HUD initialized
-[11:57:32.551] [Info] [MainGame] OnLoad complete
-[11:57:32.657] [Info] [World3D] First Draw. Camera=(127,5,1,6,127,5) Viewport=800x600
-[11:57:32.658] [Info] [World3D] Yaw=0,00 Pitch=0,00 ViewRadius=20
-[11:57:32.658] [Info] [World3D] Tile at camera: (127,127) = Floor
-[11:57:33.178] [Info] [Perf] FPS=28,8 Player=0,00ms Atmos=0,00ms Render=0,69ms Tiles=627 Uptime=00:00:01 Errors=0
-[11:57:34.195] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,56ms Tiles=627 Uptime=00:00:02 Errors=0
-[11:57:35.211] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,83ms Tiles=627 Uptime=00:00:03 Errors=0
-[11:57:36.213] [Info] [Perf] FPS=56,9 Player=0,01ms Atmos=0,00ms Render=0,47ms Tiles=627 Uptime=00:00:04 Errors=0
-[11:57:37.226] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,45ms Tiles=619 Uptime=00:00:05 Errors=0
-[11:57:37.662] [Info] [InteractionMenu] Cursor released (Alt down)
-[11:57:38.226] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,44ms Tiles=584 Uptime=00:00:06 Errors=0
-[11:57:39.092] [Info] [InteractionMenu] Cursor captured (Alt up)
-[11:57:39.242] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,47ms Tiles=584 Uptime=00:00:07 Errors=0
-[11:57:40.258] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,54ms Tiles=577 Uptime=00:00:08 Errors=0
-[11:57:40.525] [Info] [InteractionMenu] Cursor released (Alt down)
-[11:57:41.258] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,45ms Tiles=577 Uptime=00:00:09 Errors=0
-[11:57:42.275] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,47ms Tiles=577 Uptime=00:00:10 Errors=0
-[11:57:43.291] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,46ms Tiles=577 Uptime=00:00:11 Errors=0
-[11:57:44.307] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,45ms Tiles=577 Uptime=00:00:12 Errors=0
-[11:57:45.326] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=0,00ms Render=0,45ms Tiles=577 Uptime=00:00:13 Errors=0
-[11:57:46.341] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,47ms Tiles=577 Uptime=00:00:14 Errors=0
-[11:57:47.356] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,46ms Tiles=577 Uptime=00:00:15 Errors=0
-[11:57:48.356] [Info] [Perf] FPS=59,0 Player=0,00ms Atmos=0,00ms Render=0,46ms Tiles=577 Uptime=00:00:16 Errors=0
-[11:57:49.372] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,58ms Tiles=577 Uptime=00:00:17 Errors=0
-[11:57:50.388] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,44ms Tiles=577 Uptime=00:00:18 Errors=0
-[11:57:51.288] [Info] [InteractionMenu] Cursor captured (Alt up)
-[11:57:51.405] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,45ms Tiles=577 Uptime=00:00:19 Errors=0
-[11:57:52.405] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,50ms Tiles=620 Uptime=00:00:20 Errors=0
-[11:57:52.554] [Info] [InteractionMenu] Cursor released (Alt down)
-[11:57:52.771] [Info] [InteractionMenu] Opened: Floor (127,129) (6 items)
-[11:57:53.406] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,49ms Tiles=621 Uptime=00:00:21 Errors=0
-[11:57:54.420] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,48ms Tiles=621 Uptime=00:00:22 Errors=0
-[11:57:55.270] [Info] [InteractionMenu] Cursor captured (Alt up)
-[11:57:55.421] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,47ms Tiles=625 Uptime=00:00:23 Errors=0
-[11:57:56.388] [Info] [InteractionMenu] Cursor released (Alt down)
-[11:57:56.436] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,47ms Tiles=571 Uptime=00:00:24 Errors=0
-[11:57:56.653] [Info] [InteractionMenu] Opened: Floor (126,129) (6 items)
-[11:57:57.436] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,46ms Tiles=572 Uptime=00:00:25 Errors=0
-[11:57:57.671] [Info] [InteractionMenu] Cursor captured (Alt up)
-[11:57:58.453] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,50ms Tiles=609 Uptime=00:00:26 Errors=0
-[11:57:58.685] [Info] [InteractionMenu] Cursor released (Alt down)
-[11:57:58.936] [Info] [InteractionMenu] Opened: Floor (125,129) (6 items)
-[11:57:59.453] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,51ms Tiles=623 Uptime=00:00:27 Errors=0
-[11:58:00.435] [Info] [InteractionMenu] Cursor captured (Alt up)
-[11:58:00.468] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,47ms Tiles=624 Uptime=00:00:28 Errors=0
-[11:58:01.485] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,49ms Tiles=624 Uptime=00:00:29 Errors=0
-[11:58:01.618] [Info] [InteractionMenu] Cursor released (Alt down)
-[11:58:02.369] [Info] [InteractionMenu] Opened: Floor (128,129) (6 items)
-[11:58:02.501] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,48ms Tiles=626 Uptime=00:00:30 Errors=0
-[11:58:03.518] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,50ms Tiles=626 Uptime=00:00:31 Errors=0
-[11:58:04.533] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,45ms Tiles=626 Uptime=00:00:32 Errors=0
-[11:58:05.333] [Info] [InteractionMenu] Cursor captured (Alt up)
-[11:58:05.534] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,50ms Tiles=627 Uptime=00:00:33 Errors=0
-[11:58:06.549] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,46ms Tiles=612 Uptime=00:00:34 Errors=0
-[11:58:07.566] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,52ms Tiles=612 Uptime=00:00:35 Errors=0
-[11:58:08.582] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,49ms Tiles=613 Uptime=00:00:36 Errors=0
-[11:58:09.585] [Info] [Perf] FPS=59,8 Player=0,00ms Atmos=0,00ms Render=0,45ms Tiles=614 Uptime=00:00:37 Errors=0
-[11:58:10.601] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,45ms Tiles=614 Uptime=00:00:38 Errors=0
-[11:58:11.615] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,44ms Tiles=567 Uptime=00:00:39 Errors=0
-[11:58:12.617] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=0,00ms Render=0,45ms Tiles=584 Uptime=00:00:40 Errors=0
-[11:58:13.275] [Info] [Framebuffer] Created FBO=1 Color=22 Depth=1 1280x961
-[11:58:13.630] [Info] [Perf] FPS=57,2 Player=0,00ms Atmos=0,00ms Render=0,44ms Tiles=592 Uptime=00:00:41 Errors=0
-[11:58:14.596] [Info] [InteractionMenu] Cursor released (Alt down)
-[11:58:14.646] [Info] [Perf] FPS=59,1 Player=0,00ms Atmos=0,00ms Render=0,47ms Tiles=625 Uptime=00:00:42 Errors=0
-[11:58:15.648] [Info] [Perf] FPS=51,9 Player=0,00ms Atmos=0,00ms Render=0,48ms Tiles=625 Uptime=00:00:43 Errors=0
-[11:58:15.863] [Info] [InteractionMenu] Opened: Floor (127,128) (6 items)
-[11:58:16.596] [Info] [InteractionMenu] Cursor captured (Alt up)
-[11:58:16.596] [Info] [InteractionMenu] Closed (Alt up)
-[11:58:16.662] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,46ms Tiles=625 Uptime=00:00:44 Errors=0
-[11:58:17.112] [Info] [InteractionMenu] Cursor released (Alt down)
-[11:58:17.296] [Info] [InteractionMenu] Opened: Floor (127,128) (6 items)
-[11:58:17.664] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=0,00ms Render=0,57ms Tiles=626 Uptime=00:00:45 Errors=0
-[11:58:18.679] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,55ms Tiles=626 Uptime=00:00:46 Errors=0
-[11:58:19.679] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,48ms Tiles=626 Uptime=00:00:47 Errors=0
-[11:58:20.694] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,46ms Tiles=626 Uptime=00:00:48 Errors=0
-[11:58:20.946] [Info] [InteractionMenu] Cursor captured (Alt up)
-[11:58:20.947] [Info] [InteractionMenu] Closed (Alt up)
-[11:58:21.578] [Info] [InteractionMenu] Cursor released (Alt down)
-[11:58:21.696] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,52ms Tiles=626 Uptime=00:00:49 Errors=0
-[11:58:21.782] [Info] [InteractionMenu] Cursor captured (Alt up)
-[11:58:22.246] [Info] [InteractionMenu] Cursor released (Alt down)
-[11:58:22.512] [Info] [InteractionMenu] Cursor captured (Alt up)
-[11:58:22.711] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,49ms Tiles=625 Uptime=00:00:50 Errors=0
-[11:58:23.676] [Info] [InteractionMenu] Cursor released (Alt down)
-[11:58:23.731] [Info] [Perf] FPS=59,8 Player=0,00ms Atmos=0,00ms Render=0,50ms Tiles=621 Uptime=00:00:51 Errors=0
-[11:58:24.746] [Info] [Perf] FPS=59,1 Player=0,00ms Atmos=0,00ms Render=0,98ms Tiles=621 Uptime=00:00:52 Errors=0
-[11:58:25.313] [Info] [InteractionMenu] Opened: Floor (127,128) (6 items)
-[11:58:25.759] [Info] [Perf] FPS=60,2 Player=0,01ms Atmos=0,00ms Render=0,49ms Tiles=621 Uptime=00:00:53 Errors=0
-[11:58:26.761] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=0,00ms Render=0,93ms Tiles=621 Uptime=00:00:54 Errors=0
-[11:58:26.992] [Info] [InteractionMenu] Cursor captured (Alt up)
-[11:58:26.993] [Info] [InteractionMenu] Closed (Alt up)
-[11:58:27.076] [Info] [InteractionMenu] Cursor released (Alt down)
-[11:58:27.775] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,55ms Tiles=621 Uptime=00:00:55 Errors=0
-[11:58:28.175] [Info] [InteractionMenu] Opened: Floor (127,128) (6 items)
-[11:58:28.778] [Info] [Perf] FPS=59,8 Player=0,00ms Atmos=0,00ms Render=1,00ms Tiles=621 Uptime=00:00:56 Errors=0
-[11:58:29.791] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,55ms Tiles=621 Uptime=00:00:57 Errors=0
-[11:58:30.807] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,47ms Tiles=621 Uptime=00:00:58 Errors=0
-[11:58:31.458] [Info] [InteractionMenu] Cursor captured (Alt up)
-[11:58:31.459] [Info] [InteractionMenu] Closed (Alt up)
-[11:58:31.808] [Info] [Perf] FPS=59,0 Player=0,00ms Atmos=0,00ms Render=0,47ms Tiles=621 Uptime=00:00:59 Errors=0
-[11:58:32.826] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=0,00ms Render=0,47ms Tiles=621 Uptime=00:01:00 Errors=0
-[11:58:33.826] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,56ms Tiles=621 Uptime=00:01:01 Errors=0
-[11:58:34.840] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,52ms Tiles=621 Uptime=00:01:02 Errors=0
-[11:58:35.856] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,61ms Tiles=624 Uptime=00:01:03 Errors=0
-[11:58:36.326] [Info] [InteractionMenu] Cursor released (Alt down)
-[11:58:36.539] [Info] [InteractionMenu] Opened: Floor (127,128) (6 items)
-[11:58:36.856] [Info] [Perf] FPS=59,0 Player=0,00ms Atmos=0,00ms Render=0,49ms Tiles=624 Uptime=00:01:04 Errors=0
-[11:58:37.222] [Info] [InteractionMenu] Cursor captured (Alt up)
-[11:58:37.223] [Info] [InteractionMenu] Closed (Alt up)
-[11:58:37.872] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,60ms Tiles=611 Uptime=00:01:05 Errors=0
-[11:58:38.122] [Info] [InteractionMenu] Cursor released (Alt down)
-[11:58:38.272] [Info] [InteractionMenu] Opened: Floor (127,128) (6 items)
-[11:58:38.872] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,49ms Tiles=611 Uptime=00:01:06 Errors=0
-[11:58:39.405] [Info] [InteractionMenu] Cursor captured (Alt up)
-[11:58:39.406] [Info] [InteractionMenu] Closed (Alt up)
-[11:58:39.588] [Info] [InteractionMenu] Cursor released (Alt down)
-[11:58:39.638] [Info] [InteractionMenu] Cursor captured (Alt up)
-[11:58:39.738] [Info] [InteractionMenu] Cursor released (Alt down)
-[11:58:39.888] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,45ms Tiles=611 Uptime=00:01:07 Errors=0
-[11:58:40.105] [Info] [InteractionMenu] Opened: Floor (127,128) (6 items)
-[11:58:40.888] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,53ms Tiles=611 Uptime=00:01:08 Errors=0
-[11:58:41.904] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,47ms Tiles=611 Uptime=00:01:09 Errors=0
-[11:58:42.920] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,52ms Tiles=611 Uptime=00:01:10 Errors=0
-[11:58:43.937] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,47ms Tiles=611 Uptime=00:01:12 Errors=0
-[11:58:44.570] [Info] [InteractionMenu] Cursor captured (Alt up)
-[11:58:44.570] [Info] [InteractionMenu] Closed (Alt up)
-[11:58:44.953] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,47ms Tiles=611 Uptime=00:01:13 Errors=0
-[11:58:45.969] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,44ms Tiles=611 Uptime=00:01:14 Errors=0
-[11:58:45.986] [Info] [InteractionMenu] Cursor released (Alt down)
-[11:58:46.403] [Info] [InteractionMenu] Opened: Floor (127,127) (6 items)
-[11:58:46.970] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=0,00ms Render=0,53ms Tiles=611 Uptime=00:01:15 Errors=0
-[11:58:47.169] [Info] [InteractionMenu] Cursor captured (Alt up)
-[11:58:47.170] [Info] [InteractionMenu] Closed (Alt up)
-[11:58:47.768] [Info] [InteractionMenu] Cursor released (Alt down)
-[11:58:47.802] [Info] [InteractionMenu] Opened: Floor (127,127) (6 items)
-[11:58:47.940] [Info] [InteractionMenu] Cursor captured (Alt up)
-[11:58:47.944] [Info] [InteractionMenu] Closed (Alt up)
-[11:58:47.970] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,47ms Tiles=611 Uptime=00:01:16 Errors=0
-[11:58:48.985] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,52ms Tiles=611 Uptime=00:01:17 Errors=0
-[11:58:49.986] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,55ms Tiles=611 Uptime=00:01:18 Errors=0
-[11:58:51.001] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,47ms Tiles=611 Uptime=00:01:19 Errors=0
-[11:58:52.002] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,47ms Tiles=595 Uptime=00:01:20 Errors=0
-[11:58:53.017] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,54ms Tiles=594 Uptime=00:01:21 Errors=0
-[11:58:54.018] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,01ms Render=0,96ms Tiles=594 Uptime=00:01:22 Errors=0
-[11:58:54.383] [Info] [InteractionMenu] Cursor released (Alt down)
-[11:58:55.034] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,46ms Tiles=594 Uptime=00:01:23 Errors=0
-[11:58:56.000] [Info] [InteractionMenu] Cursor captured (Alt up)
-[11:58:56.050] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,45ms Tiles=585 Uptime=00:01:24 Errors=0
-[11:58:57.052] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,95ms Tiles=595 Uptime=00:01:25 Errors=0
-[11:58:58.067] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,96ms Tiles=609 Uptime=00:01:26 Errors=0
-[11:58:59.083] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,96ms Tiles=609 Uptime=00:01:27 Errors=0
-[11:58:59.782] [Info] [InteractionMenu] Cursor released (Alt down)
-[11:58:59.898] [Info] [InteractionMenu] Cursor captured (Alt up)
-[11:59:00.100] [Info] [Perf] FPS=58,0 Player=0,00ms Atmos=0,00ms Render=0,47ms Tiles=609 Uptime=00:01:28 Errors=0
-[11:59:01.114] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,49ms Tiles=609 Uptime=00:01:29 Errors=0
-[11:59:02.131] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,54ms Tiles=609 Uptime=00:01:30 Errors=0
-[11:59:03.147] [Info] [InteractionMenu] Cursor released (Alt down)
-[11:59:03.149] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,53ms Tiles=609 Uptime=00:01:31 Errors=0
-[11:59:03.247] [Info] [InteractionMenu] Cursor captured (Alt up)
-[11:59:03.365] [Info] [InteractionMenu] Cursor released (Alt down)
-[11:59:04.163] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,51ms Tiles=609 Uptime=00:01:32 Errors=0
-[11:59:04.397] [Info] [InteractionMenu] Cursor captured (Alt up)
-[11:59:05.180] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,54ms Tiles=609 Uptime=00:01:33 Errors=0
-[11:59:05.231] [Info] [InteractionMenu] Cursor released (Alt down)
-[11:59:06.181] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,96ms Tiles=609 Uptime=00:01:34 Errors=0
-[11:59:06.997] [Info] [InteractionMenu] Cursor captured (Alt up)
-[11:59:07.197] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,48ms Tiles=618 Uptime=00:01:35 Errors=0
-[11:59:07.646] [Info] [InteractionMenu] Cursor released (Alt down)
-[11:59:08.212] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,50ms Tiles=627 Uptime=00:01:36 Errors=0
-[11:59:09.212] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,48ms Tiles=627 Uptime=00:01:37 Errors=0
-[11:59:09.695] [Info] [InteractionMenu] Cursor captured (Alt up)
-[11:59:09.796] [Info] [InteractionMenu] Cursor released (Alt down)
-[11:59:10.079] [Info] [InteractionMenu] Cursor captured (Alt up)
-[11:59:10.195] [Info] [InteractionMenu] Cursor released (Alt down)
-[11:59:10.228] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,46ms Tiles=627 Uptime=00:01:38 Errors=0
-[11:59:10.444] [Info] [InteractionMenu] Cursor captured (Alt up)
-[11:59:10.563] [Info] [InteractionMenu] Cursor released (Alt down)
-[11:59:10.814] [Info] [InteractionMenu] Opened: Floor (125,126) (6 items)
-[11:59:11.228] [Info] [Perf] FPS=58,0 Player=0,00ms Atmos=0,00ms Render=0,52ms Tiles=627 Uptime=00:01:39 Errors=0
-[11:59:11.378] [Info] [InteractionMenu] Cursor captured (Alt up)
-[11:59:11.378] [Info] [InteractionMenu] Closed (Alt up)
-[11:59:12.244] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,50ms Tiles=622 Uptime=00:01:40 Errors=0
-[11:59:13.244] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,56ms Tiles=622 Uptime=00:01:41 Errors=0
-[11:59:13.593] [Info] [InteractionMenu] Cursor released (Alt down)
-[11:59:14.260] [Info] [InteractionMenu] Opened: Floor (125,126) (6 items)
-[11:59:14.262] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=0,00ms Render=0,54ms Tiles=622 Uptime=00:01:42 Errors=0
-[11:59:15.276] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,50ms Tiles=622 Uptime=00:01:43 Errors=0
-[11:59:15.643] [Info] [InteractionMenu] Cursor captured (Alt up)
-[11:59:15.644] [Info] [InteractionMenu] Closed (Alt up)
-[11:59:16.277] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,49ms Tiles=623 Uptime=00:01:44 Errors=0
-[11:59:16.709] [Info] [InteractionMenu] Cursor released (Alt down)
-[11:59:16.859] [Info] [InteractionMenu] Cursor captured (Alt up)
-[11:59:17.292] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,49ms Tiles=620 Uptime=00:01:45 Errors=0
-[11:59:18.294] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,45ms Tiles=585 Uptime=00:01:46 Errors=0
-[11:59:18.926] [Info] [InteractionMenu] Cursor released (Alt down)
-[11:59:19.312] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=0,00ms Render=0,54ms Tiles=595 Uptime=00:01:47 Errors=0
-[11:59:19.608] [Info] [InteractionMenu] Opened: Floor (125,125) (6 items)
-[11:59:20.258] [Info] [InteractionMenu] Cursor captured (Alt up)
-[11:59:20.259] [Info] [InteractionMenu] Closed (Alt up)
-[11:59:20.327] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,44ms Tiles=595 Uptime=00:01:48 Errors=0
-[11:59:20.991] [Info] [InteractionMenu] Cursor released (Alt down)
-[11:59:21.041] [Info] [InteractionMenu] Opened: Floor (125,125) (6 items)
-[11:59:21.241] [Info] [InteractionMenu] Cursor captured (Alt up)
-[11:59:21.242] [Info] [InteractionMenu] Closed (Alt up)
-[11:59:21.341] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,63ms Tiles=595 Uptime=00:01:49 Errors=0
-[11:59:22.342] [Info] [InteractionMenu] Cursor released (Alt down)
-[11:59:22.343] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,60ms Tiles=595 Uptime=00:01:50 Errors=0
-[11:59:23.357] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,57ms Tiles=595 Uptime=00:01:51 Errors=0
-[11:59:23.956] [Info] [InteractionMenu] Cursor captured (Alt up)
-[11:59:24.373] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,44ms Tiles=595 Uptime=00:01:52 Errors=0
-[11:59:25.389] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,52ms Tiles=595 Uptime=00:01:53 Errors=0
-[11:59:25.723] [Info] [InteractionMenu] Cursor released (Alt down)
-[11:59:26.091] [Info] [InteractionMenu] Opened: Floor (125,123) (6 items)
-[11:59:26.289] [Info] [InteractionMenu] Cursor captured (Alt up)
-[11:59:26.290] [Info] [InteractionMenu] Closed (Alt up)
-[11:59:26.406] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,48ms Tiles=595 Uptime=00:01:54 Errors=0
-[11:59:27.407] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,49ms Tiles=611 Uptime=00:01:55 Errors=0
-[11:59:27.639] [Info] [InteractionMenu] Cursor released (Alt down)
-[11:59:27.689] [Info] [InteractionMenu] Opened: Floor (126,122) (6 items)
-[11:59:27.855] [Info] [InteractionMenu] Cursor captured (Alt up)
-[11:59:27.856] [Info] [InteractionMenu] Closed (Alt up)
-[11:59:28.422] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,44ms Tiles=610 Uptime=00:01:56 Errors=0
-[11:59:29.438] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,50ms Tiles=610 Uptime=00:01:57 Errors=0
-[11:59:30.255] [Info] [InteractionMenu] Cursor released (Alt down)
-[11:59:30.439] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,98ms Tiles=610 Uptime=00:01:58 Errors=0
-[11:59:31.021] [Info] [InteractionMenu] Cursor captured (Alt up)
-[11:59:31.454] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,48ms Tiles=611 Uptime=00:01:59 Errors=0
-[11:59:32.470] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,47ms Tiles=611 Uptime=00:02:00 Errors=0
-[11:59:32.937] [Info] [InteractionMenu] Cursor released (Alt down)
-[11:59:33.437] [Info] [InteractionMenu] Opened: Floor (126,121) (6 items)
-[11:59:33.470] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,51ms Tiles=611 Uptime=00:02:01 Errors=0
-[11:59:34.487] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,53ms Tiles=611 Uptime=00:02:02 Errors=0
-[11:59:34.770] [Info] [InteractionMenu] Cursor captured (Alt up)
-[11:59:34.771] [Info] [InteractionMenu] Closed (Alt up)
-[11:59:35.503] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,47ms Tiles=611 Uptime=00:02:03 Errors=0
-[11:59:36.519] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,55ms Tiles=611 Uptime=00:02:04 Errors=0
-[11:59:37.002] [Info] [InteractionMenu] Cursor released (Alt down)
-[11:59:37.503] [Info] [InteractionMenu] Cursor captured (Alt up)
-[11:59:37.536] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,45ms Tiles=611 Uptime=00:02:05 Errors=0
-[11:59:37.821] [Info] [InteractionMenu] Cursor released (Alt down)
-[11:59:38.103] [Info] [InteractionMenu] Opened: Floor (126,121) (6 items)
-[11:59:38.537] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,94ms Tiles=611 Uptime=00:02:06 Errors=0
-[11:59:39.553] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,97ms Tiles=611 Uptime=00:02:07 Errors=0
-[11:59:40.085] [Info] [InteractionMenu] Cursor captured (Alt up)
-[11:59:40.086] [Info] [InteractionMenu] Closed (Alt up)
-[11:59:40.568] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,45ms Tiles=611 Uptime=00:02:08 Errors=0
-[11:59:41.585] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,93ms Tiles=611 Uptime=00:02:09 Errors=0
-[11:59:42.600] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,54ms Tiles=611 Uptime=00:02:10 Errors=0
-[11:59:43.617] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,53ms Tiles=588 Uptime=00:02:11 Errors=0
-[11:59:44.617] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,53ms Tiles=622 Uptime=00:02:12 Errors=0
-[11:59:45.633] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,46ms Tiles=584 Uptime=00:02:13 Errors=0
-[11:59:46.633] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,57ms Tiles=625 Uptime=00:02:14 Errors=0
-[11:59:47.649] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,47ms Tiles=627 Uptime=00:02:15 Errors=0
-[11:59:47.916] [Info] [InteractionMenu] Cursor released (Alt down)
-[11:59:48.649] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,47ms Tiles=627 Uptime=00:02:16 Errors=0
-[11:59:49.649] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,48ms Tiles=627 Uptime=00:02:17 Errors=0
-[11:59:50.182] [Info] [InteractionMenu] Opened: Floor (126,120) (6 items)
-[11:59:50.665] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,55ms Tiles=627 Uptime=00:02:18 Errors=0
-[11:59:51.200] [Info] [InteractionMenu] Cursor captured (Alt up)
-[11:59:51.201] [Info] [InteractionMenu] Closed (Alt up)
-[11:59:51.681] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,45ms Tiles=627 Uptime=00:02:19 Errors=0
-[11:59:51.799] [Info] [InteractionMenu] Cursor released (Alt down)
-[11:59:51.983] [Info] [InteractionMenu] Opened: Floor (126,120) (6 items)
-[11:59:52.032] [Info] [InteractionMenu] Cursor captured (Alt up)
-[11:59:52.033] [Info] [InteractionMenu] Closed (Alt up)
-[11:59:52.681] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,55ms Tiles=621 Uptime=00:02:20 Errors=0
-[11:59:53.697] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,56ms Tiles=627 Uptime=00:02:21 Errors=0
-[11:59:54.698] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=1,14ms Tiles=627 Uptime=00:02:22 Errors=0
-[11:59:55.380] [Info] [InteractionMenu] Cursor released (Alt down)
-[11:59:55.512] [Info] [InteractionMenu] Opened: Floor (126,119) (6 items)
-[11:59:55.713] [Info] [Perf] FPS=59,1 Player=0,01ms Atmos=0,00ms Render=0,53ms Tiles=627 Uptime=00:02:23 Errors=0
-[11:59:55.816] [Info] [InteractionMenu] Cursor captured (Alt up)
-[11:59:55.816] [Info] [InteractionMenu] Closed (Alt up)
-[11:59:56.729] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,50ms Tiles=632 Uptime=00:02:24 Errors=0
-[11:59:57.730] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=1,00ms Tiles=632 Uptime=00:02:25 Errors=0
-[11:59:58.745] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,54ms Tiles=624 Uptime=00:02:26 Errors=0
-[11:59:59.746] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,51ms Tiles=628 Uptime=00:02:27 Errors=0
-[11:59:59.814] [Info] [InteractionMenu] Cursor released (Alt down)
-[12:00:00.178] [Info] [InteractionMenu] Opened: Floor (127,109) (6 items)
-[12:00:00.761] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,50ms Tiles=624 Uptime=00:02:28 Errors=0
-[12:00:01.544] [Info] [InteractionMenu] Cursor captured (Alt up)
-[12:00:01.545] [Info] [InteractionMenu] Closed (Alt up)
-[12:00:01.762] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=0,00ms Render=0,98ms Tiles=624 Uptime=00:02:29 Errors=0
-[12:00:02.777] [Info] [Perf] FPS=58,1 Player=0,00ms Atmos=0,00ms Render=0,56ms Tiles=621 Uptime=00:02:30 Errors=0
-[12:00:02.827] [Info] [InteractionMenu] Cursor released (Alt down)
-[12:00:03.065] [Info] [InteractionMenu] Cursor captured (Alt up)
-[12:00:03.793] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,54ms Tiles=620 Uptime=00:02:31 Errors=0
-[12:00:04.543] [Info] [InteractionMenu] Cursor released (Alt down)
-[12:00:04.610] [Info] [InteractionMenu] Opened: Floor (127,93) (6 items)
-[12:00:04.777] [Info] [InteractionMenu] Cursor captured (Alt up)
-[12:00:04.778] [Info] [InteractionMenu] Closed (Alt up)
-[12:00:04.794] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,48ms Tiles=621 Uptime=00:02:32 Errors=0
-[12:00:05.812] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=0,00ms Render=0,46ms Tiles=621 Uptime=00:02:33 Errors=0
-[12:00:06.812] [Info] [Perf] FPS=58,0 Player=0,01ms Atmos=0,00ms Render=0,48ms Tiles=623 Uptime=00:02:34 Errors=0
-[12:00:07.813] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,61ms Tiles=604 Uptime=00:02:35 Errors=0
-[12:00:08.826] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,50ms Tiles=616 Uptime=00:02:36 Errors=0
-[12:00:09.827] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=0,00ms Render=0,49ms Tiles=590 Uptime=00:02:37 Errors=0
-[12:00:10.841] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,42ms Tiles=576 Uptime=00:02:38 Errors=0
-[12:00:11.842] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=1,05ms Tiles=636 Uptime=00:02:39 Errors=0
-[12:00:12.857] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,54ms Tiles=602 Uptime=00:02:40 Errors=0
-[12:00:13.857] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,53ms Tiles=629 Uptime=00:02:41 Errors=0
-[12:00:14.873] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,55ms Tiles=610 Uptime=00:02:42 Errors=0
-[12:00:15.874] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=0,00ms Render=1,00ms Tiles=602 Uptime=00:02:43 Errors=0
-[12:00:16.889] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,48ms Tiles=601 Uptime=00:02:44 Errors=0
-[12:00:17.356] [Info] [InteractionMenu] Cursor released (Alt down)
-[12:00:17.905] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,47ms Tiles=601 Uptime=00:02:45 Errors=0
-[12:00:18.922] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,56ms Tiles=601 Uptime=00:02:46 Errors=0
-[12:00:19.106] [Info] [InteractionMenu] Cursor captured (Alt up)
-[12:00:19.922] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,49ms Tiles=601 Uptime=00:02:47 Errors=0
-[12:00:20.938] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,48ms Tiles=601 Uptime=00:02:49 Errors=0
-[12:00:21.938] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,49ms Tiles=601 Uptime=00:02:50 Errors=0
-[12:00:22.237] [Info] [InteractionMenu] Cursor released (Alt down)
-[12:00:22.804] [Info] [InteractionMenu] Cursor captured (Alt up)
-[12:00:22.940] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,52ms Tiles=601 Uptime=00:02:51 Errors=0
-[12:00:22.972] [Info] [InteractionMenu] Cursor released (Alt down)
-[12:00:23.472] [Info] [InteractionMenu] Cursor captured (Alt up)
-[12:00:23.954] [Info] [Perf] FPS=59,2 Player=0,00ms Atmos=0,00ms Render=0,56ms Tiles=598 Uptime=00:02:52 Errors=0
-[12:00:24.171] [Info] [InteractionMenu] Cursor released (Alt down)
-[12:00:24.954] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,51ms Tiles=603 Uptime=00:02:53 Errors=0
-[12:00:25.054] [Info] [InteractionMenu] Opened: Floor (148,83) (6 items)
-[12:00:25.970] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,50ms Tiles=603 Uptime=00:02:54 Errors=0
-[12:00:26.986] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,61ms Tiles=603 Uptime=00:02:55 Errors=0
-[12:00:28.002] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,50ms Tiles=603 Uptime=00:02:56 Errors=0
-[12:00:29.018] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,59ms Tiles=603 Uptime=00:02:57 Errors=0
-[12:00:30.002] [Info] [InteractionMenu] Cursor captured (Alt up)
-[12:00:30.002] [Info] [InteractionMenu] Closed (Alt up)
-[12:00:30.019] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,60ms Tiles=603 Uptime=00:02:58 Errors=0
-[12:00:31.034] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,56ms Tiles=603 Uptime=00:02:59 Errors=0
-[12:00:32.050] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,44ms Tiles=603 Uptime=00:03:00 Errors=0
-[12:00:33.067] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,55ms Tiles=603 Uptime=00:03:01 Errors=0
-[12:00:33.834] [Info] [InteractionMenu] Cursor released (Alt down)
-[12:00:34.085] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=1,00ms Tiles=603 Uptime=00:03:02 Errors=0
-[12:00:35.100] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,60ms Tiles=603 Uptime=00:03:03 Errors=0
-[12:00:36.116] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,54ms Tiles=603 Uptime=00:03:04 Errors=0
-[12:00:36.600] [Info] [InteractionMenu] Opened: Floor (148,83) (6 items)
-[12:00:36.633] [Info] [InteractionMenu] Cursor captured (Alt up)
-[12:00:36.660] [Info] [InteractionMenu] Closed (Alt up)
-[12:00:37.133] [Info] [Perf] FPS=57,1 Player=0,00ms Atmos=0,00ms Render=0,60ms Tiles=605 Uptime=00:03:05 Errors=0
-[12:00:37.649] [Info] [InteractionMenu] Cursor released (Alt down)
-[12:00:38.149] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,49ms Tiles=605 Uptime=00:03:06 Errors=0
-[12:00:38.182] [Info] [InteractionMenu] Cursor captured (Alt up)
-[12:00:38.716] [Info] [InteractionMenu] Cursor released (Alt down)
-[12:00:39.165] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,48ms Tiles=605 Uptime=00:03:07 Errors=0
-[12:00:39.782] [Info] [InteractionMenu] Opened: Floor (148,83) (6 items)
-[12:00:40.181] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,50ms Tiles=605 Uptime=00:03:08 Errors=0
-[12:00:41.165] [Info] [InteractionMenu] Cursor captured (Alt up)
-[12:00:41.166] [Info] [InteractionMenu] Closed (Alt up)
-[12:00:41.181] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,49ms Tiles=605 Uptime=00:03:09 Errors=0
-[12:00:42.197] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,54ms Tiles=605 Uptime=00:03:10 Errors=0
-[12:00:43.214] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,62ms Tiles=605 Uptime=00:03:11 Errors=0
-[12:00:44.214] [Info] [Perf] FPS=59,0 Player=0,01ms Atmos=0,00ms Render=0,65ms Tiles=605 Uptime=00:03:12 Errors=0
-[12:00:45.230] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,56ms Tiles=605 Uptime=00:03:13 Errors=0
-[12:00:46.247] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,48ms Tiles=603 Uptime=00:03:14 Errors=0
-[12:00:47.264] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=1,04ms Tiles=603 Uptime=00:03:15 Errors=0
-[12:00:48.278] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,48ms Tiles=601 Uptime=00:03:16 Errors=0
-[12:00:48.412] [Info] [InteractionMenu] Cursor released (Alt down)
-[12:00:48.796] [Info] [InteractionMenu] Opened: Floor (146,84) (6 items)
-[12:00:49.299] [Info] [Perf] FPS=58,8 Player=0,00ms Atmos=0,00ms Render=0,47ms Tiles=601 Uptime=00:03:17 Errors=0
-[12:00:50.317] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=0,00ms Render=0,98ms Tiles=601 Uptime=00:03:18 Errors=0
-[12:00:50.878] [Info] [InteractionMenu] Cursor captured (Alt up)
-[12:00:50.879] [Info] [InteractionMenu] Closed (Alt up)
-[12:00:51.328] [Info] [Perf] FPS=60,4 Player=0,00ms Atmos=0,00ms Render=0,55ms Tiles=601 Uptime=00:03:19 Errors=0
-[12:00:52.330] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,48ms Tiles=599 Uptime=00:03:20 Errors=0
-[12:00:53.343] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,51ms Tiles=599 Uptime=00:03:21 Errors=0
-[12:00:54.344] [Info] [Perf] FPS=59,0 Player=0,00ms Atmos=0,00ms Render=0,49ms Tiles=599 Uptime=00:03:22 Errors=0
-[12:00:55.360] [Info] [Perf] FPS=48,2 Player=0,01ms Atmos=0,00ms Render=0,61ms Tiles=599 Uptime=00:03:23 Errors=0
-[12:00:56.376] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,46ms Tiles=599 Uptime=00:03:24 Errors=0
-[12:00:57.392] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,50ms Tiles=599 Uptime=00:03:25 Errors=0
-[12:00:58.393] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,48ms Tiles=599 Uptime=00:03:26 Errors=0
-[12:00:59.408] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,49ms Tiles=599 Uptime=00:03:27 Errors=0
-[12:01:00.425] [Info] [Perf] FPS=58,1 Player=0,01ms Atmos=0,00ms Render=0,53ms Tiles=599 Uptime=00:03:28 Errors=0
-[12:01:01.441] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,51ms Tiles=599 Uptime=00:03:29 Errors=0
-[12:01:02.441] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,52ms Tiles=599 Uptime=00:03:30 Errors=0
-[12:01:03.457] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,49ms Tiles=599 Uptime=00:03:31 Errors=0
-[12:01:04.474] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,55ms Tiles=599 Uptime=00:03:32 Errors=0
-[12:01:05.478] [Info] [Perf] FPS=51,8 Player=0,00ms Atmos=0,00ms Render=0,62ms Tiles=599 Uptime=00:03:33 Errors=0
-[12:01:06.491] [Info] [Perf] FPS=58,2 Player=0,00ms Atmos=0,00ms Render=0,47ms Tiles=599 Uptime=00:03:34 Errors=0
-[12:01:07.507] [Info] [Perf] FPS=57,1 Player=0,00ms Atmos=0,00ms Render=1,30ms Tiles=599 Uptime=00:03:35 Errors=0
-[12:01:08.509] [Info] [Perf] FPS=53,9 Player=0,00ms Atmos=0,00ms Render=1,07ms Tiles=599 Uptime=00:03:36 Errors=0
-[12:01:09.523] [Info] [Perf] FPS=60,2 Player=0,01ms Atmos=0,00ms Render=0,51ms Tiles=599 Uptime=00:03:37 Errors=0
-[12:01:10.539] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,70ms Tiles=599 Uptime=00:03:38 Errors=0
-[12:01:10.772] [Info] [InteractionMenu] Cursor released (Alt down)
-[12:01:11.172] [Info] [InteractionMenu] Cursor captured (Alt up)
-[12:01:11.539] [Info] [Perf] FPS=55,0 Player=0,00ms Atmos=0,00ms Render=0,78ms Tiles=599 Uptime=00:03:39 Errors=0
-[12:01:12.556] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,52ms Tiles=631 Uptime=00:03:40 Errors=0
-[12:01:13.571] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,47ms Tiles=591 Uptime=00:03:41 Errors=0
-[12:01:14.572] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,59ms Tiles=652 Uptime=00:03:42 Errors=0
-[12:01:15.572] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,49ms Tiles=624 Uptime=00:03:43 Errors=0
-[12:01:16.589] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=1,03ms Tiles=664 Uptime=00:03:44 Errors=0
-[12:01:17.604] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,55ms Tiles=665 Uptime=00:03:45 Errors=0
-[12:01:18.621] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,70ms Tiles=666 Uptime=00:03:46 Errors=0
-[12:01:19.203] [Info] [InteractionMenu] Cursor released (Alt down)
-[12:01:19.471] [Info] [InteractionMenu] Cursor captured (Alt up)
-[12:01:19.638] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,72ms Tiles=667 Uptime=00:03:47 Errors=0
-[12:01:20.653] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,71ms Tiles=667 Uptime=00:03:48 Errors=0
-[12:01:21.670] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,53ms Tiles=661 Uptime=00:03:49 Errors=0
-[12:01:22.019] [Info] [InteractionMenu] Cursor released (Alt down)
-[12:01:22.685] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,61ms Tiles=666 Uptime=00:03:50 Errors=0
-[12:01:23.185] [Info] [InteractionMenu] Opened: Floor (147,77) (6 items)
-[12:01:23.703] [Info] [Perf] FPS=59,0 Player=0,00ms Atmos=0,00ms Render=0,54ms Tiles=666 Uptime=00:03:51 Errors=0
-[12:01:24.719] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,54ms Tiles=667 Uptime=00:03:52 Errors=0
-[12:01:24.835] [Info] [InteractionMenu] Cursor captured (Alt up)
-[12:01:25.451] [Info] [InteractionMenu] Cursor released (Alt down)
-[12:01:25.735] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,55ms Tiles=663 Uptime=00:03:53 Errors=0
-[12:01:26.517] [Info] [InteractionMenu] Opened: Floor (146,77) (6 items)
-[12:01:26.751] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,58ms Tiles=663 Uptime=00:03:54 Errors=0
-[12:01:27.768] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,55ms Tiles=664 Uptime=00:03:55 Errors=0
-[12:01:27.967] [Info] [InteractionMenu] Cursor captured (Alt up)
-[12:01:28.416] [Info] [InteractionMenu] Cursor released (Alt down)
-[12:01:28.784] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,53ms Tiles=672 Uptime=00:03:56 Errors=0
-[12:01:29.016] [Info] [InteractionMenu] Opened: Floor (145,77) (6 items)
-[12:01:29.799] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,60ms Tiles=672 Uptime=00:03:57 Errors=0
-[12:01:30.416] [Info] [InteractionMenu] Cursor captured (Alt up)
-[12:01:30.818] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=0,00ms Render=0,53ms Tiles=664 Uptime=00:03:58 Errors=0
-[12:01:31.333] [Info] [InteractionMenu] Cursor released (Alt down)
-[12:01:31.818] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,53ms Tiles=664 Uptime=00:03:59 Errors=0
-[12:01:32.033] [Info] [InteractionMenu] Opened: Floor (149,77) (6 items)
-[12:01:32.832] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,60ms Tiles=664 Uptime=00:04:00 Errors=0
-[12:01:33.249] [Info] [InteractionMenu] Cursor captured (Alt up)
-[12:01:33.832] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,50ms Tiles=611 Uptime=00:04:01 Errors=0
-[12:01:34.849] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,47ms Tiles=602 Uptime=00:04:02 Errors=0
-[12:01:35.865] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,58ms Tiles=665 Uptime=00:04:03 Errors=0
-[12:01:36.164] [Info] [InteractionMenu] Cursor released (Alt down)
-[12:01:36.749] [Info] [InteractionMenu] Opened: Floor (143,77) (6 items)
-[12:01:36.880] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,55ms Tiles=671 Uptime=00:04:04 Errors=0
-[12:01:37.897] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,54ms Tiles=670 Uptime=00:04:05 Errors=0
-[12:01:37.981] [Info] [InteractionMenu] Cursor captured (Alt up)
-[12:01:38.897] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,54ms Tiles=666 Uptime=00:04:06 Errors=0
-[12:01:39.914] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,26ms Render=0,79ms Tiles=666 Uptime=00:04:07 Errors=0
-[12:01:40.929] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,51ms Tiles=666 Uptime=00:04:08 Errors=0
-[12:01:41.930] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=1,09ms Tiles=666 Uptime=00:04:09 Errors=0
-[12:01:42.945] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,59ms Tiles=666 Uptime=00:04:11 Errors=0
-[12:01:43.961] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,59ms Tiles=671 Uptime=00:04:12 Errors=0
-[12:01:44.961] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,54ms Tiles=671 Uptime=00:04:13 Errors=0
-[12:01:45.978] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,55ms Tiles=680 Uptime=00:04:14 Errors=0
-[12:01:46.994] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,54ms Tiles=689 Uptime=00:04:15 Errors=0
-[12:01:48.011] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,42ms Render=0,48ms Tiles=623 Uptime=00:04:16 Errors=0
-[12:01:49.027] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,44ms Tiles=567 Uptime=00:04:17 Errors=0
-[12:01:50.043] [Info] [Perf] FPS=59,0 Player=0,00ms Atmos=0,00ms Render=0,46ms Tiles=591 Uptime=00:04:18 Errors=0
-[12:01:51.058] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,50ms Tiles=563 Uptime=00:04:19 Errors=0
-[12:01:51.742] [Info] [InteractionMenu] Cursor released (Alt down)
-[12:01:52.042] [Info] [InteractionMenu] Cursor captured (Alt up)
-[12:01:52.059] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,80ms Tiles=611 Uptime=00:04:20 Errors=0
-[12:01:53.075] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,47ms Tiles=611 Uptime=00:04:21 Errors=0
-[12:01:54.081] [Info] [Perf] FPS=59,6 Player=0,00ms Atmos=0,00ms Render=1,39ms Tiles=616 Uptime=00:04:22 Errors=0
-[12:01:55.090] [Info] [Perf] FPS=58,5 Player=0,00ms Atmos=0,00ms Render=0,53ms Tiles=616 Uptime=00:04:23 Errors=0
-[12:01:56.132] [Info] [Perf] FPS=21,1 Player=0,01ms Atmos=1,17ms Render=0,74ms Tiles=616 Uptime=00:04:24 Errors=0
-[12:01:57.140] [Info] [Perf] FPS=53,6 Player=0,01ms Atmos=0,62ms Render=0,47ms Tiles=616 Uptime=00:04:25 Errors=0
-[12:01:58.146] [Info] [Perf] FPS=55,7 Player=0,01ms Atmos=1,05ms Render=0,56ms Tiles=616 Uptime=00:04:26 Errors=0
-[12:01:59.157] [Info] [Perf] FPS=57,4 Player=0,00ms Atmos=0,00ms Render=0,48ms Tiles=616 Uptime=00:04:27 Errors=0
-[12:02:00.171] [Info] [Perf] FPS=53,2 Player=0,00ms Atmos=0,00ms Render=0,67ms Tiles=616 Uptime=00:04:28 Errors=0
-[12:02:01.201] [Info] [Perf] FPS=40,8 Player=0,01ms Atmos=0,00ms Render=0,56ms Tiles=616 Uptime=00:04:29 Errors=0
-[12:02:02.206] [Info] [Perf] FPS=43,8 Player=0,00ms Atmos=0,00ms Render=0,90ms Tiles=616 Uptime=00:04:30 Errors=0
-[12:02:03.222] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,75ms Tiles=616 Uptime=00:04:31 Errors=0
-[12:02:04.238] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,72ms Render=0,47ms Tiles=616 Uptime=00:04:32 Errors=0
-[12:02:05.254] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,83ms Tiles=616 Uptime=00:04:33 Errors=0
-[12:02:06.271] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=1,48ms Tiles=616 Uptime=00:04:34 Errors=0
-[12:02:07.289] [Info] [Perf] FPS=59,9 Player=0,02ms Atmos=0,00ms Render=1,75ms Tiles=616 Uptime=00:04:35 Errors=0
-[12:02:08.303] [Info] [Perf] FPS=59,2 Player=0,00ms Atmos=0,00ms Render=0,71ms Tiles=616 Uptime=00:04:36 Errors=0
-[12:02:09.320] [Info] [Perf] FPS=59,0 Player=0,00ms Atmos=0,00ms Render=0,54ms Tiles=616 Uptime=00:04:37 Errors=0
-[12:02:10.338] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=0,82ms Render=0,49ms Tiles=616 Uptime=00:04:38 Errors=0
-[12:02:11.338] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,87ms Render=0,47ms Tiles=616 Uptime=00:04:39 Errors=0
-[12:02:12.351] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,50ms Tiles=616 Uptime=00:04:40 Errors=0
-[12:02:13.352] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,56ms Tiles=616 Uptime=00:04:41 Errors=0
-[12:02:14.368] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,47ms Tiles=616 Uptime=00:04:42 Errors=0
-[12:02:15.384] [Info] [Perf] FPS=59,0 Player=0,01ms Atmos=0,00ms Render=0,52ms Tiles=616 Uptime=00:04:43 Errors=0
-[12:02:16.402] [Info] [Perf] FPS=56,0 Player=0,00ms Atmos=0,00ms Render=1,40ms Tiles=616 Uptime=00:04:44 Errors=0
-[12:02:17.417] [Info] [Perf] FPS=58,1 Player=0,00ms Atmos=0,00ms Render=0,54ms Tiles=616 Uptime=00:04:45 Errors=0
-[12:02:18.433] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=1,03ms Render=0,47ms Tiles=616 Uptime=00:04:46 Errors=0
-[12:02:19.442] [Info] [Perf] FPS=59,4 Player=0,02ms Atmos=5,79ms Render=0,49ms Tiles=616 Uptime=00:04:47 Errors=0
-[12:02:20.450] [Info] [Perf] FPS=60,6 Player=0,00ms Atmos=0,00ms Render=1,75ms Tiles=616 Uptime=00:04:48 Errors=0
-[12:02:21.464] [Info] [Perf] FPS=59,1 Player=0,00ms Atmos=0,00ms Render=0,53ms Tiles=616 Uptime=00:04:49 Errors=0
-[12:02:22.480] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,46ms Tiles=616 Uptime=00:04:50 Errors=0
-[12:02:23.483] [Info] [Perf] FPS=55,9 Player=0,03ms Atmos=0,00ms Render=0,93ms Tiles=616 Uptime=00:04:51 Errors=0
-[12:02:24.497] [Info] [Perf] FPS=54,2 Player=0,01ms Atmos=0,00ms Render=0,46ms Tiles=616 Uptime=00:04:52 Errors=0
-[12:02:25.498] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,51ms Tiles=616 Uptime=00:04:53 Errors=0
-[12:02:26.513] [Info] [Perf] FPS=59,1 Player=0,00ms Atmos=0,00ms Render=0,52ms Tiles=616 Uptime=00:04:54 Errors=0
-[12:02:27.529] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,46ms Tiles=616 Uptime=00:04:55 Errors=0
-[12:02:28.559] [Info] [Perf] FPS=58,2 Player=0,01ms Atmos=1,06ms Render=0,46ms Tiles=616 Uptime=00:04:56 Errors=0
-[12:02:29.561] [Info] [Perf] FPS=57,9 Player=0,00ms Atmos=0,00ms Render=0,57ms Tiles=616 Uptime=00:04:57 Errors=0
-[12:02:30.577] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,50ms Tiles=616 Uptime=00:04:58 Errors=0
-[12:02:31.595] [Info] [Perf] FPS=59,9 Player=0,02ms Atmos=0,00ms Render=0,98ms Tiles=616 Uptime=00:04:59 Errors=0
-[12:02:32.610] [Info] [Perf] FPS=58,1 Player=0,00ms Atmos=0,00ms Render=0,48ms Tiles=616 Uptime=00:05:00 Errors=0
-[12:02:33.627] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,46ms Tiles=616 Uptime=00:05:01 Errors=0
-[12:02:34.645] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=1,61ms Render=0,78ms Tiles=616 Uptime=00:05:02 Errors=0
-[12:02:35.661] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,53ms Tiles=616 Uptime=00:05:03 Errors=0
-[12:02:36.676] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,52ms Tiles=616 Uptime=00:05:04 Errors=0
-[12:02:37.692] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,60ms Tiles=616 Uptime=00:05:05 Errors=0
-[12:02:38.710] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,96ms Tiles=616 Uptime=00:05:06 Errors=0
-[12:02:39.725] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,52ms Tiles=616 Uptime=00:05:07 Errors=0
-[12:02:40.725] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,49ms Tiles=616 Uptime=00:05:08 Errors=0
-[12:02:41.742] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=1,37ms Render=0,46ms Tiles=616 Uptime=00:05:09 Errors=0
-[12:02:42.757] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,58ms Tiles=616 Uptime=00:05:10 Errors=0
-[12:02:43.762] [Info] [Perf] FPS=53,8 Player=0,00ms Atmos=0,00ms Render=0,54ms Tiles=616 Uptime=00:05:11 Errors=0
-[12:02:44.773] [Info] [Perf] FPS=60,3 Player=0,00ms Atmos=0,00ms Render=0,51ms Tiles=616 Uptime=00:05:12 Errors=0
-[12:02:45.774] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,60ms Tiles=616 Uptime=00:05:13 Errors=0
-[12:02:46.789] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,01ms Render=0,63ms Tiles=616 Uptime=00:05:14 Errors=0
-[12:02:47.805] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,45ms Tiles=616 Uptime=00:05:15 Errors=0
-[12:02:48.822] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,46ms Tiles=616 Uptime=00:05:16 Errors=0
-[12:02:49.843] [Info] [Perf] FPS=59,8 Player=0,01ms Atmos=1,54ms Render=0,58ms Tiles=616 Uptime=00:05:17 Errors=0
-[12:02:50.855] [Info] [Perf] FPS=60,3 Player=0,00ms Atmos=0,00ms Render=0,47ms Tiles=616 Uptime=00:05:18 Errors=0
-[12:02:51.871] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,56ms Tiles=616 Uptime=00:05:19 Errors=0
-[12:02:52.887] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,47ms Tiles=616 Uptime=00:05:20 Errors=0
-[12:02:53.903] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,62ms Tiles=616 Uptime=00:05:21 Errors=0
-[12:02:54.920] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=1,01ms Tiles=616 Uptime=00:05:22 Errors=0
-[12:02:55.939] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=1,30ms Render=0,47ms Tiles=616 Uptime=00:05:24 Errors=0
-[12:02:56.952] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,48ms Tiles=616 Uptime=00:05:25 Errors=0
-[12:02:57.969] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,45ms Tiles=616 Uptime=00:05:26 Errors=0
-[12:02:58.969] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,53ms Tiles=616 Uptime=00:05:27 Errors=0
-[12:02:59.985] [Info] [Perf] FPS=52,2 Player=0,01ms Atmos=0,00ms Render=0,50ms Tiles=616 Uptime=00:05:28 Errors=0
-[12:03:01.002] [Info] [Perf] FPS=56,1 Player=0,00ms Atmos=0,00ms Render=0,50ms Tiles=616 Uptime=00:05:29 Errors=0
-[12:03:02.018] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,50ms Tiles=616 Uptime=00:05:30 Errors=0
-[12:03:03.018] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,57ms Tiles=616 Uptime=00:05:31 Errors=0
-[12:03:04.035] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=1,43ms Render=0,48ms Tiles=616 Uptime=00:05:32 Errors=0
-[12:03:05.035] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=1,40ms Render=0,48ms Tiles=616 Uptime=00:05:33 Errors=0
-[12:03:06.037] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=2,01ms Render=0,48ms Tiles=616 Uptime=00:05:34 Errors=0
-[12:03:07.050] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,63ms Tiles=616 Uptime=00:05:35 Errors=0
-[12:03:08.066] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,85ms Tiles=616 Uptime=00:05:36 Errors=0
-[12:03:09.082] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,81ms Tiles=616 Uptime=00:05:37 Errors=0
-[12:03:10.098] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,56ms Tiles=616 Uptime=00:05:38 Errors=0
-[12:03:11.116] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,48ms Tiles=616 Uptime=00:05:39 Errors=0
-[12:03:12.132] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=1,50ms Render=0,46ms Tiles=616 Uptime=00:05:40 Errors=0
-[12:03:13.149] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=1,48ms Render=0,47ms Tiles=616 Uptime=00:05:41 Errors=0
-[12:03:14.164] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,55ms Tiles=616 Uptime=00:05:42 Errors=0
-[12:03:15.182] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,48ms Tiles=616 Uptime=00:05:43 Errors=0
-[12:03:16.196] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,52ms Tiles=616 Uptime=00:05:44 Errors=0
-[12:03:17.213] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,49ms Tiles=616 Uptime=00:05:45 Errors=0
-[12:03:18.230] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,53ms Tiles=616 Uptime=00:05:46 Errors=0
-[12:03:19.248] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=1,74ms Render=1,82ms Tiles=616 Uptime=00:05:47 Errors=0
-[12:03:20.250] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=3,52ms Render=0,55ms Tiles=616 Uptime=00:05:48 Errors=0
-[12:03:21.264] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,52ms Tiles=616 Uptime=00:05:49 Errors=0
-[12:03:22.280] [Info] [Perf] FPS=57,1 Player=0,00ms Atmos=0,00ms Render=0,54ms Tiles=616 Uptime=00:05:50 Errors=0
-[12:03:23.294] [Info] [Perf] FPS=60,2 Player=0,01ms Atmos=0,00ms Render=0,71ms Tiles=616 Uptime=00:05:51 Errors=0
-[12:03:24.310] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,47ms Tiles=616 Uptime=00:05:52 Errors=0
-[12:03:25.328] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,46ms Tiles=616 Uptime=00:05:53 Errors=0
-[12:03:26.347] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=1,63ms Render=0,46ms Tiles=616 Uptime=00:05:54 Errors=0
-[12:03:27.361] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,59ms Tiles=616 Uptime=00:05:55 Errors=0
-[12:03:28.375] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,50ms Tiles=616 Uptime=00:05:56 Errors=0
-[12:03:29.392] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,54ms Tiles=616 Uptime=00:05:57 Errors=0
-[12:03:30.409] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,53ms Tiles=616 Uptime=00:05:58 Errors=0
-[12:03:31.424] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,46ms Tiles=616 Uptime=00:05:59 Errors=0
-[12:03:32.444] [Info] [Perf] FPS=59,8 Player=0,01ms Atmos=1,69ms Render=0,49ms Tiles=616 Uptime=00:06:00 Errors=0
-[12:03:33.457] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,66ms Tiles=616 Uptime=00:06:01 Errors=0
-[12:03:34.473] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,53ms Tiles=616 Uptime=00:06:02 Errors=0
-[12:03:35.491] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=0,00ms Render=0,47ms Tiles=616 Uptime=00:06:03 Errors=0
-[12:03:36.491] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,55ms Tiles=616 Uptime=00:06:04 Errors=0
-[12:03:37.506] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,55ms Tiles=616 Uptime=00:06:05 Errors=0
-[12:03:38.523] [Info] [Perf] FPS=58,0 Player=0,00ms Atmos=0,00ms Render=0,46ms Tiles=616 Uptime=00:06:06 Errors=0
-[12:03:39.541] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=1,78ms Render=0,46ms Tiles=616 Uptime=00:06:07 Errors=0
-[12:03:40.555] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,48ms Tiles=616 Uptime=00:06:08 Errors=0
-[12:03:41.572] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,50ms Tiles=616 Uptime=00:06:09 Errors=0
-[12:03:42.587] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,54ms Tiles=616 Uptime=00:06:10 Errors=0
-[12:03:43.605] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,49ms Tiles=616 Uptime=00:06:11 Errors=0
-[12:03:44.620] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,54ms Tiles=616 Uptime=00:06:12 Errors=0
-[12:03:45.638] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=1,72ms Render=0,47ms Tiles=616 Uptime=00:06:13 Errors=0
-[12:03:46.639] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=2,22ms Render=0,47ms Tiles=616 Uptime=00:06:14 Errors=0
-[12:03:47.653] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,49ms Tiles=616 Uptime=00:06:15 Errors=0
-[12:03:48.669] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,50ms Tiles=616 Uptime=00:06:16 Errors=0
-[12:03:49.686] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,73ms Tiles=616 Uptime=00:06:17 Errors=0
-[12:03:50.701] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,75ms Tiles=616 Uptime=00:06:18 Errors=0
-[12:03:51.718] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,47ms Tiles=616 Uptime=00:06:19 Errors=0
-[12:03:52.738] [Info] [Perf] FPS=59,8 Player=0,01ms Atmos=2,07ms Render=0,61ms Tiles=616 Uptime=00:06:20 Errors=0
-[12:03:53.750] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,56ms Tiles=616 Uptime=00:06:21 Errors=0
-[12:03:54.768] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,48ms Tiles=616 Uptime=00:06:22 Errors=0
-[12:03:55.783] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,59ms Tiles=616 Uptime=00:06:23 Errors=0
-[12:03:56.786] [Info] [Perf] FPS=59,8 Player=0,01ms Atmos=0,00ms Render=0,48ms Tiles=616 Uptime=00:06:24 Errors=0
-[12:03:57.799] [Info] [Perf] FPS=59,3 Player=0,00ms Atmos=0,00ms Render=0,50ms Tiles=616 Uptime=00:06:25 Errors=0
-[12:03:58.799] [Info] [Perf] FPS=59,0 Player=0,00ms Atmos=0,00ms Render=0,51ms Tiles=616 Uptime=00:06:26 Errors=0
-[12:03:59.815] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,53ms Tiles=616 Uptime=00:06:27 Errors=0
-[12:04:00.836] [Info] [Perf] FPS=36,3 Player=0,01ms Atmos=2,07ms Render=0,51ms Tiles=616 Uptime=00:06:28 Errors=0
-[12:04:01.848] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,50ms Tiles=616 Uptime=00:06:29 Errors=0
-[12:04:02.864] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,52ms Tiles=616 Uptime=00:06:30 Errors=0
-[12:04:03.880] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,57ms Tiles=616 Uptime=00:06:31 Errors=0
-[12:04:04.881] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,97ms Tiles=616 Uptime=00:06:32 Errors=0
-[12:04:05.896] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,57ms Tiles=616 Uptime=00:06:33 Errors=0
-[12:04:06.896] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,47ms Tiles=616 Uptime=00:06:34 Errors=0
-[12:04:07.912] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,55ms Tiles=616 Uptime=00:06:35 Errors=0
-[12:04:08.929] [Info] [Perf] FPS=58,0 Player=0,00ms Atmos=0,00ms Render=0,51ms Tiles=616 Uptime=00:06:36 Errors=0
-[12:04:09.946] [Info] [Perf] FPS=49,1 Player=0,01ms Atmos=1,89ms Render=0,46ms Tiles=616 Uptime=00:06:38 Errors=0
-[12:04:10.950] [Info] [Perf] FPS=59,8 Player=0,01ms Atmos=3,93ms Render=0,96ms Tiles=616 Uptime=00:06:39 Errors=0
-[12:04:11.963] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=1,48ms Tiles=616 Uptime=00:06:40 Errors=0
-[12:04:12.977] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,48ms Tiles=616 Uptime=00:06:41 Errors=0
-[12:04:13.978] [Info] [Perf] FPS=54,0 Player=0,00ms Atmos=0,00ms Render=0,49ms Tiles=616 Uptime=00:06:42 Errors=0
-[12:04:14.978] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,54ms Tiles=616 Uptime=00:06:43 Errors=0
-[12:04:15.978] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,45ms Tiles=616 Uptime=00:06:44 Errors=0
-[12:04:16.994] [Info] [Perf] FPS=57,1 Player=0,01ms Atmos=0,00ms Render=0,95ms Tiles=616 Uptime=00:06:45 Errors=0
-[12:04:17.994] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,46ms Tiles=616 Uptime=00:06:46 Errors=0
-[12:04:19.010] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,48ms Tiles=616 Uptime=00:06:47 Errors=0
-[12:04:20.011] [Info] [Perf] FPS=58,9 Player=0,01ms Atmos=0,00ms Render=0,64ms Tiles=616 Uptime=00:06:48 Errors=0
-[12:04:21.025] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,55ms Tiles=616 Uptime=00:06:49 Errors=0
-[12:04:22.048] [Info] [Perf] FPS=56,7 Player=0,01ms Atmos=2,12ms Render=0,46ms Tiles=616 Uptime=00:06:50 Errors=0
-[12:04:23.061] [Info] [Perf] FPS=22,7 Player=0,01ms Atmos=2,09ms Render=0,48ms Tiles=616 Uptime=00:06:51 Errors=0
-[12:04:24.074] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,66ms Tiles=616 Uptime=00:06:52 Errors=0
-[12:04:25.090] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,52ms Tiles=616 Uptime=00:06:53 Errors=0
-[12:04:26.092] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,69ms Tiles=616 Uptime=00:06:54 Errors=0
-[12:04:27.107] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,62ms Tiles=616 Uptime=00:06:55 Errors=0
-[12:04:28.123] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,50ms Tiles=616 Uptime=00:06:56 Errors=0
-[12:04:29.139] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,56ms Tiles=616 Uptime=00:06:57 Errors=0
-[12:04:30.157] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=2,33ms Render=0,52ms Tiles=616 Uptime=00:06:58 Errors=0
-[12:04:31.172] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,58ms Tiles=616 Uptime=00:06:59 Errors=0
-[12:04:32.191] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=1,16ms Tiles=616 Uptime=00:07:00 Errors=0
-[12:04:33.205] [Info] [Perf] FPS=60,2 Player=0,01ms Atmos=0,00ms Render=0,47ms Tiles=616 Uptime=00:07:01 Errors=0
-[12:04:34.221] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,47ms Tiles=616 Uptime=00:07:02 Errors=0
-[12:04:35.221] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,49ms Tiles=616 Uptime=00:07:03 Errors=0
-[12:04:36.221] [Info] [Perf] FPS=57,0 Player=0,00ms Atmos=0,00ms Render=0,50ms Tiles=616 Uptime=00:07:04 Errors=0
-[12:04:37.237] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,57ms Tiles=616 Uptime=00:07:05 Errors=0
-[12:04:38.256] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=2,69ms Render=0,46ms Tiles=616 Uptime=00:07:06 Errors=0
-[12:04:39.269] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,50ms Tiles=616 Uptime=00:07:07 Errors=0
-[12:04:40.286] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,85ms Tiles=616 Uptime=00:07:08 Errors=0
-[12:04:41.303] [Info] [Perf] FPS=60,0 Player=0,02ms Atmos=0,00ms Render=1,23ms Tiles=616 Uptime=00:07:09 Errors=0
-[12:04:42.319] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,46ms Tiles=616 Uptime=00:07:10 Errors=0
-[12:04:43.319] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,99ms Tiles=616 Uptime=00:07:11 Errors=0
-[12:04:44.319] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=1,15ms Tiles=616 Uptime=00:07:12 Errors=0
-[12:04:45.334] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,50ms Tiles=616 Uptime=00:07:13 Errors=0
-[12:04:46.335] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,79ms Tiles=616 Uptime=00:07:14 Errors=0
-[12:04:47.355] [Info] [Perf] FPS=59,8 Player=0,07ms Atmos=2,87ms Render=0,46ms Tiles=616 Uptime=00:07:15 Errors=0
-[12:04:48.357] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=2,54ms Render=0,57ms Tiles=616 Uptime=00:07:16 Errors=0
-[12:04:49.357] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=3,95ms Render=0,49ms Tiles=616 Uptime=00:07:17 Errors=0
-[12:04:50.366] [Info] [Perf] FPS=60,4 Player=0,00ms Atmos=0,00ms Render=0,75ms Tiles=616 Uptime=00:07:18 Errors=0
-[12:04:51.383] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=1,08ms Tiles=616 Uptime=00:07:19 Errors=0
-[12:04:52.399] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,59ms Tiles=616 Uptime=00:07:20 Errors=0
-[12:04:53.414] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,47ms Tiles=616 Uptime=00:07:21 Errors=0
-[12:04:54.416] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,66ms Tiles=616 Uptime=00:07:22 Errors=0
-[12:04:55.431] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,47ms Tiles=616 Uptime=00:07:23 Errors=0
-[12:04:56.450] [Info] [Perf] FPS=56,9 Player=0,01ms Atmos=2,72ms Render=0,55ms Tiles=616 Uptime=00:07:24 Errors=0
-[12:04:57.464] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,50ms Tiles=616 Uptime=00:07:25 Errors=0
-[12:04:58.480] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,62ms Tiles=616 Uptime=00:07:26 Errors=0
-[12:04:59.499] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=0,00ms Render=2,96ms Tiles=616 Uptime=00:07:27 Errors=0
-[12:05:00.512] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,47ms Tiles=616 Uptime=00:07:28 Errors=0
-[12:05:01.528] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,47ms Tiles=616 Uptime=00:07:29 Errors=0
-[12:05:02.528] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,47ms Tiles=616 Uptime=00:07:30 Errors=0
-[12:05:03.540] [Info] [Perf] FPS=51,4 Player=0,00ms Atmos=0,00ms Render=0,57ms Tiles=616 Uptime=00:07:31 Errors=0
-[12:05:04.547] [Info] [Perf] FPS=57,6 Player=0,01ms Atmos=2,55ms Render=0,46ms Tiles=616 Uptime=00:07:32 Errors=0
-[12:05:05.547] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=2,45ms Render=0,47ms Tiles=616 Uptime=00:07:33 Errors=0
-[12:05:06.560] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,52ms Tiles=616 Uptime=00:07:34 Errors=0
-[12:05:07.564] [Info] [Perf] FPS=59,7 Player=0,01ms Atmos=2,62ms Render=0,48ms Tiles=616 Uptime=00:07:35 Errors=0
-[12:05:08.565] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=2,36ms Render=0,46ms Tiles=616 Uptime=00:07:36 Errors=0
-[12:05:09.565] [Info] [Perf] FPS=60,0 Player=0,08ms Atmos=2,85ms Render=0,48ms Tiles=616 Uptime=00:07:37 Errors=0
-[12:05:10.568] [Info] [Perf] FPS=59,8 Player=0,01ms Atmos=2,71ms Render=0,50ms Tiles=616 Uptime=00:07:38 Errors=0
-[12:05:11.575] [Info] [Perf] FPS=60,5 Player=0,00ms Atmos=0,00ms Render=0,64ms Tiles=616 Uptime=00:07:39 Errors=0
-[12:05:12.594] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=0,00ms Render=0,48ms Tiles=616 Uptime=00:07:40 Errors=0
-[12:05:13.608] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,50ms Tiles=616 Uptime=00:07:41 Errors=0
-[12:05:14.626] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,60ms Tiles=616 Uptime=00:07:42 Errors=0
-[12:05:15.641] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,74ms Tiles=616 Uptime=00:07:43 Errors=0
-[12:05:16.660] [Info] [Perf] FPS=55,9 Player=0,01ms Atmos=2,91ms Render=0,47ms Tiles=616 Uptime=00:07:44 Errors=0
-[12:05:17.673] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,63ms Tiles=616 Uptime=00:07:45 Errors=0
-[12:05:18.693] [Info] [Perf] FPS=59,8 Player=0,00ms Atmos=0,00ms Render=0,47ms Tiles=616 Uptime=00:07:46 Errors=0
-[12:05:19.707] [Info] [Perf] FPS=60,2 Player=0,01ms Atmos=0,00ms Render=0,70ms Tiles=616 Uptime=00:07:47 Errors=0
-[12:05:20.724] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,84ms Tiles=616 Uptime=00:07:48 Errors=0
-[12:05:21.739] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,55ms Tiles=616 Uptime=00:07:49 Errors=0
-[12:05:22.739] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,76ms Tiles=616 Uptime=00:07:50 Errors=0
-[12:05:23.740] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,89ms Tiles=616 Uptime=00:07:51 Errors=0
-[12:05:24.758] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=2,82ms Render=0,47ms Tiles=616 Uptime=00:07:52 Errors=0
-[12:05:25.771] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,56ms Tiles=616 Uptime=00:07:53 Errors=0
-[12:05:26.791] [Info] [Perf] FPS=59,8 Player=0,00ms Atmos=0,00ms Render=0,60ms Tiles=616 Uptime=00:07:54 Errors=0
-[12:05:27.803] [Info] [Perf] FPS=60,3 Player=0,01ms Atmos=0,00ms Render=0,62ms Tiles=616 Uptime=00:07:55 Errors=0
-[12:05:28.832] [Info] [Perf] FPS=56,4 Player=0,01ms Atmos=0,00ms Render=0,86ms Tiles=616 Uptime=00:07:56 Errors=0
-[12:05:29.836] [Info] [Perf] FPS=56,8 Player=0,00ms Atmos=0,00ms Render=0,46ms Tiles=616 Uptime=00:07:57 Errors=0
-[12:05:30.838] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,48ms Tiles=616 Uptime=00:07:58 Errors=0
-[12:05:31.857] [Info] [Perf] FPS=59,8 Player=0,01ms Atmos=2,86ms Render=0,50ms Tiles=616 Uptime=00:07:59 Errors=0
-[12:05:32.857] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=2,84ms Render=0,46ms Tiles=616 Uptime=00:08:00 Errors=0
-[12:05:33.869] [Info] [Perf] FPS=60,3 Player=0,00ms Atmos=0,00ms Render=0,65ms Tiles=616 Uptime=00:08:01 Errors=0
-[12:05:34.869] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,52ms Tiles=616 Uptime=00:08:02 Errors=0
-[12:05:35.884] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,61ms Tiles=616 Uptime=00:08:03 Errors=0
-[12:05:36.888] [Info] [Perf] FPS=56,8 Player=0,00ms Atmos=0,00ms Render=0,55ms Tiles=616 Uptime=00:08:04 Errors=0
-[12:05:37.901] [Info] [Perf] FPS=60,2 Player=0,01ms Atmos=0,00ms Render=0,61ms Tiles=616 Uptime=00:08:05 Errors=0
-[12:05:38.902] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,53ms Tiles=616 Uptime=00:08:06 Errors=0
-[12:05:39.916] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,47ms Tiles=616 Uptime=00:08:07 Errors=0
-[12:05:40.916] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,75ms Tiles=616 Uptime=00:08:08 Errors=0
-[12:05:41.933] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,53ms Tiles=616 Uptime=00:08:10 Errors=0
-[12:05:42.952] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=3,18ms Render=0,47ms Tiles=616 Uptime=00:08:11 Errors=0
-[12:05:43.969] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,52ms Tiles=616 Uptime=00:08:12 Errors=0
-[12:05:44.982] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,50ms Tiles=616 Uptime=00:08:13 Errors=0
-[12:05:46.000] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=0,00ms Render=0,46ms Tiles=616 Uptime=00:08:14 Errors=0
-[12:05:47.014] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,54ms Tiles=616 Uptime=00:08:15 Errors=0
-[12:05:48.030] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,59ms Tiles=616 Uptime=00:08:16 Errors=0
-[12:05:49.033] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,48ms Tiles=616 Uptime=00:08:17 Errors=0
-[12:05:50.049] [Info] [Perf] FPS=51,2 Player=0,01ms Atmos=3,19ms Render=0,46ms Tiles=616 Uptime=00:08:18 Errors=0
-[12:05:51.062] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,53ms Tiles=616 Uptime=00:08:19 Errors=0
-[12:05:52.063] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,47ms Tiles=616 Uptime=00:08:20 Errors=0
-[12:05:53.084] [Info] [Perf] FPS=59,7 Player=0,00ms Atmos=0,00ms Render=0,60ms Tiles=616 Uptime=00:08:21 Errors=0
-[12:05:54.095] [Info] [Perf] FPS=60,3 Player=0,01ms Atmos=0,00ms Render=0,50ms Tiles=616 Uptime=00:08:22 Errors=0
-[12:05:55.111] [Info] [Perf] FPS=60,0 Player=0,02ms Atmos=0,00ms Render=0,47ms Tiles=616 Uptime=00:08:23 Errors=0
-[12:05:56.113] [Info] [Perf] FPS=56,9 Player=0,00ms Atmos=0,00ms Render=0,58ms Tiles=616 Uptime=00:08:24 Errors=0
-[12:05:57.131] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,75ms Tiles=616 Uptime=00:08:25 Errors=0
-[12:05:58.144] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,56ms Tiles=616 Uptime=00:08:26 Errors=0
-[12:05:59.147] [Info] [Perf] FPS=59,8 Player=0,01ms Atmos=2,98ms Render=0,49ms Tiles=616 Uptime=00:08:27 Errors=0
-[12:06:00.148] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=3,66ms Render=0,48ms Tiles=616 Uptime=00:08:28 Errors=0
-[12:06:01.161] [Info] [Perf] FPS=58,2 Player=0,01ms Atmos=3,11ms Render=0,46ms Tiles=616 Uptime=00:08:29 Errors=0
-[12:06:02.162] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=3,14ms Render=0,47ms Tiles=616 Uptime=00:08:30 Errors=0
-[12:06:03.164] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=3,20ms Render=0,62ms Tiles=616 Uptime=00:08:31 Errors=0
-[12:06:04.164] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=3,13ms Render=0,73ms Tiles=616 Uptime=00:08:32 Errors=0
-[12:06:05.174] [Info] [Perf] FPS=59,4 Player=0,00ms Atmos=0,00ms Render=0,46ms Tiles=616 Uptime=00:08:33 Errors=0
-[12:06:06.175] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,47ms Tiles=616 Uptime=00:08:34 Errors=0
-[12:06:07.175] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,47ms Tiles=616 Uptime=00:08:35 Errors=0
-[12:06:08.176] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,57ms Tiles=616 Uptime=00:08:36 Errors=0
-[12:06:09.191] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,50ms Tiles=616 Uptime=00:08:37 Errors=0
-[12:06:10.210] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=0,00ms Render=0,61ms Tiles=616 Uptime=00:08:38 Errors=0
-[12:06:11.224] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,82ms Tiles=616 Uptime=00:08:39 Errors=0
-[12:06:12.240] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,65ms Tiles=616 Uptime=00:08:40 Errors=0
-[12:06:13.241] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,49ms Tiles=616 Uptime=00:08:41 Errors=0
-[12:06:14.260] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=3,81ms Render=0,61ms Tiles=616 Uptime=00:08:42 Errors=0
-[12:06:15.275] [Info] [Perf] FPS=56,1 Player=0,00ms Atmos=0,00ms Render=0,53ms Tiles=616 Uptime=00:08:43 Errors=0
-[12:06:16.289] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,50ms Tiles=616 Uptime=00:08:44 Errors=0
-[12:06:17.305] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,52ms Tiles=616 Uptime=00:08:45 Errors=0
-[12:06:18.320] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,66ms Tiles=616 Uptime=00:08:46 Errors=0
-[12:06:19.337] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,46ms Tiles=616 Uptime=00:08:47 Errors=0
-[12:06:20.355] [Info] [Perf] FPS=40,3 Player=0,01ms Atmos=4,76ms Render=0,46ms Tiles=616 Uptime=00:08:48 Errors=0
-[12:06:21.362] [Info] [Perf] FPS=59,6 Player=0,01ms Atmos=4,48ms Render=0,47ms Tiles=616 Uptime=00:08:49 Errors=0
-[12:06:22.369] [Info] [Perf] FPS=60,6 Player=0,00ms Atmos=0,00ms Render=0,49ms Tiles=616 Uptime=00:08:50 Errors=0
-[12:06:23.370] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,94ms Tiles=616 Uptime=00:08:51 Errors=0
-[12:06:24.388] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,56ms Tiles=616 Uptime=00:08:52 Errors=0
-[12:06:25.402] [Info] [Perf] FPS=59,2 Player=0,01ms Atmos=0,00ms Render=0,55ms Tiles=616 Uptime=00:08:53 Errors=0
-[12:06:26.405] [Info] [Perf] FPS=57,8 Player=0,36ms Atmos=0,00ms Render=0,56ms Tiles=616 Uptime=00:08:54 Errors=0
-[12:06:27.417] [Info] [Perf] FPS=60,3 Player=0,00ms Atmos=0,00ms Render=0,55ms Tiles=616 Uptime=00:08:55 Errors=0
-[12:06:28.418] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,77ms Tiles=616 Uptime=00:08:56 Errors=0
-[12:06:29.418] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,81ms Tiles=616 Uptime=00:08:57 Errors=0
-[12:06:30.419] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,52ms Tiles=616 Uptime=00:08:58 Errors=0
-[12:06:31.428] [Info] [Perf] FPS=55,5 Player=0,00ms Atmos=0,00ms Render=0,63ms Tiles=616 Uptime=00:08:59 Errors=0
-[12:06:32.435] [Info] [Perf] FPS=38,8 Player=0,00ms Atmos=0,00ms Render=0,47ms Tiles=616 Uptime=00:09:00 Errors=0
-[12:06:33.452] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=3,28ms Render=0,48ms Tiles=616 Uptime=00:09:01 Errors=0
-[12:06:34.465] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,78ms Tiles=616 Uptime=00:09:02 Errors=0
-[12:06:35.466] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,52ms Tiles=616 Uptime=00:09:03 Errors=0
-[12:06:36.468] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,49ms Tiles=616 Uptime=00:09:04 Errors=0
-[12:06:37.481] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,59ms Tiles=616 Uptime=00:09:05 Errors=0
-[12:06:38.497] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,82ms Tiles=616 Uptime=00:09:06 Errors=0
-[12:06:39.497] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,52ms Tiles=616 Uptime=00:09:07 Errors=0
-[12:06:40.514] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,58ms Tiles=616 Uptime=00:09:08 Errors=0
-[12:06:41.514] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,47ms Tiles=616 Uptime=00:09:09 Errors=0
-[12:06:42.529] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,64ms Tiles=616 Uptime=00:09:10 Errors=0
-[12:06:43.550] [Info] [Perf] FPS=59,8 Player=0,01ms Atmos=3,25ms Render=0,55ms Tiles=616 Uptime=00:09:11 Errors=0
-[12:06:44.550] [Info] [Perf] FPS=59,0 Player=0,01ms Atmos=3,40ms Render=0,47ms Tiles=616 Uptime=00:09:12 Errors=0
-[12:06:45.562] [Info] [Perf] FPS=60,3 Player=0,00ms Atmos=0,00ms Render=0,53ms Tiles=616 Uptime=00:09:13 Errors=0
-[12:06:46.579] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,63ms Tiles=616 Uptime=00:09:14 Errors=0
-[12:06:47.593] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,55ms Tiles=616 Uptime=00:09:15 Errors=0
-[12:06:48.593] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,53ms Tiles=616 Uptime=00:09:16 Errors=0
-[12:06:49.611] [Info] [Perf] FPS=56,0 Player=0,01ms Atmos=0,00ms Render=0,47ms Tiles=616 Uptime=00:09:17 Errors=0
-[12:06:50.627] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,50ms Tiles=616 Uptime=00:09:18 Errors=0
-[12:06:51.630] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,49ms Tiles=616 Uptime=00:09:19 Errors=0
-[12:06:52.643] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,51ms Tiles=616 Uptime=00:09:20 Errors=0
-[12:06:53.662] [Info] [Perf] FPS=59,8 Player=0,01ms Atmos=3,70ms Render=0,47ms Tiles=616 Uptime=00:09:21 Errors=0
-[12:06:54.677] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,73ms Tiles=616 Uptime=00:09:22 Errors=0
-[12:06:55.691] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,53ms Tiles=616 Uptime=00:09:23 Errors=0
-[12:06:56.697] [Info] [Perf] FPS=59,7 Player=0,01ms Atmos=0,00ms Render=0,59ms Tiles=616 Uptime=00:09:24 Errors=0
-[12:06:57.698] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=0,00ms Render=0,69ms Tiles=616 Uptime=00:09:25 Errors=0
-[12:06:58.710] [Info] [Perf] FPS=60,2 Player=0,01ms Atmos=0,00ms Render=0,89ms Tiles=616 Uptime=00:09:26 Errors=0
-[12:06:59.723] [Info] [Perf] FPS=60,3 Player=0,00ms Atmos=0,00ms Render=0,47ms Tiles=616 Uptime=00:09:27 Errors=0
-[12:07:00.740] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,53ms Tiles=616 Uptime=00:09:28 Errors=0
-[12:07:01.761] [Info] [Perf] FPS=59,8 Player=0,12ms Atmos=3,80ms Render=0,46ms Tiles=616 Uptime=00:09:29 Errors=0
-[12:07:02.773] [Info] [Perf] FPS=60,3 Player=0,00ms Atmos=0,00ms Render=0,49ms Tiles=616 Uptime=00:09:30 Errors=0
-[12:07:03.791] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,85ms Tiles=616 Uptime=00:09:31 Errors=0
-[12:07:04.805] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,53ms Tiles=616 Uptime=00:09:32 Errors=0
-[12:07:05.822] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,91ms Tiles=616 Uptime=00:09:33 Errors=0
-[12:07:06.839] [Info] [Perf] FPS=56,0 Player=0,00ms Atmos=0,00ms Render=0,51ms Tiles=616 Uptime=00:09:34 Errors=0
-[12:07:07.861] [Info] [Perf] FPS=59,7 Player=0,01ms Atmos=3,75ms Render=0,49ms Tiles=616 Uptime=00:09:35 Errors=0
-[12:07:08.874] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,78ms Tiles=616 Uptime=00:09:36 Errors=0
-[12:07:09.886] [Info] [Perf] FPS=60,3 Player=0,00ms Atmos=0,00ms Render=0,52ms Tiles=616 Uptime=00:09:37 Errors=0
-[12:07:10.905] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=0,00ms Render=0,59ms Tiles=616 Uptime=00:09:38 Errors=0
-[12:07:11.919] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,47ms Tiles=616 Uptime=00:09:39 Errors=0
-[12:07:12.942] [Info] [Perf] FPS=59,6 Player=0,00ms Atmos=0,00ms Render=0,46ms Tiles=616 Uptime=00:09:41 Errors=0
-[12:07:13.956] [Info] [Perf] FPS=60,2 Player=0,01ms Atmos=4,32ms Render=0,47ms Tiles=616 Uptime=00:09:42 Errors=0
-[12:07:14.969] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,63ms Tiles=616 Uptime=00:09:43 Errors=0
-[12:07:15.970] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,53ms Tiles=616 Uptime=00:09:44 Errors=0
-[12:07:16.987] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,57ms Tiles=616 Uptime=00:09:45 Errors=0
-[12:07:18.002] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=1,45ms Tiles=616 Uptime=00:09:46 Errors=0
-[12:07:19.016] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,54ms Tiles=616 Uptime=00:09:47 Errors=0
-[12:07:20.035] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,58ms Tiles=616 Uptime=00:09:48 Errors=0
-[12:07:21.035] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,55ms Tiles=616 Uptime=00:09:49 Errors=0
-[12:07:22.053] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=3,86ms Render=0,47ms Tiles=616 Uptime=00:09:50 Errors=0
-[12:07:23.054] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=3,51ms Render=0,46ms Tiles=616 Uptime=00:09:51 Errors=0
-[12:07:24.065] [Info] [Perf] FPS=60,3 Player=0,00ms Atmos=0,00ms Render=0,74ms Tiles=616 Uptime=00:09:52 Errors=0
-[12:07:25.081] [Info] [Perf] FPS=57,1 Player=0,00ms Atmos=0,00ms Render=0,54ms Tiles=616 Uptime=00:09:53 Errors=0
-[12:07:26.085] [Info] [Perf] FPS=59,8 Player=0,00ms Atmos=0,00ms Render=0,78ms Tiles=616 Uptime=00:09:54 Errors=0
-[12:07:27.085] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,51ms Tiles=616 Uptime=00:09:55 Errors=0
-[12:07:28.098] [Info] [Perf] FPS=60,2 Player=0,01ms Atmos=0,00ms Render=0,65ms Tiles=616 Uptime=00:09:56 Errors=0
-[12:07:29.113] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,52ms Tiles=616 Uptime=00:09:57 Errors=0
-[12:07:30.113] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,59ms Tiles=616 Uptime=00:09:58 Errors=0
-[12:07:31.130] [Info] [Perf] FPS=59,0 Player=0,00ms Atmos=0,00ms Render=0,58ms Tiles=616 Uptime=00:09:59 Errors=0
-[12:07:32.131] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,50ms Tiles=616 Uptime=00:10:00 Errors=0
-[12:07:33.149] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=3,83ms Render=0,49ms Tiles=616 Uptime=00:10:01 Errors=0
-[12:07:34.162] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,62ms Tiles=616 Uptime=00:10:02 Errors=0
-[12:07:35.165] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,52ms Tiles=616 Uptime=00:10:03 Errors=0
-[12:07:36.179] [Info] [Perf] FPS=59,2 Player=0,00ms Atmos=0,00ms Render=0,46ms Tiles=616 Uptime=00:10:04 Errors=0
-[12:07:37.200] [Info] [Perf] FPS=46,0 Player=0,01ms Atmos=0,00ms Render=0,53ms Tiles=616 Uptime=00:10:05 Errors=0
-[12:07:38.213] [Info] [Perf] FPS=58,3 Player=0,00ms Atmos=0,00ms Render=0,70ms Tiles=616 Uptime=00:10:06 Errors=0
-[12:07:39.226] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,52ms Tiles=616 Uptime=00:10:07 Errors=0
-[12:07:40.243] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,50ms Tiles=616 Uptime=00:10:08 Errors=0
-[12:07:41.244] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,53ms Tiles=616 Uptime=00:10:09 Errors=0
-[12:07:42.252] [Info] [Perf] FPS=55,6 Player=0,01ms Atmos=4,35ms Render=0,48ms Tiles=616 Uptime=00:10:10 Errors=0
-[12:07:43.263] [Info] [Perf] FPS=60,3 Player=0,01ms Atmos=4,30ms Render=0,49ms Tiles=616 Uptime=00:10:11 Errors=0
-[12:07:44.273] [Info] [Perf] FPS=60,4 Player=0,00ms Atmos=0,00ms Render=0,53ms Tiles=616 Uptime=00:10:12 Errors=0
-[12:07:45.275] [Info] [Perf] FPS=58,9 Player=0,00ms Atmos=0,00ms Render=0,48ms Tiles=616 Uptime=00:10:13 Errors=0
-[12:07:46.298] [Info] [Perf] FPS=59,6 Player=0,01ms Atmos=0,00ms Render=0,53ms Tiles=616 Uptime=00:10:14 Errors=0
-[12:07:47.307] [Info] [Perf] FPS=60,5 Player=0,01ms Atmos=0,00ms Render=0,74ms Tiles=616 Uptime=00:10:15 Errors=0
-[12:07:48.307] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,75ms Tiles=616 Uptime=00:10:16 Errors=0
-[12:07:49.322] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,48ms Tiles=616 Uptime=00:10:17 Errors=0
-[12:07:50.322] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,55ms Tiles=616 Uptime=00:10:18 Errors=0
-[12:07:51.339] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,57ms Tiles=616 Uptime=00:10:19 Errors=0
-[12:07:52.342] [Info] [Perf] FPS=59,8 Player=0,00ms Atmos=0,00ms Render=0,72ms Tiles=616 Uptime=00:10:20 Errors=0
-[12:07:53.363] [Info] [Perf] FPS=59,7 Player=0,01ms Atmos=3,89ms Render=0,47ms Tiles=616 Uptime=00:10:21 Errors=0
-[12:07:54.372] [Info] [Perf] FPS=60,4 Player=0,00ms Atmos=0,00ms Render=0,60ms Tiles=616 Uptime=00:10:22 Errors=0
-[12:07:55.387] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,56ms Tiles=616 Uptime=00:10:23 Errors=0
-[12:07:56.404] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,48ms Tiles=616 Uptime=00:10:24 Errors=0
-[12:07:57.405] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=0,00ms Render=0,47ms Tiles=616 Uptime=00:10:25 Errors=0
-[12:07:58.419] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,60ms Tiles=616 Uptime=00:10:26 Errors=0
-[12:07:59.419] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,88ms Tiles=616 Uptime=00:10:27 Errors=0
-[12:08:00.436] [Info] [Perf] FPS=58,0 Player=0,00ms Atmos=0,00ms Render=0,46ms Tiles=616 Uptime=00:10:28 Errors=0
-[12:08:01.456] [Info] [Perf] FPS=59,8 Player=0,01ms Atmos=3,90ms Render=0,54ms Tiles=616 Uptime=00:10:29 Errors=0
-[12:08:02.468] [Info] [Perf] FPS=60,3 Player=0,00ms Atmos=0,00ms Render=0,51ms Tiles=616 Uptime=00:10:30 Errors=0
-[12:08:03.468] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,67ms Tiles=616 Uptime=00:10:31 Errors=0
-[12:08:04.484] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,49ms Tiles=616 Uptime=00:10:32 Errors=0
-[12:08:05.490] [Info] [Perf] FPS=53,7 Player=0,00ms Atmos=0,00ms Render=0,51ms Tiles=616 Uptime=00:10:33 Errors=0
-[12:08:06.504] [Info] [Perf] FPS=58,2 Player=0,01ms Atmos=0,00ms Render=0,65ms Tiles=616 Uptime=00:10:34 Errors=0
-[12:08:07.516] [Info] [Perf] FPS=60,3 Player=0,00ms Atmos=0,00ms Render=0,50ms Tiles=616 Uptime=00:10:35 Errors=0
-[12:08:08.533] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,59ms Tiles=616 Uptime=00:10:36 Errors=0
-[12:08:09.554] [Info] [Perf] FPS=59,8 Player=0,01ms Atmos=4,49ms Render=0,47ms Tiles=616 Uptime=00:10:37 Errors=0
-[12:08:10.557] [Info] [Perf] FPS=59,8 Player=0,01ms Atmos=4,74ms Render=0,46ms Tiles=616 Uptime=00:10:38 Errors=0
-[12:08:11.567] [Info] [Perf] FPS=60,4 Player=0,00ms Atmos=0,00ms Render=0,67ms Tiles=616 Uptime=00:10:39 Errors=0
-[12:08:12.583] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,78ms Tiles=616 Uptime=00:10:40 Errors=0
-[12:08:13.583] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,91ms Tiles=616 Uptime=00:10:41 Errors=0
-[12:08:14.599] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,51ms Tiles=616 Uptime=00:10:42 Errors=0
-[12:08:15.613] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,56ms Tiles=616 Uptime=00:10:43 Errors=0
-[12:08:16.631] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,56ms Tiles=616 Uptime=00:10:44 Errors=0
-[12:08:17.650] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=4,33ms Render=0,55ms Tiles=616 Uptime=00:10:45 Errors=0
-[12:08:18.663] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,59ms Tiles=616 Uptime=00:10:46 Errors=0
-[12:08:19.663] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,63ms Tiles=616 Uptime=00:10:47 Errors=0
-[12:08:20.682] [Info] [Perf] FPS=57,0 Player=0,00ms Atmos=0,00ms Render=0,54ms Tiles=616 Uptime=00:10:48 Errors=0
-[12:08:21.697] [Info] [Perf] FPS=59,1 Player=0,01ms Atmos=0,00ms Render=0,58ms Tiles=616 Uptime=00:10:49 Errors=0
-[12:08:22.713] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,62ms Tiles=616 Uptime=00:10:50 Errors=0
-[12:08:23.731] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,55ms Tiles=616 Uptime=00:10:51 Errors=0
-[12:08:24.748] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=4,11ms Render=0,46ms Tiles=616 Uptime=00:10:52 Errors=0
-[12:08:25.761] [Info] [Perf] FPS=60,3 Player=0,00ms Atmos=0,00ms Render=0,61ms Tiles=616 Uptime=00:10:53 Errors=0
-[12:08:26.767] [Info] [Perf] FPS=59,7 Player=0,01ms Atmos=4,13ms Render=0,46ms Tiles=616 Uptime=00:10:54 Errors=0
-[12:08:27.777] [Info] [Perf] FPS=60,4 Player=0,00ms Atmos=0,00ms Render=0,48ms Tiles=616 Uptime=00:10:55 Errors=0
-[12:08:28.796] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=0,00ms Render=1,00ms Tiles=616 Uptime=00:10:56 Errors=0
-[12:08:29.809] [Info] [Perf] FPS=60,2 Player=0,01ms Atmos=0,00ms Render=0,56ms Tiles=616 Uptime=00:10:57 Errors=0
-[12:08:30.810] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,49ms Tiles=616 Uptime=00:10:58 Errors=0
-[12:08:31.826] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,48ms Tiles=616 Uptime=00:10:59 Errors=0
-[12:08:32.852] [Info] [Perf] FPS=55,5 Player=0,01ms Atmos=4,72ms Render=0,46ms Tiles=616 Uptime=00:11:00 Errors=0
-[12:08:33.864] [Info] [Perf] FPS=43,5 Player=0,01ms Atmos=4,17ms Render=0,47ms Tiles=616 Uptime=00:11:01 Errors=0
-[12:08:34.875] [Info] [Perf] FPS=60,4 Player=0,00ms Atmos=0,00ms Render=0,69ms Tiles=616 Uptime=00:11:02 Errors=0
-[12:08:35.875] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=1,31ms Tiles=616 Uptime=00:11:03 Errors=0
-[12:08:36.875] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,49ms Tiles=616 Uptime=00:11:04 Errors=0
-[12:08:37.890] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,51ms Tiles=616 Uptime=00:11:05 Errors=0
-[12:08:38.907] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,56ms Tiles=616 Uptime=00:11:06 Errors=0
-[12:08:39.922] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,46ms Tiles=616 Uptime=00:11:07 Errors=0
-[12:08:40.941] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,63ms Tiles=616 Uptime=00:11:09 Errors=0
-[12:08:41.941] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,58ms Tiles=616 Uptime=00:11:10 Errors=0
-[12:08:42.960] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=4,82ms Render=0,49ms Tiles=616 Uptime=00:11:11 Errors=0
-[12:08:43.972] [Info] [Perf] FPS=60,3 Player=0,00ms Atmos=0,00ms Render=0,59ms Tiles=616 Uptime=00:11:12 Errors=0
-[12:08:44.988] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,48ms Tiles=616 Uptime=00:11:13 Errors=0
-[12:08:46.004] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,55ms Tiles=616 Uptime=00:11:14 Errors=0
-[12:08:47.020] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,51ms Tiles=616 Uptime=00:11:15 Errors=0
-[12:08:48.037] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,64ms Tiles=616 Uptime=00:11:16 Errors=0
-[12:08:49.057] [Info] [Perf] FPS=59,8 Player=0,01ms Atmos=4,17ms Render=0,45ms Tiles=616 Uptime=00:11:17 Errors=0
-[12:08:50.069] [Info] [Perf] FPS=60,3 Player=0,00ms Atmos=0,00ms Render=0,54ms Tiles=616 Uptime=00:11:18 Errors=0
-[12:08:51.069] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,50ms Tiles=616 Uptime=00:11:19 Errors=0
-[12:08:52.085] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,51ms Tiles=616 Uptime=00:11:20 Errors=0
-[12:08:53.086] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,70ms Tiles=616 Uptime=00:11:21 Errors=0
-[12:08:54.102] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,01ms Render=0,52ms Tiles=616 Uptime=00:11:22 Errors=0
-[12:08:55.118] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,63ms Tiles=616 Uptime=00:11:23 Errors=0
-[12:08:56.135] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,59ms Tiles=616 Uptime=00:11:24 Errors=0
-[12:08:57.156] [Info] [Perf] FPS=59,7 Player=0,01ms Atmos=5,31ms Render=0,49ms Tiles=616 Uptime=00:11:25 Errors=0
-[12:08:58.167] [Info] [Perf] FPS=60,3 Player=0,00ms Atmos=0,00ms Render=0,63ms Tiles=616 Uptime=00:11:26 Errors=0
-[12:08:59.183] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,67ms Tiles=616 Uptime=00:11:27 Errors=0
-[12:09:00.186] [Info] [Perf] FPS=47,9 Player=0,00ms Atmos=0,00ms Render=0,51ms Tiles=616 Uptime=00:11:28 Errors=0
-[12:09:01.199] [Info] [Perf] FPS=60,2 Player=0,01ms Atmos=0,00ms Render=0,58ms Tiles=616 Uptime=00:11:29 Errors=0
-[12:09:02.215] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,51ms Tiles=616 Uptime=00:11:30 Errors=0
-[12:09:03.232] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,51ms Tiles=616 Uptime=00:11:31 Errors=0
-[12:09:04.253] [Info] [Perf] FPS=59,7 Player=0,01ms Atmos=4,81ms Render=0,47ms Tiles=616 Uptime=00:11:32 Errors=0
-[12:09:05.264] [Info] [Perf] FPS=60,4 Player=0,00ms Atmos=0,00ms Render=0,56ms Tiles=616 Uptime=00:11:33 Errors=0
-[12:09:06.264] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,49ms Tiles=616 Uptime=00:11:34 Errors=0
-[12:09:07.280] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,48ms Tiles=616 Uptime=00:11:35 Errors=0
-[12:09:08.296] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,48ms Tiles=616 Uptime=00:11:36 Errors=0
-[12:09:09.296] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,58ms Tiles=616 Uptime=00:11:37 Errors=0
-[12:09:10.299] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=0,00ms Render=0,47ms Tiles=616 Uptime=00:11:38 Errors=0
-[12:09:11.312] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,49ms Tiles=616 Uptime=00:11:39 Errors=0
-[12:09:12.329] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,57ms Tiles=616 Uptime=00:11:40 Errors=0
-[12:09:13.352] [Info] [Perf] FPS=59,6 Player=0,01ms Atmos=4,46ms Render=0,56ms Tiles=616 Uptime=00:11:41 Errors=0
-[12:09:14.362] [Info] [Perf] FPS=60,4 Player=0,00ms Atmos=0,00ms Render=0,54ms Tiles=616 Uptime=00:11:42 Errors=0
-[12:09:15.368] [Info] [Perf] FPS=59,6 Player=0,01ms Atmos=4,45ms Render=0,45ms Tiles=616 Uptime=00:11:43 Errors=0
-[12:09:16.368] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=4,64ms Render=0,50ms Tiles=616 Uptime=00:11:44 Errors=0
-[12:09:17.378] [Info] [Perf] FPS=60,4 Player=0,00ms Atmos=0,00ms Render=0,46ms Tiles=616 Uptime=00:11:45 Errors=0
-[12:09:18.395] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=0,00ms Render=0,56ms Tiles=616 Uptime=00:11:46 Errors=0
-[12:09:19.409] [Info] [Perf] FPS=60,2 Player=0,01ms Atmos=0,00ms Render=0,54ms Tiles=616 Uptime=00:11:47 Errors=0
-[12:09:20.427] [Info] [Perf] FPS=58,0 Player=0,00ms Atmos=0,00ms Render=0,46ms Tiles=616 Uptime=00:11:48 Errors=0
-[12:09:21.442] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,45ms Tiles=616 Uptime=00:11:49 Errors=0
-[12:09:22.464] [Info] [Perf] FPS=59,7 Player=0,01ms Atmos=5,98ms Render=0,52ms Tiles=616 Uptime=00:11:50 Errors=0
-[12:09:23.476] [Info] [Perf] FPS=60,3 Player=0,00ms Atmos=0,00ms Render=0,50ms Tiles=616 Uptime=00:11:51 Errors=0
-[12:09:24.476] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,47ms Tiles=616 Uptime=00:11:52 Errors=0
-[12:09:25.490] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,46ms Tiles=616 Uptime=00:11:53 Errors=0
-[12:09:26.511] [Info] [Perf] FPS=52,9 Player=0,01ms Atmos=0,00ms Render=0,47ms Tiles=616 Uptime=00:11:54 Errors=0
-[12:09:27.523] [Info] [Perf] FPS=59,3 Player=0,00ms Atmos=0,00ms Render=0,66ms Tiles=616 Uptime=00:11:55 Errors=0
-[12:09:28.539] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,52ms Tiles=616 Uptime=00:11:56 Errors=0
-[12:09:29.540] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,74ms Tiles=616 Uptime=00:11:57 Errors=0
-[12:09:30.559] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=4,40ms Render=0,45ms Tiles=616 Uptime=00:11:58 Errors=0
-[12:09:31.560] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=5,28ms Render=0,60ms Tiles=616 Uptime=00:11:59 Errors=0
-[12:09:32.571] [Info] [Perf] FPS=60,4 Player=0,00ms Atmos=0,00ms Render=0,51ms Tiles=616 Uptime=00:12:00 Errors=0
-[12:09:33.587] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,48ms Tiles=616 Uptime=00:12:01 Errors=0
-[12:09:34.600] [Info] [Perf] FPS=59,2 Player=0,01ms Atmos=0,00ms Render=0,45ms Tiles=616 Uptime=00:12:02 Errors=0
-[12:09:35.603] [Info] [Perf] FPS=51,8 Player=0,01ms Atmos=0,00ms Render=0,48ms Tiles=616 Uptime=00:12:03 Errors=0
-[12:09:36.620] [Info] [Perf] FPS=56,0 Player=0,00ms Atmos=0,00ms Render=1,05ms Tiles=616 Uptime=00:12:04 Errors=0
-[12:09:37.635] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,47ms Tiles=616 Uptime=00:12:05 Errors=0
-[12:09:38.656] [Info] [Perf] FPS=59,7 Player=0,01ms Atmos=4,41ms Render=0,59ms Tiles=616 Uptime=00:12:06 Errors=0
-[12:09:39.657] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=5,01ms Render=0,49ms Tiles=616 Uptime=00:12:07 Errors=0
-[12:09:40.658] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=4,75ms Render=0,50ms Tiles=610 Uptime=00:12:08 Errors=0
-[12:09:41.669] [Info] [Perf] FPS=60,4 Player=0,00ms Atmos=0,00ms Render=0,45ms Tiles=565 Uptime=00:12:09 Errors=0
-[12:09:42.669] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,50ms Tiles=622 Uptime=00:12:10 Errors=0
-[12:09:43.670] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,59ms Tiles=566 Uptime=00:12:11 Errors=0
-[12:09:44.684] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,45ms Tiles=625 Uptime=00:12:12 Errors=0
-[12:09:45.701] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,51ms Tiles=568 Uptime=00:12:13 Errors=0
-[12:09:46.717] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,49ms Tiles=628 Uptime=00:12:14 Errors=0
-[12:09:47.717] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,47ms Tiles=625 Uptime=00:12:15 Errors=0
-[12:09:48.721] [Info] [Perf] FPS=59,8 Player=0,00ms Atmos=0,00ms Render=0,97ms Tiles=630 Uptime=00:12:16 Errors=0
-[12:09:49.733] [Info] [Perf] FPS=60,3 Player=0,00ms Atmos=0,00ms Render=0,53ms Tiles=628 Uptime=00:12:17 Errors=0
-[12:09:50.733] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,47ms Tiles=616 Uptime=00:12:18 Errors=0
-[12:09:51.753] [Info] [Perf] FPS=59,8 Player=0,01ms Atmos=4,93ms Render=0,51ms Tiles=573 Uptime=00:12:19 Errors=0
-[12:09:52.754] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=4,80ms Render=0,55ms Tiles=622 Uptime=00:12:20 Errors=0
-[12:09:53.765] [Info] [Perf] FPS=60,4 Player=0,00ms Atmos=0,00ms Render=0,45ms Tiles=575 Uptime=00:12:21 Errors=0
-[12:09:54.782] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,48ms Tiles=580 Uptime=00:12:22 Errors=0
-[12:09:55.798] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,46ms Tiles=602 Uptime=00:12:23 Errors=0
-[12:09:56.814] [Info] [Perf] FPS=59,1 Player=0,00ms Atmos=0,00ms Render=0,52ms Tiles=629 Uptime=00:12:24 Errors=0
-[12:09:57.814] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,48ms Tiles=619 Uptime=00:12:25 Errors=0
-[12:09:58.831] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,84ms Tiles=579 Uptime=00:12:26 Errors=0
-[12:09:59.854] [Info] [Perf] FPS=59,6 Player=0,01ms Atmos=4,80ms Render=0,44ms Tiles=581 Uptime=00:12:27 Errors=0
-[12:10:00.863] [Info] [Perf] FPS=60,4 Player=0,00ms Atmos=0,00ms Render=0,47ms Tiles=590 Uptime=00:12:28 Errors=0
-[12:10:01.879] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,59ms Tiles=580 Uptime=00:12:29 Errors=0
-[12:10:02.879] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,51ms Tiles=580 Uptime=00:12:30 Errors=0
-[12:10:03.895] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,45ms Tiles=580 Uptime=00:12:31 Errors=0
-[12:10:04.912] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,69ms Tiles=580 Uptime=00:12:32 Errors=0
-[12:10:05.918] [Info] [Perf] FPS=59,7 Player=0,00ms Atmos=0,00ms Render=0,58ms Tiles=580 Uptime=00:12:33 Errors=0
-[12:10:06.928] [Info] [Perf] FPS=60,3 Player=0,00ms Atmos=0,00ms Render=0,50ms Tiles=580 Uptime=00:12:34 Errors=0
-[12:10:07.944] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,45ms Tiles=580 Uptime=00:12:36 Errors=0
-[12:10:08.327] [Info] [InteractionMenu] Cursor released (Alt down)
-[12:10:08.712] [Info] [Program] Application exited normally
+=== SS15 Log started at 2026-10-08 15:19:44 ===
+[15:19:44.040] [Info] [Logger] Logging initialized, file: D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\ss15_log.txt
+[15:19:44.049] [Info] [Program] Application starting
+[15:19:44.499] [Info] [MainGame] OnLoad started
+[15:19:44.542] [Info] [MainGame] All textures loaded
+[15:19:44.710] [Info] [MainGame] SpriteBatch created
+[15:19:44.712] [Info] [GL] Vendor:   ATI Technologies Inc.
+[15:19:44.712] [Info] [GL] Renderer: Radeon RX 570 Series
+[15:19:44.713] [Info] [GL] Version:  4.6.0 Core Profile Context 26.1.1.251211
+[15:19:44.713] [Info] [GL] GLSL:     4.60
+[15:19:44.714] [Info] [GL] Default framebuffer depth bits: 0 (0 = need custom FBO)
+[15:19:44.716] [Info] [MainGame] Window size: 800x600
+[15:19:44.722] [Info] [Framebuffer] Created FBO=1 Color=23 Depth=1 800x600
+[15:19:44.795] [Info] [MainGame] Input initialized
+[15:19:44.833] [Info] [MainGame] GameState initialized. Map: 255x255
+[15:19:44.834] [Info] [MainGame] Player spawn: <4080  4080>
+[15:19:44.835] [Info] [World3D] Creating Shader3D...
+[15:19:44.837] [Info] [Shader3D] Compiling vertex shader...
+[15:19:44.843] [Info] [Shader3D] VertexShader compiled OK
+[15:19:44.844] [Info] [Shader3D] Compiling fragment shader...
+[15:19:44.846] [Info] [Shader3D] FragmentShader compiled OK
+[15:19:44.846] [Info] [Shader3D] Linking program...
+[15:19:44.847] [Info] [Shader3D] Program linked OK. Id=4
+[15:19:44.851] [Info] [Shader3D] Uniform OK: uModelPos at loc 0
+[15:19:44.852] [Info] [Shader3D] Uniform OK: uModelScale at loc 1
+[15:19:44.854] [Info] [Shader3D] Uniform OK: uView at loc 2
+[15:19:44.854] [Info] [Shader3D] Uniform OK: uProjection at loc 6
+[15:19:44.859] [Info] [Shader3D] Uniform OK: uTexture at loc 10
+[15:19:44.861] [Info] [Shader3D] Uniform OK: uLightDir at loc 11
+[15:19:44.862] [Info] [Shader3D] Uniform OK: uAmbientColor at loc 12
+[15:19:44.862] [Info] [Shader3D] Uniform OK: uLightColor at loc 13
+[15:19:44.863] [Info] [Shader3D] Uniform OK: uViewPos at loc 14
+[15:19:44.863] [Info] [Shader3D] Uniform OK: uUnlit at loc 15
+[15:19:44.864] [Info] [World3D] Building meshes...
+[15:19:44.868] [Info] [Mesh] Created VAO=2 VBO=3 EBO=4 verts=24 indices=36
+[15:19:44.869] [Info] [Mesh] Created VAO=3 VBO=5 EBO=6 verts=4 indices=6
+[15:19:44.874] [Info] [Mesh] Created VAO=4 VBO=7 EBO=8 verts=4 indices=6
+[15:19:44.878] [Info] [Mesh] Created VAO=5 VBO=9 EBO=10 verts=4 indices=6
+[15:19:44.879] [Info] [Mesh] Created VAO=6 VBO=11 EBO=12 verts=4 indices=6
+[15:19:44.880] [Info] [Mesh] Created VAO=7 VBO=13 EBO=14 verts=4 indices=6
+[15:19:44.881] [Info] [Mesh] Created VAO=8 VBO=15 EBO=16 verts=4 indices=6
+[15:19:44.882] [Info] [Mesh] Created VAO=9 VBO=17 EBO=18 verts=4 indices=6
+[15:19:44.885] [Info] [Mesh] Created VAO=10 VBO=19 EBO=20 verts=4 indices=6
+[15:19:44.885] [Info] [Mesh] Created VAO=11 VBO=21 EBO=22 verts=4 indices=6
+[15:19:44.886] [Info] [Mesh] Created VAO=12 VBO=23 EBO=24 verts=4 indices=6
+[15:19:44.887] [Info] [Mesh] Created VAO=13 VBO=25 EBO=26 verts=4 indices=6
+[15:19:44.888] [Info] [Mesh] Created VAO=14 VBO=27 EBO=28 verts=4 indices=6
+[15:19:44.889] [Info] [Mesh] Created VAO=15 VBO=29 EBO=30 verts=4 indices=6
+[15:19:44.896] [Info] [Mesh] Created VAO=16 VBO=31 EBO=32 verts=4 indices=6
+[15:19:44.897] [Info] [Mesh] Created VAO=17 VBO=33 EBO=34 verts=24 indices=36
+[15:19:44.897] [Info] [World3D] WorldRenderer3D initialized
+[15:19:44.898] [Info] [World3D] Textures assigned. Wall=5, Wire=7, Highlight=21
+[15:19:44.898] [Info] [MainGame] World3D initialized
+[15:19:44.903] [Info] [ShaderViewModel] Program linked. Id=5
+[15:19:44.904] [Info] [Mesh] Created VAO=18 VBO=35 EBO=36 verts=24 indices=36
+[15:19:44.905] [Info] [ViewModel] Initialized
+[15:19:44.907] [Info] [MainGame] ViewModel initialized
+[15:19:44.959] [Info] [MainGame] HUD initialized
+[15:19:44.965] [Info] [MainGame] OnLoad complete
+[15:19:45.068] [Info] [World3D] First Draw. Camera=(127,5,1,6,127,5) Viewport=800x600
+[15:19:45.070] [Info] [World3D] Yaw=0,00 Pitch=0,00 ViewRadius=20
+[15:19:45.072] [Info] [World3D] Tile at camera: (127,127) = Floor
+[15:19:45.744] [Info] [Perf] FPS=39,3 Player=0,02ms Atmos=0,00ms Render=0,63ms Tiles=615 Uptime=00:00:01 Errors=0
+[15:19:46.757] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,45ms Tiles=572 Uptime=00:00:02 Errors=0
+[15:19:47.757] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,47ms Tiles=619 Uptime=00:00:03 Errors=0
+[15:19:48.772] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,48ms Tiles=576 Uptime=00:00:04 Errors=0
+[15:19:49.789] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,48ms Tiles=563 Uptime=00:00:05 Errors=0
+[15:19:50.805] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,49ms Tiles=562 Uptime=00:00:06 Errors=0
+[15:19:51.822] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,51ms Tiles=562 Uptime=00:00:07 Errors=0
+[15:19:52.838] [Info] [Perf] FPS=59,0 Player=0,01ms Atmos=0,00ms Render=0,69ms Tiles=561 Uptime=00:00:08 Errors=0
+[15:19:53.839] [Info] [Perf] FPS=59,0 Player=0,01ms Atmos=0,00ms Render=0,46ms Tiles=561 Uptime=00:00:09 Errors=0
+[15:19:54.854] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,46ms Tiles=561 Uptime=00:00:10 Errors=0
+[15:19:55.854] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,44ms Tiles=561 Uptime=00:00:11 Errors=0
+[15:19:56.870] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,66ms Tiles=560 Uptime=00:00:12 Errors=0
+[15:19:57.871] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,48ms Tiles=576 Uptime=00:00:13 Errors=0
+[15:19:58.888] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,53ms Tiles=589 Uptime=00:00:14 Errors=0
+[15:19:59.903] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,54ms Tiles=593 Uptime=00:00:15 Errors=0
+[15:20:00.919] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,50ms Tiles=604 Uptime=00:00:16 Errors=0
+[15:20:01.936] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,62ms Tiles=602 Uptime=00:00:17 Errors=0
+[15:20:02.936] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,64ms Tiles=602 Uptime=00:00:18 Errors=0
+[15:20:03.952] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,53ms Tiles=647 Uptime=00:00:19 Errors=0
+[15:20:04.952] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,52ms Tiles=649 Uptime=00:00:20 Errors=0
+[15:20:05.953] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,52ms Tiles=649 Uptime=00:00:21 Errors=0
+[15:20:06.968] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,51ms Tiles=649 Uptime=00:00:22 Errors=0
+[15:20:07.983] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,51ms Tiles=649 Uptime=00:00:23 Errors=0
+[15:20:08.984] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=0,00ms Render=0,53ms Tiles=634 Uptime=00:00:24 Errors=0
+[15:20:09.999] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,56ms Tiles=658 Uptime=00:00:25 Errors=0
+[15:20:11.000] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,51ms Tiles=640 Uptime=00:00:26 Errors=0
+[15:20:12.015] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,54ms Tiles=636 Uptime=00:00:27 Errors=0
+[15:20:13.032] [Info] [Perf] FPS=59,0 Player=0,01ms Atmos=0,00ms Render=0,54ms Tiles=638 Uptime=00:00:28 Errors=0
+[15:20:14.032] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,47ms Tiles=576 Uptime=00:00:29 Errors=0
+[15:20:15.047] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,49ms Tiles=635 Uptime=00:00:30 Errors=0
+[15:20:16.064] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,51ms Tiles=597 Uptime=00:00:31 Errors=0
+[15:20:17.065] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,48ms Tiles=595 Uptime=00:00:32 Errors=0
+[15:20:18.080] [Info] [Perf] FPS=60,1 Player=0,03ms Atmos=0,00ms Render=0,56ms Tiles=595 Uptime=00:00:33 Errors=0
+[15:20:19.081] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=0,00ms Render=0,59ms Tiles=638 Uptime=00:00:34 Errors=0
+[15:20:20.097] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,50ms Tiles=593 Uptime=00:00:35 Errors=0
+[15:20:21.113] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,52ms Tiles=640 Uptime=00:00:36 Errors=0
+[15:20:22.113] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,53ms Tiles=605 Uptime=00:00:37 Errors=0
+[15:20:23.129] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,55ms Tiles=638 Uptime=00:00:38 Errors=0
+[15:20:24.146] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,48ms Tiles=590 Uptime=00:00:39 Errors=0
+[15:20:25.162] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,50ms Tiles=588 Uptime=00:00:40 Errors=0
+[15:20:26.178] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,50ms Tiles=588 Uptime=00:00:41 Errors=0
+[15:20:27.193] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,49ms Tiles=592 Uptime=00:00:42 Errors=0
+[15:20:28.210] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,53ms Tiles=603 Uptime=00:00:43 Errors=0
+[15:20:29.226] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,47ms Tiles=600 Uptime=00:00:44 Errors=0
+[15:20:30.227] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,65ms Tiles=599 Uptime=00:00:45 Errors=0
+[15:20:31.245] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=0,12ms Render=0,51ms Tiles=579 Uptime=00:00:46 Errors=0
+[15:20:32.258] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,53ms Tiles=607 Uptime=00:00:47 Errors=0
+[15:20:33.259] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,51ms Tiles=592 Uptime=00:00:48 Errors=0
+[15:20:34.275] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,52ms Tiles=649 Uptime=00:00:49 Errors=0
+[15:20:35.291] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,54ms Tiles=635 Uptime=00:00:50 Errors=0
+[15:20:36.291] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,49ms Tiles=595 Uptime=00:00:51 Errors=0
+[15:20:37.307] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,78ms Tiles=611 Uptime=00:00:52 Errors=0
+[15:20:38.323] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,59ms Tiles=588 Uptime=00:00:53 Errors=0
+[15:20:39.324] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,49ms Tiles=584 Uptime=00:00:54 Errors=0
+[15:20:40.340] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,21ms Render=0,58ms Tiles=617 Uptime=00:00:55 Errors=0
+[15:20:41.356] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,70ms Tiles=642 Uptime=00:00:56 Errors=0
+[15:20:42.372] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,60ms Tiles=643 Uptime=00:00:57 Errors=0
+[15:20:43.388] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,53ms Tiles=643 Uptime=00:00:58 Errors=0
+[15:20:44.388] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,63ms Tiles=653 Uptime=00:00:59 Errors=0
+[15:20:45.404] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,56ms Tiles=653 Uptime=00:01:00 Errors=0
+[15:20:46.404] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,73ms Tiles=653 Uptime=00:01:01 Errors=0
+[15:20:47.420] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,48ms Tiles=593 Uptime=00:01:02 Errors=0
+[15:20:48.436] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,21ms Render=0,48ms Tiles=591 Uptime=00:01:03 Errors=0
+[15:20:49.449] [Info] [Perf] FPS=56,3 Player=0,01ms Atmos=0,23ms Render=0,48ms Tiles=591 Uptime=00:01:04 Errors=0
+[15:20:50.457] [Info] [Perf] FPS=57,6 Player=0,01ms Atmos=0,23ms Render=0,46ms Tiles=591 Uptime=00:01:05 Errors=0
+[15:20:51.468] [Info] [Perf] FPS=50,4 Player=0,00ms Atmos=0,00ms Render=0,47ms Tiles=591 Uptime=00:01:06 Errors=0
+[15:20:52.530] [Info] [Perf] FPS=44,3 Player=0,01ms Atmos=0,24ms Render=0,46ms Tiles=591 Uptime=00:01:08 Errors=0
+[15:20:53.722] [Info] [Perf] FPS=12,6 Player=0,01ms Atmos=0,52ms Render=0,46ms Tiles=591 Uptime=00:01:09 Errors=0
+[15:20:54.832] [Info] [Perf] FPS=2,7 Player=0,01ms Atmos=0,29ms Render=0,56ms Tiles=591 Uptime=00:01:10 Errors=0
+[15:20:55.833] [Info] [Perf] FPS=40,9 Player=0,01ms Atmos=0,00ms Render=0,70ms Tiles=591 Uptime=00:01:11 Errors=0
+[15:20:56.849] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,49ms Tiles=591 Uptime=00:01:12 Errors=0
+[15:20:57.855] [Info] [Perf] FPS=59,6 Player=0,00ms Atmos=0,00ms Render=1,07ms Tiles=591 Uptime=00:01:13 Errors=0
+[15:20:58.866] [Info] [Perf] FPS=60,3 Player=0,00ms Atmos=0,00ms Render=0,49ms Tiles=591 Uptime=00:01:14 Errors=0
+[15:20:59.882] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,26ms Render=0,44ms Tiles=591 Uptime=00:01:15 Errors=0
+[15:21:00.900] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,46ms Tiles=591 Uptime=00:01:16 Errors=0

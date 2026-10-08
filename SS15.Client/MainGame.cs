@@ -27,16 +27,19 @@ namespace SS15.Client
         private GameState _gameState;
         private Camera3D _camera3D;
         private WorldRenderer3D _world3D;
+        private ViewModelRenderer _viewModel;
         private HudRenderer _hudRenderer;
         private InputHandler _inputHandler;
         private Framebuffer _framebuffer;
 
         private RaycastHit _currentHit;
 
-        // Меню взаимодействий (Alt + ПКМ)
         private readonly InteractionMenu _interactionMenu = new();
         private bool _lmbInMenuPrev;
         private bool _wasAltDown;
+
+        private Vector2 _lastPlayerPos;
+        private bool _isMoving;
 
         private Texture2D _floorTex, _spaceTex;
         private Texture2D _wallSingleTex, _wallNSTex, _wallWETex;
@@ -46,6 +49,7 @@ namespace SS15.Client
         private Texture2D _doorOpenTex, _doorClosedTex;
         private Texture2D _armsPreviewTex, _pocketTex, _beltTex, _backTex;
         private Texture2D _highlightTex;
+        private Texture2D _handTex;
 
         private System.Diagnostics.Stopwatch _fpsTimer;
         private int _frameCount;
@@ -60,8 +64,6 @@ namespace SS15.Client
 
         private DateTime _lastCamLog = DateTime.MinValue;
 
-        private bool _savePrev;
-        private bool _loadPrev;
         private bool _debugPrev;
         private bool _errPanelPrev;
         private bool _clearErrPrev;
@@ -105,10 +107,7 @@ namespace SS15.Client
             Logger.Info("MainGame", $"GameState initialized. Map: {_gameState.Map.Width}x{_gameState.Map.Height}");
             Logger.Info("MainGame", $"Player spawn: {_gameState.Player.Position}");
 
-            int spawnTx = (int)(_gameState.Player.Position.X / _gameState.Map.TileSize);
-            int spawnTy = (int)(_gameState.Player.Position.Y / _gameState.Map.TileSize);
-            var spawnTile = _gameState.Map.GetTile(spawnTx, spawnTy);
-            Logger.Info("MainGame", $"Tile under player ({spawnTx},{spawnTy}): {spawnTile}");
+            _lastPlayerPos = _gameState.Player.Position;
 
             _camera3D = new Camera3D
             {
@@ -131,6 +130,9 @@ namespace SS15.Client
                 _highlightTex);
 
             Logger.Info("MainGame", "World3D initialized");
+
+            _viewModel = new ViewModelRenderer(Gl, _handTex, _itemTex);
+            Logger.Info("MainGame", "ViewModel initialized");
 
             var hudCamera = new Camera2D
             {
@@ -158,7 +160,6 @@ namespace SS15.Client
             _gameState.Player.Pitch = 0f;
 
             _hudRenderer.Notify("Добро пожаловать на борт, инженер.", new Color(1f, 0.9f, 0.6f, 1f));
-            _hudRenderer.Notify("P — сохранить, Home — загрузить", new Color(0.8f, 0.8f, 1f, 1f));
             _hudRenderer.Notify("Alt — отпустить курсор, Alt+ПКМ — меню", new Color(0.8f, 1f, 0.8f, 1f));
 
             Logger.Info("MainGame", "OnLoad complete");
@@ -200,6 +201,7 @@ namespace SS15.Client
                 _whiteTexture = SpriteGenerator.CreateSolidTexture(Gl, new byte[] { 255, 255, 255, 255 });
                 _slotTexture = SpriteGenerator.CreateSolidTexture(Gl, new byte[] { 50, 50, 50, 255 });
                 _highlightTex = SpriteGenerator.CreateSolidTexture(Gl, new byte[] { 255, 210, 0, 130 });
+                _handTex = SpriteGenerator.CreateSolidTexture(Gl, new byte[] { 240, 200, 170, 255 });
 
                 Logger.Info("MainGame", "All textures loaded");
             }
@@ -287,18 +289,12 @@ namespace SS15.Client
             }
         }
 
-        // ===== Взаимодействие с миром =====
-
         private void OnLeftClick(int tx, int ty)
         {
             if (_gameState.Map.GetTile(tx, ty) == TileType.Door)
-            {
                 ToggleDoorGroup(tx, ty);
-            }
             else
-            {
                 PickupItemAt(tx, ty);
-            }
         }
 
         private void ToggleDoorGroup(int x, int y)
@@ -337,8 +333,7 @@ namespace SS15.Client
         private void OnPlaceWall(int x, int y)
         {
             var tile = _gameState.Map.GetTile(x, y);
-            if (tile == TileType.Wall || tile == TileType.ReinforcedWall || tile == TileType.Door)
-                return;
+            if (tile == TileType.Wall || tile == TileType.ReinforcedWall || tile == TileType.Door) return;
 
             _gameState.Map.SetTile(x, y, TileType.Wall);
             _gameState.Atmosphere.SetWall(x, y, true);
@@ -494,45 +489,31 @@ namespace SS15.Client
             _camera3D.Pitch = _gameState.Player.Pitch;
         }
 
-        // ===== Меню взаимодействий =====
-
         private void UpdateInteractionMenu()
         {
             bool altDown = _keyboard.IsKeyPressed(Key.AltLeft) || _keyboard.IsKeyPressed(Key.AltRight);
             bool rmbDown = _mouse.IsButtonPressed(MouseButton.Right);
 
-            // Отпускание курсора при зажатии Alt
             if (altDown && !_wasAltDown)
             {
                 SetCursorMode(CursorMode.Normal);
                 _inputHandler.ResetMouseTracking();
-                Logger.Info("InteractionMenu", "Cursor released (Alt down)");
             }
 
-            // Захват курсора при отпускании Alt
             if (!altDown && _wasAltDown)
             {
                 SetCursorMode(CursorMode.Raw);
                 _inputHandler.ResetMouseTracking();
-                Logger.Info("InteractionMenu", "Cursor captured (Alt up)");
             }
 
-            // Открытие меню — Alt + ПКМ
             if (altDown && rmbDown && !_interactionMenu.IsOpen)
-            {
                 BuildInteractionMenu();
-                if (_interactionMenu.IsOpen)
-                    Logger.Info("InteractionMenu", $"Opened: {_interactionMenu.Title} ({_interactionMenu.Items.Count} items)");
-            }
 
-            // Hover + клик по пункту — только когда меню открыто
             if (_interactionMenu.IsOpen)
             {
-                float mx = _mouse.Position.X;
-                float my = _mouse.Position.Y;
-
                 _interactionMenu.HoveredIndex = InteractionMenuRenderer.HitTest(
-                    _interactionMenu, mx, my, _actualWidth, _actualHeight);
+                    _interactionMenu, _mouse.Position.X, _mouse.Position.Y,
+                    _actualWidth, _actualHeight);
 
                 bool lmb = _mouse.IsButtonPressed(MouseButton.Left);
                 if (lmb && !_lmbInMenuPrev)
@@ -556,23 +537,16 @@ namespace SS15.Client
                 _lmbInMenuPrev = false;
             }
 
-            // Меню закрывается при отпускании Alt
             if (!altDown && _interactionMenu.IsOpen)
-            {
                 _interactionMenu.Clear();
-                Logger.Info("InteractionMenu", "Closed (Alt up)");
-            }
 
-            // Блокируем ввод, пока Alt зажат
             _inputHandler.Blocked = altDown;
-
             _wasAltDown = altDown;
         }
 
         private void BuildInteractionMenu()
         {
             _interactionMenu.Clear();
-
             if (!_currentHit.Hit) return;
 
             int x = _currentHit.X;
@@ -628,8 +602,6 @@ namespace SS15.Client
             try { _mouse.Cursor.CursorMode = mode; } catch { }
         }
 
-        // ===== Update / Render =====
-
         protected override void OnUpdate(double deltaTime)
         {
             var (p, a, pw, h) = _gameState.Update((float)deltaTime);
@@ -645,74 +617,30 @@ namespace SS15.Client
             _currentHit = Raycaster.Cast(_gameState.Map, eye, dir, ReachDistance);
 
             UpdateInteractionMenu();
-
             _inputHandler.Update((float)deltaTime, _currentHit);
-
             HandleHotkeys();
+
+            Vector2 currentPos = _gameState.Player.Position;
+            _isMoving = Vector2.DistanceSquared(currentPos, _lastPlayerPos) > 0.01f;
+            _lastPlayerPos = currentPos;
+
+            _viewModel.Update((float)deltaTime, _isMoving);
 
             _hudRenderer.Update((float)deltaTime);
         }
 
         private void HandleHotkeys()
         {
-            // P — сохранить
-            bool save = _keyboard.IsKeyPressed(Key.P);
-            if (save && !_savePrev)
-            {
-                try
-                {
-                    SaveManager.Save(_gameState.Map, _gameState.Player, SaveManager.DefaultPath);
-                    _hudRenderer.Notify($"Станция сохранена: {System.IO.Path.GetFileName(SaveManager.DefaultPath)}",
-                        new Color(0.7f, 1f, 0.7f, 1f));
-                }
-                catch (Exception ex)
-                {
-                    _gameState.Errors.Report("Save", ex);
-                    _hudRenderer.Notify($"Ошибка сохранения: {ex.Message}", new Color(1f, 0.5f, 0.5f, 1f));
-                }
-            }
-            _savePrev = save;
-
-            // Home — загрузить
-            bool load = _keyboard.IsKeyPressed(Key.Home);
-            if (load && !_loadPrev)
-            {
-                try
-                {
-                    if (!SaveManager.Exists(SaveManager.DefaultPath))
-                    {
-                        _hudRenderer.Notify("Сохранение не найдено (P — сохранить)", new Color(1f, 0.85f, 0.5f, 1f));
-                    }
-                    else
-                    {
-                        var data = SaveManager.Load(SaveManager.DefaultPath);
-                        SaveManager.Apply(data, _gameState.Map, _gameState.Player);
-                        _gameState.Atmosphere.Initialize(_gameState.Map);
-                        _gameState.Power.Initialize(_gameState.Map);
-                        _hudRenderer.Notify("Станция загружена", new Color(0.7f, 1f, 0.7f, 1f));
-                    }
-                }
-                catch (Exception ex)
-                {
-                    _gameState.Errors.Report("Load", ex);
-                    _hudRenderer.Notify($"Ошибка загрузки: {ex.Message}", new Color(1f, 0.5f, 0.5f, 1f));
-                }
-            }
-            _loadPrev = load;
-
-            // Tab — debug
             bool debug = _keyboard.IsKeyPressed(Key.Tab);
             if (debug && !_debugPrev)
                 _hudRenderer.DebugVisible = !_hudRenderer.DebugVisible;
             _debugPrev = debug;
 
-            // Escape — панель ошибок
             bool errPanel = _keyboard.IsKeyPressed(Key.Escape);
             if (errPanel && !_errPanelPrev)
                 _hudRenderer.ErrorPanelVisible = !_hudRenderer.ErrorPanelVisible;
             _errPanelPrev = errPanel;
 
-            // Delete — очистка
             bool clearErr = _keyboard.IsKeyPressed(Key.Delete);
             if (clearErr && !_clearErrPrev)
             {
@@ -740,14 +668,26 @@ namespace SS15.Client
                 Logger.Error("World3D.Draw", "Runtime error caught", ex);
             }
 
+            try { _viewModel.Render(_camera3D, _gameState.Player, _activeHandIndex); }
+            catch (Exception ex)
+            {
+                _gameState.Errors.Report("ViewModel.Render", ex);
+                Logger.Error("ViewModel.Render", "Runtime error caught", ex);
+            }
+
             sw.Stop();
             _renderMs = (float)sw.Elapsed.TotalMilliseconds;
 
             _framebuffer.Unbind();
             _framebuffer.BlitToScreen((int)_actualWidth, (int)_actualHeight);
 
+            // Восстанавливаем GL-состояние для HUD
             Gl.Viewport(0, 0, (uint)_actualWidth, (uint)_actualHeight);
             Gl.Disable(EnableCap.DepthTest);
+            Gl.Disable(EnableCap.CullFace);
+            Gl.DepthMask(false);
+            Gl.Enable(EnableCap.Blend);
+            Gl.BlendFunc(BlendingFactor.SrcAlpha, BlendingFactor.OneMinusSrcAlpha);
 
             string hoverName = _currentHit.Hit ? GetTileName(_currentHit.Tile) : "";
             TileType hoverTile = _currentHit.Hit ? _currentHit.Tile : TileType.Floor;
