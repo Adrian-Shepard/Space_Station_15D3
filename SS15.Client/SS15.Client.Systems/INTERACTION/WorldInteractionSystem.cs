@@ -1,0 +1,245 @@
+#nullable disable
+using System;
+using Engine.Rendering;
+using SS15.Client.Core;
+using SS15.Client.Objects;
+
+namespace SS15.Client.Systems
+{
+    public class WorldInteractionSystem
+    {
+        private readonly GameContext _ctx;
+        private const int DoorWidth = 2;
+
+        public WorldInteractionSystem(GameContext ctx)
+        {
+            _ctx = ctx;
+        }
+
+        public void LeftClick(int x, int y)
+        {
+            if (_ctx.State.Map.GetTile(x, y) == TileType.Door)
+                ToggleDoor(x, y);
+            else
+                PickupItem(x, y);
+        }
+
+        public void ToggleDoor(int x, int y)
+        {
+            int gid = _ctx.State.Map.GetDoorGroupId(x, y);
+            if (gid <= 0) return;
+
+            bool open = _ctx.State.Map.IsDoorOpen(x, y);
+            bool newState = !open;
+
+            if (!newState && AnyPlayerInDoorGroup(gid))
+            {
+                Notify("Дверь заблокирована — кто-то в проёме", new Color(1f, 0.5f, 0.5f, 1f));
+                return;
+            }
+
+            _ctx.State.Map.SetDoorOpen(x, y, newState);
+            var tiles = _ctx.State.Map.GetDoorTilesInGroup(gid);
+            foreach (var (dx, dy) in tiles)
+                _ctx.State.Atmosphere.SetDoorState(dx, dy, newState);
+
+            Notify(newState ? "Дверь открыта" : "Дверь закрыта", new Color(1f, 0.85f, 0.4f, 1f));
+        }
+
+        public void PickupItem(int x, int y)
+        {
+            var items = _ctx.State.Map.GetItemsAtTile(x, y);
+            if (items == null || items.Count == 0) return;
+
+            var item = items[0];
+            _ctx.State.Map.RemoveItemAtTile(x, y, item);
+            if (!_ctx.State.Player.Inventory.AddToHand(item) &&
+                !_ctx.State.Player.Inventory.AddToPocket(item) &&
+                !_ctx.State.Player.Inventory.AddToBelt(item) &&
+                !_ctx.State.Player.Inventory.AddToBack(item))
+                _ctx.State.Map.AddItemToTile(x, y, item);
+            else
+                Notify($"Подобрано: {item.Name}", new Color(0.6f, 0.9f, 1f, 1f));
+        }
+
+        public void PlaceWall(int x, int y)
+        {
+            var tile = _ctx.State.Map.GetTile(x, y);
+            if (tile == TileType.Wall || tile == TileType.ReinforcedWall || tile == TileType.Door) return;
+
+            _ctx.State.Map.SetTile(x, y, TileType.Wall);
+            _ctx.State.Atmosphere.SetWall(x, y, true);
+            Notify($"Стена поставлена ({x},{y})");
+        }
+
+        public void PlaceDoor(int x, int y)
+        {
+            float dirX = MathF.Cos(_ctx.State.Player.Direction);
+            float dirY = MathF.Sin(_ctx.State.Player.Direction);
+            bool facingEastWest = MathF.Abs(dirX) > MathF.Abs(dirY);
+
+            for (int i = 0; i < DoorWidth; i++)
+            {
+                int tx = facingEastWest ? x : x + i;
+                int ty = facingEastWest ? y + i : y;
+                if (!CanPlaceDoorTile(tx, ty))
+                {
+                    Notify($"Нельзя поставить дверь ({tx},{ty})", new Color(1f, 0.5f, 0.5f, 1f));
+                    return;
+                }
+            }
+
+            int gid = _ctx.State.Map.NewDoorGroup();
+            for (int i = 0; i < DoorWidth; i++)
+            {
+                int tx = facingEastWest ? x : x + i;
+                int ty = facingEastWest ? y + i : y;
+                RegisterDoorTile(tx, ty, gid);
+                _ctx.State.Atmosphere.SetDoorState(tx, ty, false);
+            }
+
+            Notify($"Дверь установлена ({x},{y})", new Color(0.6f, 1f, 0.6f, 1f));
+        }
+
+        public void PlaceWire(int x, int y) { SetTile(x, y, TileType.Wire); Notify($"Провод ({x},{y})"); }
+        public void PlaceGenerator(int x, int y) { SetTile(x, y, TileType.Generator); Notify($"Генератор ({x},{y})", new Color(0.9f, 0.8f, 0.4f, 1f)); }
+        public void PlaceLamp(int x, int y) { SetTile(x, y, TileType.Lamp); Notify($"Лампа ({x},{y})", new Color(0.9f, 0.9f, 0.5f, 1f)); }
+
+        public void RemoveObject(int x, int y)
+        {
+            var tile = _ctx.State.Map.GetTile(x, y);
+            if (tile == TileType.Floor)
+            {
+                _ctx.State.Map.SetTile(x, y, TileType.Space);
+                _ctx.State.Atmosphere.SetTileToSpace(x, y);
+                Notify($"Убрано в Space ({x},{y})", new Color(0.8f, 0.8f, 1f, 1f));
+            }
+            else if (tile == TileType.Space)
+            {
+                _ctx.State.Map.SetTile(x, y, TileType.Floor);
+                _ctx.State.Atmosphere.SetTileToFloor(x, y);
+                Notify($"Восстановлен пол ({x},{y})", new Color(0.7f, 1f, 0.7f, 1f));
+            }
+            else
+            {
+                _ctx.State.Map.SetTile(x, y, TileType.Floor);
+                _ctx.State.Atmosphere.SetTileToFloor(x, y);
+                Notify($"Удалено ({x},{y})", new Color(1f, 0.7f, 0.7f, 1f));
+            }
+        }
+
+        public void PlaceInPocket()
+        {
+            int h = _ctx.State.ActiveHandIndex;
+            var item = _ctx.State.Player.Inventory.RemoveItem(h);
+            if (item != null)
+            {
+                if (!_ctx.State.Player.Inventory.AddToPocket(item) &&
+                    !_ctx.State.Player.Inventory.AddToBelt(item) &&
+                    !_ctx.State.Player.Inventory.AddToBack(item))
+                    _ctx.State.Player.Inventory.SetItem(h, item);
+                else
+                    Notify($"В карман: {item.Name}");
+            }
+        }
+
+        public void UseItem()
+        {
+            int h = _ctx.State.ActiveHandIndex;
+            var item = _ctx.State.Player.Inventory.GetItem(h);
+            if (item != null && _ctx.State.Player.Inventory.UseItem(h, _ctx.State.Player))
+                Notify($"Использовано: {item.Name}", new Color(0.7f, 1f, 0.7f, 1f));
+        }
+
+        public void DropItem()
+        {
+            int h = _ctx.State.ActiveHandIndex;
+            var item = _ctx.State.Player.Inventory.RemoveItem(h);
+            if (item != null)
+            {
+                int tx = (int)(_ctx.State.Player.Position.X / _ctx.State.Map.TileSize);
+                int ty = (int)(_ctx.State.Player.Position.Y / _ctx.State.Map.TileSize);
+                _ctx.State.Map.AddItemToTile(tx, ty, item);
+                Notify($"Выброшено: {item.Name}", new Color(1f, 0.85f, 0.6f, 1f));
+            }
+        }
+
+        public void ModifyOxygen(int x, int y, float d) => _ctx.State.Atmosphere.ModifyOxygen(x, y, d);
+        public void ModifyNitrogen(int x, int y, float d) => _ctx.State.Atmosphere.ModifyNitrogen(x, y, d);
+        public void ModifyCarbonDioxide(int x, int y, float d) => _ctx.State.Atmosphere.ModifyCarbonDioxide(x, y, d);
+        public void ModifyTemperature(int x, int y, float d) => _ctx.State.Atmosphere.ModifyTemperature(x, y, d);
+        public void ModifyPlasma(int x, int y, float d) => _ctx.State.Atmosphere.ModifyPlasma(x, y, d);
+
+        public bool AnyPlayerInDoorGroup(int gid)
+        {
+            var tiles = _ctx.State.Map.GetDoorTilesInGroup(gid);
+            foreach (var (tx, ty) in tiles)
+                if (IsPlayerInTile(tx, ty))
+                    return true;
+            return false;
+        }
+
+        public bool IsPlayerInTile(int tx, int ty)
+        {
+            var p = _ctx.State.Player;
+            int ts = _ctx.State.Map.TileSize;
+            float tileX0 = tx * ts;
+            float tileY0 = ty * ts;
+            float half = p.PlayerHalf;
+            float px = p.Position.X;
+            float py = p.Position.Y;
+
+            return px + half > tileX0 && px - half < tileX0 + ts
+                && py + half > tileY0 && py - half < tileY0 + ts;
+        }
+
+        private bool CanPlaceDoorTile(int x, int y)
+        {
+            if (x < 0 || x >= _ctx.State.Map.Width || y < 0 || y >= _ctx.State.Map.Height) return false;
+            var t = _ctx.State.Map.GetTile(x, y);
+            return t != TileType.Wall && t != TileType.ReinforcedWall && t != TileType.Door;
+        }
+
+        private void RegisterDoorTile(int x, int y, int groupId)
+        {
+            var obj = ObjectFactory.Create(TileType.Door);
+            if (obj != null)
+            {
+                _ctx.State.Map.SetTile(x, y, obj.TileType);
+                obj.OnPlaced(_ctx.State.Map, x, y);
+            }
+            else
+            {
+                _ctx.State.Map.SetTile(x, y, TileType.Door);
+            }
+            _ctx.State.Map.RegisterDoorTile(x, y, groupId);
+        }
+
+        private void SetTile(int x, int y, TileType type)
+        {
+            if (_ctx.State.Map.GetTile(x, y) != TileType.Wall &&
+                _ctx.State.Map.GetTile(x, y) != TileType.ReinforcedWall &&
+                _ctx.State.Map.GetTile(x, y) != TileType.Door)
+            {
+                var obj = ObjectFactory.Create(type);
+                if (obj != null)
+                {
+                    _ctx.State.Map.SetTile(x, y, obj.TileType);
+                    obj.OnPlaced(_ctx.State.Map, x, y);
+                }
+            }
+        }
+
+        public void SafeCall(string system, Action action)
+        {
+            try { action(); }
+            catch (Exception ex)
+            {
+                _ctx.State.Errors.Report(system, ex);
+                Logger.Error(system, $"Runtime error caught: {ex.Message}", ex);
+            }
+        }
+
+        private void Notify(string text, Color? color = null) => _ctx.Hud.Notify(text, color);
+    }
+}

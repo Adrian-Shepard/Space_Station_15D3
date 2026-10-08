@@ -28,11 +28,16 @@ namespace SS15.Client.Systems
             _readGrid = new AtmosphereData[w, h];
             _writeGrid = new AtmosphereData[w, h];
 
+            _activeTiles.Clear();
+
             for (int y = 0; y < h; y++)
             {
                 for (int x = 0; x < w; x++)
                 {
-                    if (IsWalkable(x, y))
+                    var tile = _map.GetTile(x, y);
+                    bool isDoor = tile == TileType.Door;
+
+                    if (IsWalkable(x, y) || isDoor)
                     {
                         _readGrid[x, y] = new AtmosphereData
                         {
@@ -43,7 +48,9 @@ namespace SS15.Client.Systems
                             MolesPlasma = 0f
                         };
                         _writeGrid[x, y] = _readGrid[x, y];
-                        _activeTiles.Add((x, y));
+
+                        if (IsWalkable(x, y))
+                            _activeTiles.Add((x, y));
                     }
                 }
             }
@@ -57,12 +64,10 @@ namespace SS15.Client.Systems
 
             if (_activeTiles.Count == 0) return;
 
-            // Снимок активных тайлов на этот тик
             _snapshot.Clear();
             foreach (var t in _activeTiles) _snapshot.Add(t);
             _activeTiles.Clear();
 
-            // 1. Копируем read -> write для активных и их соседей
             foreach (var (x, y) in _snapshot)
             {
                 CopyToWrite(x, y);
@@ -72,7 +77,6 @@ namespace SS15.Client.Systems
                 CopyToWrite(x, y - 1);
             }
 
-            // 2. Диффузия
             foreach (var (x, y) in _snapshot)
             {
                 if (!IsWalkable(x, y)) continue;
@@ -82,12 +86,10 @@ namespace SS15.Client.Systems
                 ProcessNeighbor(x, y, x, y + 1);
                 ProcessNeighbor(x, y, x, y - 1);
 
-                // Горение
                 ref var cell = ref _writeGrid[x, y];
                 if (cell.MolesPlasma > Epsilon && cell.MolesOxygen > Epsilon && cell.Temperature > 373.15f)
                     Burn(ref cell);
 
-                // Изменилось?
                 ref var readCell = ref _readGrid[x, y];
                 bool changed =
                     Math.Abs(cell.Temperature - readCell.Temperature) > Epsilon ||
@@ -106,7 +108,6 @@ namespace SS15.Client.Systems
                 }
             }
 
-            // 3. Своп буферов
             (_readGrid, _writeGrid) = (_writeGrid, _readGrid);
         }
 
@@ -122,13 +123,12 @@ namespace SS15.Client.Systems
 
             if (!IsWalkable(x2, y2))
             {
-                // Утечка в космос
                 if (_map.GetTile(x2, y2) == TileType.Space)
                 {
                     int spaceCount = CountSpaceNeighbors(x1, y1);
                     if (spaceCount > 0)
                     {
-                        float leak = MathF.Pow(0.5f, spaceCount); // 50% на соседа
+                        float leak = MathF.Pow(0.5f, spaceCount);
                         ref var aNext = ref _writeGrid[x1, y1];
                         aNext.MolesOxygen *= leak;
                         aNext.MolesNitrogen *= leak;
@@ -215,13 +215,18 @@ namespace SS15.Client.Systems
         public AtmosphereData? GetAtmosphereAt(int tx, int ty)
         {
             if (tx < 0 || tx >= _map.Width || ty < 0 || ty >= _map.Height) return null;
+
+            // Дверь хранит атмосферу всегда, даже закрытая.
+            var tile = _map.GetTile(tx, ty);
+            if (tile == TileType.Door) return _readGrid[tx, ty];
+
             if (!IsWalkable(tx, ty)) return null;
             return _readGrid[tx, ty];
         }
 
         public void ModifyOxygen(int x, int y, float d)
         {
-            if (!IsWalkable(x, y)) return;
+            if (!IsWalkable(x, y) && _map.GetTile(x, y) != TileType.Door) return;
             ref var a = ref _readGrid[x, y];
             a.MolesOxygen = Math.Max(0, a.MolesOxygen + d);
             _activeTiles.Add((x, y));
@@ -231,7 +236,7 @@ namespace SS15.Client.Systems
 
         public void ModifyNitrogen(int x, int y, float d)
         {
-            if (!IsWalkable(x, y)) return;
+            if (!IsWalkable(x, y) && _map.GetTile(x, y) != TileType.Door) return;
             ref var a = ref _readGrid[x, y];
             a.MolesNitrogen = Math.Max(0, a.MolesNitrogen + d);
             _activeTiles.Add((x, y));
@@ -241,7 +246,7 @@ namespace SS15.Client.Systems
 
         public void ModifyCarbonDioxide(int x, int y, float d)
         {
-            if (!IsWalkable(x, y)) return;
+            if (!IsWalkable(x, y) && _map.GetTile(x, y) != TileType.Door) return;
             ref var a = ref _readGrid[x, y];
             a.MolesCarbonDioxide = Math.Max(0, a.MolesCarbonDioxide + d);
             _activeTiles.Add((x, y));
@@ -251,7 +256,7 @@ namespace SS15.Client.Systems
 
         public void ModifyPlasma(int x, int y, float d)
         {
-            if (!IsWalkable(x, y)) return;
+            if (!IsWalkable(x, y) && _map.GetTile(x, y) != TileType.Door) return;
             ref var a = ref _readGrid[x, y];
             a.MolesPlasma = Math.Max(0, a.MolesPlasma + d);
             _activeTiles.Add((x, y));
@@ -261,7 +266,7 @@ namespace SS15.Client.Systems
 
         public void ModifyTemperature(int x, int y, float d)
         {
-            if (!IsWalkable(x, y)) return;
+            if (!IsWalkable(x, y) && _map.GetTile(x, y) != TileType.Door) return;
             ref var a = ref _readGrid[x, y];
             a.Temperature = Math.Clamp(a.Temperature + d, 0f, MaxTemperature);
             _activeTiles.Add((x, y));
@@ -314,23 +319,18 @@ namespace SS15.Client.Systems
             AddNeighborActive(x, y + 1); AddNeighborActive(x, y - 1);
         }
 
+        /// <summary>
+        /// Переключить состояние двери. Атмосфера в тайле двери сохраняется:
+        /// закрытая дверь не диффундирует с соседями (IsWalkable = false), но газ внутри неё остаётся.
+        /// При открытии дверь снова начинает диффундировать.
+        /// </summary>
         public void SetDoorState(int x, int y, bool open)
         {
             if (x < 0 || x >= _map.Width || y < 0 || y >= _map.Height) return;
+
             _map.SetDoorOpen(x, y, open);
-            if (!open)
-            {
-                _readGrid[x, y] = default;
-                _writeGrid[x, y] = default;
-            }
-            else
-            {
-                var n = GetNeighborAverage(x, y);
-                if (n.TotalMoles <= 0)
-                    n = new AtmosphereData { Temperature = 293.15f, MolesOxygen = 21f, MolesNitrogen = 79f, MolesCarbonDioxide = 0.03f };
-                _readGrid[x, y] = n;
-                _writeGrid[x, y] = n;
-            }
+
+            // Атмосферу НЕ трогаем — она остаётся как была.
             _activeTiles.Add((x, y));
             AddNeighborActive(x + 1, y); AddNeighborActive(x - 1, y);
             AddNeighborActive(x, y + 1); AddNeighborActive(x, y - 1);

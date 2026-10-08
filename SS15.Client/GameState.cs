@@ -23,7 +23,8 @@ namespace SS15.Client
 
         /// Runtime-тайминги сессии.
         public GameRuntime Runtime { get; } = new();
-
+         public int ActiveSlotIndex { get; set; } = 0;
+        public int ActiveHandIndex { get; set; } = 0;
         /// Центральный лог runtime-ошибок.
         public RuntimeErrorLog Errors { get; } = new();
 

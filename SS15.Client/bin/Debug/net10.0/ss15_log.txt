@@ -1,137 +1,84 @@
-=== SS15 Log started at 2026-10-08 15:19:44 ===
-[15:19:44.040] [Info] [Logger] Logging initialized, file: D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\ss15_log.txt
-[15:19:44.049] [Info] [Program] Application starting
-[15:19:44.499] [Info] [MainGame] OnLoad started
-[15:19:44.542] [Info] [MainGame] All textures loaded
-[15:19:44.710] [Info] [MainGame] SpriteBatch created
-[15:19:44.712] [Info] [GL] Vendor:   ATI Technologies Inc.
-[15:19:44.712] [Info] [GL] Renderer: Radeon RX 570 Series
-[15:19:44.713] [Info] [GL] Version:  4.6.0 Core Profile Context 26.1.1.251211
-[15:19:44.713] [Info] [GL] GLSL:     4.60
-[15:19:44.714] [Info] [GL] Default framebuffer depth bits: 0 (0 = need custom FBO)
-[15:19:44.716] [Info] [MainGame] Window size: 800x600
-[15:19:44.722] [Info] [Framebuffer] Created FBO=1 Color=23 Depth=1 800x600
-[15:19:44.795] [Info] [MainGame] Input initialized
-[15:19:44.833] [Info] [MainGame] GameState initialized. Map: 255x255
-[15:19:44.834] [Info] [MainGame] Player spawn: <4080  4080>
-[15:19:44.835] [Info] [World3D] Creating Shader3D...
-[15:19:44.837] [Info] [Shader3D] Compiling vertex shader...
-[15:19:44.843] [Info] [Shader3D] VertexShader compiled OK
-[15:19:44.844] [Info] [Shader3D] Compiling fragment shader...
-[15:19:44.846] [Info] [Shader3D] FragmentShader compiled OK
-[15:19:44.846] [Info] [Shader3D] Linking program...
-[15:19:44.847] [Info] [Shader3D] Program linked OK. Id=4
-[15:19:44.851] [Info] [Shader3D] Uniform OK: uModelPos at loc 0
-[15:19:44.852] [Info] [Shader3D] Uniform OK: uModelScale at loc 1
-[15:19:44.854] [Info] [Shader3D] Uniform OK: uView at loc 2
-[15:19:44.854] [Info] [Shader3D] Uniform OK: uProjection at loc 6
-[15:19:44.859] [Info] [Shader3D] Uniform OK: uTexture at loc 10
-[15:19:44.861] [Info] [Shader3D] Uniform OK: uLightDir at loc 11
-[15:19:44.862] [Info] [Shader3D] Uniform OK: uAmbientColor at loc 12
-[15:19:44.862] [Info] [Shader3D] Uniform OK: uLightColor at loc 13
-[15:19:44.863] [Info] [Shader3D] Uniform OK: uViewPos at loc 14
-[15:19:44.863] [Info] [Shader3D] Uniform OK: uUnlit at loc 15
-[15:19:44.864] [Info] [World3D] Building meshes...
-[15:19:44.868] [Info] [Mesh] Created VAO=2 VBO=3 EBO=4 verts=24 indices=36
-[15:19:44.869] [Info] [Mesh] Created VAO=3 VBO=5 EBO=6 verts=4 indices=6
-[15:19:44.874] [Info] [Mesh] Created VAO=4 VBO=7 EBO=8 verts=4 indices=6
-[15:19:44.878] [Info] [Mesh] Created VAO=5 VBO=9 EBO=10 verts=4 indices=6
-[15:19:44.879] [Info] [Mesh] Created VAO=6 VBO=11 EBO=12 verts=4 indices=6
-[15:19:44.880] [Info] [Mesh] Created VAO=7 VBO=13 EBO=14 verts=4 indices=6
-[15:19:44.881] [Info] [Mesh] Created VAO=8 VBO=15 EBO=16 verts=4 indices=6
-[15:19:44.882] [Info] [Mesh] Created VAO=9 VBO=17 EBO=18 verts=4 indices=6
-[15:19:44.885] [Info] [Mesh] Created VAO=10 VBO=19 EBO=20 verts=4 indices=6
-[15:19:44.885] [Info] [Mesh] Created VAO=11 VBO=21 EBO=22 verts=4 indices=6
-[15:19:44.886] [Info] [Mesh] Created VAO=12 VBO=23 EBO=24 verts=4 indices=6
-[15:19:44.887] [Info] [Mesh] Created VAO=13 VBO=25 EBO=26 verts=4 indices=6
-[15:19:44.888] [Info] [Mesh] Created VAO=14 VBO=27 EBO=28 verts=4 indices=6
-[15:19:44.889] [Info] [Mesh] Created VAO=15 VBO=29 EBO=30 verts=4 indices=6
-[15:19:44.896] [Info] [Mesh] Created VAO=16 VBO=31 EBO=32 verts=4 indices=6
-[15:19:44.897] [Info] [Mesh] Created VAO=17 VBO=33 EBO=34 verts=24 indices=36
-[15:19:44.897] [Info] [World3D] WorldRenderer3D initialized
-[15:19:44.898] [Info] [World3D] Textures assigned. Wall=5, Wire=7, Highlight=21
-[15:19:44.898] [Info] [MainGame] World3D initialized
-[15:19:44.903] [Info] [ShaderViewModel] Program linked. Id=5
-[15:19:44.904] [Info] [Mesh] Created VAO=18 VBO=35 EBO=36 verts=24 indices=36
-[15:19:44.905] [Info] [ViewModel] Initialized
-[15:19:44.907] [Info] [MainGame] ViewModel initialized
-[15:19:44.959] [Info] [MainGame] HUD initialized
-[15:19:44.965] [Info] [MainGame] OnLoad complete
-[15:19:45.068] [Info] [World3D] First Draw. Camera=(127,5,1,6,127,5) Viewport=800x600
-[15:19:45.070] [Info] [World3D] Yaw=0,00 Pitch=0,00 ViewRadius=20
-[15:19:45.072] [Info] [World3D] Tile at camera: (127,127) = Floor
-[15:19:45.744] [Info] [Perf] FPS=39,3 Player=0,02ms Atmos=0,00ms Render=0,63ms Tiles=615 Uptime=00:00:01 Errors=0
-[15:19:46.757] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,45ms Tiles=572 Uptime=00:00:02 Errors=0
-[15:19:47.757] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,47ms Tiles=619 Uptime=00:00:03 Errors=0
-[15:19:48.772] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,48ms Tiles=576 Uptime=00:00:04 Errors=0
-[15:19:49.789] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,48ms Tiles=563 Uptime=00:00:05 Errors=0
-[15:19:50.805] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,49ms Tiles=562 Uptime=00:00:06 Errors=0
-[15:19:51.822] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,51ms Tiles=562 Uptime=00:00:07 Errors=0
-[15:19:52.838] [Info] [Perf] FPS=59,0 Player=0,01ms Atmos=0,00ms Render=0,69ms Tiles=561 Uptime=00:00:08 Errors=0
-[15:19:53.839] [Info] [Perf] FPS=59,0 Player=0,01ms Atmos=0,00ms Render=0,46ms Tiles=561 Uptime=00:00:09 Errors=0
-[15:19:54.854] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,46ms Tiles=561 Uptime=00:00:10 Errors=0
-[15:19:55.854] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,44ms Tiles=561 Uptime=00:00:11 Errors=0
-[15:19:56.870] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,66ms Tiles=560 Uptime=00:00:12 Errors=0
-[15:19:57.871] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,48ms Tiles=576 Uptime=00:00:13 Errors=0
-[15:19:58.888] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,53ms Tiles=589 Uptime=00:00:14 Errors=0
-[15:19:59.903] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,54ms Tiles=593 Uptime=00:00:15 Errors=0
-[15:20:00.919] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,50ms Tiles=604 Uptime=00:00:16 Errors=0
-[15:20:01.936] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,62ms Tiles=602 Uptime=00:00:17 Errors=0
-[15:20:02.936] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,64ms Tiles=602 Uptime=00:00:18 Errors=0
-[15:20:03.952] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,53ms Tiles=647 Uptime=00:00:19 Errors=0
-[15:20:04.952] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,52ms Tiles=649 Uptime=00:00:20 Errors=0
-[15:20:05.953] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,52ms Tiles=649 Uptime=00:00:21 Errors=0
-[15:20:06.968] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,51ms Tiles=649 Uptime=00:00:22 Errors=0
-[15:20:07.983] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,51ms Tiles=649 Uptime=00:00:23 Errors=0
-[15:20:08.984] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=0,00ms Render=0,53ms Tiles=634 Uptime=00:00:24 Errors=0
-[15:20:09.999] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,56ms Tiles=658 Uptime=00:00:25 Errors=0
-[15:20:11.000] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,51ms Tiles=640 Uptime=00:00:26 Errors=0
-[15:20:12.015] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,54ms Tiles=636 Uptime=00:00:27 Errors=0
-[15:20:13.032] [Info] [Perf] FPS=59,0 Player=0,01ms Atmos=0,00ms Render=0,54ms Tiles=638 Uptime=00:00:28 Errors=0
-[15:20:14.032] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,47ms Tiles=576 Uptime=00:00:29 Errors=0
-[15:20:15.047] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,49ms Tiles=635 Uptime=00:00:30 Errors=0
-[15:20:16.064] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,51ms Tiles=597 Uptime=00:00:31 Errors=0
-[15:20:17.065] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,48ms Tiles=595 Uptime=00:00:32 Errors=0
-[15:20:18.080] [Info] [Perf] FPS=60,1 Player=0,03ms Atmos=0,00ms Render=0,56ms Tiles=595 Uptime=00:00:33 Errors=0
-[15:20:19.081] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=0,00ms Render=0,59ms Tiles=638 Uptime=00:00:34 Errors=0
-[15:20:20.097] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,50ms Tiles=593 Uptime=00:00:35 Errors=0
-[15:20:21.113] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,52ms Tiles=640 Uptime=00:00:36 Errors=0
-[15:20:22.113] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,53ms Tiles=605 Uptime=00:00:37 Errors=0
-[15:20:23.129] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,55ms Tiles=638 Uptime=00:00:38 Errors=0
-[15:20:24.146] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,48ms Tiles=590 Uptime=00:00:39 Errors=0
-[15:20:25.162] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,50ms Tiles=588 Uptime=00:00:40 Errors=0
-[15:20:26.178] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,50ms Tiles=588 Uptime=00:00:41 Errors=0
-[15:20:27.193] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,49ms Tiles=592 Uptime=00:00:42 Errors=0
-[15:20:28.210] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,53ms Tiles=603 Uptime=00:00:43 Errors=0
-[15:20:29.226] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,47ms Tiles=600 Uptime=00:00:44 Errors=0
-[15:20:30.227] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,65ms Tiles=599 Uptime=00:00:45 Errors=0
-[15:20:31.245] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=0,12ms Render=0,51ms Tiles=579 Uptime=00:00:46 Errors=0
-[15:20:32.258] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,53ms Tiles=607 Uptime=00:00:47 Errors=0
-[15:20:33.259] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,51ms Tiles=592 Uptime=00:00:48 Errors=0
-[15:20:34.275] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,52ms Tiles=649 Uptime=00:00:49 Errors=0
-[15:20:35.291] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,54ms Tiles=635 Uptime=00:00:50 Errors=0
-[15:20:36.291] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,49ms Tiles=595 Uptime=00:00:51 Errors=0
-[15:20:37.307] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,78ms Tiles=611 Uptime=00:00:52 Errors=0
-[15:20:38.323] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,59ms Tiles=588 Uptime=00:00:53 Errors=0
-[15:20:39.324] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,49ms Tiles=584 Uptime=00:00:54 Errors=0
-[15:20:40.340] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,21ms Render=0,58ms Tiles=617 Uptime=00:00:55 Errors=0
-[15:20:41.356] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,70ms Tiles=642 Uptime=00:00:56 Errors=0
-[15:20:42.372] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,60ms Tiles=643 Uptime=00:00:57 Errors=0
-[15:20:43.388] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,53ms Tiles=643 Uptime=00:00:58 Errors=0
-[15:20:44.388] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,63ms Tiles=653 Uptime=00:00:59 Errors=0
-[15:20:45.404] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,56ms Tiles=653 Uptime=00:01:00 Errors=0
-[15:20:46.404] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,73ms Tiles=653 Uptime=00:01:01 Errors=0
-[15:20:47.420] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,48ms Tiles=593 Uptime=00:01:02 Errors=0
-[15:20:48.436] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,21ms Render=0,48ms Tiles=591 Uptime=00:01:03 Errors=0
-[15:20:49.449] [Info] [Perf] FPS=56,3 Player=0,01ms Atmos=0,23ms Render=0,48ms Tiles=591 Uptime=00:01:04 Errors=0
-[15:20:50.457] [Info] [Perf] FPS=57,6 Player=0,01ms Atmos=0,23ms Render=0,46ms Tiles=591 Uptime=00:01:05 Errors=0
-[15:20:51.468] [Info] [Perf] FPS=50,4 Player=0,00ms Atmos=0,00ms Render=0,47ms Tiles=591 Uptime=00:01:06 Errors=0
-[15:20:52.530] [Info] [Perf] FPS=44,3 Player=0,01ms Atmos=0,24ms Render=0,46ms Tiles=591 Uptime=00:01:08 Errors=0
-[15:20:53.722] [Info] [Perf] FPS=12,6 Player=0,01ms Atmos=0,52ms Render=0,46ms Tiles=591 Uptime=00:01:09 Errors=0
-[15:20:54.832] [Info] [Perf] FPS=2,7 Player=0,01ms Atmos=0,29ms Render=0,56ms Tiles=591 Uptime=00:01:10 Errors=0
-[15:20:55.833] [Info] [Perf] FPS=40,9 Player=0,01ms Atmos=0,00ms Render=0,70ms Tiles=591 Uptime=00:01:11 Errors=0
-[15:20:56.849] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,49ms Tiles=591 Uptime=00:01:12 Errors=0
-[15:20:57.855] [Info] [Perf] FPS=59,6 Player=0,00ms Atmos=0,00ms Render=1,07ms Tiles=591 Uptime=00:01:13 Errors=0
-[15:20:58.866] [Info] [Perf] FPS=60,3 Player=0,00ms Atmos=0,00ms Render=0,49ms Tiles=591 Uptime=00:01:14 Errors=0
-[15:20:59.882] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,26ms Render=0,44ms Tiles=591 Uptime=00:01:15 Errors=0
-[15:21:00.900] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,46ms Tiles=591 Uptime=00:01:16 Errors=0
+=== SS15 Log started at 2026-10-08 15:46:36 ===
+[15:46:36.925] [Info] [Logger] Logging initialized, file: D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\ss15_log.txt
+[15:46:36.961] [Info] [Program] Application starting
+[15:46:37.460] [Info] [MainGame] OnLoad started
+[15:46:37.560] [Info] [Assets] All textures loaded
+[15:46:38.249] [Info] [GL] Vendor:   ATI Technologies Inc.
+[15:46:38.406] [Info] [GL] Renderer: Radeon RX 570 Series
+[15:46:38.427] [Info] [GL] Version:  4.6.0 Core Profile Context 26.1.1.251211
+[15:46:38.428] [Info] [GL] GLSL:     4.60
+[15:46:38.431] [Info] [GL] Default depth bits: 0
+[15:46:38.547] [Info] [Framebuffer] Created FBO=1 Color=23 Depth=1 800x600
+[15:46:38.710] [Info] [World3D] Creating Shader3D...
+[15:46:38.712] [Info] [Shader3D] Compiling vertex shader...
+[15:46:38.716] [Info] [Shader3D] VertexShader compiled OK
+[15:46:38.717] [Info] [Shader3D] Compiling fragment shader...
+[15:46:38.726] [Info] [Shader3D] FragmentShader compiled OK
+[15:46:38.727] [Info] [Shader3D] Linking program...
+[15:46:38.728] [Info] [Shader3D] Program linked OK. Id=4
+[15:46:38.730] [Info] [Shader3D] Uniform OK: uModelPos at loc 0
+[15:46:38.731] [Info] [Shader3D] Uniform OK: uModelScale at loc 1
+[15:46:38.731] [Info] [Shader3D] Uniform OK: uView at loc 2
+[15:46:38.732] [Info] [Shader3D] Uniform OK: uProjection at loc 6
+[15:46:38.732] [Info] [Shader3D] Uniform OK: uTexture at loc 10
+[15:46:38.733] [Info] [Shader3D] Uniform OK: uLightDir at loc 11
+[15:46:38.734] [Info] [Shader3D] Uniform OK: uAmbientColor at loc 12
+[15:46:38.739] [Info] [Shader3D] Uniform OK: uLightColor at loc 13
+[15:46:38.741] [Info] [Shader3D] Uniform OK: uViewPos at loc 14
+[15:46:38.741] [Info] [Shader3D] Uniform OK: uUnlit at loc 15
+[15:46:38.742] [Info] [World3D] Building meshes...
+[15:46:38.748] [Info] [Mesh] Created VAO=2 VBO=3 EBO=4 verts=24 indices=36
+[15:46:38.750] [Info] [Mesh] Created VAO=3 VBO=5 EBO=6 verts=4 indices=6
+[15:46:38.751] [Info] [Mesh] Created VAO=4 VBO=7 EBO=8 verts=4 indices=6
+[15:46:38.757] [Info] [Mesh] Created VAO=5 VBO=9 EBO=10 verts=4 indices=6
+[15:46:38.760] [Info] [Mesh] Created VAO=6 VBO=11 EBO=12 verts=4 indices=6
+[15:46:38.762] [Info] [Mesh] Created VAO=7 VBO=13 EBO=14 verts=4 indices=6
+[15:46:38.763] [Info] [Mesh] Created VAO=8 VBO=15 EBO=16 verts=4 indices=6
+[15:46:38.766] [Info] [Mesh] Created VAO=9 VBO=17 EBO=18 verts=4 indices=6
+[15:46:38.776] [Info] [Mesh] Created VAO=10 VBO=19 EBO=20 verts=4 indices=6
+[15:46:38.779] [Info] [Mesh] Created VAO=11 VBO=21 EBO=22 verts=4 indices=6
+[15:46:38.782] [Info] [Mesh] Created VAO=12 VBO=23 EBO=24 verts=4 indices=6
+[15:46:38.796] [Info] [Mesh] Created VAO=13 VBO=25 EBO=26 verts=4 indices=6
+[15:46:38.797] [Info] [Mesh] Created VAO=14 VBO=27 EBO=28 verts=4 indices=6
+[15:46:38.799] [Info] [Mesh] Created VAO=15 VBO=29 EBO=30 verts=4 indices=6
+[15:46:38.800] [Info] [Mesh] Created VAO=16 VBO=31 EBO=32 verts=4 indices=6
+[15:46:38.801] [Info] [Mesh] Created VAO=17 VBO=33 EBO=34 verts=24 indices=36
+[15:46:38.807] [Info] [World3D] WorldRenderer3D initialized
+[15:46:38.810] [Info] [World3D] Textures assigned. Wall=5, Wire=7, Highlight=21
+[15:46:38.814] [Info] [ShaderViewModel] Program linked. Id=5
+[15:46:38.816] [Info] [Mesh] Created VAO=18 VBO=35 EBO=36 verts=24 indices=36
+[15:46:38.817] [Info] [ViewModel] Initialized
+[15:46:38.886] [Info] [MainGame] OnLoad complete
+[15:46:39.029] [Info] [World3D] First Draw. Camera=(127,5,1,6,127,5) Viewport=800x600
+[15:46:39.031] [Info] [World3D] Yaw=0,00 Pitch=0,00 ViewRadius=20
+[15:46:39.063] [Info] [World3D] Tile at camera: (127,127) = Floor
+[15:46:39.557] [Info] [Perf] FPS=26,8 Player=0,00ms Atmos=0,00ms Render=1,00ms Tiles=627 Uptime=00:00:02 Errors=0
+[15:46:40.597] [Info] [Perf] FPS=17,3 Player=0,01ms Atmos=0,00ms Render=0,72ms Tiles=627 Uptime=00:00:03 Errors=0
+[15:46:41.599] [Info] [Perf] FPS=6,0 Player=0,01ms Atmos=0,00ms Render=0,70ms Tiles=627 Uptime=00:00:04 Errors=0
+[15:46:42.604] [Info] [Perf] FPS=55,7 Player=0,01ms Atmos=0,00ms Render=0,56ms Tiles=627 Uptime=00:00:05 Errors=0
+[15:46:43.620] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,59ms Tiles=627 Uptime=00:00:06 Errors=0
+[15:46:44.622] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,54ms Tiles=627 Uptime=00:00:07 Errors=0
+[15:46:45.636] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,57ms Tiles=627 Uptime=00:00:08 Errors=0
+[15:46:46.656] [Info] [Perf] FPS=53,0 Player=0,07ms Atmos=0,00ms Render=0,57ms Tiles=627 Uptime=00:00:09 Errors=0
+[15:46:47.668] [Info] [Perf] FPS=60,3 Player=0,00ms Atmos=0,00ms Render=0,60ms Tiles=627 Uptime=00:00:10 Errors=0
+[15:46:48.670] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,58ms Tiles=627 Uptime=00:00:11 Errors=0
+[15:46:49.678] [Info] [Perf] FPS=59,6 Player=0,00ms Atmos=0,00ms Render=0,57ms Tiles=627 Uptime=00:00:12 Errors=0
+[15:46:50.686] [Info] [Perf] FPS=60,5 Player=0,00ms Atmos=0,00ms Render=0,56ms Tiles=627 Uptime=00:00:13 Errors=0
+[15:46:51.687] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,58ms Tiles=627 Uptime=00:00:14 Errors=0
+[15:46:52.688] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,98ms Tiles=627 Uptime=00:00:15 Errors=0
+[15:46:53.688] [Info] [Perf] FPS=50,0 Player=0,00ms Atmos=0,00ms Render=0,55ms Tiles=627 Uptime=00:00:16 Errors=0
+[15:46:54.700] [Info] [Perf] FPS=55,3 Player=0,01ms Atmos=0,00ms Render=0,58ms Tiles=627 Uptime=00:00:17 Errors=0
+[15:46:55.700] [Info] [Perf] FPS=59,0 Player=0,01ms Atmos=0,00ms Render=0,52ms Tiles=574 Uptime=00:00:18 Errors=0
+[15:46:56.701] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,55ms Tiles=582 Uptime=00:00:19 Errors=0
+[15:46:57.716] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,60ms Tiles=653 Uptime=00:00:20 Errors=0
+[15:46:58.717] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,56ms Tiles=627 Uptime=00:00:21 Errors=0
+[15:46:59.733] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,56ms Tiles=607 Uptime=00:00:22 Errors=0
+[15:47:00.749] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,64ms Tiles=606 Uptime=00:00:23 Errors=0
+[15:47:01.749] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,52ms Tiles=563 Uptime=00:00:24 Errors=0
+[15:47:02.765] [Info] [Perf] FPS=56,1 Player=0,00ms Atmos=0,00ms Render=0,61ms Tiles=654 Uptime=00:00:25 Errors=0
+[15:47:03.765] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,55ms Tiles=592 Uptime=00:00:26 Errors=0
+[15:47:04.781] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,57ms Tiles=626 Uptime=00:00:27 Errors=0
+[15:47:05.797] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,55ms Tiles=592 Uptime=00:00:28 Errors=0
+[15:47:06.797] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,56ms Tiles=618 Uptime=00:00:29 Errors=0
+[15:47:07.813] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,61ms Tiles=585 Uptime=00:00:30 Errors=0
+[15:47:08.383] [Info] [Program] Application exited normally
