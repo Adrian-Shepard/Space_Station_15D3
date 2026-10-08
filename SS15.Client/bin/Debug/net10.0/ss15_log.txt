@@ -1,84 +1,930 @@
-=== SS15 Log started at 2026-10-08 15:46:36 ===
-[15:46:36.925] [Info] [Logger] Logging initialized, file: D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\ss15_log.txt
-[15:46:36.961] [Info] [Program] Application starting
-[15:46:37.460] [Info] [MainGame] OnLoad started
-[15:46:37.560] [Info] [Assets] All textures loaded
-[15:46:38.249] [Info] [GL] Vendor:   ATI Technologies Inc.
-[15:46:38.406] [Info] [GL] Renderer: Radeon RX 570 Series
-[15:46:38.427] [Info] [GL] Version:  4.6.0 Core Profile Context 26.1.1.251211
-[15:46:38.428] [Info] [GL] GLSL:     4.60
-[15:46:38.431] [Info] [GL] Default depth bits: 0
-[15:46:38.547] [Info] [Framebuffer] Created FBO=1 Color=23 Depth=1 800x600
-[15:46:38.710] [Info] [World3D] Creating Shader3D...
-[15:46:38.712] [Info] [Shader3D] Compiling vertex shader...
-[15:46:38.716] [Info] [Shader3D] VertexShader compiled OK
-[15:46:38.717] [Info] [Shader3D] Compiling fragment shader...
-[15:46:38.726] [Info] [Shader3D] FragmentShader compiled OK
-[15:46:38.727] [Info] [Shader3D] Linking program...
-[15:46:38.728] [Info] [Shader3D] Program linked OK. Id=4
-[15:46:38.730] [Info] [Shader3D] Uniform OK: uModelPos at loc 0
-[15:46:38.731] [Info] [Shader3D] Uniform OK: uModelScale at loc 1
-[15:46:38.731] [Info] [Shader3D] Uniform OK: uView at loc 2
-[15:46:38.732] [Info] [Shader3D] Uniform OK: uProjection at loc 6
-[15:46:38.732] [Info] [Shader3D] Uniform OK: uTexture at loc 10
-[15:46:38.733] [Info] [Shader3D] Uniform OK: uLightDir at loc 11
-[15:46:38.734] [Info] [Shader3D] Uniform OK: uAmbientColor at loc 12
-[15:46:38.739] [Info] [Shader3D] Uniform OK: uLightColor at loc 13
-[15:46:38.741] [Info] [Shader3D] Uniform OK: uViewPos at loc 14
-[15:46:38.741] [Info] [Shader3D] Uniform OK: uUnlit at loc 15
-[15:46:38.742] [Info] [World3D] Building meshes...
-[15:46:38.748] [Info] [Mesh] Created VAO=2 VBO=3 EBO=4 verts=24 indices=36
-[15:46:38.750] [Info] [Mesh] Created VAO=3 VBO=5 EBO=6 verts=4 indices=6
-[15:46:38.751] [Info] [Mesh] Created VAO=4 VBO=7 EBO=8 verts=4 indices=6
-[15:46:38.757] [Info] [Mesh] Created VAO=5 VBO=9 EBO=10 verts=4 indices=6
-[15:46:38.760] [Info] [Mesh] Created VAO=6 VBO=11 EBO=12 verts=4 indices=6
-[15:46:38.762] [Info] [Mesh] Created VAO=7 VBO=13 EBO=14 verts=4 indices=6
-[15:46:38.763] [Info] [Mesh] Created VAO=8 VBO=15 EBO=16 verts=4 indices=6
-[15:46:38.766] [Info] [Mesh] Created VAO=9 VBO=17 EBO=18 verts=4 indices=6
-[15:46:38.776] [Info] [Mesh] Created VAO=10 VBO=19 EBO=20 verts=4 indices=6
-[15:46:38.779] [Info] [Mesh] Created VAO=11 VBO=21 EBO=22 verts=4 indices=6
-[15:46:38.782] [Info] [Mesh] Created VAO=12 VBO=23 EBO=24 verts=4 indices=6
-[15:46:38.796] [Info] [Mesh] Created VAO=13 VBO=25 EBO=26 verts=4 indices=6
-[15:46:38.797] [Info] [Mesh] Created VAO=14 VBO=27 EBO=28 verts=4 indices=6
-[15:46:38.799] [Info] [Mesh] Created VAO=15 VBO=29 EBO=30 verts=4 indices=6
-[15:46:38.800] [Info] [Mesh] Created VAO=16 VBO=31 EBO=32 verts=4 indices=6
-[15:46:38.801] [Info] [Mesh] Created VAO=17 VBO=33 EBO=34 verts=24 indices=36
-[15:46:38.807] [Info] [World3D] WorldRenderer3D initialized
-[15:46:38.810] [Info] [World3D] Textures assigned. Wall=5, Wire=7, Highlight=21
-[15:46:38.814] [Info] [ShaderViewModel] Program linked. Id=5
-[15:46:38.816] [Info] [Mesh] Created VAO=18 VBO=35 EBO=36 verts=24 indices=36
-[15:46:38.817] [Info] [ViewModel] Initialized
-[15:46:38.886] [Info] [MainGame] OnLoad complete
-[15:46:39.029] [Info] [World3D] First Draw. Camera=(127,5,1,6,127,5) Viewport=800x600
-[15:46:39.031] [Info] [World3D] Yaw=0,00 Pitch=0,00 ViewRadius=20
-[15:46:39.063] [Info] [World3D] Tile at camera: (127,127) = Floor
-[15:46:39.557] [Info] [Perf] FPS=26,8 Player=0,00ms Atmos=0,00ms Render=1,00ms Tiles=627 Uptime=00:00:02 Errors=0
-[15:46:40.597] [Info] [Perf] FPS=17,3 Player=0,01ms Atmos=0,00ms Render=0,72ms Tiles=627 Uptime=00:00:03 Errors=0
-[15:46:41.599] [Info] [Perf] FPS=6,0 Player=0,01ms Atmos=0,00ms Render=0,70ms Tiles=627 Uptime=00:00:04 Errors=0
-[15:46:42.604] [Info] [Perf] FPS=55,7 Player=0,01ms Atmos=0,00ms Render=0,56ms Tiles=627 Uptime=00:00:05 Errors=0
-[15:46:43.620] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,59ms Tiles=627 Uptime=00:00:06 Errors=0
-[15:46:44.622] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,54ms Tiles=627 Uptime=00:00:07 Errors=0
-[15:46:45.636] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,57ms Tiles=627 Uptime=00:00:08 Errors=0
-[15:46:46.656] [Info] [Perf] FPS=53,0 Player=0,07ms Atmos=0,00ms Render=0,57ms Tiles=627 Uptime=00:00:09 Errors=0
-[15:46:47.668] [Info] [Perf] FPS=60,3 Player=0,00ms Atmos=0,00ms Render=0,60ms Tiles=627 Uptime=00:00:10 Errors=0
-[15:46:48.670] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,58ms Tiles=627 Uptime=00:00:11 Errors=0
-[15:46:49.678] [Info] [Perf] FPS=59,6 Player=0,00ms Atmos=0,00ms Render=0,57ms Tiles=627 Uptime=00:00:12 Errors=0
-[15:46:50.686] [Info] [Perf] FPS=60,5 Player=0,00ms Atmos=0,00ms Render=0,56ms Tiles=627 Uptime=00:00:13 Errors=0
-[15:46:51.687] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,58ms Tiles=627 Uptime=00:00:14 Errors=0
-[15:46:52.688] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,98ms Tiles=627 Uptime=00:00:15 Errors=0
-[15:46:53.688] [Info] [Perf] FPS=50,0 Player=0,00ms Atmos=0,00ms Render=0,55ms Tiles=627 Uptime=00:00:16 Errors=0
-[15:46:54.700] [Info] [Perf] FPS=55,3 Player=0,01ms Atmos=0,00ms Render=0,58ms Tiles=627 Uptime=00:00:17 Errors=0
-[15:46:55.700] [Info] [Perf] FPS=59,0 Player=0,01ms Atmos=0,00ms Render=0,52ms Tiles=574 Uptime=00:00:18 Errors=0
-[15:46:56.701] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,55ms Tiles=582 Uptime=00:00:19 Errors=0
-[15:46:57.716] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,60ms Tiles=653 Uptime=00:00:20 Errors=0
-[15:46:58.717] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,56ms Tiles=627 Uptime=00:00:21 Errors=0
-[15:46:59.733] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,56ms Tiles=607 Uptime=00:00:22 Errors=0
-[15:47:00.749] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,64ms Tiles=606 Uptime=00:00:23 Errors=0
-[15:47:01.749] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,52ms Tiles=563 Uptime=00:00:24 Errors=0
-[15:47:02.765] [Info] [Perf] FPS=56,1 Player=0,00ms Atmos=0,00ms Render=0,61ms Tiles=654 Uptime=00:00:25 Errors=0
-[15:47:03.765] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,55ms Tiles=592 Uptime=00:00:26 Errors=0
-[15:47:04.781] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,57ms Tiles=626 Uptime=00:00:27 Errors=0
-[15:47:05.797] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,55ms Tiles=592 Uptime=00:00:28 Errors=0
-[15:47:06.797] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,56ms Tiles=618 Uptime=00:00:29 Errors=0
-[15:47:07.813] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,61ms Tiles=585 Uptime=00:00:30 Errors=0
-[15:47:08.383] [Info] [Program] Application exited normally
+=== SS15 Log started at 2026-10-08 21:36:41 ===
+[21:36:41.356] [Info] [Logger] Logging initialized, file: D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\ss15_log.txt
+[21:36:41.365] [Info] [Program] Application starting
+[21:36:41.689] [Info] [MainGame] OnLoad started
+[21:36:41.739] [Info] [CrateSprite] Using procedural crate texture
+[21:36:41.743] [Info] [Assets] All textures loaded
+[21:36:41.906] [Info] [GL] Vendor:   ATI Technologies Inc.
+[21:36:41.906] [Info] [GL] Renderer: Radeon RX 570 Series
+[21:36:41.907] [Info] [GL] Version:  4.6.0 Core Profile Context 26.1.1.251211
+[21:36:41.907] [Info] [GL] GLSL:     4.60
+[21:36:41.908] [Info] [GL] Default depth bits: 0
+[21:36:41.916] [Info] [Framebuffer] Created FBO=1 Color=25 Depth=1 800x600
+[21:36:41.990] [Info] [MainGame] Input initialized
+[21:36:43.227] [Info] [ModelLoader] Nodes with mesh: 48, primitives total: 48, ok: 48, skipped: 0
+[21:36:43.228] [Info] [ModelLoader] AABB min=(-3,90,-0,00,-0,26) max=(7,17,3,00,0,98) size=(11,07,3,00,1,24)
+[21:36:43.230] [Info] [ModelLoader] Scale factor: 0,6667 (targetHeight=2)
+[21:36:43.243] [Info] [Mesh] Created VAO=2 VBO=3 EBO=4 verts=46 indices=102
+[21:36:43.262] [Info] [ModelLoader] [part 0] 'Fencing_Metal_Straight' [BaseColor]: bytes=26030 first4=FFD8FFE0
+[21:36:43.304] [Info] [ModelLoader] [part 0] 'Fencing_Metal_Straight' [BaseColor]: decoded 256x256
+[21:36:43.305] [Info] [Mesh] Created VAO=3 VBO=5 EBO=6 verts=8 indices=12
+[21:36:43.306] [Info] [ModelLoader] [part 1] 'Fencing_Mesh_Blue_1' [BaseColor]: bytes=11256 first4=89504E47
+[21:36:43.311] [Info] [ModelLoader] [part 1] 'Fencing_Mesh_Blue_1' [BaseColor]: decoded 128x128
+[21:36:43.319] [Info] [Mesh] Created VAO=4 VBO=7 EBO=8 verts=4140 indices=10680
+[21:36:43.329] [Info] [ModelLoader] [part 2] using factor
+[21:36:43.339] [Info] [Mesh] Created VAO=5 VBO=9 EBO=10 verts=40481 indices=114717
+[21:36:43.340] [Info] [ModelLoader] [part 3] using factor
+[21:36:43.354] [Info] [Mesh] Created VAO=6 VBO=11 EBO=12 verts=32017 indices=85437
+[21:36:43.360] [Info] [ModelLoader] [part 4] 'material' [BaseColor]: bytes=749 first4=FFD8FFE0
+[21:36:43.367] [Info] [ModelLoader] [part 4] 'material' [BaseColor]: decoded 64x256
+[21:36:43.373] [Info] [Mesh] Created VAO=7 VBO=13 EBO=14 verts=6720 indices=16956
+[21:36:43.375] [Info] [ModelLoader] [part 5] using factor
+[21:36:43.377] [Info] [Mesh] Created VAO=8 VBO=15 EBO=16 verts=3698 indices=7989
+[21:36:43.378] [Info] [ModelLoader] [part 6] 'Cladding_Siding_White' [BaseColor]: bytes=2307 first4=FFD8FFE0
+[21:36:43.389] [Info] [ModelLoader] [part 6] 'Cladding_Siding_White' [BaseColor]: decoded 128x128
+[21:36:43.409] [Info] [Mesh] Created VAO=9 VBO=17 EBO=18 verts=65532 indices=190158
+[21:36:43.412] [Info] [ModelLoader] [part 7] using factor
+[21:36:43.438] [Info] [Mesh] Created VAO=10 VBO=19 EBO=20 verts=65532 indices=189984
+[21:36:43.456] [Info] [ModelLoader] [part 8] using factor
+[21:36:43.462] [Info] [Mesh] Created VAO=11 VBO=21 EBO=22 verts=27140 indices=78738
+[21:36:43.473] [Info] [ModelLoader] [part 9] using factor
+[21:36:43.474] [Info] [Mesh] Created VAO=12 VBO=23 EBO=24 verts=1536 indices=2304
+[21:36:43.476] [Info] [ModelLoader] [part 10] using beige fallback
+[21:36:43.506] [Info] [Mesh] Created VAO=13 VBO=25 EBO=26 verts=65532 indices=154317
+[21:36:43.518] [Info] [ModelLoader] [part 11] 'material' [BaseColor]: bytes=749 first4=FFD8FFE0
+[21:36:43.522] [Info] [ModelLoader] [part 11] 'material' [BaseColor]: decoded 64x256
+[21:36:43.539] [Info] [Mesh] Created VAO=14 VBO=27 EBO=28 verts=49590 indices=134565
+[21:36:43.552] [Info] [ModelLoader] [part 12] 'material' [BaseColor]: bytes=749 first4=FFD8FFE0
+[21:36:43.554] [Info] [ModelLoader] [part 12] 'material' [BaseColor]: decoded 64x256
+[21:36:43.556] [Info] [Mesh] Created VAO=15 VBO=29 EBO=30 verts=576 indices=2268
+[21:36:43.560] [Info] [ModelLoader] [part 13] 'material_12' [BaseColor]: bytes=295594 first4=FFD8FFE0
+[21:36:43.668] [Info] [ModelLoader] [part 13] 'material_12' [BaseColor]: decoded 1024x512
+[21:36:43.686] [Info] [Mesh] Created VAO=16 VBO=31 EBO=32 verts=5292 indices=10224
+[21:36:43.708] [Info] [ModelLoader] [part 14] using beige fallback
+[21:36:43.721] [Info] [Mesh] Created VAO=17 VBO=33 EBO=34 verts=4998 indices=16134
+[21:36:43.728] [Info] [ModelLoader] [part 15] 'distortfin' [BaseColor]: bytes=38105 first4=FFD8FFE0
+[21:36:43.754] [Info] [ModelLoader] [part 15] 'distortfin' [BaseColor]: decoded 1024x128
+[21:36:43.756] [Info] [Mesh] Created VAO=18 VBO=35 EBO=36 verts=3900 indices=11724
+[21:36:43.758] [Info] [ModelLoader] [part 16] using factor
+[21:36:43.760] [Info] [Mesh] Created VAO=19 VBO=37 EBO=38 verts=2683 indices=7323
+[21:36:43.765] [Info] [ModelLoader] [part 17] using factor
+[21:36:43.770] [Info] [Mesh] Created VAO=20 VBO=39 EBO=40 verts=10878 indices=49236
+[21:36:43.773] [Info] [ModelLoader] [part 18] using factor
+[21:36:43.782] [Info] [Mesh] Created VAO=21 VBO=41 EBO=42 verts=816 indices=2952
+[21:36:43.785] [Info] [ModelLoader] [part 19] '20th_20Titanic_20Centre_20Anchor_450' [BaseColor]: bytes=34704 first4=FFD8FFE0
+[21:36:43.802] [Info] [ModelLoader] [part 19] '20th_20Titanic_20Centre_20Anchor_450' [BaseColor]: decoded 256x512
+[21:36:43.810] [Info] [Mesh] Created VAO=22 VBO=43 EBO=44 verts=61894 indices=192120
+[21:36:43.814] [Info] [ModelLoader] [part 20] using factor
+[21:36:43.826] [Info] [Mesh] Created VAO=23 VBO=45 EBO=46 verts=15284 indices=39216
+[21:36:43.835] [Info] [ModelLoader] [part 21] using factor
+[21:36:43.837] [Info] [Mesh] Created VAO=24 VBO=47 EBO=48 verts=1411 indices=3147
+[21:36:43.837] [Info] [ModelLoader] [part 22] 'wood104' [BaseColor]: bytes=5799 first4=FFD8FFE0
+[21:36:43.840] [Info] [ModelLoader] [part 22] 'wood104' [BaseColor]: decoded 64x128
+[21:36:43.843] [Info] [Mesh] Created VAO=25 VBO=49 EBO=50 verts=96 indices=288
+[21:36:43.844] [Info] [ModelLoader] [part 23] 'Tile_Hexagon_White' [BaseColor]: bytes=33025 first4=FFD8FFE0
+[21:36:43.853] [Info] [ModelLoader] [part 23] 'Tile_Hexagon_White' [BaseColor]: decoded 256x256
+[21:36:43.855] [Info] [Mesh] Created VAO=26 VBO=51 EBO=52 verts=640 indices=3048
+[21:36:43.857] [Info] [ModelLoader] [part 24] using factor
+[21:36:43.868] [Info] [Mesh] Created VAO=27 VBO=53 EBO=54 verts=1920 indices=6816
+[21:36:43.869] [Info] [ModelLoader] [part 25] using factor
+[21:36:43.873] [Info] [Mesh] Created VAO=28 VBO=55 EBO=56 verts=31048 indices=74928
+[21:36:43.883] [Info] [ModelLoader] [part 26] using factor
+[21:36:43.889] [Info] [Mesh] Created VAO=29 VBO=57 EBO=58 verts=32434 indices=70944
+[21:36:43.895] [Info] [ModelLoader] [part 27] using factor
+[21:36:43.904] [Info] [Mesh] Created VAO=30 VBO=59 EBO=60 verts=65532 indices=146517
+[21:36:43.916] [Info] [ModelLoader] [part 28] using factor
+[21:36:43.921] [Info] [Mesh] Created VAO=31 VBO=61 EBO=62 verts=27907 indices=74925
+[21:36:43.928] [Info] [ModelLoader] [part 29] using factor
+[21:36:43.929] [Info] [Mesh] Created VAO=32 VBO=63 EBO=64 verts=178 indices=318
+[21:36:43.933] [Info] [ModelLoader] [part 30] 'wood104_1' [BaseColor]: bytes=5799 first4=FFD8FFE0
+[21:36:43.935] [Info] [ModelLoader] [part 30] 'wood104_1' [BaseColor]: decoded 64x128
+[21:36:43.936] [Info] [Mesh] Created VAO=33 VBO=65 EBO=66 verts=144 indices=384
+[21:36:43.937] [Info] [ModelLoader] [part 31] 'Wood_Bamboo_Medium' [BaseColor]: bytes=16510 first4=FFD8FFE0
+[21:36:43.946] [Info] [ModelLoader] [part 31] 'Wood_Bamboo_Medium' [BaseColor]: decoded 256x256
+[21:36:43.957] [Info] [Mesh] Created VAO=34 VBO=67 EBO=68 verts=32 indices=48
+[21:36:43.961] [Info] [ModelLoader] [part 32] 'Fencing_Diamond_Mesh' [BaseColor]: bytes=4587 first4=89504E47
+[21:36:43.970] [Info] [ModelLoader] [part 32] 'Fencing_Diamond_Mesh' [BaseColor]: decoded 64x32
+[21:36:43.973] [Info] [Mesh] Created VAO=35 VBO=69 EBO=70 verts=32 indices=48
+[21:36:43.976] [Info] [ModelLoader] [part 33] 'Fencing_Mesh_Blue' [BaseColor]: bytes=11278 first4=89504E47
+[21:36:43.977] [Info] [ModelLoader] [part 33] 'Fencing_Mesh_Blue' [BaseColor]: decoded 128x128
+[21:36:43.978] [Info] [Mesh] Created VAO=36 VBO=71 EBO=72 verts=2240 indices=3360
+[21:36:43.988] [Info] [ModelLoader] [part 34] 'Blinds_Wood_Natural' [BaseColor]: bytes=21036 first4=FFD8FFE0
+[21:36:43.991] [Info] [ModelLoader] [part 34] 'Blinds_Wood_Natural' [BaseColor]: decoded 256x256
+[21:36:43.994] [Info] [Mesh] Created VAO=37 VBO=73 EBO=74 verts=24 indices=36
+[21:36:43.995] [Info] [ModelLoader] [part 35] 'Triple_Screw' [BaseColor]: bytes=14892 first4=FFD8FFE0
+[21:36:44.004] [Info] [ModelLoader] [part 35] 'Triple_Screw' [BaseColor]: decoded 128x64
+[21:36:44.006] [Info] [Mesh] Created VAO=38 VBO=75 EBO=76 verts=64 indices=96
+[21:36:44.010] [Info] [ModelLoader] [part 36] 'Blinds_Wood_Natural_2' [BaseColor]: bytes=21036 first4=FFD8FFE0
+[21:36:44.013] [Info] [ModelLoader] [part 36] 'Blinds_Wood_Natural_2' [BaseColor]: decoded 256x256
+[21:36:44.020] [Info] [Mesh] Created VAO=39 VBO=77 EBO=78 verts=1920 indices=8640
+[21:36:44.022] [Info] [ModelLoader] [part 37] '806c1284ef6b8e2f6ed5c33f29c61b8' [BaseColor]: bytes=69094 first4=FFD8FFE0
+[21:36:44.030] [Info] [ModelLoader] [part 37] '806c1284ef6b8e2f6ed5c33f29c61b8' [BaseColor]: decoded 512x256
+[21:36:44.034] [Info] [Mesh] Created VAO=40 VBO=79 EBO=80 verts=64 indices=96
+[21:36:44.040] [Info] [ModelLoader] [part 38] 'Carpet_Pattern_LeafSquares_Tan' [BaseColor]: bytes=19698 first4=FFD8FFE0
+[21:36:44.043] [Info] [ModelLoader] [part 38] 'Carpet_Pattern_LeafSquares_Tan' [BaseColor]: decoded 256x256
+[21:36:44.045] [Info] [Mesh] Created VAO=41 VBO=81 EBO=82 verts=48 indices=72
+[21:36:44.053] [Info] [ModelLoader] [part 39] using factor
+[21:36:44.057] [Info] [Mesh] Created VAO=42 VBO=83 EBO=84 verts=24 indices=36
+[21:36:44.060] [Info] [ModelLoader] [part 40] using factor
+[21:36:44.073] [Info] [Mesh] Created VAO=43 VBO=85 EBO=86 verts=4 indices=6
+[21:36:44.075] [Info] [ModelLoader] [part 41] 'Metal_Corrogated_Shiny' [BaseColor]: bytes=4273 first4=FFD8FFE0
+[21:36:44.085] [Info] [ModelLoader] [part 41] 'Metal_Corrogated_Shiny' [BaseColor]: decoded 128x128
+[21:36:44.088] [Info] [Mesh] Created VAO=44 VBO=87 EBO=88 verts=4 indices=6
+[21:36:44.095] [Info] [ModelLoader] [part 42] 'material_14' [BaseColor]: bytes=4231 first4=FFD8FFE0
+[21:36:44.103] [Info] [ModelLoader] [part 42] 'material_14' [BaseColor]: decoded 128x128
+[21:36:44.114] [Info] [Mesh] Created VAO=45 VBO=89 EBO=90 verts=18160 indices=47337
+[21:36:44.120] [Info] [ModelLoader] [part 43] using factor
+[21:36:44.123] [Info] [Mesh] Created VAO=46 VBO=91 EBO=92 verts=480 indices=1248
+[21:36:44.140] [Info] [ModelLoader] [part 44] 'Fencing_Metal_Straight_1' [BaseColor]: bytes=26030 first4=FFD8FFE0
+[21:36:44.156] [Info] [ModelLoader] [part 44] 'Fencing_Metal_Straight_1' [BaseColor]: decoded 256x256
+[21:36:44.162] [Info] [Mesh] Created VAO=47 VBO=93 EBO=94 verts=296 indices=840
+[21:36:44.171] [Info] [ModelLoader] [part 45] 'funn1' [BaseColor]: bytes=1045 first4=FFD8FFE0
+[21:36:44.172] [Info] [ModelLoader] [part 45] 'funn1' [BaseColor]: decoded 64x256
+[21:36:44.174] [Info] [Mesh] Created VAO=48 VBO=95 EBO=96 verts=908 indices=2604
+[21:36:44.176] [Info] [ModelLoader] [part 46] 'material_17' [BaseColor]: bytes=749 first4=FFD8FFE0
+[21:36:44.177] [Info] [ModelLoader] [part 46] 'material_17' [BaseColor]: decoded 64x256
+[21:36:44.179] [Info] [Mesh] Created VAO=49 VBO=97 EBO=98 verts=128 indices=384
+[21:36:44.185] [Info] [ModelLoader] [part 47] using factor
+[21:36:44.186] [Info] [ModelLoader] Loaded model: 48 parts, height=2,00
+[21:36:44.189] [Info] [Shader3D] Compiling vertex shader...
+[21:36:44.201] [Info] [Shader3D] VertexShader compiled OK
+[21:36:44.203] [Info] [Shader3D] Compiling fragment shader...
+[21:36:44.206] [Info] [Shader3D] FragmentShader compiled OK
+[21:36:44.206] [Info] [Shader3D] Linking program...
+[21:36:44.208] [Info] [Shader3D] Program linked OK. Id=4
+[21:36:44.212] [Info] [Shader3D] Uniform OK: uModelPos at loc 0
+[21:36:44.219] [Info] [Shader3D] Uniform OK: uModelScale at loc 1
+[21:36:44.227] [Info] [Shader3D] Uniform OK: uRotation at loc 2
+[21:36:44.231] [Info] [Shader3D] Uniform OK: uView at loc 6
+[21:36:44.238] [Info] [Shader3D] Uniform OK: uProjection at loc 10
+[21:36:44.241] [Info] [Shader3D] Uniform OK: uTexture at loc 14
+[21:36:44.242] [Info] [Shader3D] Uniform OK: uLightDir at loc 15
+[21:36:44.243] [Info] [Shader3D] Uniform OK: uAmbientColor at loc 16
+[21:36:44.244] [Info] [Shader3D] Uniform OK: uLightColor at loc 17
+[21:36:44.245] [Info] [Shader3D] Uniform OK: uViewPos at loc 18
+[21:36:44.251] [Info] [Shader3D] Uniform OK: uUnlit at loc 19
+[21:36:44.252] [Info] [Shader3D] Uniform OK: uTint at loc 20
+[21:36:44.253] [Info] [Mesh] Created VAO=50 VBO=99 EBO=100 verts=4 indices=6
+[21:36:44.255] [Info] [Mesh] Created VAO=51 VBO=101 EBO=102 verts=4 indices=6
+[21:36:44.257] [Info] [Mesh] Created VAO=52 VBO=103 EBO=104 verts=4 indices=6
+[21:36:44.259] [Info] [Mesh] Created VAO=53 VBO=105 EBO=106 verts=4 indices=6
+[21:36:44.261] [Info] [Mesh] Created VAO=54 VBO=107 EBO=108 verts=4 indices=6
+[21:36:44.268] [Info] [Mesh] Created VAO=55 VBO=109 EBO=110 verts=24 indices=36
+[21:36:44.270] [Info] [Mesh] Created VAO=56 VBO=111 EBO=112 verts=24 indices=36
+[21:36:44.274] [Info] [PlayerModel] Using glTF model: 48 parts
+[21:36:44.277] [Info] [World3D] Initialized (ChunkSize=16, ViewRadius=45)
+[21:36:44.289] [Info] [ShaderViewModel] Program linked. Id=5
+[21:36:44.292] [Info] [Mesh] Created VAO=57 VBO=113 EBO=114 verts=24 indices=36
+[21:36:44.293] [Info] [ViewModel] Initialized
+[21:36:44.347] [Info] [MainGame] OnLoad complete
+[21:36:44.467] [Info] [World3D] First Draw. ViewRadius=45 ChunkSize=16
+[21:36:44.475] [Info] [Mesh] Created VAO=58 VBO=115 EBO=116 verts=1024 indices=1536
+[21:36:44.483] [Info] [Mesh] Created VAO=59 VBO=117 EBO=118 verts=128 indices=192
+[21:36:44.491] [Info] [Mesh] Created VAO=60 VBO=119 EBO=120 verts=1024 indices=1536
+[21:36:44.497] [Info] [Mesh] Created VAO=61 VBO=121 EBO=122 verts=172 indices=258
+[21:36:44.504] [Info] [Mesh] Created VAO=62 VBO=123 EBO=124 verts=1024 indices=1536
+[21:36:44.504] [Info] [Mesh] Created VAO=63 VBO=125 EBO=126 verts=164 indices=246
+[21:36:44.507] [Info] [Mesh] Created VAO=64 VBO=127 EBO=128 verts=1024 indices=1536
+[21:36:44.510] [Info] [Mesh] Created VAO=65 VBO=129 EBO=130 verts=1024 indices=1536
+[21:36:44.516] [Info] [Mesh] Created VAO=66 VBO=131 EBO=132 verts=1024 indices=1536
+[21:36:44.517] [Info] [Mesh] Created VAO=67 VBO=133 EBO=134 verts=1024 indices=1536
+[21:36:44.521] [Info] [Mesh] Created VAO=68 VBO=135 EBO=136 verts=1024 indices=1536
+[21:36:44.523] [Info] [Mesh] Created VAO=69 VBO=137 EBO=138 verts=1024 indices=1536
+[21:36:44.528] [Info] [Mesh] Created VAO=70 VBO=139 EBO=140 verts=1024 indices=1536
+[21:36:44.534] [Info] [Mesh] Created VAO=71 VBO=141 EBO=142 verts=1024 indices=1536
+[21:36:44.536] [Info] [Mesh] Created VAO=72 VBO=143 EBO=144 verts=1024 indices=1536
+[21:36:44.538] [Info] [Mesh] Created VAO=73 VBO=145 EBO=146 verts=1024 indices=1536
+[21:36:44.541] [Info] [Mesh] Created VAO=74 VBO=147 EBO=148 verts=1024 indices=1536
+[21:36:44.544] [Info] [Mesh] Created VAO=75 VBO=149 EBO=150 verts=1024 indices=1536
+[21:36:44.545] [Info] [Mesh] Created VAO=76 VBO=151 EBO=152 verts=112 indices=168
+[21:36:44.550] [Info] [Mesh] Created VAO=77 VBO=153 EBO=154 verts=1024 indices=1536
+[21:36:44.551] [Info] [Mesh] Created VAO=78 VBO=155 EBO=156 verts=80 indices=120
+[21:36:44.552] [Info] [Mesh] Created VAO=79 VBO=157 EBO=158 verts=1024 indices=1536
+[21:36:44.554] [Info] [Mesh] Created VAO=80 VBO=159 EBO=160 verts=1024 indices=1536
+[21:36:44.556] [Info] [Mesh] Created VAO=81 VBO=161 EBO=162 verts=1024 indices=1536
+[21:36:44.559] [Info] [Mesh] Created VAO=82 VBO=163 EBO=164 verts=104 indices=156
+[21:36:44.560] [Info] [Mesh] Created VAO=83 VBO=165 EBO=166 verts=1024 indices=1536
+[21:36:44.562] [Info] [Mesh] Created VAO=84 VBO=167 EBO=168 verts=72 indices=108
+[21:36:44.625] [Info] [Mesh] Created VAO=85 VBO=169 EBO=170 verts=1024 indices=1536
+[21:36:44.626] [Info] [Mesh] Created VAO=86 VBO=171 EBO=172 verts=1024 indices=1536
+[21:36:44.706] [Info] [Mesh] Created VAO=87 VBO=173 EBO=174 verts=1024 indices=1536
+[21:36:44.707] [Info] [Mesh] Created VAO=88 VBO=175 EBO=176 verts=1024 indices=1536
+[21:36:44.708] [Info] [Mesh] Created VAO=89 VBO=177 EBO=178 verts=1024 indices=1536
+[21:36:44.767] [Info] [Perf] FPS=0,4 Player=2,41ms Atmos=83,12ms Render=254,53ms Chunks=25 Uptime=00:00:02 Errors=0
+[21:36:45.401] [Info] [Mesh] Created VAO=90 VBO=179 EBO=180 verts=1024 indices=1536
+[21:36:45.448] [Info] [Mesh] Created VAO=91 VBO=181 EBO=182 verts=1024 indices=1536
+[21:36:45.781] [Info] [Perf] FPS=54,2 Player=0,00ms Atmos=0,00ms Render=0,77ms Chunks=27 Uptime=00:00:04 Errors=0
+[21:36:46.631] [Info] [Mesh] Created VAO=92 VBO=183 EBO=184 verts=1024 indices=1536
+[21:36:46.665] [Info] [Mesh] Created VAO=93 VBO=185 EBO=186 verts=1024 indices=1536
+[21:36:46.796] [Info] [Perf] FPS=42,4 Player=0,01ms Atmos=0,00ms Render=0,72ms Chunks=27 Uptime=00:00:05 Errors=0
+[21:36:46.850] [Info] [Mesh] Created VAO=94 VBO=187 EBO=188 verts=1024 indices=1536
+[21:36:46.954] [Info] [Mesh] Created VAO=95 VBO=189 EBO=190 verts=1024 indices=1536
+[21:36:46.969] [Info] [Mesh] Created VAO=96 VBO=191 EBO=192 verts=1024 indices=1536
+[21:36:47.363] [Info] [Mesh] Created VAO=97 VBO=193 EBO=194 verts=1024 indices=1536
+[21:36:47.364] [Info] [Mesh] Created VAO=98 VBO=195 EBO=196 verts=152 indices=228
+[21:36:47.414] [Info] [Mesh] Created VAO=99 VBO=197 EBO=198 verts=1024 indices=1536
+[21:36:47.447] [Info] [Mesh] Created VAO=100 VBO=199 EBO=200 verts=1024 indices=1536
+[21:36:47.480] [Info] [Mesh] Created VAO=101 VBO=201 EBO=202 verts=1024 indices=1536
+[21:36:47.481] [Info] [Mesh] Created VAO=102 VBO=203 EBO=204 verts=1024 indices=1536
+[21:36:47.482] [Info] [Mesh] Created VAO=103 VBO=205 EBO=206 verts=1024 indices=1536
+[21:36:47.483] [Info] [Mesh] Created VAO=104 VBO=207 EBO=208 verts=144 indices=216
+[21:36:47.484] [Info] [Mesh] Created VAO=105 VBO=209 EBO=210 verts=1024 indices=1536
+[21:36:47.513] [Info] [Mesh] Created VAO=106 VBO=211 EBO=212 verts=1024 indices=1536
+[21:36:47.798] [Info] [Perf] FPS=53,9 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=29 Uptime=00:00:06 Errors=0
+[21:36:48.797] [Info] [Mesh] Created VAO=107 VBO=213 EBO=214 verts=1024 indices=1536
+[21:36:48.816] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,77ms Chunks=29 Uptime=00:00:07 Errors=0
+[21:36:48.830] [Info] [Mesh] Created VAO=108 VBO=215 EBO=216 verts=1024 indices=1536
+[21:36:49.046] [Info] [Mesh] Created VAO=109 VBO=217 EBO=218 verts=1024 indices=1536
+[21:36:49.046] [Info] [Mesh] Created VAO=110 VBO=219 EBO=220 verts=144 indices=216
+[21:36:49.047] [Info] [Mesh] Created VAO=111 VBO=221 EBO=222 verts=1024 indices=1536
+[21:36:49.047] [Info] [Mesh] Created VAO=112 VBO=223 EBO=224 verts=1024 indices=1536
+[21:36:49.830] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,77ms Chunks=34 Uptime=00:00:08 Errors=0
+[21:36:50.831] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=0,00ms Render=0,73ms Chunks=32 Uptime=00:00:09 Errors=0
+[21:36:50.929] [Info] [Mesh] Created VAO=113 VBO=225 EBO=226 verts=1024 indices=1536
+[21:36:51.847] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:00:10 Errors=0
+[21:36:52.030] [Info] [Mesh] Created VAO=114 VBO=227 EBO=228 verts=1024 indices=1536
+[21:36:52.031] [Info] [Mesh] Created VAO=115 VBO=229 EBO=230 verts=1024 indices=1536
+[21:36:52.862] [Info] [Perf] FPS=58,1 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=32 Uptime=00:00:11 Errors=0
+[21:36:53.863] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=30 Uptime=00:00:12 Errors=0
+[21:36:54.864] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:00:13 Errors=0
+[21:36:55.878] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,74ms Chunks=30 Uptime=00:00:14 Errors=0
+[21:36:56.880] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,89ms Chunks=30 Uptime=00:00:15 Errors=0
+[21:36:57.883] [Info] [Perf] FPS=59,8 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=30 Uptime=00:00:16 Errors=0
+[21:36:58.380] [Info] [Framebuffer] Created FBO=1 Color=25 Depth=1 1280x961
+[21:36:58.894] [Info] [Perf] FPS=55,4 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:00:17 Errors=0
+[21:36:59.912] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,77ms Chunks=29 Uptime=00:00:18 Errors=0
+[21:37:00.913] [Info] [Perf] FPS=56,9 Player=0,00ms Atmos=0,00ms Render=0,71ms Chunks=29 Uptime=00:00:19 Errors=0
+[21:37:01.927] [Info] [Perf] FPS=58,2 Player=0,00ms Atmos=0,00ms Render=0,76ms Chunks=29 Uptime=00:00:20 Errors=0
+[21:37:02.931] [Info] [Perf] FPS=59,8 Player=0,01ms Atmos=0,00ms Render=0,89ms Chunks=29 Uptime=00:00:21 Errors=0
+[21:37:03.933] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,91ms Chunks=29 Uptime=00:00:22 Errors=0
+[21:37:04.944] [Info] [Perf] FPS=60,3 Player=0,00ms Atmos=0,00ms Render=0,75ms Chunks=29 Uptime=00:00:23 Errors=0
+[21:37:05.947] [Info] [Perf] FPS=59,8 Player=0,00ms Atmos=0,00ms Render=1,01ms Chunks=29 Uptime=00:00:24 Errors=0
+[21:37:06.958] [Info] [Perf] FPS=60,3 Player=0,00ms Atmos=0,00ms Render=0,88ms Chunks=29 Uptime=00:00:25 Errors=0
+[21:37:07.975] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,81ms Chunks=29 Uptime=00:00:26 Errors=0
+[21:37:08.975] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,74ms Chunks=29 Uptime=00:00:27 Errors=0
+[21:37:09.990] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,75ms Chunks=29 Uptime=00:00:28 Errors=0
+[21:37:11.007] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=29 Uptime=00:00:29 Errors=0
+[21:37:12.022] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,88ms Chunks=29 Uptime=00:00:30 Errors=0
+[21:37:13.039] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=1,12ms Chunks=29 Uptime=00:00:31 Errors=0
+[21:37:14.040] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=29 Uptime=00:00:32 Errors=0
+[21:37:15.054] [Info] [Perf] FPS=49,3 Player=0,00ms Atmos=0,00ms Render=0,78ms Chunks=29 Uptime=00:00:33 Errors=0
+[21:37:16.056] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=1,15ms Chunks=29 Uptime=00:00:34 Errors=0
+[21:37:17.073] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=1,07ms Chunks=29 Uptime=00:00:35 Errors=0
+[21:37:18.086] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,83ms Chunks=29 Uptime=00:00:36 Errors=0
+[21:37:19.087] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,91ms Chunks=29 Uptime=00:00:37 Errors=0
+[21:37:20.102] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,76ms Chunks=29 Uptime=00:00:38 Errors=0
+[21:37:21.103] [Info] [Perf] FPS=53,0 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=29 Uptime=00:00:39 Errors=0
+[21:37:22.118] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,74ms Chunks=29 Uptime=00:00:40 Errors=0
+[21:37:23.135] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,79ms Chunks=29 Uptime=00:00:41 Errors=0
+[21:37:24.151] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,74ms Chunks=29 Uptime=00:00:42 Errors=0
+[21:37:25.160] [Info] [Perf] FPS=56,5 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=29 Uptime=00:00:43 Errors=0
+[21:37:26.167] [Info] [Perf] FPS=58,6 Player=0,01ms Atmos=0,00ms Render=0,78ms Chunks=29 Uptime=00:00:44 Errors=0
+[21:37:27.167] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,75ms Chunks=29 Uptime=00:00:45 Errors=0
+[21:37:28.183] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,76ms Chunks=29 Uptime=00:00:46 Errors=0
+[21:37:29.199] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,76ms Chunks=29 Uptime=00:00:47 Errors=0
+[21:37:30.216] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,77ms Chunks=29 Uptime=00:00:48 Errors=0
+[21:37:31.216] [Info] [Perf] FPS=60,0 Player=0,03ms Atmos=0,00ms Render=0,73ms Chunks=29 Uptime=00:00:49 Errors=0
+[21:37:32.233] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=1,14ms Chunks=29 Uptime=00:00:50 Errors=0
+[21:37:33.248] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,78ms Chunks=29 Uptime=00:00:51 Errors=0
+[21:37:34.264] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,76ms Chunks=29 Uptime=00:00:52 Errors=0
+[21:37:35.280] [Info] [Perf] FPS=57,1 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=29 Uptime=00:00:53 Errors=0
+[21:37:36.297] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,78ms Chunks=29 Uptime=00:00:54 Errors=0
+[21:37:37.313] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,77ms Chunks=29 Uptime=00:00:55 Errors=0
+[21:37:38.329] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=29 Uptime=00:00:56 Errors=0
+[21:37:39.346] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,71ms Chunks=29 Uptime=00:00:57 Errors=0
+[21:37:40.362] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,68ms Chunks=29 Uptime=00:00:58 Errors=0
+[21:37:41.378] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,80ms Chunks=29 Uptime=00:00:59 Errors=0
+[21:37:42.395] [Info] [Perf] FPS=56,1 Player=0,00ms Atmos=0,00ms Render=0,81ms Chunks=29 Uptime=00:01:00 Errors=0
+[21:37:43.413] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=29 Uptime=00:01:01 Errors=0
+[21:37:44.428] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,79ms Chunks=29 Uptime=00:01:02 Errors=0
+[21:37:45.444] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,76ms Chunks=29 Uptime=00:01:03 Errors=0
+[21:37:46.446] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=0,00ms Render=1,65ms Chunks=29 Uptime=00:01:04 Errors=0
+[21:37:47.460] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,77ms Chunks=29 Uptime=00:01:05 Errors=0
+[21:37:48.460] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=29 Uptime=00:01:06 Errors=0
+[21:37:49.476] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=29 Uptime=00:01:07 Errors=0
+[21:37:50.476] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,75ms Chunks=29 Uptime=00:01:08 Errors=0
+[21:37:51.477] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,92ms Chunks=29 Uptime=00:01:09 Errors=0
+[21:37:52.493] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=1,49ms Chunks=29 Uptime=00:01:10 Errors=0
+[21:37:53.509] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,78ms Chunks=29 Uptime=00:01:11 Errors=0
+[21:37:54.525] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,94ms Chunks=29 Uptime=00:01:12 Errors=0
+[21:37:55.543] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,73ms Chunks=29 Uptime=00:01:13 Errors=0
+[21:37:56.558] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,84ms Chunks=29 Uptime=00:01:14 Errors=0
+[21:37:57.574] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=29 Uptime=00:01:15 Errors=0
+[21:37:58.574] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,87ms Chunks=29 Uptime=00:01:16 Errors=0
+[21:37:59.591] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,74ms Chunks=29 Uptime=00:01:17 Errors=0
+[21:38:00.591] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,99ms Chunks=29 Uptime=00:01:18 Errors=0
+[21:38:01.591] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=29 Uptime=00:01:19 Errors=0
+[21:38:02.607] [Info] [Perf] FPS=53,2 Player=0,00ms Atmos=0,00ms Render=0,80ms Chunks=29 Uptime=00:01:20 Errors=0
+[21:38:03.623] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,95ms Chunks=29 Uptime=00:01:21 Errors=0
+[21:38:04.640] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,91ms Chunks=29 Uptime=00:01:22 Errors=0
+[21:38:05.655] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,75ms Chunks=29 Uptime=00:01:23 Errors=0
+[21:38:06.671] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=29 Uptime=00:01:24 Errors=0
+[21:38:07.687] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,95ms Chunks=29 Uptime=00:01:26 Errors=0
+[21:38:08.704] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=1,02ms Chunks=29 Uptime=00:01:27 Errors=0
+[21:38:09.719] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,86ms Chunks=29 Uptime=00:01:28 Errors=0
+[21:38:10.719] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,78ms Chunks=29 Uptime=00:01:29 Errors=0
+[21:38:11.736] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,78ms Chunks=29 Uptime=00:01:30 Errors=0
+[21:38:12.736] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=1,20ms Chunks=29 Uptime=00:01:31 Errors=0
+[21:38:13.736] [Info] [Perf] FPS=59,0 Player=0,00ms Atmos=0,00ms Render=1,64ms Chunks=29 Uptime=00:01:32 Errors=0
+[21:38:14.751] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,92ms Chunks=29 Uptime=00:01:33 Errors=0
+[21:38:15.751] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,89ms Chunks=29 Uptime=00:01:34 Errors=0
+[21:38:16.767] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,82ms Chunks=29 Uptime=00:01:35 Errors=0
+[21:38:17.783] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=29 Uptime=00:01:36 Errors=0
+[21:38:18.784] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,70ms Chunks=31 Uptime=00:01:37 Errors=0
+[21:38:19.784] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,71ms Chunks=27 Uptime=00:01:38 Errors=0
+[21:38:20.800] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,76ms Chunks=26 Uptime=00:01:39 Errors=0
+[21:38:21.800] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,72ms Chunks=27 Uptime=00:01:40 Errors=0
+[21:38:22.816] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,90ms Chunks=27 Uptime=00:01:41 Errors=0
+[21:38:23.832] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,79ms Chunks=27 Uptime=00:01:42 Errors=0
+[21:38:24.849] [Info] [Perf] FPS=59,0 Player=0,00ms Atmos=0,00ms Render=0,78ms Chunks=25 Uptime=00:01:43 Errors=0
+[21:38:25.865] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=25 Uptime=00:01:44 Errors=0
+[21:38:26.882] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,78ms Chunks=25 Uptime=00:01:45 Errors=0
+[21:38:27.882] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,74ms Chunks=27 Uptime=00:01:46 Errors=0
+[21:38:28.897] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,69ms Chunks=27 Uptime=00:01:47 Errors=0
+[21:38:29.916] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=0,00ms Render=0,71ms Chunks=27 Uptime=00:01:48 Errors=0
+[21:38:30.196] [Info] [Mesh] Created VAO=116 VBO=231 EBO=232 verts=1024 indices=1536
+[21:38:30.197] [Info] [Mesh] Created VAO=117 VBO=233 EBO=234 verts=1024 indices=1536
+[21:38:30.930] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,75ms Chunks=32 Uptime=00:01:49 Errors=0
+[21:38:31.946] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=30 Uptime=00:01:50 Errors=0
+[21:38:32.963] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=31 Uptime=00:01:51 Errors=0
+[21:38:33.979] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,71ms Chunks=32 Uptime=00:01:52 Errors=0
+[21:38:34.511] [Info] [Mesh] Created VAO=118 VBO=235 EBO=236 verts=1024 indices=1536
+[21:38:34.980] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=0,00ms Render=0,79ms Chunks=38 Uptime=00:01:53 Errors=0
+[21:38:35.996] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,73ms Chunks=35 Uptime=00:01:54 Errors=0
+[21:38:37.012] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,71ms Chunks=34 Uptime=00:01:55 Errors=0
+[21:38:38.028] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,74ms Chunks=34 Uptime=00:01:56 Errors=0
+[21:38:39.044] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,77ms Chunks=30 Uptime=00:01:57 Errors=0
+[21:38:40.045] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=0,00ms Render=0,84ms Chunks=29 Uptime=00:01:58 Errors=0
+[21:38:41.060] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,87ms Chunks=30 Uptime=00:01:59 Errors=0
+[21:38:42.076] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,76ms Chunks=32 Uptime=00:02:00 Errors=0
+[21:38:43.094] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,74ms Chunks=30 Uptime=00:02:01 Errors=0
+[21:38:44.095] [Info] [Perf] FPS=58,0 Player=0,00ms Atmos=0,00ms Render=0,77ms Chunks=30 Uptime=00:02:02 Errors=0
+[21:38:45.110] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,79ms Chunks=30 Uptime=00:02:03 Errors=0
+[21:38:46.126] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,82ms Chunks=30 Uptime=00:02:04 Errors=0
+[21:38:47.141] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,69ms Chunks=30 Uptime=00:02:05 Errors=0
+[21:38:48.158] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,86ms Chunks=30 Uptime=00:02:06 Errors=0
+[21:38:49.162] [Info] [Perf] FPS=59,7 Player=0,00ms Atmos=0,00ms Render=0,75ms Chunks=30 Uptime=00:02:07 Errors=0
+[21:38:50.177] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,85ms Chunks=30 Uptime=00:02:08 Errors=0
+[21:38:51.190] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:02:09 Errors=0
+[21:38:52.196] [Info] [Perf] FPS=57,6 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=30 Uptime=00:02:10 Errors=0
+[21:38:53.206] [Info] [Perf] FPS=56,4 Player=0,00ms Atmos=0,00ms Render=1,05ms Chunks=30 Uptime=00:02:11 Errors=0
+[21:38:54.223] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,80ms Chunks=30 Uptime=00:02:12 Errors=0
+[21:38:55.224] [Info] [Perf] FPS=59,0 Player=0,00ms Atmos=0,00ms Render=0,85ms Chunks=30 Uptime=00:02:13 Errors=0
+[21:38:56.239] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=1,00ms Chunks=30 Uptime=00:02:14 Errors=0
+[21:38:57.254] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:02:15 Errors=0
+[21:38:58.270] [Info] [Perf] FPS=59,1 Player=0,00ms Atmos=0,00ms Render=0,80ms Chunks=30 Uptime=00:02:16 Errors=0
+[21:38:59.286] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,74ms Chunks=30 Uptime=00:02:17 Errors=0
+[21:39:00.302] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,74ms Chunks=30 Uptime=00:02:18 Errors=0
+[21:39:01.319] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,84ms Chunks=30 Uptime=00:02:19 Errors=0
+[21:39:02.319] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,75ms Chunks=30 Uptime=00:02:20 Errors=0
+[21:39:03.335] [Info] [Perf] FPS=55,1 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:02:21 Errors=0
+[21:39:04.351] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,79ms Chunks=30 Uptime=00:02:22 Errors=0
+[21:39:05.367] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:02:23 Errors=0
+[21:39:06.384] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,88ms Chunks=30 Uptime=00:02:24 Errors=0
+[21:39:07.403] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,01ms Render=0,72ms Chunks=30 Uptime=00:02:25 Errors=0
+[21:39:08.416] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,75ms Chunks=30 Uptime=00:02:26 Errors=0
+[21:39:09.432] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,70ms Chunks=30 Uptime=00:02:27 Errors=0
+[21:39:10.449] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:02:28 Errors=0
+[21:39:11.467] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=0,00ms Render=1,43ms Chunks=30 Uptime=00:02:29 Errors=0
+[21:39:12.482] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,85ms Chunks=30 Uptime=00:02:30 Errors=0
+[21:39:13.498] [Info] [Perf] FPS=58,1 Player=0,06ms Atmos=0,00ms Render=0,79ms Chunks=30 Uptime=00:02:31 Errors=0
+[21:39:14.514] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,74ms Chunks=30 Uptime=00:02:32 Errors=0
+[21:39:15.515] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,77ms Chunks=30 Uptime=00:02:33 Errors=0
+[21:39:16.531] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:02:34 Errors=0
+[21:39:17.535] [Info] [Perf] FPS=59,7 Player=0,00ms Atmos=0,00ms Render=1,03ms Chunks=30 Uptime=00:02:35 Errors=0
+[21:39:18.548] [Info] [Perf] FPS=60,3 Player=0,00ms Atmos=0,00ms Render=0,85ms Chunks=30 Uptime=00:02:36 Errors=0
+[21:39:19.565] [Info] [Perf] FPS=60,0 Player=0,04ms Atmos=0,00ms Render=0,83ms Chunks=30 Uptime=00:02:37 Errors=0
+[21:39:20.583] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,81ms Chunks=30 Uptime=00:02:38 Errors=0
+[21:39:21.604] [Info] [Perf] FPS=50,0 Player=0,00ms Atmos=0,00ms Render=2,54ms Chunks=30 Uptime=00:02:39 Errors=0
+[21:39:22.613] [Info] [Perf] FPS=57,5 Player=0,00ms Atmos=0,00ms Render=1,08ms Chunks=30 Uptime=00:02:40 Errors=0
+[21:39:23.631] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,75ms Chunks=30 Uptime=00:02:41 Errors=0
+[21:39:24.646] [Info] [Perf] FPS=56,2 Player=0,00ms Atmos=0,00ms Render=0,76ms Chunks=30 Uptime=00:02:42 Errors=0
+[21:39:25.648] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,79ms Chunks=30 Uptime=00:02:43 Errors=0
+[21:39:26.661] [Info] [Perf] FPS=60,2 Player=0,01ms Atmos=0,00ms Render=0,78ms Chunks=30 Uptime=00:02:44 Errors=0
+[21:39:27.678] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,81ms Chunks=30 Uptime=00:02:46 Errors=0
+[21:39:28.679] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=0,00ms Render=0,72ms Chunks=30 Uptime=00:02:47 Errors=0
+[21:39:29.695] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=1,06ms Chunks=30 Uptime=00:02:48 Errors=0
+[21:39:30.711] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,92ms Chunks=30 Uptime=00:02:49 Errors=0
+[21:39:31.727] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,76ms Chunks=30 Uptime=00:02:50 Errors=0
+[21:39:32.743] [Info] [Perf] FPS=53,2 Player=0,00ms Atmos=0,00ms Render=1,11ms Chunks=30 Uptime=00:02:51 Errors=0
+[21:39:33.743] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=1,19ms Chunks=30 Uptime=00:02:52 Errors=0
+[21:39:34.759] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=30 Uptime=00:02:53 Errors=0
+[21:39:35.777] [Info] [Perf] FPS=59,0 Player=0,01ms Atmos=0,00ms Render=1,39ms Chunks=30 Uptime=00:02:54 Errors=0
+[21:39:36.792] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,94ms Chunks=30 Uptime=00:02:55 Errors=0
+[21:39:37.808] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,85ms Chunks=30 Uptime=00:02:56 Errors=0
+[21:39:38.826] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=1,72ms Chunks=30 Uptime=00:02:57 Errors=0
+[21:39:39.843] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,84ms Chunks=30 Uptime=00:02:58 Errors=0
+[21:39:40.858] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,80ms Chunks=30 Uptime=00:02:59 Errors=0
+[21:39:41.874] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=1,00ms Chunks=30 Uptime=00:03:00 Errors=0
+[21:39:42.890] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,84ms Chunks=30 Uptime=00:03:01 Errors=0
+[21:39:43.912] [Info] [Perf] FPS=59,7 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=30 Uptime=00:03:02 Errors=0
+[21:39:44.923] [Info] [Perf] FPS=60,4 Player=0,00ms Atmos=0,00ms Render=0,89ms Chunks=30 Uptime=00:03:03 Errors=0
+[21:39:45.939] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,84ms Chunks=30 Uptime=00:03:04 Errors=0
+[21:39:46.955] [Info] [Perf] FPS=56,1 Player=0,00ms Atmos=0,00ms Render=0,74ms Chunks=30 Uptime=00:03:05 Errors=0
+[21:39:47.971] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,77ms Chunks=30 Uptime=00:03:06 Errors=0
+[21:39:48.972] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,80ms Chunks=30 Uptime=00:03:07 Errors=0
+[21:39:49.988] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,99ms Chunks=30 Uptime=00:03:08 Errors=0
+[21:39:51.004] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,85ms Chunks=30 Uptime=00:03:09 Errors=0
+[21:39:52.020] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,80ms Chunks=30 Uptime=00:03:10 Errors=0
+[21:39:53.020] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=1,02ms Chunks=30 Uptime=00:03:11 Errors=0
+[21:39:54.021] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,84ms Chunks=30 Uptime=00:03:12 Errors=0
+[21:39:55.031] [Info] [Perf] FPS=54,5 Player=0,01ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:03:13 Errors=0
+[21:39:56.035] [Info] [Perf] FPS=53,8 Player=0,00ms Atmos=0,00ms Render=0,77ms Chunks=30 Uptime=00:03:14 Errors=0
+[21:39:57.036] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,81ms Chunks=30 Uptime=00:03:15 Errors=0
+[21:39:58.051] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:03:16 Errors=0
+[21:39:59.069] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=1,25ms Chunks=30 Uptime=00:03:17 Errors=0
+[21:40:00.084] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,83ms Chunks=30 Uptime=00:03:18 Errors=0
+[21:40:01.101] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,80ms Chunks=30 Uptime=00:03:19 Errors=0
+[21:40:02.117] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,90ms Chunks=30 Uptime=00:03:20 Errors=0
+[21:40:03.118] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,75ms Chunks=30 Uptime=00:03:21 Errors=0
+[21:40:04.134] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=30 Uptime=00:03:22 Errors=0
+[21:40:05.134] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=1,09ms Chunks=30 Uptime=00:03:23 Errors=0
+[21:40:06.137] [Info] [Perf] FPS=59,8 Player=0,00ms Atmos=0,00ms Render=0,81ms Chunks=30 Uptime=00:03:24 Errors=0
+[21:40:07.152] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,77ms Chunks=30 Uptime=00:03:25 Errors=0
+[21:40:08.167] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:03:26 Errors=0
+[21:40:09.183] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,81ms Chunks=30 Uptime=00:03:27 Errors=0
+[21:40:10.198] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,88ms Chunks=30 Uptime=00:03:28 Errors=0
+[21:40:11.203] [Info] [Perf] FPS=59,7 Player=0,00ms Atmos=0,00ms Render=0,78ms Chunks=30 Uptime=00:03:29 Errors=0
+[21:40:12.214] [Info] [Perf] FPS=60,4 Player=0,00ms Atmos=0,00ms Render=0,96ms Chunks=30 Uptime=00:03:30 Errors=0
+[21:40:13.230] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=1,01ms Chunks=30 Uptime=00:03:31 Errors=0
+[21:40:14.231] [Info] [Perf] FPS=58,0 Player=0,01ms Atmos=0,00ms Render=0,83ms Chunks=30 Uptime=00:03:32 Errors=0
+[21:40:15.250] [Info] [Perf] FPS=59,8 Player=0,00ms Atmos=0,00ms Render=0,80ms Chunks=30 Uptime=00:03:33 Errors=0
+[21:40:16.262] [Info] [Perf] FPS=60,3 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:03:34 Errors=0
+[21:40:17.264] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,76ms Chunks=30 Uptime=00:03:35 Errors=0
+[21:40:18.278] [Info] [Perf] FPS=60,2 Player=0,03ms Atmos=0,00ms Render=0,99ms Chunks=30 Uptime=00:03:36 Errors=0
+[21:40:19.280] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=1,15ms Chunks=30 Uptime=00:03:37 Errors=0
+[21:40:20.295] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,77ms Chunks=30 Uptime=00:03:38 Errors=0
+[21:40:21.311] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,79ms Chunks=30 Uptime=00:03:39 Errors=0
+[21:40:22.314] [Info] [Perf] FPS=59,8 Player=0,01ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:03:40 Errors=0
+[21:40:23.330] [Info] [Perf] FPS=59,1 Player=0,01ms Atmos=0,00ms Render=1,41ms Chunks=30 Uptime=00:03:41 Errors=0
+[21:40:24.344] [Info] [Perf] FPS=60,2 Player=0,04ms Atmos=0,00ms Render=0,86ms Chunks=30 Uptime=00:03:42 Errors=0
+[21:40:25.354] [Info] [Perf] FPS=58,4 Player=0,00ms Atmos=0,00ms Render=0,75ms Chunks=30 Uptime=00:03:43 Errors=0
+[21:40:26.361] [Info] [Perf] FPS=60,6 Player=0,01ms Atmos=0,00ms Render=0,86ms Chunks=30 Uptime=00:03:44 Errors=0
+[21:40:27.376] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,88ms Chunks=30 Uptime=00:03:45 Errors=0
+[21:40:28.377] [Info] [Perf] FPS=58,9 Player=0,00ms Atmos=0,00ms Render=0,78ms Chunks=30 Uptime=00:03:46 Errors=0
+[21:40:29.392] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,76ms Chunks=30 Uptime=00:03:47 Errors=0
+[21:40:30.414] [Info] [Perf] FPS=55,8 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=30 Uptime=00:03:48 Errors=0
+[21:40:31.423] [Info] [Perf] FPS=56,5 Player=0,00ms Atmos=0,00ms Render=0,74ms Chunks=30 Uptime=00:03:49 Errors=0
+[21:40:32.438] [Info] [Perf] FPS=46,3 Player=0,00ms Atmos=0,00ms Render=0,76ms Chunks=30 Uptime=00:03:50 Errors=0
+[21:40:33.439] [Info] [Perf] FPS=51,9 Player=0,00ms Atmos=0,00ms Render=0,89ms Chunks=30 Uptime=00:03:51 Errors=0
+[21:40:34.456] [Info] [Perf] FPS=59,0 Player=0,00ms Atmos=0,00ms Render=0,86ms Chunks=30 Uptime=00:03:52 Errors=0
+[21:40:35.472] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:03:53 Errors=0
+[21:40:36.487] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:03:54 Errors=0
+[21:40:37.487] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,76ms Chunks=30 Uptime=00:03:55 Errors=0
+[21:40:38.503] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,77ms Chunks=30 Uptime=00:03:56 Errors=0
+[21:40:39.504] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=0,00ms Render=1,32ms Chunks=30 Uptime=00:03:57 Errors=0
+[21:40:40.519] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,83ms Chunks=30 Uptime=00:03:58 Errors=0
+[21:40:41.535] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,75ms Chunks=30 Uptime=00:03:59 Errors=0
+[21:40:42.536] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,83ms Chunks=30 Uptime=00:04:00 Errors=0
+[21:40:43.551] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:04:01 Errors=0
+[21:40:44.568] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,76ms Chunks=30 Uptime=00:04:02 Errors=0
+[21:40:45.568] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,76ms Chunks=30 Uptime=00:04:03 Errors=0
+[21:40:46.585] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=1,36ms Chunks=30 Uptime=00:04:04 Errors=0
+[21:40:47.600] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,85ms Chunks=30 Uptime=00:04:05 Errors=0
+[21:40:48.616] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,78ms Chunks=30 Uptime=00:04:06 Errors=0
+[21:40:49.633] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,79ms Chunks=30 Uptime=00:04:07 Errors=0
+[21:40:50.650] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,76ms Chunks=30 Uptime=00:04:08 Errors=0
+[21:40:51.665] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,76ms Chunks=30 Uptime=00:04:09 Errors=0
+[21:40:52.682] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,75ms Chunks=30 Uptime=00:04:11 Errors=0
+[21:40:53.682] [Info] [Perf] FPS=59,0 Player=0,00ms Atmos=0,00ms Render=0,79ms Chunks=30 Uptime=00:04:12 Errors=0
+[21:40:54.697] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,70ms Chunks=30 Uptime=00:04:13 Errors=0
+[21:40:55.697] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=1,08ms Chunks=30 Uptime=00:04:14 Errors=0
+[21:40:56.713] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,75ms Chunks=30 Uptime=00:04:15 Errors=0
+[21:40:57.715] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=0,00ms Render=1,44ms Chunks=30 Uptime=00:04:16 Errors=0
+[21:40:58.732] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,93ms Chunks=30 Uptime=00:04:17 Errors=0
+[21:40:59.748] [Info] [Perf] FPS=54,1 Player=0,00ms Atmos=0,00ms Render=1,05ms Chunks=30 Uptime=00:04:18 Errors=0
+[21:41:00.764] [Info] [Perf] FPS=59,1 Player=0,00ms Atmos=0,00ms Render=0,78ms Chunks=30 Uptime=00:04:19 Errors=0
+[21:41:01.765] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,77ms Chunks=30 Uptime=00:04:20 Errors=0
+[21:41:02.782] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,87ms Chunks=30 Uptime=00:04:21 Errors=0
+[21:41:03.797] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,91ms Chunks=30 Uptime=00:04:22 Errors=0
+[21:41:04.799] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=1,47ms Chunks=30 Uptime=00:04:23 Errors=0
+[21:41:05.801] [Info] [Perf] FPS=56,9 Player=0,00ms Atmos=0,00ms Render=1,18ms Chunks=30 Uptime=00:04:24 Errors=0
+[21:41:06.810] [Info] [Perf] FPS=56,5 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=30 Uptime=00:04:25 Errors=0
+[21:41:07.811] [Info] [Perf] FPS=57,9 Player=0,00ms Atmos=0,00ms Render=1,08ms Chunks=30 Uptime=00:04:26 Errors=0
+[21:41:08.826] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=30 Uptime=00:04:27 Errors=0
+[21:41:09.842] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,77ms Chunks=30 Uptime=00:04:28 Errors=0
+[21:41:10.859] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:04:29 Errors=0
+[21:41:11.875] [Info] [Perf] FPS=54,1 Player=0,00ms Atmos=0,00ms Render=0,77ms Chunks=30 Uptime=00:04:30 Errors=0
+[21:41:12.875] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:04:31 Errors=0
+[21:41:13.893] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=30 Uptime=00:04:32 Errors=0
+[21:41:14.910] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,71ms Chunks=30 Uptime=00:04:33 Errors=0
+[21:41:15.925] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:04:34 Errors=0
+[21:41:16.940] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:04:35 Errors=0
+[21:41:17.956] [Info] [Perf] FPS=58,1 Player=0,00ms Atmos=0,00ms Render=0,79ms Chunks=30 Uptime=00:04:36 Errors=0
+[21:41:18.973] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,74ms Chunks=30 Uptime=00:04:37 Errors=0
+[21:41:19.973] [Info] [Perf] FPS=54,0 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=30 Uptime=00:04:38 Errors=0
+[21:41:20.973] [Info] [Perf] FPS=55,0 Player=0,02ms Atmos=0,00ms Render=1,02ms Chunks=30 Uptime=00:04:39 Errors=0
+[21:41:21.989] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,85ms Chunks=30 Uptime=00:04:40 Errors=0
+[21:41:23.005] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:04:41 Errors=0
+[21:41:24.022] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,83ms Chunks=30 Uptime=00:04:42 Errors=0
+[21:41:25.022] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,76ms Chunks=30 Uptime=00:04:43 Errors=0
+[21:41:26.037] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,70ms Chunks=30 Uptime=00:04:44 Errors=0
+[21:41:27.037] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,91ms Chunks=30 Uptime=00:04:45 Errors=0
+[21:41:28.054] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=1,01ms Chunks=30 Uptime=00:04:46 Errors=0
+[21:41:29.070] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=1,05ms Chunks=30 Uptime=00:04:47 Errors=0
+[21:41:30.086] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,82ms Chunks=30 Uptime=00:04:48 Errors=0
+[21:41:31.102] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:04:49 Errors=0
+[21:41:32.119] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:04:50 Errors=0
+[21:41:33.135] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=30 Uptime=00:04:51 Errors=0
+[21:41:34.135] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,80ms Chunks=30 Uptime=00:04:52 Errors=0
+[21:41:35.152] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,78ms Chunks=30 Uptime=00:04:53 Errors=0
+[21:41:36.167] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,79ms Chunks=30 Uptime=00:04:54 Errors=0
+[21:41:37.183] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,83ms Chunks=30 Uptime=00:04:55 Errors=0
+[21:41:38.200] [Info] [Perf] FPS=59,0 Player=0,00ms Atmos=0,00ms Render=0,75ms Chunks=30 Uptime=00:04:56 Errors=0
+[21:41:39.216] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=30 Uptime=00:04:57 Errors=0
+[21:41:40.233] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,77ms Chunks=30 Uptime=00:04:58 Errors=0
+[21:41:41.233] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=1,75ms Chunks=30 Uptime=00:04:59 Errors=0
+[21:41:42.248] [Info] [Perf] FPS=56,2 Player=0,00ms Atmos=0,00ms Render=0,74ms Chunks=30 Uptime=00:05:00 Errors=0
+[21:41:43.265] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:05:01 Errors=0
+[21:41:44.265] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,79ms Chunks=30 Uptime=00:05:02 Errors=0
+[21:41:45.281] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,74ms Chunks=30 Uptime=00:05:03 Errors=0
+[21:41:46.300] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=1,37ms Chunks=30 Uptime=00:05:04 Errors=0
+[21:41:47.313] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:05:05 Errors=0
+[21:41:48.315] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=0,00ms Render=0,99ms Chunks=30 Uptime=00:05:06 Errors=0
+[21:41:49.329] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,84ms Chunks=30 Uptime=00:05:07 Errors=0
+[21:41:50.346] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,86ms Chunks=30 Uptime=00:05:08 Errors=0
+[21:41:51.348] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=1,21ms Chunks=30 Uptime=00:05:09 Errors=0
+[21:41:52.363] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=30 Uptime=00:05:10 Errors=0
+[21:41:53.363] [Info] [Perf] FPS=60,0 Player=0,03ms Atmos=0,00ms Render=1,17ms Chunks=30 Uptime=00:05:11 Errors=0
+[21:41:54.380] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:05:12 Errors=0
+[21:41:55.394] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=1,14ms Chunks=30 Uptime=00:05:13 Errors=0
+[21:41:56.413] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:05:14 Errors=0
+[21:41:57.413] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,75ms Chunks=30 Uptime=00:05:15 Errors=0
+[21:41:58.426] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,75ms Chunks=30 Uptime=00:05:16 Errors=0
+[21:41:59.427] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,98ms Chunks=30 Uptime=00:05:17 Errors=0
+[21:42:00.443] [Info] [Perf] FPS=54,1 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:05:18 Errors=0
+[21:42:01.444] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=1,14ms Chunks=30 Uptime=00:05:19 Errors=0
+[21:42:02.463] [Info] [Perf] FPS=57,9 Player=0,00ms Atmos=0,00ms Render=0,78ms Chunks=30 Uptime=00:05:20 Errors=0
+[21:42:03.477] [Info] [Perf] FPS=58,2 Player=0,01ms Atmos=0,00ms Render=0,82ms Chunks=30 Uptime=00:05:21 Errors=0
+[21:42:04.491] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,90ms Chunks=30 Uptime=00:05:22 Errors=0
+[21:42:05.494] [Info] [Perf] FPS=59,8 Player=0,00ms Atmos=0,00ms Render=1,17ms Chunks=30 Uptime=00:05:23 Errors=0
+[21:42:06.508] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,75ms Chunks=30 Uptime=00:05:24 Errors=0
+[21:42:07.526] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=2,59ms Chunks=30 Uptime=00:05:25 Errors=0
+[21:42:08.526] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=2,60ms Chunks=30 Uptime=00:05:26 Errors=0
+[21:42:09.541] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=1,08ms Chunks=30 Uptime=00:05:27 Errors=0
+[21:42:10.558] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,91ms Chunks=30 Uptime=00:05:28 Errors=0
+[21:42:11.574] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=1,12ms Chunks=30 Uptime=00:05:29 Errors=0
+[21:42:12.590] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,93ms Chunks=30 Uptime=00:05:30 Errors=0
+[21:42:13.604] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,78ms Chunks=30 Uptime=00:05:31 Errors=0
+[21:42:14.606] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,94ms Chunks=30 Uptime=00:05:32 Errors=0
+[21:42:15.607] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=1,83ms Chunks=30 Uptime=00:05:33 Errors=0
+[21:42:16.621] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=30 Uptime=00:05:34 Errors=0
+[21:42:17.637] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,79ms Chunks=30 Uptime=00:05:35 Errors=0
+[21:42:18.637] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:05:36 Errors=0
+[21:42:19.653] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,90ms Chunks=30 Uptime=00:05:37 Errors=0
+[21:42:20.670] [Info] [Perf] FPS=53,1 Player=0,00ms Atmos=0,00ms Render=0,82ms Chunks=30 Uptime=00:05:38 Errors=0
+[21:42:21.686] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,95ms Chunks=30 Uptime=00:05:40 Errors=0
+[21:42:22.702] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=1,00ms Chunks=30 Uptime=00:05:41 Errors=0
+[21:42:23.718] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=30 Uptime=00:05:42 Errors=0
+[21:42:24.719] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=1,61ms Chunks=30 Uptime=00:05:43 Errors=0
+[21:42:25.736] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,84ms Chunks=30 Uptime=00:05:44 Errors=0
+[21:42:26.752] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,83ms Chunks=30 Uptime=00:05:45 Errors=0
+[21:42:27.768] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,93ms Chunks=30 Uptime=00:05:46 Errors=0
+[21:42:28.784] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,75ms Chunks=30 Uptime=00:05:47 Errors=0
+[21:42:29.784] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,94ms Chunks=30 Uptime=00:05:48 Errors=0
+[21:42:30.799] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,91ms Chunks=30 Uptime=00:05:49 Errors=0
+[21:42:31.800] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,75ms Chunks=30 Uptime=00:05:50 Errors=0
+[21:42:32.816] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=30 Uptime=00:05:51 Errors=0
+[21:42:33.818] [Info] [Perf] FPS=56,9 Player=0,00ms Atmos=0,00ms Render=0,80ms Chunks=30 Uptime=00:05:52 Errors=0
+[21:42:34.832] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,74ms Chunks=30 Uptime=00:05:53 Errors=0
+[21:42:35.847] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,78ms Chunks=30 Uptime=00:05:54 Errors=0
+[21:42:36.848] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,82ms Chunks=30 Uptime=00:05:55 Errors=0
+[21:42:37.865] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=1,29ms Chunks=30 Uptime=00:05:56 Errors=0
+[21:42:38.880] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,77ms Chunks=30 Uptime=00:05:57 Errors=0
+[21:42:39.896] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:05:58 Errors=0
+[21:42:40.897] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,87ms Chunks=30 Uptime=00:05:59 Errors=0
+[21:42:41.914] [Info] [Perf] FPS=56,0 Player=0,00ms Atmos=0,00ms Render=0,71ms Chunks=30 Uptime=00:06:00 Errors=0
+[21:42:42.914] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=30 Uptime=00:06:01 Errors=0
+[21:42:43.928] [Info] [Perf] FPS=60,2 Player=0,04ms Atmos=0,00ms Render=1,03ms Chunks=30 Uptime=00:06:02 Errors=0
+[21:42:44.929] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,93ms Chunks=30 Uptime=00:06:03 Errors=0
+[21:42:45.944] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,87ms Chunks=30 Uptime=00:06:04 Errors=0
+[21:42:46.961] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,83ms Chunks=30 Uptime=00:06:05 Errors=0
+[21:42:47.977] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,87ms Chunks=30 Uptime=00:06:06 Errors=0
+[21:42:48.977] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=1,20ms Chunks=30 Uptime=00:06:07 Errors=0
+[21:42:49.992] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=30 Uptime=00:06:08 Errors=0
+[21:42:50.993] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:06:09 Errors=0
+[21:42:51.993] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,76ms Chunks=30 Uptime=00:06:10 Errors=0
+[21:42:53.008] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,74ms Chunks=30 Uptime=00:06:11 Errors=0
+[21:42:54.009] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,89ms Chunks=30 Uptime=00:06:12 Errors=0
+[21:42:55.025] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,91ms Chunks=30 Uptime=00:06:13 Errors=0
+[21:42:56.026] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:06:14 Errors=0
+[21:42:57.040] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,76ms Chunks=30 Uptime=00:06:15 Errors=0
+[21:42:58.040] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:06:16 Errors=0
+[21:42:59.058] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=1,01ms Chunks=30 Uptime=00:06:17 Errors=0
+[21:43:00.073] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=1,11ms Chunks=30 Uptime=00:06:18 Errors=0
+[21:43:01.090] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=1,11ms Chunks=30 Uptime=00:06:19 Errors=0
+[21:43:02.106] [Info] [Perf] FPS=55,1 Player=0,01ms Atmos=0,00ms Render=0,76ms Chunks=30 Uptime=00:06:20 Errors=0
+[21:43:03.122] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=30 Uptime=00:06:21 Errors=0
+[21:43:04.122] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:06:22 Errors=0
+[21:43:05.137] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:06:23 Errors=0
+[21:43:06.138] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,80ms Chunks=30 Uptime=00:06:24 Errors=0
+[21:43:07.154] [Info] [Perf] FPS=59,0 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:06:25 Errors=0
+[21:43:08.154] [Info] [Perf] FPS=55,0 Player=0,00ms Atmos=0,00ms Render=0,85ms Chunks=30 Uptime=00:06:26 Errors=0
+[21:43:09.170] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:06:27 Errors=0
+[21:43:10.186] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:06:28 Errors=0
+[21:43:11.186] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,85ms Chunks=30 Uptime=00:06:29 Errors=0
+[21:43:12.187] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,92ms Chunks=30 Uptime=00:06:30 Errors=0
+[21:43:13.189] [Info] [Perf] FPS=59,8 Player=0,01ms Atmos=0,00ms Render=1,41ms Chunks=30 Uptime=00:06:31 Errors=0
+[21:43:14.201] [Info] [Perf] FPS=57,3 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:06:32 Errors=0
+[21:43:15.201] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,81ms Chunks=30 Uptime=00:06:33 Errors=0
+[21:43:16.218] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,77ms Chunks=30 Uptime=00:06:34 Errors=0
+[21:43:17.237] [Info] [Perf] FPS=59,8 Player=0,01ms Atmos=0,00ms Render=0,99ms Chunks=30 Uptime=00:06:35 Errors=0
+[21:43:18.253] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,79ms Chunks=30 Uptime=00:06:36 Errors=0
+[21:43:19.268] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,79ms Chunks=30 Uptime=00:06:37 Errors=0
+[21:43:20.285] [Info] [Perf] FPS=58,0 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:06:38 Errors=0
+[21:43:21.285] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,75ms Chunks=30 Uptime=00:06:39 Errors=0
+[21:43:22.300] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:06:40 Errors=0
+[21:43:23.300] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,79ms Chunks=30 Uptime=00:06:41 Errors=0
+[21:43:24.318] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,99ms Chunks=30 Uptime=00:06:42 Errors=0
+[21:43:25.332] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:06:43 Errors=0
+[21:43:26.332] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:06:44 Errors=0
+[21:43:27.347] [Info] [Perf] FPS=59,1 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=30 Uptime=00:06:45 Errors=0
+[21:43:28.347] [Info] [Perf] FPS=54,0 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=30 Uptime=00:06:46 Errors=0
+[21:43:29.363] [Info] [Perf] FPS=55,1 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=30 Uptime=00:06:47 Errors=0
+[21:43:30.381] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,78ms Chunks=30 Uptime=00:06:48 Errors=0
+[21:43:31.396] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,82ms Chunks=30 Uptime=00:06:49 Errors=0
+[21:43:32.414] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=1,06ms Chunks=30 Uptime=00:06:50 Errors=0
+[21:43:33.415] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=30 Uptime=00:06:51 Errors=0
+[21:43:34.428] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,81ms Chunks=30 Uptime=00:06:52 Errors=0
+[21:43:35.444] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,75ms Chunks=30 Uptime=00:06:53 Errors=0
+[21:43:36.460] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,76ms Chunks=30 Uptime=00:06:54 Errors=0
+[21:43:37.476] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,70ms Chunks=30 Uptime=00:06:55 Errors=0
+[21:43:38.477] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,80ms Chunks=30 Uptime=00:06:56 Errors=0
+[21:43:39.493] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:06:57 Errors=0
+[21:43:40.509] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,81ms Chunks=30 Uptime=00:06:58 Errors=0
+[21:43:41.526] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=1,10ms Chunks=30 Uptime=00:06:59 Errors=0
+[21:43:42.542] [Info] [Perf] FPS=59,1 Player=0,00ms Atmos=0,00ms Render=0,85ms Chunks=30 Uptime=00:07:00 Errors=0
+[21:43:43.542] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:07:01 Errors=0
+[21:43:44.558] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=30 Uptime=00:07:02 Errors=0
+[21:43:45.575] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,85ms Chunks=30 Uptime=00:07:03 Errors=0
+[21:43:46.591] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:07:04 Errors=0
+[21:43:47.607] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=30 Uptime=00:07:05 Errors=0
+[21:43:48.623] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,76ms Chunks=30 Uptime=00:07:06 Errors=0
+[21:43:49.639] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,74ms Chunks=30 Uptime=00:07:07 Errors=0
+[21:43:50.656] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,76ms Chunks=30 Uptime=00:07:08 Errors=0
+[21:43:51.672] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,81ms Chunks=30 Uptime=00:07:09 Errors=0
+[21:43:52.689] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,81ms Chunks=30 Uptime=00:07:11 Errors=0
+[21:43:53.709] [Info] [Perf] FPS=58,8 Player=0,01ms Atmos=0,00ms Render=7,21ms Chunks=30 Uptime=00:07:12 Errors=0
+[21:43:54.722] [Info] [Perf] FPS=55,3 Player=0,00ms Atmos=0,00ms Render=0,75ms Chunks=30 Uptime=00:07:13 Errors=0
+[21:43:55.742] [Info] [Perf] FPS=49,0 Player=0,00ms Atmos=0,00ms Render=0,93ms Chunks=30 Uptime=00:07:14 Errors=0
+[21:43:56.742] [Info] [Perf] FPS=58,0 Player=0,00ms Atmos=0,00ms Render=1,96ms Chunks=30 Uptime=00:07:15 Errors=0
+[21:43:57.755] [Info] [Perf] FPS=57,3 Player=0,00ms Atmos=0,00ms Render=1,04ms Chunks=30 Uptime=00:07:16 Errors=0
+[21:43:58.770] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=1,29ms Chunks=30 Uptime=00:07:17 Errors=0
+[21:43:59.770] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=1,08ms Chunks=30 Uptime=00:07:18 Errors=0
+[21:44:00.785] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:07:19 Errors=0
+[21:44:01.786] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,77ms Chunks=30 Uptime=00:07:20 Errors=0
+[21:44:02.786] [Info] [Perf] FPS=55,0 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:07:21 Errors=0
+[21:44:03.802] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:07:22 Errors=0
+[21:44:04.818] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,82ms Chunks=30 Uptime=00:07:23 Errors=0
+[21:44:05.835] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,75ms Chunks=30 Uptime=00:07:24 Errors=0
+[21:44:06.835] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,91ms Chunks=30 Uptime=00:07:25 Errors=0
+[21:44:07.835] [Info] [Perf] FPS=60,0 Player=0,04ms Atmos=0,00ms Render=0,95ms Chunks=30 Uptime=00:07:26 Errors=0
+[21:44:08.850] [Info] [Perf] FPS=55,2 Player=0,00ms Atmos=0,00ms Render=0,88ms Chunks=30 Uptime=00:07:27 Errors=0
+[21:44:09.851] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=1,54ms Chunks=30 Uptime=00:07:28 Errors=0
+[21:44:10.854] [Info] [Perf] FPS=59,8 Player=0,00ms Atmos=0,00ms Render=0,80ms Chunks=30 Uptime=00:07:29 Errors=0
+[21:44:11.866] [Info] [Perf] FPS=60,3 Player=0,00ms Atmos=0,00ms Render=0,85ms Chunks=30 Uptime=00:07:30 Errors=0
+[21:44:12.883] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,84ms Chunks=30 Uptime=00:07:31 Errors=0
+[21:44:13.899] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:07:32 Errors=0
+[21:44:14.917] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:07:33 Errors=0
+[21:44:15.931] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,84ms Chunks=30 Uptime=00:07:34 Errors=0
+[21:44:16.948] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,75ms Chunks=30 Uptime=00:07:35 Errors=0
+[21:44:17.964] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=30 Uptime=00:07:36 Errors=0
+[21:44:18.964] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,81ms Chunks=30 Uptime=00:07:37 Errors=0
+[21:44:19.979] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,71ms Chunks=30 Uptime=00:07:38 Errors=0
+[21:44:20.980] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,85ms Chunks=30 Uptime=00:07:39 Errors=0
+[21:44:21.995] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,78ms Chunks=30 Uptime=00:07:40 Errors=0
+[21:44:22.996] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,76ms Chunks=30 Uptime=00:07:41 Errors=0
+[21:44:24.012] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,93ms Chunks=30 Uptime=00:07:42 Errors=0
+[21:44:25.029] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,88ms Chunks=30 Uptime=00:07:43 Errors=0
+[21:44:26.047] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=1,01ms Chunks=30 Uptime=00:07:44 Errors=0
+[21:44:27.060] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=30 Uptime=00:07:45 Errors=0
+[21:44:28.061] [Info] [Perf] FPS=54,0 Player=0,00ms Atmos=0,00ms Render=0,81ms Chunks=30 Uptime=00:07:46 Errors=0
+[21:44:29.077] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=1,02ms Chunks=30 Uptime=00:07:47 Errors=0
+[21:44:30.093] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,89ms Chunks=30 Uptime=00:07:48 Errors=0
+[21:44:31.093] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,77ms Chunks=30 Uptime=00:07:49 Errors=0
+[21:44:32.109] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=30 Uptime=00:07:50 Errors=0
+[21:44:33.110] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=1,07ms Chunks=30 Uptime=00:07:51 Errors=0
+[21:44:34.125] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=1,15ms Chunks=30 Uptime=00:07:52 Errors=0
+[21:44:35.141] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=1,00ms Chunks=30 Uptime=00:07:53 Errors=0
+[21:44:36.159] [Info] [Perf] FPS=59,0 Player=0,00ms Atmos=0,00ms Render=1,47ms Chunks=30 Uptime=00:07:54 Errors=0
+[21:44:37.174] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,79ms Chunks=30 Uptime=00:07:55 Errors=0
+[21:44:38.174] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=1,00ms Chunks=30 Uptime=00:07:56 Errors=0
+[21:44:39.190] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,84ms Chunks=30 Uptime=00:07:57 Errors=0
+[21:44:40.207] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,81ms Chunks=30 Uptime=00:07:58 Errors=0
+[21:44:41.223] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=1,74ms Chunks=30 Uptime=00:07:59 Errors=0
+[21:44:42.239] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,75ms Chunks=30 Uptime=00:08:00 Errors=0
+[21:44:43.240] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=1,03ms Chunks=30 Uptime=00:08:01 Errors=0
+[21:44:44.255] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,81ms Chunks=30 Uptime=00:08:02 Errors=0
+[21:44:45.256] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,99ms Chunks=30 Uptime=00:08:03 Errors=0
+[21:44:46.256] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=1,04ms Chunks=30 Uptime=00:08:04 Errors=0
+[21:44:47.271] [Info] [Perf] FPS=57,2 Player=0,00ms Atmos=0,00ms Render=0,76ms Chunks=30 Uptime=00:08:05 Errors=0
+[21:44:48.287] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=30 Uptime=00:08:06 Errors=0
+[21:44:49.287] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,81ms Chunks=30 Uptime=00:08:07 Errors=0
+[21:44:50.304] [Info] [Perf] FPS=57,1 Player=0,00ms Atmos=0,00ms Render=1,08ms Chunks=30 Uptime=00:08:08 Errors=0
+[21:44:51.320] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,90ms Chunks=30 Uptime=00:08:09 Errors=0
+[21:44:52.337] [Info] [Perf] FPS=59,0 Player=0,00ms Atmos=0,00ms Render=1,64ms Chunks=30 Uptime=00:08:10 Errors=0
+[21:44:53.354] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=1,21ms Chunks=30 Uptime=00:08:11 Errors=0
+[21:44:54.368] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,86ms Chunks=30 Uptime=00:08:12 Errors=0
+[21:44:55.384] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,71ms Chunks=30 Uptime=00:08:13 Errors=0
+[21:44:56.384] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=1,04ms Chunks=30 Uptime=00:08:14 Errors=0
+[21:44:57.385] [Info] [Perf] FPS=59,0 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=30 Uptime=00:08:15 Errors=0
+[21:44:58.417] [Info] [Perf] FPS=53,3 Player=0,01ms Atmos=0,00ms Render=0,74ms Chunks=30 Uptime=00:08:16 Errors=0
+[21:44:59.433] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:08:17 Errors=0
+[21:45:00.455] [Info] [Perf] FPS=59,7 Player=0,00ms Atmos=0,00ms Render=0,89ms Chunks=30 Uptime=00:08:18 Errors=0
+[21:45:01.466] [Info] [Perf] FPS=53,4 Player=0,00ms Atmos=0,00ms Render=1,02ms Chunks=30 Uptime=00:08:19 Errors=0
+[21:45:02.482] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,75ms Chunks=30 Uptime=00:08:20 Errors=0
+[21:45:03.499] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,74ms Chunks=30 Uptime=00:08:21 Errors=0
+[21:45:04.500] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=1,03ms Chunks=30 Uptime=00:08:22 Errors=0
+[21:45:05.515] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,93ms Chunks=30 Uptime=00:08:23 Errors=0
+[21:45:06.531] [Info] [Perf] FPS=56,1 Player=0,00ms Atmos=0,00ms Render=0,88ms Chunks=30 Uptime=00:08:24 Errors=0
+[21:45:07.547] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:08:25 Errors=0
+[21:45:08.548] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:08:26 Errors=0
+[21:45:09.564] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=1,49ms Chunks=30 Uptime=00:08:27 Errors=0
+[21:45:10.580] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,84ms Chunks=30 Uptime=00:08:28 Errors=0
+[21:45:11.597] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=1,14ms Chunks=30 Uptime=00:08:29 Errors=0
+[21:45:12.612] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,89ms Chunks=30 Uptime=00:08:30 Errors=0
+[21:45:13.613] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,96ms Chunks=30 Uptime=00:08:31 Errors=0
+[21:45:14.613] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=1,62ms Chunks=30 Uptime=00:08:32 Errors=0
+[21:45:15.628] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,82ms Chunks=30 Uptime=00:08:33 Errors=0
+[21:45:16.645] [Info] [Perf] FPS=60,0 Player=0,04ms Atmos=0,00ms Render=1,28ms Chunks=30 Uptime=00:08:34 Errors=0
+[21:45:17.660] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:08:35 Errors=0
+[21:45:18.661] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,87ms Chunks=30 Uptime=00:08:36 Errors=0
+[21:45:19.677] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,79ms Chunks=30 Uptime=00:08:37 Errors=0
+[21:45:20.695] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=0,00ms Render=1,32ms Chunks=30 Uptime=00:08:39 Errors=0
+[21:45:21.710] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,97ms Chunks=30 Uptime=00:08:40 Errors=0
+[21:45:22.726] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=30 Uptime=00:08:41 Errors=0
+[21:45:23.726] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,74ms Chunks=30 Uptime=00:08:42 Errors=0
+[21:45:24.741] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,88ms Chunks=30 Uptime=00:08:43 Errors=0
+[21:45:25.743] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=1,46ms Chunks=30 Uptime=00:08:44 Errors=0
+[21:45:26.758] [Info] [Perf] FPS=57,1 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:08:45 Errors=0
+[21:45:27.761] [Info] [Perf] FPS=57,8 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=30 Uptime=00:08:46 Errors=0
+[21:45:28.773] [Info] [Perf] FPS=48,4 Player=0,00ms Atmos=0,00ms Render=0,85ms Chunks=30 Uptime=00:08:47 Errors=0
+[21:45:29.791] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,86ms Chunks=30 Uptime=00:08:48 Errors=0
+[21:45:30.805] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,74ms Chunks=30 Uptime=00:08:49 Errors=0
+[21:45:31.806] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,80ms Chunks=30 Uptime=00:08:50 Errors=0
+[21:45:32.823] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,95ms Chunks=30 Uptime=00:08:51 Errors=0
+[21:45:33.838] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,88ms Chunks=30 Uptime=00:08:52 Errors=0
+[21:45:34.840] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=1,63ms Chunks=30 Uptime=00:08:53 Errors=0
+[21:45:35.855] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,77ms Chunks=30 Uptime=00:08:54 Errors=0
+[21:45:36.870] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,76ms Chunks=30 Uptime=00:08:55 Errors=0
+[21:45:37.888] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,75ms Chunks=30 Uptime=00:08:56 Errors=0
+[21:45:38.889] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,76ms Chunks=30 Uptime=00:08:57 Errors=0
+[21:45:39.906] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,71ms Chunks=30 Uptime=00:08:58 Errors=0
+[21:45:40.907] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=0,00ms Render=0,74ms Chunks=30 Uptime=00:08:59 Errors=0
+[21:45:41.919] [Info] [Perf] FPS=60,3 Player=0,00ms Atmos=0,00ms Render=0,78ms Chunks=30 Uptime=00:09:00 Errors=0
+[21:45:42.935] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,84ms Chunks=30 Uptime=00:09:01 Errors=0
+[21:45:43.951] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,85ms Chunks=30 Uptime=00:09:02 Errors=0
+[21:45:44.953] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=1,13ms Chunks=30 Uptime=00:09:03 Errors=0
+[21:45:45.969] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=1,21ms Chunks=30 Uptime=00:09:04 Errors=0
+[21:45:46.984] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,81ms Chunks=30 Uptime=00:09:05 Errors=0
+[21:45:47.985] [Info] [Perf] FPS=55,0 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:09:06 Errors=0
+[21:45:48.987] [Info] [Perf] FPS=56,9 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:09:07 Errors=0
+[21:45:49.988] [Info] [Perf] FPS=39,0 Player=0,01ms Atmos=0,00ms Render=0,86ms Chunks=30 Uptime=00:09:08 Errors=0
+[21:45:50.988] [Info] [Perf] FPS=45,0 Player=0,00ms Atmos=0,00ms Render=0,74ms Chunks=30 Uptime=00:09:09 Errors=0
+[21:45:52.000] [Info] [Perf] FPS=31,6 Player=0,00ms Atmos=0,00ms Render=0,76ms Chunks=30 Uptime=00:09:10 Errors=0
+[21:45:53.000] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=1,05ms Chunks=30 Uptime=00:09:11 Errors=0
+[21:45:54.016] [Info] [Perf] FPS=55,1 Player=0,00ms Atmos=0,00ms Render=0,77ms Chunks=30 Uptime=00:09:12 Errors=0
+[21:45:55.033] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=1,30ms Chunks=30 Uptime=00:09:13 Errors=0
+[21:45:56.049] [Info] [Perf] FPS=57,1 Player=0,00ms Atmos=0,00ms Render=0,84ms Chunks=30 Uptime=00:09:14 Errors=0
+[21:45:57.050] [Info] [Perf] FPS=51,9 Player=0,00ms Atmos=0,00ms Render=0,88ms Chunks=30 Uptime=00:09:15 Errors=0
+[21:45:58.064] [Info] [Perf] FPS=60,2 Player=0,01ms Atmos=0,00ms Render=0,77ms Chunks=30 Uptime=00:09:16 Errors=0
+[21:45:59.085] [Info] [Perf] FPS=59,8 Player=0,00ms Atmos=0,00ms Render=0,83ms Chunks=30 Uptime=00:09:17 Errors=0
+[21:46:00.096] [Info] [Perf] FPS=59,3 Player=0,00ms Atmos=0,00ms Render=0,74ms Chunks=30 Uptime=00:09:18 Errors=0
+[21:46:01.098] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=0,00ms Render=0,94ms Chunks=30 Uptime=00:09:19 Errors=0
+[21:46:02.113] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,92ms Chunks=30 Uptime=00:09:20 Errors=0
+[21:46:03.115] [Info] [Perf] FPS=56,9 Player=0,00ms Atmos=0,00ms Render=2,89ms Chunks=30 Uptime=00:09:21 Errors=0
+[21:46:04.132] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=1,10ms Chunks=30 Uptime=00:09:22 Errors=0
+[21:46:05.145] [Info] [Perf] FPS=56,3 Player=0,00ms Atmos=0,00ms Render=0,79ms Chunks=30 Uptime=00:09:23 Errors=0
+[21:46:06.165] [Info] [Perf] FPS=48,1 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=30 Uptime=00:09:24 Errors=0
+[21:46:07.178] [Info] [Perf] FPS=27,6 Player=0,00ms Atmos=0,00ms Render=0,75ms Chunks=30 Uptime=00:09:25 Errors=0
+[21:46:08.196] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=1,66ms Chunks=30 Uptime=00:09:26 Errors=0
+[21:46:09.206] [Info] [Perf] FPS=47,5 Player=0,00ms Atmos=0,00ms Render=0,82ms Chunks=30 Uptime=00:09:27 Errors=0
+[21:46:10.211] [Info] [Perf] FPS=53,7 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:09:28 Errors=0
+[21:46:11.228] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,95ms Chunks=30 Uptime=00:09:29 Errors=0
+[21:46:12.242] [Info] [Perf] FPS=57,2 Player=0,00ms Atmos=0,00ms Render=0,81ms Chunks=30 Uptime=00:09:30 Errors=0
+[21:46:13.244] [Info] [Perf] FPS=54,9 Player=0,00ms Atmos=0,00ms Render=1,72ms Chunks=30 Uptime=00:09:31 Errors=0
+[21:46:14.262] [Info] [Perf] FPS=56,9 Player=0,01ms Atmos=0,00ms Render=0,81ms Chunks=30 Uptime=00:09:32 Errors=0
+[21:46:15.277] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,76ms Chunks=30 Uptime=00:09:33 Errors=0
+[21:46:16.306] [Info] [Perf] FPS=45,6 Player=0,00ms Atmos=0,00ms Render=2,14ms Chunks=30 Uptime=00:09:34 Errors=0
+[21:46:17.311] [Info] [Perf] FPS=56,8 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=30 Uptime=00:09:35 Errors=0
+[21:46:18.311] [Info] [Perf] FPS=55,0 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=30 Uptime=00:09:36 Errors=0
+[21:46:19.334] [Info] [Perf] FPS=52,8 Player=0,00ms Atmos=0,00ms Render=1,50ms Chunks=30 Uptime=00:09:37 Errors=0
+[21:46:20.342] [Info] [Perf] FPS=60,6 Player=0,00ms Atmos=0,00ms Render=0,79ms Chunks=30 Uptime=00:09:38 Errors=0
+[21:46:21.356] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,89ms Chunks=30 Uptime=00:09:39 Errors=0
+[21:46:22.373] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,92ms Chunks=30 Uptime=00:09:40 Errors=0
+[21:46:23.390] [Info] [Perf] FPS=58,0 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:09:41 Errors=0
+[21:46:24.393] [Info] [Perf] FPS=59,8 Player=0,01ms Atmos=0,00ms Render=1,09ms Chunks=30 Uptime=00:09:42 Errors=0
+[21:46:25.407] [Info] [Perf] FPS=59,2 Player=0,00ms Atmos=0,00ms Render=0,77ms Chunks=30 Uptime=00:09:43 Errors=0
+[21:46:26.415] [Info] [Perf] FPS=47,6 Player=0,00ms Atmos=0,00ms Render=0,86ms Chunks=30 Uptime=00:09:44 Errors=0
+[21:46:27.422] [Info] [Perf] FPS=52,6 Player=0,00ms Atmos=0,00ms Render=0,99ms Chunks=30 Uptime=00:09:45 Errors=0
+[21:46:28.438] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,72ms Chunks=30 Uptime=00:09:46 Errors=0
+[21:46:29.453] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,82ms Chunks=30 Uptime=00:09:47 Errors=0
+[21:46:30.469] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=30 Uptime=00:09:48 Errors=0
+[21:46:31.471] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=0,00ms Render=1,26ms Chunks=30 Uptime=00:09:49 Errors=0
+[21:46:32.486] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,90ms Chunks=30 Uptime=00:09:50 Errors=0
+[21:46:33.487] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,76ms Chunks=30 Uptime=00:09:51 Errors=0
+[21:46:34.504] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:09:52 Errors=0
+[21:46:35.515] [Info] [Perf] FPS=59,3 Player=0,00ms Atmos=0,00ms Render=0,74ms Chunks=30 Uptime=00:09:53 Errors=0
+[21:46:36.520] [Info] [Perf] FPS=44,8 Player=0,01ms Atmos=0,00ms Render=0,73ms Chunks=30 Uptime=00:09:54 Errors=0
+[21:46:37.520] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,93ms Chunks=30 Uptime=00:09:55 Errors=0
+[21:46:38.534] [Info] [Perf] FPS=58,2 Player=0,00ms Atmos=0,00ms Render=0,93ms Chunks=30 Uptime=00:09:56 Errors=0
+[21:46:39.551] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,77ms Chunks=30 Uptime=00:09:57 Errors=0
+[21:46:40.566] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,77ms Chunks=30 Uptime=00:09:58 Errors=0
+[21:46:41.585] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=30 Uptime=00:09:59 Errors=0
+[21:46:42.586] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,71ms Chunks=30 Uptime=00:10:00 Errors=0
+[21:46:43.601] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,84ms Chunks=30 Uptime=00:10:01 Errors=0
+[21:46:44.645] [Info] [Perf] FPS=46,9 Player=0,00ms Atmos=0,00ms Render=0,80ms Chunks=30 Uptime=00:10:02 Errors=0
+[21:46:45.648] [Info] [Perf] FPS=44,9 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=30 Uptime=00:10:03 Errors=0
+[21:46:46.794] [Info] [Perf] FPS=20,9 Player=0,00ms Atmos=0,00ms Render=0,86ms Chunks=30 Uptime=00:10:05 Errors=0
+[21:46:47.835] [Info] [Perf] FPS=2,9 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=30 Uptime=00:10:06 Errors=0
+[21:46:48.842] [Info] [Perf] FPS=20,8 Player=0,00ms Atmos=0,00ms Render=0,71ms Chunks=30 Uptime=00:10:07 Errors=0
+[21:46:49.851] [Info] [Perf] FPS=47,6 Player=0,00ms Atmos=0,00ms Render=0,75ms Chunks=30 Uptime=00:10:08 Errors=0
+[21:46:50.865] [Info] [Perf] FPS=57,2 Player=0,01ms Atmos=0,00ms Render=2,87ms Chunks=30 Uptime=00:10:09 Errors=0
+[21:46:51.879] [Info] [Perf] FPS=54,2 Player=0,00ms Atmos=0,00ms Render=0,78ms Chunks=30 Uptime=00:10:10 Errors=0
+[21:46:52.879] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,80ms Chunks=30 Uptime=00:10:11 Errors=0
+[21:46:53.881] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,77ms Chunks=30 Uptime=00:10:12 Errors=0
+[21:46:54.884] [Info] [Perf] FPS=59,8 Player=0,00ms Atmos=0,00ms Render=0,71ms Chunks=30 Uptime=00:10:13 Errors=0
+[21:46:55.894] [Info] [Perf] FPS=54,5 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=30 Uptime=00:10:14 Errors=0
+[21:46:56.895] [Info] [Perf] FPS=44,0 Player=0,01ms Atmos=0,00ms Render=0,74ms Chunks=30 Uptime=00:10:15 Errors=0
+[21:46:57.896] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,85ms Chunks=30 Uptime=00:10:16 Errors=0
+[21:46:58.912] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,88ms Chunks=30 Uptime=00:10:17 Errors=0
+[21:46:59.927] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,76ms Chunks=30 Uptime=00:10:18 Errors=0
+[21:47:00.944] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,98ms Chunks=30 Uptime=00:10:19 Errors=0
+[21:47:01.958] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,78ms Chunks=30 Uptime=00:10:20 Errors=0
+[21:47:02.959] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=30 Uptime=00:10:21 Errors=0
+[21:47:03.975] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,75ms Chunks=30 Uptime=00:10:22 Errors=0
+[21:47:04.991] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,95ms Chunks=30 Uptime=00:10:23 Errors=0
+[21:47:05.992] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,82ms Chunks=30 Uptime=00:10:24 Errors=0
+[21:47:07.009] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=1,19ms Chunks=30 Uptime=00:10:25 Errors=0
+[21:47:08.025] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,77ms Chunks=30 Uptime=00:10:26 Errors=0
+[21:47:09.025] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=0,00ms Render=0,77ms Chunks=28 Uptime=00:10:27 Errors=0
+[21:47:10.042] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=28 Uptime=00:10:28 Errors=0
+[21:47:11.055] [Info] [Perf] FPS=59,3 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=28 Uptime=00:10:29 Errors=0
+[21:47:12.056] [Info] [Perf] FPS=57,9 Player=0,00ms Atmos=0,00ms Render=0,74ms Chunks=28 Uptime=00:10:30 Errors=0
+[21:47:13.057] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=1,08ms Chunks=28 Uptime=00:10:31 Errors=0
+[21:47:14.060] [Info] [Perf] FPS=59,8 Player=0,00ms Atmos=0,00ms Render=0,74ms Chunks=28 Uptime=00:10:32 Errors=0
+[21:47:15.075] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=1,39ms Chunks=28 Uptime=00:10:33 Errors=0
+[21:47:16.089] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,84ms Chunks=28 Uptime=00:10:34 Errors=0
+[21:47:17.094] [Info] [Perf] FPS=59,7 Player=0,00ms Atmos=0,00ms Render=0,77ms Chunks=28 Uptime=00:10:35 Errors=0
+[21:47:18.097] [Info] [Perf] FPS=47,9 Player=0,00ms Atmos=0,00ms Render=0,77ms Chunks=28 Uptime=00:10:36 Errors=0
+[21:47:19.104] [Info] [Perf] FPS=57,6 Player=0,00ms Atmos=0,00ms Render=0,94ms Chunks=28 Uptime=00:10:37 Errors=0
+[21:47:20.121] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,78ms Chunks=28 Uptime=00:10:38 Errors=0
+[21:47:21.137] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=28 Uptime=00:10:39 Errors=0
+[21:47:22.154] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,75ms Chunks=28 Uptime=00:10:40 Errors=0
+[21:47:23.169] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=28 Uptime=00:10:41 Errors=0
+[21:47:24.185] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,86ms Chunks=28 Uptime=00:10:42 Errors=0
+[21:47:25.185] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=28 Uptime=00:10:43 Errors=0
+[21:47:26.201] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,76ms Chunks=28 Uptime=00:10:44 Errors=0
+[21:47:27.218] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,91ms Chunks=28 Uptime=00:10:45 Errors=0
+[21:47:28.235] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=1,18ms Chunks=28 Uptime=00:10:46 Errors=0
+[21:47:29.250] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,78ms Chunks=28 Uptime=00:10:47 Errors=0
+[21:47:30.266] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,78ms Chunks=28 Uptime=00:10:48 Errors=0
+[21:47:31.283] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,81ms Chunks=28 Uptime=00:10:49 Errors=0
+[21:47:32.298] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=28 Uptime=00:10:50 Errors=0
+[21:47:33.299] [Info] [Perf] FPS=57,0 Player=0,00ms Atmos=0,00ms Render=0,77ms Chunks=28 Uptime=00:10:51 Errors=0
+[21:47:34.315] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,80ms Chunks=28 Uptime=00:10:52 Errors=0
+[21:47:35.332] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=28 Uptime=00:10:53 Errors=0
+[21:47:36.350] [Info] [Perf] FPS=59,9 Player=0,01ms Atmos=0,00ms Render=0,71ms Chunks=28 Uptime=00:10:54 Errors=0
+[21:47:37.364] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,76ms Chunks=28 Uptime=00:10:55 Errors=0
+[21:47:38.381] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,74ms Chunks=28 Uptime=00:10:56 Errors=0
+[21:47:39.396] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,76ms Chunks=28 Uptime=00:10:57 Errors=0
+[21:47:40.397] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=0,82ms Chunks=28 Uptime=00:10:58 Errors=0
+[21:47:41.413] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,76ms Chunks=28 Uptime=00:10:59 Errors=0
+[21:47:42.428] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,71ms Chunks=28 Uptime=00:11:00 Errors=0
+[21:47:43.433] [Info] [Perf] FPS=54,7 Player=0,01ms Atmos=0,00ms Render=0,84ms Chunks=28 Uptime=00:11:01 Errors=0
+[21:47:44.446] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=1,16ms Chunks=28 Uptime=00:11:02 Errors=0
+[21:47:45.461] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=28 Uptime=00:11:03 Errors=0
+[21:47:46.479] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,72ms Chunks=28 Uptime=00:11:04 Errors=0
+[21:47:47.495] [Info] [Perf] FPS=60,0 Player=0,03ms Atmos=0,00ms Render=0,89ms Chunks=28 Uptime=00:11:05 Errors=0
+[21:47:48.511] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,75ms Chunks=28 Uptime=00:11:06 Errors=0
+[21:47:49.527] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,72ms Chunks=28 Uptime=00:11:07 Errors=0
+[21:47:50.544] [Info] [Perf] FPS=59,0 Player=0,01ms Atmos=0,00ms Render=0,72ms Chunks=28 Uptime=00:11:08 Errors=0
+[21:47:51.559] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,85ms Chunks=28 Uptime=00:11:09 Errors=0
+[21:47:52.559] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,74ms Chunks=28 Uptime=00:11:10 Errors=0
+[21:47:53.559] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,76ms Chunks=28 Uptime=00:11:11 Errors=0
+[21:47:54.575] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,76ms Chunks=28 Uptime=00:11:12 Errors=0
+[21:47:55.591] [Info] [Perf] FPS=57,1 Player=0,01ms Atmos=0,00ms Render=0,76ms Chunks=28 Uptime=00:11:13 Errors=0
+[21:47:56.591] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,74ms Chunks=28 Uptime=00:11:14 Errors=0
+[21:47:57.591] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,93ms Chunks=28 Uptime=00:11:15 Errors=0
+[21:47:58.609] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,98ms Chunks=28 Uptime=00:11:16 Errors=0
+[21:47:59.624] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,85ms Chunks=28 Uptime=00:11:17 Errors=0
+[21:48:00.641] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=1,29ms Chunks=28 Uptime=00:11:18 Errors=0
+[21:48:01.656] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,80ms Chunks=28 Uptime=00:11:19 Errors=0
+[21:48:02.674] [Info] [Perf] FPS=60,0 Player=0,01ms Atmos=0,00ms Render=1,06ms Chunks=28 Uptime=00:11:20 Errors=0
+[21:48:03.689] [Info] [Perf] FPS=43,4 Player=0,02ms Atmos=0,00ms Render=1,02ms Chunks=28 Uptime=00:11:22 Errors=0
+[21:48:04.689] [Info] [Perf] FPS=57,0 Player=0,00ms Atmos=0,00ms Render=0,82ms Chunks=28 Uptime=00:11:23 Errors=0
+[21:48:05.706] [Info] [Perf] FPS=57,0 Player=0,00ms Atmos=0,00ms Render=0,74ms Chunks=28 Uptime=00:11:24 Errors=0
+[21:48:06.709] [Info] [Perf] FPS=58,8 Player=0,00ms Atmos=0,00ms Render=1,46ms Chunks=28 Uptime=00:11:25 Errors=0
+[21:48:07.721] [Info] [Perf] FPS=58,3 Player=0,00ms Atmos=0,00ms Render=0,86ms Chunks=28 Uptime=00:11:26 Errors=0
+[21:48:08.737] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,79ms Chunks=28 Uptime=00:11:27 Errors=0
+[21:48:09.753] [Info] [Perf] FPS=55,1 Player=0,00ms Atmos=0,00ms Render=0,73ms Chunks=28 Uptime=00:11:28 Errors=0
+[21:48:10.770] [Info] [Perf] FPS=59,0 Player=0,00ms Atmos=0,00ms Render=0,78ms Chunks=28 Uptime=00:11:29 Errors=0
+[21:48:11.785] [Info] [Perf] FPS=60,1 Player=0,01ms Atmos=0,00ms Render=0,73ms Chunks=28 Uptime=00:11:30 Errors=0
+[21:48:12.786] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,71ms Chunks=28 Uptime=00:11:31 Errors=0
+[21:48:13.802] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,81ms Chunks=28 Uptime=00:11:32 Errors=0
+[21:48:14.803] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,75ms Chunks=28 Uptime=00:11:33 Errors=0
+[21:48:15.818] [Info] [Perf] FPS=56,1 Player=0,00ms Atmos=0,00ms Render=0,84ms Chunks=28 Uptime=00:11:34 Errors=0
+[21:48:16.834] [Info] [Perf] FPS=60,1 Player=0,00ms Atmos=0,00ms Render=0,78ms Chunks=28 Uptime=00:11:35 Errors=0
+[21:48:17.834] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,96ms Chunks=28 Uptime=00:11:36 Errors=0
+[21:48:18.852] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,76ms Chunks=28 Uptime=00:11:37 Errors=0
+[21:48:19.866] [Info] [Perf] FPS=60,2 Player=0,00ms Atmos=0,00ms Render=0,70ms Chunks=28 Uptime=00:11:38 Errors=0
+[21:48:20.882] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,81ms Chunks=28 Uptime=00:11:39 Errors=0
+[21:48:21.899] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=1,11ms Chunks=28 Uptime=00:11:40 Errors=0
+[21:48:22.915] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,69ms Chunks=28 Uptime=00:11:41 Errors=0
+[21:48:23.932] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,91ms Chunks=28 Uptime=00:11:42 Errors=0
+[21:48:24.948] [Info] [Perf] FPS=60,0 Player=0,00ms Atmos=0,00ms Render=0,92ms Chunks=28 Uptime=00:11:43 Errors=0
+[21:48:25.948] [Info] [Perf] FPS=58,0 Player=0,00ms Atmos=0,00ms Render=0,77ms Chunks=28 Uptime=00:11:44 Errors=0
+[21:48:26.966] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=0,79ms Chunks=28 Uptime=00:11:45 Errors=0
+[21:48:27.984] [Info] [Perf] FPS=59,9 Player=0,00ms Atmos=0,00ms Render=1,12ms Chunks=28 Uptime=00:11:46 Errors=0
+[21:48:28.998] [Info] [Perf] FPS=58,2 Player=0,00ms Atmos=0,00ms Render=0,77ms Chunks=28 Uptime=00:11:47 Errors=0
+[21:48:29.750] [Info] [Program] Application exited normally

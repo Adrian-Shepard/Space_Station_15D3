@@ -15,30 +15,30 @@ namespace Engine.Rendering
 
         private GL _gl;
 
-        public Texture2D(GL gl, string path)
+        public Texture2D(GL gl, string path, bool repeat = false)
         {
             _gl = gl;
-            LoadFromFile(path);
+            LoadFromFile(path, repeat);
         }
 
-        public Texture2D(GL gl, byte[] pixelData, int width, int height)
+        public Texture2D(GL gl, byte[] pixelData, int width, int height, bool repeat = false)
         {
             _gl = gl;
             Width = width;
             Height = height;
-            CreateTexture(pixelData);
+            CreateTexture(pixelData, repeat);
         }
 
-        private unsafe void LoadFromFile(string path)
+        private unsafe void LoadFromFile(string path, bool repeat)
         {
             using var stream = File.OpenRead(path);
             ImageResult result = ImageResult.FromStream(stream, ColorComponents.RedGreenBlueAlpha);
             Width = result.Width;
             Height = result.Height;
-            CreateTexture(result.Data);
+            CreateTexture(result.Data, repeat);
         }
 
-        private unsafe void CreateTexture(byte[] data)
+        private unsafe void CreateTexture(byte[] data, bool repeat)
         {
             Handle = _gl.GenTexture();
             _gl.BindTexture(TextureTarget.Texture2D, Handle);
@@ -52,8 +52,10 @@ namespace Engine.Rendering
 
             _gl.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Nearest);
             _gl.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Nearest);
-            _gl.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapS, (int)TextureWrapMode.ClampToEdge);
-            _gl.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapT, (int)TextureWrapMode.ClampToEdge);
+
+            var wrap = repeat ? TextureWrapMode.Repeat : TextureWrapMode.ClampToEdge;
+            _gl.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapS, (int)wrap);
+            _gl.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapT, (int)wrap);
         }
 
         public void Bind(TextureUnit textureUnit = TextureUnit.Texture0)

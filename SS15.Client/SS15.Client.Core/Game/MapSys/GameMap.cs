@@ -12,13 +12,11 @@ namespace SS15.Client.Core
 
         private TileType[,] _tiles;
         public Dictionary<(int x, int y), List<Item>> ItemsOnGround { get; } = new();
-
-        // ===== Двери =====
-        // Одна логическая дверь может занимать несколько тайлов.
-        // Все тайлы одной двери имеют одинаковый groupId и общее состояние.
         public Dictionary<(int x, int y), int> DoorGroups { get; } = new();
         public Dictionary<int, bool> DoorGroupStates { get; } = new();
         private int _nextDoorGroupId = 1;
+
+        public event Action<int, int> OnTileChanged;
 
         public GameMap(int width, int height, int tileSize)
         {
@@ -37,8 +35,11 @@ namespace SS15.Client.Core
 
         public void SetTile(int x, int y, TileType type)
         {
-            if (x >= 0 && x < Width && y >= 0 && y < Height)
-                _tiles[y, x] = type;
+            if (x < 0 || x >= Width || y < 0 || y >= Height) return;
+            if (_tiles[y, x] == type) return;
+
+            _tiles[y, x] = type;
+            OnTileChanged?.Invoke(x, y);
         }
 
         public TileType GetTile(int x, int y)
@@ -67,16 +68,12 @@ namespace SS15.Client.Core
                     return false;
                 if (tile == TileType.Door && !IsDoorOpen(tileX, tileY))
                     return false;
-                // Space проходим (урон будет от HealthSystem)
             }
             return true;
         }
 
-        // ===== Двери: API =====
-
         public int NewDoorGroup() => _nextDoorGroupId++;
 
-        /// <summary>Восстанавливает счётчик ID после загрузки. Используется SaveManager.</summary>
         public void SetNextDoorGroupId(int id)
         {
             _nextDoorGroupId = id < 1 ? 1 : id;
@@ -87,6 +84,7 @@ namespace SS15.Client.Core
             DoorGroups[(x, y)] = groupId;
             if (!DoorGroupStates.ContainsKey(groupId))
                 DoorGroupStates[groupId] = false;
+            OnTileChanged?.Invoke(x, y);
         }
 
         public int GetDoorGroupId(int x, int y)
@@ -94,7 +92,6 @@ namespace SS15.Client.Core
             return DoorGroups.TryGetValue((x, y), out int id) ? id : -1;
         }
 
-        /// Состояние всей группы (двери). Отдельный тайл не имеет своего состояния.
         public bool IsDoorOpen(int x, int y)
         {
             if (DoorGroups.TryGetValue((x, y), out int gid))
@@ -102,11 +99,16 @@ namespace SS15.Client.Core
             return false;
         }
 
-        /// Устанавливает состояние для всей группы.
         public void SetDoorOpen(int x, int y, bool open)
         {
-            if (DoorGroups.TryGetValue((x, y), out int gid))
-                DoorGroupStates[gid] = open;
+            if (!DoorGroups.TryGetValue((x, y), out int gid)) return;
+            if (DoorGroupStates.TryGetValue(gid, out bool cur) && cur == open) return;
+
+            DoorGroupStates[gid] = open;
+
+            foreach (var kv in DoorGroups)
+                if (kv.Value == gid)
+                    OnTileChanged?.Invoke(kv.Key.x, kv.Key.y);
         }
 
         public List<(int x, int y)> GetDoorTilesInGroup(int groupId)
@@ -117,8 +119,6 @@ namespace SS15.Client.Core
                     list.Add(kvp.Key);
             return list;
         }
-
-        // ===== Предметы =====
 
         public void AddItemToTile(int x, int y, Item item)
         {

@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "4qPCfX+mdqc=",
+  "dgSpecHash": "kMJDPXo7BBw=",
   "success": true,
   "projectFilePath": "D:\\Games\\Space_Station_15\\Space_Station_15D3\\SS15.Client\\SS15.Client.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\User\\.nuget\\packages\\microsoft.dotnet.platformabstractions\\3.1.6\\microsoft.dotnet.platformabstractions.3.1.6.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.extensions.dependencymodel\\8.0.0\\microsoft.extensions.dependencymodel.8.0.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.win32.systemevents\\8.0.0\\microsoft.win32.systemevents.8.0.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\sharpgltf.core\\1.0.0\\sharpgltf.core.1.0.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\silk.net\\2.21.0\\silk.net.2.21.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\silk.net.core\\2.21.0\\silk.net.core.2.21.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\silk.net.glfw\\2.21.0\\silk.net.glfw.2.21.0.nupkg.sha512",

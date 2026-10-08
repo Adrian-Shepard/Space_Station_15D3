@@ -26,14 +26,18 @@ out vec3 vWorldPos;
 
 uniform vec3 uModelPos;
 uniform vec3 uModelScale;
+uniform mat4 uRotation;
 uniform mat4 uView;
 uniform mat4 uProjection;
 
 void main()
 {
-    vec3 worldPos = aPosition * uModelScale + uModelPos;
+    vec3 scaled = aPosition * uModelScale;
+    vec3 rotated = (uRotation * vec4(scaled, 0.0)).xyz;
+    vec3 worldPos = rotated + uModelPos;
+
     vWorldPos = worldPos;
-    vNormal = aNormal;
+    vNormal = (uRotation * vec4(aNormal, 0.0)).xyz;
     vTexCoord = aTexCoord;
     gl_Position = uProjection * uView * vec4(worldPos, 1.0);
 }";
@@ -51,6 +55,7 @@ uniform vec3 uAmbientColor;
 uniform vec3 uLightColor;
 uniform vec3 uViewPos;
 uniform int uUnlit;
+uniform vec4 uTint;
 
 void main()
 {
@@ -79,7 +84,7 @@ void main()
         finalColor = texColor.rgb * lighting;
     }
 
-    FragColor = vec4(finalColor, texColor.a);
+    FragColor = vec4(finalColor * uTint.rgb, texColor.a * uTint.a);
 }";
 
         public Shader3D(GL gl)
@@ -113,6 +118,7 @@ void main()
 
             CheckUniform("uModelPos");
             CheckUniform("uModelScale");
+            CheckUniform("uRotation");
             CheckUniform("uView");
             CheckUniform("uProjection");
             CheckUniform("uTexture");
@@ -121,6 +127,7 @@ void main()
             CheckUniform("uLightColor");
             CheckUniform("uViewPos");
             CheckUniform("uUnlit");
+            CheckUniform("uTint");
         }
 
         private void CheckUniform(string name)
@@ -185,6 +192,13 @@ void main()
             int loc = GetLoc(name);
             if (loc < 0) return;
             _gl.Uniform3(loc, v.X, v.Y, v.Z);
+        }
+
+        public void SetVector4(string name, Vector4 v)
+        {
+            int loc = GetLoc(name);
+            if (loc < 0) return;
+            _gl.Uniform4(loc, v.X, v.Y, v.Z, v.W);
         }
 
         public void SetInt(string name, int value)

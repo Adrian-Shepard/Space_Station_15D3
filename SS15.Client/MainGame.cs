@@ -10,6 +10,7 @@ using SS15.Client.Core;
 using SS15.Client.Input;
 using SS15.Client.NTUI;
 using SS15.Client.Render;
+using SS15.Client.Render.Models;
 using SS15.Client.Systems;
 using Framebuffer = SS15.Client.Render.Framebuffer;
 
@@ -69,6 +70,7 @@ namespace SS15.Client
             _inputContext = Window.CreateInput();
             _ctx.Keyboard = _inputContext.Keyboards[0];
             _ctx.Mouse = _inputContext.Mice[0];
+            Logger.Info("MainGame", "Input initialized");
 
             _ctx.State = new GameState();
             _ctx.State.Initialize(_ctx.Keyboard);
@@ -80,11 +82,20 @@ namespace SS15.Client
                 ViewportHeight = (int)_ctx.ScreenHeight
             };
 
+            var playerModelPath = System.IO.Path.Combine(
+                AppContext.BaseDirectory, "Assets", "Models", "player.glb");
+            var playerModel = ModelLoader.Load(Gl, playerModelPath, targetHeight: 2.0f);
+
             _ctx.World = new WorldRenderer3D(
                 Gl,
                 _ctx.State.Map,
                 _ctx.State.Power,
-                _ctx.State.Atmosphere);
+                _ctx.State.Atmosphere,
+                _ctx.State.Physics,
+                _ctx.State.ItemFlight,
+                _ctx.State.RemotePlayers,
+                _assets.White,
+                playerModel);
 
             _ctx.World.SetTextures(
                 _assets.WallSingle, _assets.WallNS, _assets.WallWE,
@@ -92,7 +103,9 @@ namespace SS15.Client
                 _assets.Wire,
                 _assets.DoorOpen, _assets.DoorClosed,
                 _assets.Generator, _assets.LampOn, _assets.LampOff,
-                _assets.Highlight);
+                _assets.Highlight,
+                _assets.Crate,
+                _assets.Item);
 
             _ctx.ViewModel = new ViewModelRenderer(Gl, _assets.Hand, _assets.Item);
 
@@ -127,6 +140,8 @@ namespace SS15.Client
 
             _ctx.Hud.Notify("Добро пожаловать на борт, инженер.", new Color(1f, 0.9f, 0.6f, 1f));
             _ctx.Hud.Notify("Alt — отпустить курсор, Alt+ПКМ — меню", new Color(0.8f, 1f, 0.8f, 1f));
+            _ctx.Hud.Notify("F — тащить ящик, Shift — спринт, Space — bhop", new Color(0.8f, 1f, 0.8f, 1f));
+            _ctx.Hud.Notify("Ctrl+Q — бросить предмет", new Color(0.8f, 1f, 0.8f, 1f));
 
             Logger.Info("MainGame", "OnLoad complete");
         }
@@ -140,11 +155,11 @@ namespace SS15.Client
             _ctx.Input.PlaceGenerator      += (x, y) => _worldInteraction.SafeCall("PlaceGen",    () => _worldInteraction.PlaceGenerator(x, y));
             _ctx.Input.PlaceLamp           += (x, y) => _worldInteraction.SafeCall("PlaceLamp",   () => _worldInteraction.PlaceLamp(x, y));
             _ctx.Input.RemoveObject        += (x, y) => _worldInteraction.SafeCall("RemoveObject",() => _worldInteraction.RemoveObject(x, y));
-            _ctx.Input.SwitchHand          += () => _worldInteraction.SafeCall("SwitchHand", () => _ctx.State.ActiveHandIndex = 1 - _ctx.State.ActiveHandIndex);
-            _ctx.Input.SelectSlot          += (i) => _worldInteraction.SafeCall("SelectSlot", () => _ctx.State.ActiveSlotIndex = i);
-            _ctx.Input.PlaceInPocket       += () => _worldInteraction.SafeCall("PlaceInPocket", _worldInteraction.PlaceInPocket);
-            _ctx.Input.UseItem             += () => _worldInteraction.SafeCall("UseItem", _worldInteraction.UseItem);
-            _ctx.Input.DropItem            += () => _worldInteraction.SafeCall("DropItem", _worldInteraction.DropItem);
+            _ctx.Input.SwitchHand          += () => _worldInteraction.SafeCall("SwitchHand",      () => _ctx.State.ActiveHandIndex = 1 - _ctx.State.ActiveHandIndex);
+            _ctx.Input.SelectSlot          += (i) => _worldInteraction.SafeCall("SelectSlot",     () => _ctx.State.ActiveSlotIndex = i);
+            _ctx.Input.PlaceInPocket       += () => _worldInteraction.SafeCall("PlaceInPocket",   _worldInteraction.PlaceInPocket);
+            _ctx.Input.UseItem             += () => _worldInteraction.SafeCall("UseItem",         _worldInteraction.UseItem);
+            _ctx.Input.DropItem            += () => _worldInteraction.SafeCall("DropItem",        _worldInteraction.DropItem);
             _ctx.Input.ModifyOxygen        += (x, y, d) => _worldInteraction.SafeCall("ModifyO2",     () => _worldInteraction.ModifyOxygen(x, y, d));
             _ctx.Input.ModifyNitrogen      += (x, y, d) => _worldInteraction.SafeCall("ModifyN2",     () => _worldInteraction.ModifyNitrogen(x, y, d));
             _ctx.Input.ModifyCarbonDioxide += (x, y, d) => _worldInteraction.SafeCall("ModifyCO2",    () => _worldInteraction.ModifyCarbonDioxide(x, y, d));
@@ -168,6 +183,7 @@ namespace SS15.Client
                 Logger.Info("GL", $"Renderer: {Gl.GetStringS(StringName.Renderer)}");
                 Logger.Info("GL", $"Version:  {Gl.GetStringS(StringName.Version)}");
                 Logger.Info("GL", $"GLSL:     {Gl.GetStringS(StringName.ShadingLanguageVersion)}");
+
                 int depthBits = Gl.GetInteger((GetPName)0x0D56);
                 Logger.Info("GL", $"Default depth bits: {depthBits}");
             }
@@ -234,6 +250,9 @@ namespace SS15.Client
             _ctx.Input.Update((float)deltaTime, _ctx.CurrentHit);
             _hotkeys.Update();
 
+            _worldInteraction.SetDeltaTime((float)deltaTime);
+            _worldInteraction.UpdateInput();
+
             Vector2 currentPos = _ctx.State.Player.Position;
             bool isMoving = Vector2.DistanceSquared(currentPos, _lastPlayerPos) > 0.01f;
             _lastPlayerPos = currentPos;
@@ -258,7 +277,7 @@ namespace SS15.Client
 
                 Logger.Info("Perf",
                     $"FPS={_fps:F1} Player={_ctx.PlayerMs:F2}ms Atmos={_ctx.AtmosMs:F2}ms " +
-                    $"Render={_ctx.RenderMs:F2}ms Tiles={_ctx.World.LastDrawnTiles} " +
+                    $"Render={_ctx.RenderMs:F2}ms Chunks={_ctx.World.LastDrawnTiles} " +
                     $"Uptime={_ctx.State.Runtime.FormatRealTime()} Errors={_ctx.State.Errors.TotalCount}");
             }
         }

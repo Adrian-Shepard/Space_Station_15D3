@@ -11,8 +11,8 @@ namespace SS15.Client.Render
         public Shader3D Shader { get; }
 
         private static readonly Vector3 LightDir = new Vector3(-0.3f, -1f, -0.4f);
-        private static readonly Vector3 Ambient = new Vector3(0.55f, 0.55f, 0.62f);
-        private static readonly Vector3 LightColor = new Vector3(0.85f, 0.82f, 0.75f);
+        private static readonly Vector3 Ambient = new Vector3(0.40f, 0.40f, 0.46f);
+        private static readonly Vector3 LightColor = new Vector3(0.75f, 0.72f, 0.65f);
 
         public MeshRenderer(GL gl, Shader3D shader)
         {
@@ -34,7 +34,8 @@ namespace SS15.Client.Render
             Shader.Use();
 
             Shader.SetInt("uTexture", 0);
-            Shader.SetInt("uUnlit", 0);   // по умолчанию — освещённый режим
+            Shader.SetInt("uUnlit", 0);
+            Shader.SetVector4("uTint", Vector4.One);
             Shader.SetVector3("uLightDir", LightDir);
             Shader.SetVector3("uAmbientColor", Ambient);
             Shader.SetVector3("uLightColor", LightColor);
@@ -42,6 +43,7 @@ namespace SS15.Client.Render
             Shader.SetMatrix4("uView", view);
             Shader.SetMatrix4("uProjection", proj);
             Shader.SetVector3("uViewPos", cameraPos);
+            Shader.SetMatrix4("uRotation", Matrix4x4.Identity);
         }
 
         public void Draw(Mesh mesh, Texture2D texture, Vector3 pos, Vector3 scale)
@@ -49,18 +51,39 @@ namespace SS15.Client.Render
             texture.Bind(TextureUnit.Texture0);
             Shader.SetVector3("uModelPos", pos);
             Shader.SetVector3("uModelScale", scale);
+            Shader.SetVector4("uTint", Vector4.One);
+            Shader.SetMatrix4("uRotation", Matrix4x4.Identity);
             mesh.Draw();
         }
 
-        /// Рисует меш без освещения — только цвет текстуры (с alpha).
-        /// Depth-write отключён, чтобы не портить depth-buffer для последующих объектов.
+        public void DrawTinted(Mesh mesh, Texture2D texture, Vector3 pos, Vector3 scale, Color color)
+        {
+            texture.Bind(TextureUnit.Texture0);
+            Shader.SetVector3("uModelPos", pos);
+            Shader.SetVector3("uModelScale", scale);
+            Shader.SetVector4("uTint", new Vector4(color.R, color.G, color.B, color.A));
+            Shader.SetMatrix4("uRotation", Matrix4x4.Identity);
+            mesh.Draw();
+        }
+
+        public void DrawRotated(Mesh mesh, Texture2D texture, Vector3 pos, Vector3 scale, Matrix4x4 rotation)
+        {
+            texture.Bind(TextureUnit.Texture0);
+            Shader.SetVector3("uModelPos", pos);
+            Shader.SetVector3("uModelScale", scale);
+            Shader.SetVector4("uTint", Vector4.One);
+            Shader.SetMatrix4("uRotation", rotation);
+            mesh.Draw();
+        }
+
         public void DrawUnlit(Mesh mesh, Texture2D texture, Vector3 pos, Vector3 scale)
         {
             texture.Bind(TextureUnit.Texture0);
             Shader.SetVector3("uModelPos", pos);
             Shader.SetVector3("uModelScale", scale);
-
             Shader.SetInt("uUnlit", 1);
+            Shader.SetVector4("uTint", Vector4.One);
+            Shader.SetMatrix4("uRotation", Matrix4x4.Identity);
 
             _gl.DepthMask(false);
             mesh.Draw();

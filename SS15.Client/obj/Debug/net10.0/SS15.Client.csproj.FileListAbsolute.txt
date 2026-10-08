@@ -145,3 +145,8 @@ D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\obj\Debug\net10.0\refin
 D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\obj\Debug\net10.0\SS15.Client.pdb
 D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\obj\Debug\net10.0\SS15.Client.genruntimeconfig.cache
 D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\obj\Debug\net10.0\ref\SS15.Client.dll
+D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\SharpGLTF.Core.dll
+D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\Assets\Models\player.glb
+D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\Assets\Models\player2.glb
+D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\Assets\Models\player3.glb
+D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\Assets\Models\player1.glb

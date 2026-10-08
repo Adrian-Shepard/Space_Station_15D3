@@ -9,6 +9,7 @@
       "SS15.Client/1.0.0": {
         "dependencies": {
           "Engine.Rendering": "1.0.0",
+          "SharpGLTF.Core": "1.0.0",
           "Silk.NET": "2.21.0",
           "Silk.NET.Input": "2.21.0",
           "Silk.NET.OpenGL": "2.21.0",
@@ -48,6 +49,14 @@
             "assetType": "runtime",
             "assemblyVersion": "8.0.0.0",
             "fileVersion": "8.0.23.53103"
+          }
+        }
+      },
+      "SharpGLTF.Core/1.0.0": {
+        "runtime": {
+          "lib/net8.0/SharpGLTF.Core.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
           }
         }
       },
@@ -395,6 +404,13 @@
       "sha512": "sha512-9opKRyOKMCi2xJ7Bj7kxtZ1r9vbzosMvRrdEhVhDz8j8MoBGgB+WmC94yH839NPH+BclAjtQ/pyagvi/8gDLkw==",
       "path": "microsoft.win32.systemevents/8.0.0",
       "hashPath": "microsoft.win32.systemevents.8.0.0.nupkg.sha512"
+    },
+    "SharpGLTF.Core/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cfOyA8GXX6qJNx7U36RMj32fTql4mpd46reiMJK8M1MXeDtbPDcqLColYDfKGgcgC1zc3ABGJlvi3epxvuCzQw==",
+      "path": "sharpgltf.core/1.0.0",
+      "hashPath": "sharpgltf.core.1.0.0.nupkg.sha512"
     },
     "Silk.NET/2.21.0": {
       "type": "package",

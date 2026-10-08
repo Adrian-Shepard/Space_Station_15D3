@@ -1,8 +1,11 @@
 #nullable disable
 using System;
+using System.Numerics;
 using Engine.Rendering;
+using Silk.NET.Input;
 using SS15.Client.Core;
 using SS15.Client.Objects;
+using SS15.Client.Objects.Physics;
 
 namespace SS15.Client.Systems
 {
@@ -11,9 +14,86 @@ namespace SS15.Client.Systems
         private readonly GameContext _ctx;
         private const int DoorWidth = 2;
 
+        private PhysicsObject _dragged;
+        private bool _fPrev;
+        private float _lastDt;
+
+        private const float DragSpeed = 240f;
+        private const float DragDistance = 40f;
+        private const float DropRange = 96f;
+        private const float GrabRange = 64f;
+
+        public PhysicsObject DraggedObject => _dragged;
+
         public WorldInteractionSystem(GameContext ctx)
         {
             _ctx = ctx;
+        }
+
+        public void SetDeltaTime(float dt) => _lastDt = dt;
+
+        public void UpdateInput()
+        {
+            bool f = _ctx.Keyboard.IsKeyPressed(Key.F);
+            if (f && !_fPrev) ToggleGrab();
+            _fPrev = f;
+
+            UpdateDrag();
+        }
+
+        public void ToggleGrab()
+        {
+            if (_dragged != null)
+            {
+                _dragged = null;
+                Notify("Ящик отпущен", new Color(0.8f, 0.8f, 0.8f, 1f));
+                return;
+            }
+
+            var near = _ctx.State.Physics.FindNear(_ctx.State.Player.Position, GrabRange);
+            if (near == null)
+            {
+                Notify("Рядом нет объекта", new Color(1f, 0.85f, 0.5f, 1f));
+                return;
+            }
+
+            _dragged = near;
+            Notify("Взял ящик", new Color(0.7f, 0.9f, 1f, 1f));
+        }
+
+        private void UpdateDrag()
+        {
+            if (_dragged == null) return;
+            if (_dragged.IsStatic) { _dragged = null; return; }
+
+            var p = _ctx.State.Player;
+            float dirX = MathF.Cos(p.Direction);
+            float dirY = MathF.Sin(p.Direction);
+
+            Vector2 target = p.Position + new Vector2(dirX, dirY) * DragDistance;
+            Vector2 diff = target - _dragged.Position;
+            float dist = diff.Length();
+
+            if (dist > DropRange)
+            {
+                _dragged = null;
+                Notify("Ящик далеко — отпущен", new Color(1f, 0.7f, 0.5f, 1f));
+                return;
+            }
+
+            if (dist < 1.5f)
+            {
+                _dragged.Velocity *= 0.85f;
+                return;
+            }
+
+            Vector2 dir = diff / dist;
+
+            float desired = MathF.Min(dist * 7f, DragSpeed);
+            Vector2 desiredVel = dir * desired;
+
+            float k = MathF.Min(1f, _lastDt * 14f);
+            _dragged.Velocity = Vector2.Lerp(_dragged.Velocity, desiredVel, k);
         }
 
         public void LeftClick(int x, int y)
@@ -155,13 +235,43 @@ namespace SS15.Client.Systems
         {
             int h = _ctx.State.ActiveHandIndex;
             var item = _ctx.State.Player.Inventory.RemoveItem(h);
-            if (item != null)
+            if (item == null) return;
+
+            bool ctrl = _ctx.Keyboard.IsKeyPressed(Key.ControlLeft) || _ctx.Keyboard.IsKeyPressed(Key.ControlRight);
+
+            var p = _ctx.State.Player;
+
+            if (ctrl)
             {
-                int tx = (int)(_ctx.State.Player.Position.X / _ctx.State.Map.TileSize);
-                int ty = (int)(_ctx.State.Player.Position.Y / _ctx.State.Map.TileSize);
+                float dirX = MathF.Cos(p.Direction);
+                float dirY = MathF.Sin(p.Direction);
+                var dir = new Vector2(dirX, dirY);
+
+                var from = p.Position + dir * 10f;
+
+                float sliding = SlidingFrictionFor(item.Type);
+
+                _ctx.State.ItemFlight.Throw(item, from, dir, p.Pitch, 700f, sliding);
+                Notify($"Брошено: {item.Name}", new Color(1f, 0.9f, 0.4f, 1f));
+            }
+            else
+            {
+                int tx = (int)(p.Position.X / _ctx.State.Map.TileSize);
+                int ty = (int)(p.Position.Y / _ctx.State.Map.TileSize);
                 _ctx.State.Map.AddItemToTile(tx, ty, item);
                 Notify($"Выброшено: {item.Name}", new Color(1f, 0.85f, 0.6f, 1f));
             }
+        }
+
+        private static float SlidingFrictionFor(ItemType type)
+        {
+            return type switch
+            {
+                ItemType.Medkit => 4.0f,
+                ItemType.Food   => 3.0f,
+                ItemType.Tool   => 2.0f,
+                _               => 3.5f,
+            };
         }
 
         public void ModifyOxygen(int x, int y, float d) => _ctx.State.Atmosphere.ModifyOxygen(x, y, d);

@@ -19,7 +19,9 @@ namespace SS15.Client.Render
         public Texture2D LampOff;
         public Texture2D DoorOpen;
         public Texture2D DoorClosed;
+        public Texture2D Crate;
         public Texture2D Player;
+        public Texture2D PlayerBody;
         public Texture2D ArmsPreview;
         public Texture2D Pocket;
         public Texture2D Belt;
@@ -48,6 +50,7 @@ namespace SS15.Client.Render
             a.LampOn = LampSpriteGenerator.LoadOrCreateOn(gl);
             a.DoorOpen = DoorSpriteGenerator.LoadOrCreateOpen(gl);
             a.DoorClosed = DoorSpriteGenerator.LoadOrCreateClosed(gl);
+            a.Crate = CrateSpriteGenerator.LoadOrCreate(gl);
 
             a.ArmsPreview = SpriteGenerator.LoadTexture(gl, "Sprites/Misc/UI/Arms_Preview.png");
             a.Pocket = SpriteGenerator.LoadTexture(gl, "Sprites/Misc/UI/UI_Pocket.png");
@@ -60,6 +63,7 @@ namespace SS15.Client.Render
             a.Slot = SpriteGenerator.CreateSolidTexture(gl, new byte[] { 50, 50, 50, 255 });
             a.Highlight = SpriteGenerator.CreateSolidTexture(gl, new byte[] { 255, 210, 0, 130 });
             a.Hand = SpriteGenerator.CreateSolidTexture(gl, new byte[] { 240, 200, 170, 255 });
+            a.PlayerBody = SpriteGenerator.CreateSolidTexture(gl, new byte[] { 220, 180, 140, 255 });
 
             Logger.Info("Assets", "All textures loaded");
             return a;

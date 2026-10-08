@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SS15.Client")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+562c480ee63459d0be3dac6c0105fcbbf83e2666")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+09f5c7b07857d630e92c9f17d470e05bce360570")]
 [assembly: System.Reflection.AssemblyProductAttribute("SS15.Client")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SS15.Client")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -53,6 +53,19 @@
           }
         }
       },
+      "SharpGLTF.Core/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/SharpGLTF.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/SharpGLTF.Core.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Silk.NET/2.21.0": {
         "type": "package",
         "dependencies": {
@@ -550,6 +563,26 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "SharpGLTF.Core/1.0.0": {
+      "sha512": "cfOyA8GXX6qJNx7U36RMj32fTql4mpd46reiMJK8M1MXeDtbPDcqLColYDfKGgcgC1zc3ABGJlvi3epxvuCzQw==",
+      "type": "package",
+      "path": "sharpgltf.core/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "glTF2Sharp.png",
+        "lib/net6.0/SharpGLTF.Core.dll",
+        "lib/net6.0/SharpGLTF.Core.xml",
+        "lib/net8.0/SharpGLTF.Core.dll",
+        "lib/net8.0/SharpGLTF.Core.xml",
+        "lib/netstandard2.0/SharpGLTF.Core.dll",
+        "lib/netstandard2.0/SharpGLTF.Core.xml",
+        "lib/netstandard2.1/SharpGLTF.Core.dll",
+        "lib/netstandard2.1/SharpGLTF.Core.xml",
+        "sharpgltf.core.1.0.0.nupkg.sha512",
+        "sharpgltf.core.nuspec"
+      ]
+    },
     "Silk.NET/2.21.0": {
       "sha512": "bfGiLnazd8xmbzu3qZbTd8UZcavrhYjk/lhRF2BQhsiD/YPKVa/+16J5ZYAteT4smndG89qZyIdS1cTVJ3EaUA==",
       "type": "package",
@@ -1018,6 +1051,7 @@
   "projectFileDependencyGroups": {
     "net10.0": [
       "Engine.Rendering >= 1.0.0",
+      "SharpGLTF.Core >= 1.0.0",
       "Silk.NET >= 2.21.0",
       "Silk.NET.Input >= 2.21.0",
       "Silk.NET.OpenGL >= 2.21.0",
@@ -1073,6 +1107,10 @@
       "net10.0": {
         "targetAlias": "net10.0",
         "dependencies": {
+          "SharpGLTF.Core": {
+            "target": "Package",
+            "version": "[1.0.0, )"
+          },
           "Silk.NET": {
             "target": "Package",
             "version": "[2.21.0, )"
