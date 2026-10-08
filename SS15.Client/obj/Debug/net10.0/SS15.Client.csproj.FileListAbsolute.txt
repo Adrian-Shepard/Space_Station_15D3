@@ -68,6 +68,12 @@ D:\Games\Space_Station_15\SS15.Client\bin\Debug\net10.0\Assets\Sprites\Misc\UI\A
 D:\Games\Space_Station_15\SS15.Client\bin\Debug\net10.0\Assets\Sprites\Misc\UI\UI_Pocket.png
 D:\Games\Space_Station_15\SS15.Client\bin\Debug\net10.0\Assets\Sprites\Misc\UI\UI_Back.png
 D:\Games\Space_Station_15\SS15.Client\bin\Debug\net10.0\Assets\Sprites\Misc\UI\UI_Belt.png
+D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\Assets\Machinery\door_closed.png
+D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\Assets\Machinery\door_open.png
+D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\Assets\Machinery\generator.png
+D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\Assets\Machinery\lamp_off.png
+D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\Assets\Machinery\lamp_on.png
+D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\Assets\Machinery\wire.png
 D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\Assets\Sprites\Misc\UI\Arms\UI_Left_Arm.png
 D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\Assets\Sprites\Misc\UI\Arms\UI_Right_Arm.png
 D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\Assets\Sprites\Misc\UI\Arms_Preview.png
