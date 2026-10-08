@@ -10,10 +10,7 @@ namespace SS15.Client
     public class GameState
     {
         /// Фиксированный шаг симуляции — 20 Hz.
-        /// В онлайне: сервер тикает с той же частотой, что даёт детерминизм.
         public const float LogicStep = 1f / 20f;
-
-        /// Защита от "spiral of death" при лагах.
         private const float MaxAccumulator = 0.25f;
 
         private float _accumulator = 0f;
@@ -24,8 +21,16 @@ namespace SS15.Client
         public PowerSystem Power { get; private set; }
         public HealthSystem Health { get; private set; }
 
+        /// Runtime-тайминги сессии.
+        public GameRuntime Runtime { get; } = new();
+
+        /// Центральный лог runtime-ошибок.
+        public RuntimeErrorLog Errors { get; } = new();
+
         public void Initialize(IKeyboard keyboard)
         {
+            Errors.Runtime = Runtime;
+
             Map = MapGenerator.Generate();
 
             Atmosphere = new AtmosphereSystem();
@@ -46,10 +51,10 @@ namespace SS15.Client
             Map.AddItemToTile(30, 20, new Item(ItemType.Tool, "Wrench", 1, new byte[] { 0, 0, 255, 255 }));
         }
 
-        /// Вызывается раз в кадр. Внутри может отработать 0..N тиков логики.
-        /// Возвращает суммарное время каждой системы за все тики этого кадра.
         public (float player, float atmos, float power, float health) Update(float deltaTime)
         {
+            Runtime.TickReal(deltaTime);
+
             _accumulator += deltaTime;
             if (_accumulator > MaxAccumulator) _accumulator = MaxAccumulator;
 
@@ -57,6 +62,7 @@ namespace SS15.Client
 
             while (_accumulator >= LogicStep)
             {
+                Runtime.TickGame(LogicStep);
                 var (p, a, pw, h) = Tick(LogicStep);
                 totalPlayer += p;
                 totalAtmos += a;
@@ -68,19 +74,19 @@ namespace SS15.Client
             return (totalPlayer, totalAtmos, totalPower, totalHealth);
         }
 
-        /// Один тик логики — детерминированный, без привязки к FPS.
         private (float player, float atmos, float power, float health) Tick(float dt)
         {
             var sw = System.Diagnostics.Stopwatch.StartNew();
-            Player.Update(dt);
+
+            SafeCall("Player.Update", () => Player.Update(dt));
             float playerMs = (float)sw.Elapsed.TotalMilliseconds;
 
             sw.Restart();
-            Atmosphere.Update(dt);
+            SafeCall("Atmosphere.Update", () => Atmosphere.Update(dt));
             float atmosMs = (float)sw.Elapsed.TotalMilliseconds;
 
             sw.Restart();
-            Power.Update(dt);
+            SafeCall("Power.Update", () => Power.Update(dt));
             float powerMs = (float)sw.Elapsed.TotalMilliseconds;
 
             int tileX = (int)(Player.Position.X / Map.TileSize);
@@ -90,17 +96,30 @@ namespace SS15.Client
             AtmosphereData atmos = atmosNullable ?? default;
 
             sw.Restart();
-            Health.Update(Player, atmos, Map, Player.Position, dt);
+            SafeCall("Health.Update", () => Health.Update(Player, atmos, Map, Player.Position, dt));
             float healthMs = (float)sw.Elapsed.TotalMilliseconds;
 
             if (Player.Health <= 0)
             {
-                Player.Respawn(new Vector2(
+                SafeCall("Player.Respawn", () => Player.Respawn(new Vector2(
                     (Map.Width / 2) * Map.TileSize + Map.TileSize / 2,
-                    (Map.Height / 2) * Map.TileSize + Map.TileSize / 2));
+                    (Map.Height / 2) * Map.TileSize + Map.TileSize / 2)));
             }
 
             return (playerMs, atmosMs, powerMs, healthMs);
+        }
+
+        private void SafeCall(string system, Action action)
+        {
+            try
+            {
+                action();
+            }
+            catch (Exception ex)
+            {
+                Errors.Report(system, ex);
+                Logger.Error(system, $"Runtime error caught: {ex.Message}", ex);
+            }
         }
     }
 }

@@ -76,6 +76,12 @@ namespace SS15.Client.Core
 
         public int NewDoorGroup() => _nextDoorGroupId++;
 
+        /// <summary>Восстанавливает счётчик ID после загрузки. Используется SaveManager.</summary>
+        public void SetNextDoorGroupId(int id)
+        {
+            _nextDoorGroupId = id < 1 ? 1 : id;
+        }
+
         public void RegisterDoorTile(int x, int y, int groupId)
         {
             DoorGroups[(x, y)] = groupId;

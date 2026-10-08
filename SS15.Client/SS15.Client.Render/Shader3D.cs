@@ -50,23 +50,34 @@ uniform vec3 uLightDir;
 uniform vec3 uAmbientColor;
 uniform vec3 uLightColor;
 uniform vec3 uViewPos;
+uniform int uUnlit;
 
 void main()
 {
     vec4 texColor = texture(uTexture, vTexCoord);
     if (texColor.a < 0.05) discard;
 
-    vec3 N = normalize(vNormal);
-    vec3 L = normalize(-uLightDir);
-    float diff = max(dot(N, L), 0.0);
-    vec3 lighting = uAmbientColor + uLightColor * diff;
+    vec3 finalColor;
+    if (uUnlit == 1)
+    {
+        finalColor = texColor.rgb;
+    }
+    else
+    {
+        vec3 N = normalize(vNormal);
+        vec3 L = normalize(-uLightDir);
+        float diff = max(dot(N, L), 0.0);
+        vec3 lighting = uAmbientColor + uLightColor * diff;
 
-    vec3 V = normalize(uViewPos - vWorldPos);
-    vec3 H = normalize(L + V);
-    float spec = pow(max(dot(N, H), 0.0), 32.0) * 0.15;
-    lighting += vec3(spec);
+        vec3 V = normalize(uViewPos - vWorldPos);
+        vec3 H = normalize(L + V);
+        float spec = pow(max(dot(N, H), 0.0), 32.0) * 0.15;
+        lighting += vec3(spec);
 
-    FragColor = vec4(texColor.rgb * lighting, texColor.a);
+        finalColor = texColor.rgb * lighting;
+    }
+
+    FragColor = vec4(finalColor, texColor.a);
 }";
 
         public Shader3D(GL gl)
@@ -107,6 +118,7 @@ void main()
             CheckUniform("uAmbientColor");
             CheckUniform("uLightColor");
             CheckUniform("uViewPos");
+            CheckUniform("uUnlit");
         }
 
         private void CheckUniform(string name)

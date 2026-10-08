@@ -29,7 +29,18 @@ namespace SS15.Client.Player
 
         public void Heal(int amount) => Health = Math.Clamp(Health + amount, 0, 100);
         public void TakeDamage(int amount) => Health = Math.Clamp(Health - amount, 0, 100);
-        public void Respawn(Vector2 newPos) { Position = newPos; Health = 100; }
+
+        /// <summary>Установить HP напрямую. Используется загрузкой сохранения.</summary>
+        public void SetHealth(int hp)
+        {
+            Health = Math.Clamp(hp, 0, 100);
+        }
+
+        public void Respawn(Vector2 newPos)
+        {
+            Position = newPos;
+            Health = 100;
+        }
 
         public void Update(float deltaTime)
         {

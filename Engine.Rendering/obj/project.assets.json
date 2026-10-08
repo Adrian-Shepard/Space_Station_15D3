@@ -748,11 +748,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Games\\Space_Station_15\\Engine.Rendering\\Engine.Rendering.csproj",
+      "projectUniqueName": "D:\\Games\\Space_Station_15\\Space_Station_15D3\\Engine.Rendering\\Engine.Rendering.csproj",
       "projectName": "Engine.Rendering",
-      "projectPath": "D:\\Games\\Space_Station_15\\Engine.Rendering\\Engine.Rendering.csproj",
+      "projectPath": "D:\\Games\\Space_Station_15\\Space_Station_15D3\\Engine.Rendering\\Engine.Rendering.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "D:\\Games\\Space_Station_15\\Engine.Rendering\\obj\\",
+      "outputPath": "D:\\Games\\Space_Station_15\\Space_Station_15D3\\Engine.Rendering\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config"

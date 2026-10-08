@@ -13,7 +13,7 @@ using SS15.Client.Render;
 using SS15.Client.Render.GeneratedSprites;
 using SS15.Client.Systems;
 using SS15.Client.Objects;
-using Framebuffer = SS15.Client.Render.Framebuffer;   // алиас обязателен
+using Framebuffer = SS15.Client.Render.Framebuffer;
 
 namespace SS15.Client
 {
@@ -31,13 +31,16 @@ namespace SS15.Client
         private InputHandler _inputHandler;
         private Framebuffer _framebuffer;
 
-        // Текстуры
+        private RaycastHit _currentHit;
+
         private Texture2D _floorTex, _spaceTex;
         private Texture2D _wallSingleTex, _wallNSTex, _wallWETex;
+        private Texture2D _wireTex;
         private Texture2D _gridTex, _playerTex, _itemTex, _whiteTexture, _slotTexture;
         private Texture2D _generatorTex, _lampOnTex, _lampOffTex;
         private Texture2D _doorOpenTex, _doorClosedTex;
         private Texture2D _armsPreviewTex, _pocketTex, _beltTex, _backTex;
+        private Texture2D _highlightTex;
 
         private System.Diagnostics.Stopwatch _fpsTimer;
         private int _frameCount;
@@ -52,8 +55,15 @@ namespace SS15.Client
 
         private DateTime _lastCamLog = DateTime.MinValue;
 
-        // Ширина двери в тайлах. 2 = двойная дверь (стандарт для SS15).
+        // Клавиши-переключатели (без F-ряда)
+        private bool _savePrev;      // P
+        private bool _loadPrev;      // Home
+        private bool _debugPrev;     // Tab
+        private bool _errPanelPrev;  // Escape
+        private bool _clearErrPrev;  // Delete
+
         private const int DoorWidth = 2;
+        private const float ReachDistance = 5.0f;
 
         public MainGame() : base(800, 600, "Space Station 15 — 3D")
         {
@@ -77,12 +87,10 @@ namespace SS15.Client
 
             Logger.Info("MainGame", $"Window size: {_actualWidth}x{_actualHeight}");
 
-            // === FBO с depth ===
             _framebuffer = new Framebuffer(Gl, (int)_actualWidth, (int)_actualHeight);
 
             _fpsTimer = System.Diagnostics.Stopwatch.StartNew();
 
-            // ВАЖНО: inputContext храним в поле, иначе GC может отобрать ввод
             _inputContext = Window.CreateInput();
             _keyboard = _inputContext.Keyboards[0];
             _mouse = _inputContext.Mice[0];
@@ -98,7 +106,6 @@ namespace SS15.Client
             var spawnTile = _gameState.Map.GetTile(spawnTx, spawnTy);
             Logger.Info("MainGame", $"Tile under player ({spawnTx},{spawnTy}): {spawnTile}");
 
-            // Рендерер 3D
             _camera3D = new Camera3D
             {
                 ViewportWidth = (int)_actualWidth,
@@ -114,8 +121,10 @@ namespace SS15.Client
             _world3D.SetTextures(
                 _wallSingleTex, _wallNSTex, _wallWETex,
                 _floorTex, _spaceTex,
+                _wireTex,
                 _doorOpenTex, _doorClosedTex,
-                _generatorTex, _lampOnTex, _lampOffTex);
+                _generatorTex, _lampOnTex, _lampOffTex,
+                _highlightTex);
 
             Logger.Info("MainGame", "World3D initialized");
 
@@ -136,13 +145,27 @@ namespace SS15.Client
 
             Logger.Info("MainGame", "HUD initialized");
 
+            _gameState.Errors.OnNewError += OnRuntimeError;
+
             _inputHandler = new InputHandler(_keyboard, _mouse, _gameState.Map, _gameState.Player);
             SubscribeInputEvents();
 
             _gameState.Player.Direction = 0f;
             _gameState.Player.Pitch = 0f;
 
+            _hudRenderer.Notify("Добро пожаловать на борт, инженер.", new Color(1f, 0.9f, 0.6f, 1f));
+            _hudRenderer.Notify("P — сохранить, Home — загрузить", new Color(0.8f, 0.8f, 1f, 1f));
+            _hudRenderer.Notify("Tab — debug, Esc — ошибки", new Color(0.8f, 0.8f, 1f, 1f));
+
             Logger.Info("MainGame", "OnLoad complete");
+        }
+
+        private void OnRuntimeError(RuntimeErrorEntry entry)
+        {
+            var color = entry.Severity == RuntimeErrorSeverity.Critical
+                ? new Color(1f, 0.4f, 0.4f, 1f)
+                : new Color(1f, 0.85f, 0.5f, 1f);
+            _hudRenderer.Notify($"Ошибка [{entry.System}]: {entry.Message}", color);
         }
 
         private void LoadAllTextures()
@@ -166,6 +189,9 @@ namespace SS15.Client
 
                 _playerTex = SpriteGenerator.LoadTexture(Gl, "Sprites/player.png", (gl) => SpriteGenerator.CreatePlayerTexture(gl, 32));
 
+                _wireTex = WireSpriteGenerator.LoadOrCreate(Gl);
+                Logger.Info("Tex", $"Wire loaded, handle={_wireTex?.Handle ?? 0}");
+
                 _generatorTex = GeneratorSpriteGenerator.LoadOrCreate(Gl);
                 _lampOffTex = LampSpriteGenerator.LoadOrCreate(Gl);
                 _lampOnTex = LampSpriteGenerator.LoadOrCreateOn(Gl);
@@ -181,6 +207,8 @@ namespace SS15.Client
                 _itemTex = SpriteGenerator.CreateSolidTexture(Gl, new byte[] { 255, 255, 255, 255 });
                 _whiteTexture = SpriteGenerator.CreateSolidTexture(Gl, new byte[] { 255, 255, 255, 255 });
                 _slotTexture = SpriteGenerator.CreateSolidTexture(Gl, new byte[] { 50, 50, 50, 255 });
+
+                _highlightTex = SpriteGenerator.CreateSolidTexture(Gl, new byte[] { 255, 210, 0, 130 });
 
                 Logger.Info("MainGame", "All textures loaded");
             }
@@ -243,23 +271,36 @@ namespace SS15.Client
 
         private void SubscribeInputEvents()
         {
-            _inputHandler.LeftClick += OnLeftClick;
-            _inputHandler.PlaceWall += OnPlaceWall;
-            _inputHandler.PlaceDoor += OnPlaceDoor;
-            _inputHandler.PlaceWire += OnPlaceWire;
-            _inputHandler.PlaceGenerator += OnPlaceGenerator;
-            _inputHandler.PlaceLamp += OnPlaceLamp;
-            _inputHandler.RemoveObject += OnRemoveObject;
-            _inputHandler.SwitchHand += () => _activeHandIndex = 1 - _activeHandIndex;
-            _inputHandler.SelectSlot += (i) => _activeSlotIndex = i;
-            _inputHandler.PlaceInPocket += OnPlaceInPocket;
-            _inputHandler.UseItem += OnUseItem;
-            _inputHandler.DropItem += OnDropItem;
-            _inputHandler.ModifyOxygen += OnModifyOxygen;
-            _inputHandler.ModifyNitrogen += OnModifyNitrogen;
-            _inputHandler.ModifyCarbonDioxide += OnModifyCarbonDioxide;
-            _inputHandler.ModifyTemperature += OnModifyTemperature;
-            _inputHandler.ModifyPlasma += OnModifyPlasma;
+            _inputHandler.LeftClick           += (x, y) => SafeCall("LeftClick", () => OnLeftClick(x, y));
+            _inputHandler.PlaceWall           += (x, y) => SafeCall("PlaceWall", () => OnPlaceWall(x, y));
+            _inputHandler.PlaceDoor           += (x, y) => SafeCall("PlaceDoor", () => OnPlaceDoor(x, y));
+            _inputHandler.PlaceWire           += (x, y) => SafeCall("PlaceWire", () => OnPlaceWire(x, y));
+            _inputHandler.PlaceGenerator      += (x, y) => SafeCall("PlaceGenerator", () => OnPlaceGenerator(x, y));
+            _inputHandler.PlaceLamp           += (x, y) => SafeCall("PlaceLamp", () => OnPlaceLamp(x, y));
+            _inputHandler.RemoveObject        += (x, y) => SafeCall("RemoveObject", () => OnRemoveObject(x, y));
+            _inputHandler.SwitchHand          += () => SafeCall("SwitchHand", () => _activeHandIndex = 1 - _activeHandIndex);
+            _inputHandler.SelectSlot          += (i) => SafeCall("SelectSlot", () => _activeSlotIndex = i);
+            _inputHandler.PlaceInPocket       += () => SafeCall("PlaceInPocket", OnPlaceInPocket);
+            _inputHandler.UseItem             += () => SafeCall("UseItem", OnUseItem);
+            _inputHandler.DropItem            += () => SafeCall("DropItem", OnDropItem);
+            _inputHandler.ModifyOxygen        += (x, y, d) => SafeCall("ModifyOxygen", () => OnModifyOxygen(x, y, d));
+            _inputHandler.ModifyNitrogen      += (x, y, d) => SafeCall("ModifyNitrogen", () => OnModifyNitrogen(x, y, d));
+            _inputHandler.ModifyCarbonDioxide += (x, y, d) => SafeCall("ModifyCO2", () => OnModifyCarbonDioxide(x, y, d));
+            _inputHandler.ModifyTemperature   += (x, y, d) => SafeCall("ModifyTemp", () => OnModifyTemperature(x, y, d));
+            _inputHandler.ModifyPlasma        += (x, y, d) => SafeCall("ModifyPlasma", () => OnModifyPlasma(x, y, d));
+        }
+
+        private void SafeCall(string system, Action action)
+        {
+            try
+            {
+                action();
+            }
+            catch (Exception ex)
+            {
+                _gameState.Errors.Report(system, ex);
+                Logger.Error(system, $"Runtime error caught: {ex.Message}", ex);
+            }
         }
 
         private void OnLeftClick(int tx, int ty)
@@ -272,13 +313,14 @@ namespace SS15.Client
                     bool open = _gameState.Map.IsDoorOpen(tx, ty);
                     bool newState = !open;
 
-                    // Состояние группы — одно на всех
                     _gameState.Map.SetDoorOpen(tx, ty, newState);
 
-                    // Обновляем атмосферу на ВСЕХ тайлах группы
                     var tiles = _gameState.Map.GetDoorTilesInGroup(gid);
                     foreach (var (dx, dy) in tiles)
                         _gameState.Atmosphere.SetDoorState(dx, dy, newState);
+
+                    _hudRenderer.Notify(newState ? "Дверь открыта" : "Дверь закрыта",
+                        new Color(1f, 0.85f, 0.4f, 1f));
 
                     Logger.Info("Door", $"Door group={gid} state -> {newState} ({tiles.Count} tiles)");
                 }
@@ -295,11 +337,12 @@ namespace SS15.Client
                         !_gameState.Player.Inventory.AddToBelt(item) &&
                         !_gameState.Player.Inventory.AddToBack(item))
                         _gameState.Map.AddItemToTile(tx, ty, item);
+                    else
+                        _hudRenderer.Notify($"Подобрано: {item.Name}", new Color(0.6f, 0.9f, 1f, 1f));
                 }
             }
         }
 
-        // ИСПРАВЛЕНО: ставим стену и в Map, и в Atmosphere
         private void OnPlaceWall(int x, int y)
         {
             var tile = _gameState.Map.GetTile(x, y);
@@ -310,30 +353,28 @@ namespace SS15.Client
 
             _gameState.Map.SetTile(x, y, TileType.Wall);
             _gameState.Atmosphere.SetWall(x, y, true);
+
+            _hudRenderer.Notify($"Стена поставлена ({x},{y})");
         }
 
-        /// Дверь шириной DoorWidth тайлов. Ориентация — по направлению игрока.
-        /// Если смотрит на восток/запад — дверь идёт вдоль Z (вертикально на карте).
-        /// Если смотрит на север/юг — вдоль X (горизонтально).
         private void OnPlaceDoor(int x, int y)
         {
             float dirX = MathF.Cos(_gameState.Player.Direction);
             float dirY = MathF.Sin(_gameState.Player.Direction);
             bool facingEastWest = MathF.Abs(dirX) > MathF.Abs(dirY);
 
-            // Проверяем все тайлы будущей двери
             for (int i = 0; i < DoorWidth; i++)
             {
                 int tx = facingEastWest ? x : x + i;
                 int ty = facingEastWest ? y + i : y;
                 if (!CanPlaceDoorTile(tx, ty))
                 {
+                    _hudRenderer.Notify($"Нельзя поставить дверь ({tx},{ty})", new Color(1f, 0.5f, 0.5f, 1f));
                     Logger.Warn("Door", $"Cannot place door at ({tx},{ty}): tile occupied");
                     return;
                 }
             }
 
-            // Создаём группу и регистрируем все тайлы
             int gid = _gameState.Map.NewDoorGroup();
             for (int i = 0; i < DoorWidth; i++)
             {
@@ -342,6 +383,8 @@ namespace SS15.Client
                 PlaceDoorTile(tx, ty, gid);
                 _gameState.Atmosphere.SetDoorState(tx, ty, false);
             }
+
+            _hudRenderer.Notify($"Дверь установлена ({x},{y})", new Color(0.6f, 1f, 0.6f, 1f));
 
             Logger.Info("Door", $"Placed door group={gid} at ({x},{y}) width={DoorWidth} " +
                 $"orientation={(facingEastWest ? "NS" : "EW")}");
@@ -370,9 +413,23 @@ namespace SS15.Client
             _gameState.Map.RegisterDoorTile(x, y, groupId);
         }
 
-        private void OnPlaceWire(int x, int y) => SetTile(x, y, TileType.Wire);
-        private void OnPlaceGenerator(int x, int y) => SetTile(x, y, TileType.Generator);
-        private void OnPlaceLamp(int x, int y) => SetTile(x, y, TileType.Lamp);
+        private void OnPlaceWire(int x, int y)
+        {
+            SetTile(x, y, TileType.Wire);
+            _hudRenderer.Notify($"Провод ({x},{y})");
+        }
+
+        private void OnPlaceGenerator(int x, int y)
+        {
+            SetTile(x, y, TileType.Generator);
+            _hudRenderer.Notify($"Генератор ({x},{y})", new Color(0.9f, 0.8f, 0.4f, 1f));
+        }
+
+        private void OnPlaceLamp(int x, int y)
+        {
+            SetTile(x, y, TileType.Lamp);
+            _hudRenderer.Notify($"Лампа ({x},{y})", new Color(0.9f, 0.9f, 0.5f, 1f));
+        }
 
         private void OnRemoveObject(int x, int y)
         {
@@ -381,16 +438,19 @@ namespace SS15.Client
             {
                 _gameState.Map.SetTile(x, y, TileType.Space);
                 _gameState.Atmosphere.SetTileToSpace(x, y);
+                _hudRenderer.Notify($"Убрано в Space ({x},{y})", new Color(0.8f, 0.8f, 1f, 1f));
             }
             else if (tile == TileType.Space)
             {
                 _gameState.Map.SetTile(x, y, TileType.Floor);
                 _gameState.Atmosphere.SetTileToFloor(x, y);
+                _hudRenderer.Notify($"Восстановлен пол ({x},{y})", new Color(0.7f, 1f, 0.7f, 1f));
             }
             else
             {
                 _gameState.Map.SetTile(x, y, TileType.Floor);
                 _gameState.Atmosphere.SetTileToFloor(x, y);
+                _hudRenderer.Notify($"Удалено ({x},{y})", new Color(1f, 0.7f, 0.7f, 1f));
             }
         }
 
@@ -419,6 +479,8 @@ namespace SS15.Client
                     !_gameState.Player.Inventory.AddToBelt(item) &&
                     !_gameState.Player.Inventory.AddToBack(item))
                     _gameState.Player.Inventory.SetItem(h, item);
+                else
+                    _hudRenderer.Notify($"В карман: {item.Name}");
             }
         }
 
@@ -426,7 +488,12 @@ namespace SS15.Client
         {
             int h = _activeHandIndex;
             var item = _gameState.Player.Inventory.GetItem(h);
-            if (item != null) _gameState.Player.Inventory.UseItem(h, _gameState.Player);
+            if (item != null)
+            {
+                bool used = _gameState.Player.Inventory.UseItem(h, _gameState.Player);
+                if (used)
+                    _hudRenderer.Notify($"Использовано: {item.Name}", new Color(0.7f, 1f, 0.7f, 1f));
+            }
         }
 
         private void OnDropItem()
@@ -438,6 +505,7 @@ namespace SS15.Client
                 int tx = (int)(_gameState.Player.Position.X / _gameState.Map.TileSize);
                 int ty = (int)(_gameState.Player.Position.Y / _gameState.Map.TileSize);
                 _gameState.Map.AddItemToTile(tx, ty, item);
+                _hudRenderer.Notify($"Выброшено: {item.Name}", new Color(1f, 0.85f, 0.6f, 1f));
             }
         }
 
@@ -481,15 +549,104 @@ namespace SS15.Client
             _powerUpdateMs = pw;
             _healthUpdateMs = h;
 
-            _inputHandler.Update((float)deltaTime);
             UpdateCamera3D();
+
+            Vector3 eye = _camera3D.Position;
+            Vector3 dir = _camera3D.Forward;
+            _currentHit = Raycaster.Cast(_gameState.Map, eye, dir, ReachDistance);
+
+            _inputHandler.Update((float)deltaTime, _currentHit);
+
+            // P — сохранить
+            bool save = _keyboard.IsKeyPressed(Key.P);
+            if (save && !_savePrev)
+            {
+                try
+                {
+                    SaveManager.Save(_gameState.Map, _gameState.Player, SaveManager.DefaultPath);
+                    string name = System.IO.Path.GetFileName(SaveManager.DefaultPath);
+                    _hudRenderer.Notify($"Станция сохранена: {name}",
+                        new Color(0.7f, 1f, 0.7f, 1f));
+                    Logger.Info("Save", $"Saved to {SaveManager.DefaultPath}");
+                }
+                catch (Exception ex)
+                {
+                    _gameState.Errors.Report("Save", ex);
+                    Logger.Error("Save", "Save failed", ex);
+                    _hudRenderer.Notify($"Ошибка сохранения: {ex.Message}",
+                        new Color(1f, 0.5f, 0.5f, 1f));
+                }
+            }
+            _savePrev = save;
+
+            // Home — загрузить
+            bool load = _keyboard.IsKeyPressed(Key.Home);
+            if (load && !_loadPrev)
+            {
+                try
+                {
+                    if (!SaveManager.Exists(SaveManager.DefaultPath))
+                    {
+                        _hudRenderer.Notify("Сохранение не найдено (P — сохранить)",
+                            new Color(1f, 0.85f, 0.5f, 1f));
+                    }
+                    else
+                    {
+                        var data = SaveManager.Load(SaveManager.DefaultPath);
+                        SaveManager.Apply(data, _gameState.Map, _gameState.Player);
+
+                        _gameState.Atmosphere.Initialize(_gameState.Map);
+                        _gameState.Power.Initialize(_gameState.Map);
+
+                        _hudRenderer.Notify("Станция загружена",
+                            new Color(0.7f, 1f, 0.7f, 1f));
+                        Logger.Info("Save", $"Loaded from {SaveManager.DefaultPath}");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    _gameState.Errors.Report("Load", ex);
+                    Logger.Error("Load", "Load failed", ex);
+                    _hudRenderer.Notify($"Ошибка загрузки: {ex.Message}",
+                        new Color(1f, 0.5f, 0.5f, 1f));
+                }
+            }
+            _loadPrev = load;
+
+            // Tab — debug-панель
+            bool debug = _keyboard.IsKeyPressed(Key.Tab);
+            if (debug && !_debugPrev)
+            {
+                _hudRenderer.DebugVisible = !_hudRenderer.DebugVisible;
+                Logger.Info("MainGame", $"Debug panel: {_hudRenderer.DebugVisible}");
+            }
+            _debugPrev = debug;
+
+            // Escape — панель ошибок
+            bool errPanel = _keyboard.IsKeyPressed(Key.Escape);
+            if (errPanel && !_errPanelPrev)
+            {
+                _hudRenderer.ErrorPanelVisible = !_hudRenderer.ErrorPanelVisible;
+                Logger.Info("MainGame", $"Error panel: {_hudRenderer.ErrorPanelVisible}");
+            }
+            _errPanelPrev = errPanel;
+
+            // Delete — очистка ошибок
+            bool clearErr = _keyboard.IsKeyPressed(Key.Delete);
+            if (clearErr && !_clearErrPrev)
+            {
+                _gameState.Errors.Clear();
+                _hudRenderer.Notify("Список ошибок очищен", new Color(0.7f, 1f, 0.7f, 1f));
+            }
+            _clearErrPrev = clearErr;
+
+            _hudRenderer.Update((float)deltaTime);
         }
 
         protected override void OnRender(double deltaTime)
         {
             var sw = System.Diagnostics.Stopwatch.StartNew();
 
-            // === 1. 3D в FBO (с depth) ===
             _framebuffer.Bind();
 
             Gl.Enable(EnableCap.DepthTest);
@@ -498,26 +655,41 @@ namespace SS15.Client
             Gl.ClearColor(0.05f, 0.05f, 0.08f, 1f);
             Gl.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
 
-            _world3D.Draw(_camera3D);
+            try
+            {
+                _world3D.Draw(_camera3D, _currentHit);
+            }
+            catch (Exception ex)
+            {
+                _gameState.Errors.Report("World3D.Draw", ex);
+                Logger.Error("World3D.Draw", "Runtime error caught", ex);
+            }
 
             sw.Stop();
             _renderMs = (float)sw.Elapsed.TotalMilliseconds;
 
             _framebuffer.Unbind();
 
-            // === 2. Blit FBO -> default framebuffer ===
             _framebuffer.BlitToScreen((int)_actualWidth, (int)_actualHeight);
 
-            // === 3. HUD поверх ===
             Gl.Viewport(0, 0, (uint)_actualWidth, (uint)_actualHeight);
             Gl.Disable(EnableCap.DepthTest);
+
+            string hoverName = _currentHit.Hit ? GetTileName(_currentHit.Tile) : "";
+            TileType hoverTile = _currentHit.Hit ? _currentHit.Tile : TileType.Floor;
 
             _hudRenderer.Draw(
                 _fps,
                 _playerUpdateMs, _atmosUpdateMs, _powerUpdateMs, _healthUpdateMs, _renderMs,
                 _activeSlotIndex, _activeHandIndex,
-                _actualWidth, _actualHeight);
+                _actualWidth, _actualHeight,
+                hoverName,
+                _currentHit.Hit, hoverTile,
+                _currentHit.X, _currentHit.Z,
+                _gameState.Runtime,
+                _gameState.Errors);
 
+            _gameState.Runtime.NextFrame();
             _frameCount++;
             if (_fpsTimer.Elapsed.TotalSeconds >= 1.0)
             {
@@ -525,10 +697,26 @@ namespace SS15.Client
                 _frameCount = 0;
                 _fpsTimer.Restart();
 
+                _gameState.Runtime.SetFps(_fps);
+
                 Logger.Info("Perf",
                     $"FPS={_fps:F1} Player={_playerUpdateMs:F2}ms Atmos={_atmosUpdateMs:F2}ms " +
-                    $"Render={_renderMs:F2}ms Tiles={_world3D.LastDrawnTiles}");
+                    $"Render={_renderMs:F2}ms Tiles={_world3D.LastDrawnTiles} " +
+                    $"Uptime={_gameState.Runtime.FormatRealTime()} Errors={_gameState.Errors.TotalCount}");
             }
         }
+
+        private static string GetTileName(TileType tile) => tile switch
+        {
+            TileType.Floor          => "Floor",
+            TileType.Wall           => "Wall",
+            TileType.ReinforcedWall => "Reinforced Wall",
+            TileType.Wire           => "Wire",
+            TileType.Generator      => "Generator",
+            TileType.Lamp           => "Lamp",
+            TileType.Door           => "Door",
+            TileType.Space          => "Space",
+            _                       => tile.ToString()
+        };
     }
 }

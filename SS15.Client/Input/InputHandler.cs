@@ -1,10 +1,10 @@
-//Engine.Rendering
 #nullable disable
 using System;
 using System.Numerics;
 using Silk.NET.Input;
 using SS15.Client.Core;
 using SS15.Client.Player;
+using SS15.Client.Render;
 
 namespace SS15.Client.Input
 {
@@ -31,7 +31,7 @@ namespace SS15.Client.Input
         public event Action<int, int, float> ModifyNitrogen;
         public event Action<int, int, float> ModifyCarbonDioxide;
         public event Action<int, int, float> ModifyTemperature;
-        public event Action<int, int, float> ModifyPlasma;   // ← добавлено
+        public event Action<int, int, float> ModifyPlasma;
 
         private bool _leftPrev;
         private bool _qPrev, _ePrev, _rPrev;
@@ -54,7 +54,7 @@ namespace SS15.Client.Input
             try { _mouse.Cursor.CursorMode = CursorMode.Raw; } catch { }
         }
 
-        public void Update(float deltaTime)
+        public void Update(float deltaTime, RaycastHit hit)
         {
             // Мышь — FPS-обзор
             Vector2 curMouse = new Vector2(_mouse.Position.X, _mouse.Position.Y);
@@ -80,10 +80,19 @@ namespace SS15.Client.Input
             if (_keyboard.IsKeyPressed(Key.Down))
                 _player.Pitch = Math.Clamp(_player.Pitch - 2f * deltaTime, -PitchLimit, PitchLimit);
 
-            // Тайл перед игроком
-            float lookDist = 32f * 0.6f;
-            int tx = (int)((_player.Position.X + MathF.Cos(_player.Direction) * lookDist) / _map.TileSize);
-            int ty = (int)((_player.Position.Y + MathF.Sin(_player.Direction) * lookDist) / _map.TileSize);
+            // Тайл под прицелом — из raycast'а
+            int tx = hit.Hit ? hit.X : -1;
+            int ty = hit.Hit ? hit.Z : -1;
+
+            // Плейсмент: если в цель нельзя (пусто/стена/дверь), кладём «перед» тайлом
+            // Для простоты: используем hit.X / hit.Z как есть — placement проверяет сам.
+            // Если hit пустой — берём тайл перед игроком.
+            if (!hit.Hit)
+            {
+                float lookDist = 1.5f;
+                tx = (int)MathF.Floor(_player.Position.X / _map.TileSize + MathF.Cos(_player.Direction) * lookDist);
+                ty = (int)MathF.Floor(_player.Position.Y / _map.TileSize + MathF.Sin(_player.Direction) * lookDist);
+            }
 
             if (_mouse.IsButtonPressed(MouseButton.Left) && !_leftPrev)
                 LeftClick?.Invoke(tx, ty);

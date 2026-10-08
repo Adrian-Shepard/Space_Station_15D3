@@ -22,3 +22,16 @@ D:\Games\Space_Station_15\Engine.Rendering\obj\Debug\net10.0\Engine.Rendering.dl
 D:\Games\Space_Station_15\Engine.Rendering\obj\Debug\net10.0\refint\Engine.Rendering.dll
 D:\Games\Space_Station_15\Engine.Rendering\obj\Debug\net10.0\Engine.Rendering.pdb
 D:\Games\Space_Station_15\Engine.Rendering\obj\Debug\net10.0\ref\Engine.Rendering.dll
+D:\Games\Space_Station_15\Space_Station_15D3\Engine.Rendering\bin\Debug\net10.0\Engine.Rendering.deps.json
+D:\Games\Space_Station_15\Space_Station_15D3\Engine.Rendering\bin\Debug\net10.0\Engine.Rendering.dll
+D:\Games\Space_Station_15\Space_Station_15D3\Engine.Rendering\bin\Debug\net10.0\Engine.Rendering.pdb
+D:\Games\Space_Station_15\Space_Station_15D3\Engine.Rendering\obj\Debug\net10.0\Engine.Rendering.csproj.AssemblyReference.cache
+D:\Games\Space_Station_15\Space_Station_15D3\Engine.Rendering\obj\Debug\net10.0\Engine.Rendering.GeneratedMSBuildEditorConfig.editorconfig
+D:\Games\Space_Station_15\Space_Station_15D3\Engine.Rendering\obj\Debug\net10.0\Engine.Rendering.AssemblyInfoInputs.cache
+D:\Games\Space_Station_15\Space_Station_15D3\Engine.Rendering\obj\Debug\net10.0\Engine.Rendering.AssemblyInfo.cs
+D:\Games\Space_Station_15\Space_Station_15D3\Engine.Rendering\obj\Debug\net10.0\Engine.Rendering.csproj.CoreCompileInputs.cache
+D:\Games\Space_Station_15\Space_Station_15D3\Engine.Rendering\obj\Debug\net10.0\Engine.Rendering.sourcelink.json
+D:\Games\Space_Station_15\Space_Station_15D3\Engine.Rendering\obj\Debug\net10.0\Engine.Rendering.dll
+D:\Games\Space_Station_15\Space_Station_15D3\Engine.Rendering\obj\Debug\net10.0\refint\Engine.Rendering.dll
+D:\Games\Space_Station_15\Space_Station_15D3\Engine.Rendering\obj\Debug\net10.0\Engine.Rendering.pdb
+D:\Games\Space_Station_15\Space_Station_15D3\Engine.Rendering\obj\Debug\net10.0\ref\Engine.Rendering.dll

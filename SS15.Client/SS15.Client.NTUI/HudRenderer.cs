@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Numerics;
 using Engine.Rendering;
 using Silk.NET.Input;
@@ -18,12 +19,16 @@ namespace SS15.Client.NTUI
         private PowerSystem _powerSystem;
         private FontRenderer _fontRenderer;
 
-        private StatusBars _healthBar;
-        private StatusBars _hungerBar;
-        private StatusBars _thirstBar;
+        private StatusPanel _statusPanel;
+        private RuntimePanel _runtimePanel;
         private HandsHud _handsHud;
         private PocketHud _pocketHud;
         private CompassHud _compassHud;
+        private NotificationLog _log;
+        private ContextHints _hints;
+        private DebugPanel _debugPanel;
+        private ErrorIndicator _errorIndicator;
+        private ErrorPanel _errorPanel;
 
         private Texture2D _slotTexture;
         private Texture2D _whiteTexture;
@@ -31,11 +36,10 @@ namespace SS15.Client.NTUI
         private Texture2D _beltTex;
         private Texture2D _backTex;
 
-        private const int HudMargin = 10;
-        private const int HealthBarWidth = 180;
-        private const int HealthBarHeight = 18;
-        private const int BarSpacing = 5;
         private const int TileSize = 32;
+
+        public bool DebugVisible { get; set; } = false;
+        public bool ErrorPanelVisible { get; set; } = false;
 
         public HudRenderer(
             SpriteBatch spriteBatch,
@@ -66,87 +70,99 @@ namespace SS15.Client.NTUI
             _beltTex = beltTexture;
             _backTex = backTexture;
 
-            _healthBar = new StatusBars(slotTexture, whiteTexture);
-            _hungerBar = new StatusBars(slotTexture, whiteTexture);
-            _thirstBar = new StatusBars(slotTexture, whiteTexture);
+            _statusPanel = new StatusPanel(_slotTexture, _whiteTexture, fontRenderer);
+            _runtimePanel = new RuntimePanel(fontRenderer, whiteTexture);
             _handsHud = new HandsHud(armsPreviewTexture, itemTexture, whiteTexture);
             _pocketHud = new PocketHud(pocketTexture, itemTexture);
             _compassHud = new CompassHud(whiteTexture, whiteTexture, fontRenderer);
+            _log = new NotificationLog(fontRenderer, whiteTexture);
+            _hints = new ContextHints(fontRenderer, whiteTexture);
+            _debugPanel = new DebugPanel(fontRenderer, whiteTexture);
+            _errorIndicator = new ErrorIndicator(fontRenderer, whiteTexture);
+            _errorPanel = new ErrorPanel(fontRenderer, whiteTexture);
+        }
+
+        public void Notify(string text, Color? color = null) => _log.Add(text, color);
+
+        public void Update(float deltaTime) => _log.Update(deltaTime);
+
+        private List<string> BuildHints(bool hit, TileType tile)
+        {
+            var hints = new List<string>(3);
+            if (!hit) return hints;
+
+            switch (tile)
+            {
+                case TileType.Door:
+                    hints.Add("ЛКМ — Открыть / Закрыть");
+                    hints.Add("G — Удалить");
+                    break;
+
+                case TileType.Floor:
+                    hints.Add("T — Стена   B — Дверь   Z — Провод");
+                    hints.Add("V — Генератор   C — Лампа");
+                    hints.Add("G — Убрать в Space");
+                    break;
+
+                case TileType.Space:
+                    hints.Add("G — Восстановить пол");
+                    break;
+
+                case TileType.Wire:
+                case TileType.Generator:
+                case TileType.Lamp:
+                    hints.Add("G — Удалить");
+                    break;
+            }
+            return hints;
         }
 
         public void Draw(
             float fps,
             float playerUpdateMs, float atmosUpdateMs, float powerUpdateMs, float healthUpdateMs, float renderMs,
             int activeSlotIndex, int activeHandIndex,
-            float screenWidth, float screenHeight)
+            float screenWidth, float screenHeight,
+            string hoverName, bool hoverHit, TileType hoverTile,
+            int hoverTileX, int hoverTileY,
+            GameRuntime runtime, RuntimeErrorLog errors)
         {
             var projection = Matrix4x4.CreateOrthographicOffCenter(0, screenWidth, screenHeight, 0, -1, 1);
             var view = Matrix4x4.Identity;
 
             _spriteBatch.Begin(projection, view);
 
-            float barX = HudMargin;
-            float barY = HudMargin;
-
-            _healthBar.Draw(_spriteBatch, new Vector2(barX, barY), _player.Health / 100f, HealthBarWidth, HealthBarHeight, new Color(1f, 0f, 0f, 1f));
-            _hungerBar.Draw(_spriteBatch, new Vector2(barX, barY + HealthBarHeight + BarSpacing), 0.8f, HealthBarWidth, HealthBarHeight, new Color(1f, 0.6f, 0f, 1f));
-            _thirstBar.Draw(_spriteBatch, new Vector2(barX, barY + 2 * (HealthBarHeight + BarSpacing)), 0.9f, HealthBarWidth, HealthBarHeight, new Color(0f, 0.5f, 1f, 1f));
-
-            float textY = barY + 3 * (HealthBarHeight + BarSpacing) + 15;
-            _fontRenderer.DrawText(_spriteBatch, $"Health: {_player.Health}", new Vector2(barX, textY), 0.5f, new Color(0, 0, 0, 1));
-            _fontRenderer.DrawText(_spriteBatch, $"Hunger: 80", new Vector2(barX, textY + 20), 0.5f, new Color(0, 0, 0, 1));
-            _fontRenderer.DrawText(_spriteBatch, $"Thirst: 90", new Vector2(barX, textY + 40), 0.5f, new Color(0, 0, 0, 1));
-
-            // Атмосфера под игроком
-            int playerTileX = (int)(_player.Position.X / TileSize);
-            int playerTileY = (int)(_player.Position.Y / TileSize);
-            var playerAtmosNullable = _atmosphereSystem.GetAtmosphereAt(playerTileX, playerTileY);
-            if (playerAtmosNullable.HasValue)
-            {
-                var playerAtmos = playerAtmosNullable.Value;
-                _fontRenderer.DrawText(_spriteBatch, "Player Atmos:", new Vector2(barX, textY + 70), 0.5f, new Color(0, 0, 0, 1));
-                _fontRenderer.DrawText(_spriteBatch, $"  P: {playerAtmos.Pressure:F1} kPa", new Vector2(barX, textY + 90), 0.5f, new Color(0, 0, 0, 1));
-                _fontRenderer.DrawText(_spriteBatch, $"  T: {playerAtmos.Temperature - 273.15f:F1} C", new Vector2(barX, textY + 110), 0.5f, new Color(0, 0, 0, 1));
-                _fontRenderer.DrawText(_spriteBatch, $"  O2: {playerAtmos.OxygenPercent:F1}%", new Vector2(barX, textY + 130), 0.5f, new Color(0, 0, 0, 1));
-                _fontRenderer.DrawText(_spriteBatch, $"  N2: {playerAtmos.NitrogenPercent:F1}%", new Vector2(barX, textY + 150), 0.5f, new Color(0, 0, 0, 1));
-                _fontRenderer.DrawText(_spriteBatch, $"  CO2: {playerAtmos.CarbonDioxidePercent:F2}%", new Vector2(barX, textY + 170), 0.5f, new Color(0, 0, 0, 1));
-            }
-
-            // Атмосфера под курсором
-            Vector2 mouseScreen = new Vector2(_mouse.Position.X, _mouse.Position.Y);
-            Vector2 mouseWorld = ScreenToWorld(mouseScreen, screenWidth, screenHeight);
-            int mouseTileX = (int)(mouseWorld.X / TileSize);
-            int mouseTileY = (int)(mouseWorld.Y / TileSize);
-            var mouseAtmosNullable = _atmosphereSystem.GetAtmosphereAt(mouseTileX, mouseTileY);
-            if (mouseAtmosNullable.HasValue)
-            {
-                var mouseAtmos = mouseAtmosNullable.Value;
-                _fontRenderer.DrawText(_spriteBatch, "Cursor Atmos:", new Vector2(barX, textY + 220), 0.5f, new Color(0, 0, 0, 1));
-                _fontRenderer.DrawText(_spriteBatch, $"  P: {mouseAtmos.Pressure:F1} kPa", new Vector2(barX, textY + 240), 0.5f, new Color(0, 0, 0, 1));
-                _fontRenderer.DrawText(_spriteBatch, $"  T: {mouseAtmos.Temperature - 273.15f:F1} C", new Vector2(barX, textY + 260), 0.5f, new Color(0, 0, 0, 1));
-                _fontRenderer.DrawText(_spriteBatch, $"  O2: {mouseAtmos.OxygenPercent:F1}%", new Vector2(barX, textY + 280), 0.5f, new Color(0, 0, 0, 1));
-                _fontRenderer.DrawText(_spriteBatch, $"  N2: {mouseAtmos.NitrogenPercent:F1}%", new Vector2(barX, textY + 300), 0.5f, new Color(0, 0, 0, 1));
-                _fontRenderer.DrawText(_spriteBatch, $"  CO2: {mouseAtmos.CarbonDioxidePercent:F2}%", new Vector2(barX, textY + 320), 0.5f, new Color(0, 0, 0, 1));
-                _fontRenderer.DrawText(_spriteBatch, $"  Plasma: {mouseAtmos.PlasmaPercent:F1}%", new Vector2(barX, textY + 340), 0.5f, new Color(0, 0, 0, 1));
-            }
-
-            bool powered = _powerSystem.IsPowered(mouseTileX, mouseTileY);
-            _fontRenderer.DrawText(_spriteBatch, $"Powered: {(powered ? "Yes" : "No")}", new Vector2(barX, textY + 320), 0.5f, powered ? new Color(0, 0.8f, 0, 1) : new Color(0, 0, 0, 1));
-
-            _fontRenderer.DrawText(_spriteBatch, "U/J: O2  I/K: Temp  O/L: N2  N/M: CO2  Y/H: Plasma  T: Wall  B: Door  Z: Wire  V: Gen  C: Lamp  X: Switch Hand  E: Pocket  R: Use", new Vector2(barX, textY + 360), 0.4f, new Color(0, 0, 0, 1));
-
-            // Производительность
-            float fpsX = screenWidth - 250;
-            float fpsY = HudMargin;
-            _fontRenderer.DrawText(_spriteBatch, $"FPS: {fps:F0}", new Vector2(fpsX, fpsY), 0.5f, new Color(0, 0, 0, 1));
-            DrawPerformanceGraph(fpsX, fpsY + 20, playerUpdateMs, atmosUpdateMs, powerUpdateMs, healthUpdateMs, renderMs);
-
-            // ===== Компас =====
+            // ==== Компас ====
             float bearingRad = MathF.Atan2(MathF.Cos(_player.Direction), -MathF.Sin(_player.Direction));
             float bearingDeg = (bearingRad * 180f / MathF.PI + 360f) % 360f;
             _compassHud.Draw(_spriteBatch, bearingDeg, screenWidth);
 
-            // Нижняя часть HUD
+            // ==== Статус ====
+            _statusPanel.Draw(_spriteBatch, _player);
+
+            // ==== Runtime-панель: время + ошибки ====
+            _runtimePanel.Draw(_spriteBatch, runtime, errors);
+
+            // ==== Лог событий ====
+            _log.Draw(_spriteBatch, screenWidth);
+
+            // ==== Прицел ====
+            DrawCrosshair(screenWidth, screenHeight);
+
+            // ==== Имя тайла (только если есть цель) ====
+            if (hoverHit && !string.IsNullOrEmpty(hoverName))
+            {
+                float textW = hoverName.Length * 32f * 0.7f * 0.5f;
+                _fontRenderer.DrawText(_spriteBatch, hoverName,
+                    new Vector2(screenWidth / 2f - textW / 2f, screenHeight / 2f + 30f),
+                    0.5f, new Color(1f, 1f, 1f, 0.95f));
+            }
+
+            // ==== Контекстные подсказки ====
+            var hints = BuildHints(hoverHit, hoverTile);
+            if (hints.Count > 0)
+                _hints.Draw(_spriteBatch, hints, screenWidth, screenHeight);
+
+            // ==== Хотбар ====
             float panelX = (screenWidth - 66) / 2f;
             float panelY = screenHeight - 45 - 10;
             _handsHud.Draw(_spriteBatch, _player.Inventory, activeHandIndex, new Vector2(panelX, panelY));
@@ -163,17 +179,72 @@ namespace SS15.Client.NTUI
             float pocketsY = backY;
             _pocketHud.Draw(_spriteBatch, _player.Inventory, new Vector2(pocketsX, pocketsY));
 
+            // ==== Индикатор ошибок (правый нижний) ====
+            _errorIndicator.Draw(_spriteBatch, errors, screenWidth, screenHeight);
+
+            // ==== Debug (F12) ====
+            if (DebugVisible)
+            {
+                _debugPanel.Draw(
+                    _spriteBatch, screenWidth,
+                    fps, playerUpdateMs, atmosUpdateMs, powerUpdateMs, healthUpdateMs, renderMs,
+                    _player, _atmosphereSystem,
+                    hoverTileX, hoverTileY, hoverHit);
+            }
+
+            // ==== Панель ошибок (F11) ====
+            if (ErrorPanelVisible)
+            {
+                _errorPanel.Draw(_spriteBatch, errors, screenWidth, screenHeight);
+            }
+
             _spriteBatch.End();
         }
 
-        private Vector2 ScreenToWorld(Vector2 screenPos, float screenWidth, float screenHeight)
+        private void DrawCrosshair(float screenWidth, float screenHeight)
         {
-            float scaleX = screenWidth / 800f;
-            float scaleY = screenHeight / 600f;
-            return new Vector2(
-                screenPos.X / scaleX / _camera.Zoom + _camera.Position.X,
-                screenPos.Y / scaleY / _camera.Zoom + _camera.Position.Y
-            );
+            float cx = screenWidth / 2f;
+            float cy = screenHeight / 2f;
+
+            float armLen = 14f;
+            float thick = 3f;
+            float gap = 5f;
+
+            var outline = new Color(0f, 0f, 0f, 0.9f);
+            var fill = new Color(1f, 1f, 1f, 1f);
+
+            _spriteBatch.Draw(_whiteTexture,
+                new Vector2(cx - thick / 2f - 1f, cy - armLen - gap - 1f), null,
+                new Vector2(thick + 2f, armLen + 2f), 0, Vector2.Zero, outline);
+            _spriteBatch.Draw(_whiteTexture,
+                new Vector2(cx - thick / 2f - 1f, cy + gap - 1f), null,
+                new Vector2(thick + 2f, armLen + 2f), 0, Vector2.Zero, outline);
+            _spriteBatch.Draw(_whiteTexture,
+                new Vector2(cx - armLen - gap - 1f, cy - thick / 2f - 1f), null,
+                new Vector2(armLen + 2f, thick + 2f), 0, Vector2.Zero, outline);
+            _spriteBatch.Draw(_whiteTexture,
+                new Vector2(cx + gap - 1f, cy - thick / 2f - 1f), null,
+                new Vector2(armLen + 2f, thick + 2f), 0, Vector2.Zero, outline);
+
+            _spriteBatch.Draw(_whiteTexture,
+                new Vector2(cx - thick / 2f, cy - armLen - gap), null,
+                new Vector2(thick, armLen), 0, Vector2.Zero, fill);
+            _spriteBatch.Draw(_whiteTexture,
+                new Vector2(cx - thick / 2f, cy + gap), null,
+                new Vector2(thick, armLen), 0, Vector2.Zero, fill);
+            _spriteBatch.Draw(_whiteTexture,
+                new Vector2(cx - armLen - gap, cy - thick / 2f), null,
+                new Vector2(armLen, thick), 0, Vector2.Zero, fill);
+            _spriteBatch.Draw(_whiteTexture,
+                new Vector2(cx + gap, cy - thick / 2f), null,
+                new Vector2(armLen, thick), 0, Vector2.Zero, fill);
+
+            _spriteBatch.Draw(_whiteTexture,
+                new Vector2(cx - 1.5f, cy - 1.5f), null,
+                new Vector2(3f, 3f), 0, Vector2.Zero, outline);
+            _spriteBatch.Draw(_whiteTexture,
+                new Vector2(cx - 0.5f, cy - 0.5f), null,
+                new Vector2(1f, 1f), 0, Vector2.Zero, fill);
         }
 
         private void DrawEquipmentSlot(Texture2D slotTex, int slotIndex, Vector2 position)
@@ -181,9 +252,7 @@ namespace SS15.Client.NTUI
             _spriteBatch.Draw(slotTex, position, null, Vector2.One, 0, Vector2.Zero, Color.White);
             var item = _player.Inventory.GetItem(slotIndex);
             if (item != null)
-            {
                 DrawItem(item, position + new Vector2(16, 16));
-            }
         }
 
         private void DrawItem(Item item, Vector2 center)
@@ -192,36 +261,6 @@ namespace SS15.Client.NTUI
             _spriteBatch.Draw(_itemTexture, center - new Vector2(size / 2f, size / 2f), null,
                 new Vector2(size, size), 0, Vector2.Zero,
                 new Color(item.Color[0] / 255f, item.Color[1] / 255f, item.Color[2] / 255f, 1f));
-        }
-
-        private void DrawPerformanceGraph(float x, float y, float playerMs, float atmosMs, float powerMs, float healthMs, float renderMs)
-        {
-            float maxMs = 5f;
-            float barWidth = 150f;
-            float barHeight = 8f;
-            float gap = 2f;
-
-            string[] labels = { "Player", "Atmos", "Power", "Health", "Render" };
-            float[] times = { playerMs, atmosMs, powerMs, healthMs, renderMs };
-            Color[] colors = {
-                new Color(0, 0.5f, 1, 1),
-                new Color(0, 0.8f, 0, 1),
-                new Color(1, 0.6f, 0, 1),
-                new Color(1, 0, 0, 1),
-                new Color(0.8f, 0.2f, 0.8f, 1)
-            };
-
-            for (int i = 0; i < labels.Length; i++)
-            {
-                _spriteBatch.Draw(_slotTexture, new Vector2(x, y + i * (barHeight + gap)), null,
-                    new Vector2(barWidth, barHeight), 0, Vector2.Zero, new Color(0.2f, 0.2f, 0.2f, 1));
-
-                float fill = Math.Clamp(times[i] / maxMs, 0, 1);
-                _spriteBatch.Draw(_whiteTexture, new Vector2(x, y + i * (barHeight + gap)), null,
-                    new Vector2(barWidth * fill, barHeight), 0, Vector2.Zero, colors[i]);
-
-                _fontRenderer.DrawText(_spriteBatch, $"{labels[i]}: {times[i]:F2}ms", new Vector2(x + barWidth + 5, y + i * (barHeight + gap)), 0.4f, new Color(0, 0, 0, 1));
-            }
         }
     }
 }

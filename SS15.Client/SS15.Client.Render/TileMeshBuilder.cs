@@ -10,32 +10,38 @@ namespace SS15.Client.Render
         // Доля высоты текстуры, которую занимает косяк (0.4 / 2.4 = 1/6).
         private const float CapV = 0.4f / 2.4f;   // ≈ 0.1667
 
-        // ===== Куб (пол/техника) =====
+        // ===== Куб (пол/техника/подсветка) =====
         public static Mesh BuildUnitCube(GL gl)
         {
             var verts = new List<Vertex3D>();
             var indices = new List<uint>();
 
+            // +X
             AddQuad(verts, indices,
                 new Vector3(1, 0, 0), new Vector3(1, 0, 1),
                 new Vector3(1, 1, 1), new Vector3(1, 1, 0),
                 new Vector3(1, 0, 0));
+            // -X
             AddQuad(verts, indices,
                 new Vector3(0, 0, 1), new Vector3(0, 0, 0),
                 new Vector3(0, 1, 0), new Vector3(0, 1, 1),
                 new Vector3(-1, 0, 0));
+            // +Y
             AddQuad(verts, indices,
                 new Vector3(0, 1, 0), new Vector3(1, 1, 0),
                 new Vector3(1, 1, 1), new Vector3(0, 1, 1),
                 new Vector3(0, 1, 0));
+            // -Y
             AddQuad(verts, indices,
                 new Vector3(0, 0, 1), new Vector3(1, 0, 1),
                 new Vector3(1, 0, 0), new Vector3(0, 0, 0),
                 new Vector3(0, -1, 0));
+            // +Z
             AddQuad(verts, indices,
                 new Vector3(0, 0, 1), new Vector3(1, 0, 1),
                 new Vector3(1, 1, 1), new Vector3(0, 1, 1),
                 new Vector3(0, 0, 1));
+            // -Z
             AddQuad(verts, indices,
                 new Vector3(1, 0, 0), new Vector3(0, 0, 0),
                 new Vector3(0, 1, 0), new Vector3(1, 1, 0),
@@ -53,6 +59,26 @@ namespace SS15.Client.Render
                 new Vector3(0, 0, 1), new Vector3(1, 0, 1),
                 new Vector3(1, 0, 0), new Vector3(0, 0, 0),
                 new Vector3(0, 1, 0));
+            return new Mesh(gl, verts.ToArray(), indices.ToArray());
+        }
+
+        // ===== Провод =====
+        // Плоский квад XZ, чуть уменьшенный (0.9 × 0.9), нормаль +Y.
+        // Рисуется поверх пола на y = 0.02 — не мерцает, но заметно.
+        public static Mesh BuildWireQuad(GL gl)
+        {
+            var verts = new List<Vertex3D>();
+            var indices = new List<uint>();
+
+            const float inset = 0.05f;
+            float a = inset;
+            float b = 1f - inset;
+
+            AddQuad(verts, indices,
+                new Vector3(a, 0, b), new Vector3(b, 0, b),
+                new Vector3(b, 0, a), new Vector3(a, 0, a),
+                new Vector3(0, 1, 0));
+
             return new Mesh(gl, verts.ToArray(), indices.ToArray());
         }
 
@@ -78,8 +104,8 @@ namespace SS15.Client.Render
             new Vector3(1, 0, 0));
 
         // ===== Лица косяка (0..0.4 локально, UV показывает верх 1/6 текстуры) =====
-        // UV: низ косяка (y=0)    -> v = CapV   (0.167)
-        //      верх косяка (y=0.4) -> v = 0      (самый верх текстуры)
+        // UV: низ косяка (y=0)    -> v = CapV
+        //      верх косяка (y=0.4) -> v = 0
 
         public static Mesh BuildCapFaceN(GL gl) => BuildCapFace(gl,
             new Vector3(1, 0, 0), new Vector3(0, 0, 0),
@@ -101,6 +127,9 @@ namespace SS15.Client.Render
             new Vector3(0, 0.4f, 1), new Vector3(0, 0.4f, 0),
             new Vector3(1, 0, 0));
 
+        // ===== Подсветка (полупрозрачный куб) =====
+        public static Mesh BuildHighlightBox(GL gl) => BuildUnitCube(gl);
+
         // ===== Внутренние хелперы =====
 
         private static Mesh BuildFace(GL gl,
@@ -109,7 +138,6 @@ namespace SS15.Client.Render
             var verts = new List<Vertex3D>();
             var indices = new List<uint>();
 
-            // Стандартные UV — вся текстура
             verts.Add(new Vertex3D { Position = a, Normal = normal, TexCoord = new Vector2(0, 1) });
             verts.Add(new Vertex3D { Position = b, Normal = normal, TexCoord = new Vector2(1, 1) });
             verts.Add(new Vertex3D { Position = c, Normal = normal, TexCoord = new Vector2(1, 0) });
