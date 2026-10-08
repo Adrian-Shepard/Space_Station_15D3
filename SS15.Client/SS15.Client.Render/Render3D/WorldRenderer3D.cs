@@ -20,7 +20,8 @@ namespace SS15.Client.Render
         // Меши
         private Mesh _cubeMesh;
         private Mesh _floorMesh;
-        private Mesh _wireMesh;
+        private Mesh _wireCenter;
+        private Mesh _wireArmN, _wireArmS, _wireArmW, _wireArmE;
         private Mesh _wallFaceN, _wallFaceS, _wallFaceW, _wallFaceE;
         private Mesh _capFaceN, _capFaceS, _capFaceW, _capFaceE;
         private Mesh _highlightMesh;
@@ -39,7 +40,7 @@ namespace SS15.Client.Render
         private const float DoorCapY = DoorHeight;
         private const float MachineHeight = 0.6f;
 
-        // Высота провода над полом — 2 см
+        // Провод чуть над полом
         private const float WireHeight = 0.02f;
 
         private const int ViewRadius = 20;
@@ -75,7 +76,12 @@ namespace SS15.Client.Render
             Logger.Info("World3D", "Building meshes...");
             _cubeMesh = TileMeshBuilder.BuildUnitCube(gl);
             _floorMesh = TileMeshBuilder.BuildFloorQuad(gl);
-            _wireMesh = TileMeshBuilder.BuildWireQuad(gl);
+
+            _wireCenter = TileMeshBuilder.BuildWireCenter(gl);
+            _wireArmN = TileMeshBuilder.BuildWireArmN(gl);
+            _wireArmS = TileMeshBuilder.BuildWireArmS(gl);
+            _wireArmW = TileMeshBuilder.BuildWireArmW(gl);
+            _wireArmE = TileMeshBuilder.BuildWireArmE(gl);
 
             _wallFaceN = TileMeshBuilder.BuildWallFaceN(gl);
             _wallFaceS = TileMeshBuilder.BuildWallFaceS(gl);
@@ -161,7 +167,7 @@ namespace SS15.Client.Render
 
                     var tile = _map.GetTile(x, z);
 
-                    // === Пол (включая тайлы под проводом) ===
+                    // Пол
                     if (tile != TileType.Space)
                     {
                         _meshRenderer.Draw(_floorMesh, _floorTex,
@@ -169,16 +175,15 @@ namespace SS15.Client.Render
                         drawn++;
                     }
 
-                    // === Провод — поверх пола на y=0.02 ===
+                    // Провод — центр + рукава к conductive-соседям
                     if (tile == TileType.Wire)
                     {
-                        _meshRenderer.Draw(_wireMesh, _wireTex,
-                            new Vector3(x, WireHeight, z), WireScale);
+                        DrawWireTile(x, z);
                         drawn++;
                         continue;
                     }
 
-                    // === Стены ===
+                    // Стена
                     if (tile == TileType.Wall || tile == TileType.ReinforcedWall)
                     {
                         DrawWallTile(x, z);
@@ -186,7 +191,7 @@ namespace SS15.Client.Render
                         continue;
                     }
 
-                    // === Дверь + косяк ===
+                    // Дверь + косяк
                     if (tile == TileType.Door)
                     {
                         _meshRenderer.Draw(_cubeMesh,
@@ -197,7 +202,7 @@ namespace SS15.Client.Render
                         continue;
                     }
 
-                    // === Генератор ===
+                    // Генератор
                     if (tile == TileType.Generator)
                     {
                         _meshRenderer.Draw(_cubeMesh, _generatorTex,
@@ -206,7 +211,7 @@ namespace SS15.Client.Render
                         continue;
                     }
 
-                    // === Лампа ===
+                    // Лампа
                     if (tile == TileType.Lamp)
                     {
                         _meshRenderer.Draw(_cubeMesh,
@@ -218,7 +223,7 @@ namespace SS15.Client.Render
                 }
             }
 
-            // Подсветка — поверх всего
+            // Подсветка поверх всего
             if (hit.Hit)
             {
                 DrawHighlight(hit);
@@ -258,6 +263,28 @@ namespace SS15.Client.Render
                 _meshRenderer.Draw(_capFaceW, _wallCapTex, new Vector3(fx, capY, fz), CapFaceScale);
             if (!IsWallOrDoor(x + 1, z))
                 _meshRenderer.Draw(_capFaceE, _wallCapTex, new Vector3(fx + 1f, capY, fz), CapFaceScale);
+        }
+
+        /// <summary>
+        /// Провод: центр всегда, плюс рукава к тем соседям, которые проводят ток.
+        /// Проводящие: Wire, Generator, Lamp. Дверь НЕ проводит.
+        /// </summary>
+        private void DrawWireTile(int x, int z)
+        {
+            var basePos = new Vector3(x, WireHeight, z);
+
+            // Центр — всегда
+            _meshRenderer.Draw(_wireCenter, _wireTex, basePos, WireScale);
+
+            // Рукава — по conductive-соседям
+            if (IsConductive(x, z - 1))
+                _meshRenderer.Draw(_wireArmN, _wireTex, basePos, WireScale);
+            if (IsConductive(x, z + 1))
+                _meshRenderer.Draw(_wireArmS, _wireTex, basePos, WireScale);
+            if (IsConductive(x - 1, z))
+                _meshRenderer.Draw(_wireArmW, _wireTex, basePos, WireScale);
+            if (IsConductive(x + 1, z))
+                _meshRenderer.Draw(_wireArmE, _wireTex, basePos, WireScale);
         }
 
         private void DrawHighlight(RaycastHit hit)
@@ -307,6 +334,14 @@ namespace SS15.Client.Render
             if (x < 0 || x >= _map.Width || z < 0 || z >= _map.Height) return false;
             var t = _map.GetTile(x, z);
             return t == TileType.Wall || t == TileType.ReinforcedWall || t == TileType.Door;
+        }
+
+        /// <summary>Проводит ли тайл ток. Провода, генераторы и лампы.</summary>
+        private bool IsConductive(int x, int z)
+        {
+            if (x < 0 || x >= _map.Width || z < 0 || z >= _map.Height) return false;
+            var t = _map.GetTile(x, z);
+            return t == TileType.Wire || t == TileType.Generator || t == TileType.Lamp;
         }
     }
 }

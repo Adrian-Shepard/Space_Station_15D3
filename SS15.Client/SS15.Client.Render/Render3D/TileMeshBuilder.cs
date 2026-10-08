@@ -10,6 +10,9 @@ namespace SS15.Client.Render
         // Доля высоты текстуры, которую занимает косяк (0.4 / 2.4 = 1/6).
         private const float CapV = 0.4f / 2.4f;   // ≈ 0.1667
 
+        // Толщина провода — 0.10 юнита в мире.
+        private const float WireWidth = 0.10f;
+
         // ===== Куб (пол/техника/подсветка) =====
         public static Mesh BuildUnitCube(GL gl)
         {
@@ -62,21 +65,94 @@ namespace SS15.Client.Render
             return new Mesh(gl, verts.ToArray(), indices.ToArray());
         }
 
-        // ===== Провод =====
-        // Плоский квад XZ, чуть уменьшенный (0.9 × 0.9), нормаль +Y.
-        // Рисуется поверх пола на y = 0.02 — не мерцает, но заметно.
-        public static Mesh BuildWireQuad(GL gl)
+        // ===== Провод: центр + 4 рукава =====
+        // Центр — квадрат WireWidth × WireWidth в центре тайла.
+        // Рукав — от края центра до края тайла, толщина WireWidth.
+
+        public static Mesh BuildWireCenter(GL gl)
         {
             var verts = new List<Vertex3D>();
             var indices = new List<uint>();
 
-            const float inset = 0.05f;
-            float a = inset;
-            float b = 1f - inset;
+            float h = WireWidth / 2f;
+            float x0 = 0.5f - h, x1 = 0.5f + h;
+            float z0 = 0.5f - h, z1 = 0.5f + h;
 
             AddQuad(verts, indices,
-                new Vector3(a, 0, b), new Vector3(b, 0, b),
-                new Vector3(b, 0, a), new Vector3(a, 0, a),
+                new Vector3(x0, 0, z1), new Vector3(x1, 0, z1),
+                new Vector3(x1, 0, z0), new Vector3(x0, 0, z0),
+                new Vector3(0, 1, 0));
+
+            return new Mesh(gl, verts.ToArray(), indices.ToArray());
+        }
+
+        /// Рукав на север (−Z). X в [0.5−h, 0.5+h], Z в [0, 0.5−h].
+        public static Mesh BuildWireArmN(GL gl)
+        {
+            var verts = new List<Vertex3D>();
+            var indices = new List<uint>();
+
+            float h = WireWidth / 2f;
+            float x0 = 0.5f - h, x1 = 0.5f + h;
+            float z0 = 0f, z1 = 0.5f - h;
+
+            AddQuad(verts, indices,
+                new Vector3(x0, 0, z1), new Vector3(x1, 0, z1),
+                new Vector3(x1, 0, z0), new Vector3(x0, 0, z0),
+                new Vector3(0, 1, 0));
+
+            return new Mesh(gl, verts.ToArray(), indices.ToArray());
+        }
+
+        /// Рукав на юг (+Z). X в [0.5−h, 0.5+h], Z в [0.5+h, 1].
+        public static Mesh BuildWireArmS(GL gl)
+        {
+            var verts = new List<Vertex3D>();
+            var indices = new List<uint>();
+
+            float h = WireWidth / 2f;
+            float x0 = 0.5f - h, x1 = 0.5f + h;
+            float z0 = 0.5f + h, z1 = 1f;
+
+            AddQuad(verts, indices,
+                new Vector3(x0, 0, z1), new Vector3(x1, 0, z1),
+                new Vector3(x1, 0, z0), new Vector3(x0, 0, z0),
+                new Vector3(0, 1, 0));
+
+            return new Mesh(gl, verts.ToArray(), indices.ToArray());
+        }
+
+        /// Рукав на запад (−X). X в [0, 0.5−h], Z в [0.5−h, 0.5+h].
+        public static Mesh BuildWireArmW(GL gl)
+        {
+            var verts = new List<Vertex3D>();
+            var indices = new List<uint>();
+
+            float h = WireWidth / 2f;
+            float x0 = 0f, x1 = 0.5f - h;
+            float z0 = 0.5f - h, z1 = 0.5f + h;
+
+            AddQuad(verts, indices,
+                new Vector3(x0, 0, z1), new Vector3(x1, 0, z1),
+                new Vector3(x1, 0, z0), new Vector3(x0, 0, z0),
+                new Vector3(0, 1, 0));
+
+            return new Mesh(gl, verts.ToArray(), indices.ToArray());
+        }
+
+        /// Рукав на восток (+X). X в [0.5+h, 1], Z в [0.5−h, 0.5+h].
+        public static Mesh BuildWireArmE(GL gl)
+        {
+            var verts = new List<Vertex3D>();
+            var indices = new List<uint>();
+
+            float h = WireWidth / 2f;
+            float x0 = 0.5f + h, x1 = 1f;
+            float z0 = 0.5f - h, z1 = 0.5f + h;
+
+            AddQuad(verts, indices,
+                new Vector3(x0, 0, z1), new Vector3(x1, 0, z1),
+                new Vector3(x1, 0, z0), new Vector3(x0, 0, z0),
                 new Vector3(0, 1, 0));
 
             return new Mesh(gl, verts.ToArray(), indices.ToArray());
@@ -103,10 +179,7 @@ namespace SS15.Client.Render
             new Vector3(0, 1, 1), new Vector3(0, 1, 0),
             new Vector3(1, 0, 0));
 
-        // ===== Лица косяка (0..0.4 локально, UV показывает верх 1/6 текстуры) =====
-        // UV: низ косяка (y=0)    -> v = CapV
-        //      верх косяка (y=0.4) -> v = 0
-
+        // ===== Лица косяка =====
         public static Mesh BuildCapFaceN(GL gl) => BuildCapFace(gl,
             new Vector3(1, 0, 0), new Vector3(0, 0, 0),
             new Vector3(0, 0.4f, 0), new Vector3(1, 0.4f, 0),
@@ -127,7 +200,7 @@ namespace SS15.Client.Render
             new Vector3(0, 0.4f, 1), new Vector3(0, 0.4f, 0),
             new Vector3(1, 0, 0));
 
-        // ===== Подсветка (полупрозрачный куб) =====
+        // ===== Подсветка =====
         public static Mesh BuildHighlightBox(GL gl) => BuildUnitCube(gl);
 
         // ===== Внутренние хелперы =====
@@ -155,7 +228,6 @@ namespace SS15.Client.Render
             var verts = new List<Vertex3D>();
             var indices = new List<uint>();
 
-            // UV — только верхняя часть текстуры (v: 0.167 -> 0)
             verts.Add(new Vertex3D { Position = a, Normal = normal, TexCoord = new Vector2(0, CapV) });
             verts.Add(new Vertex3D { Position = b, Normal = normal, TexCoord = new Vector2(1, CapV) });
             verts.Add(new Vertex3D { Position = c, Normal = normal, TexCoord = new Vector2(1, 0) });

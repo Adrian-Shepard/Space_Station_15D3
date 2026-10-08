@@ -15,6 +15,12 @@ namespace SS15.Client.Input
         private GameMap _map;
         private PlayerController _player;
 
+        /// <summary>
+        /// Если true — Update ничего не делает. Устанавливается из MainGame,
+        /// когда открыто меню взаимодействия.
+        /// </summary>
+        public bool Blocked { get; set; }
+
         public event Action<int, int> LeftClick;
         public event Action<int, int> PlaceWall;
         public event Action<int, int> PlaceDoor;
@@ -54,8 +60,23 @@ namespace SS15.Client.Input
             try { _mouse.Cursor.CursorMode = CursorMode.Raw; } catch { }
         }
 
+        /// <summary>
+        /// Сбросить отслеживание мыши — вызывать при смене CursorMode,
+        /// чтобы избежать рывка камеры.
+        /// </summary>
+        public void ResetMouseTracking()
+        {
+            _mouseInitialized = false;
+        }
+
         public void Update(float deltaTime, RaycastHit hit)
         {
+            if (Blocked)
+            {
+                // Пока меню открыто — не трогаем ни мышь, ни клавиши
+                return;
+            }
+
             // Мышь — FPS-обзор
             Vector2 curMouse = new Vector2(_mouse.Position.X, _mouse.Position.Y);
             if (!_mouseInitialized)
@@ -80,13 +101,9 @@ namespace SS15.Client.Input
             if (_keyboard.IsKeyPressed(Key.Down))
                 _player.Pitch = Math.Clamp(_player.Pitch - 2f * deltaTime, -PitchLimit, PitchLimit);
 
-            // Тайл под прицелом — из raycast'а
             int tx = hit.Hit ? hit.X : -1;
             int ty = hit.Hit ? hit.Z : -1;
 
-            // Плейсмент: если в цель нельзя (пусто/стена/дверь), кладём «перед» тайлом
-            // Для простоты: используем hit.X / hit.Z как есть — placement проверяет сам.
-            // Если hit пустой — берём тайл перед игроком.
             if (!hit.Hit)
             {
                 float lookDist = 1.5f;
@@ -94,9 +111,10 @@ namespace SS15.Client.Input
                 ty = (int)MathF.Floor(_player.Position.Y / _map.TileSize + MathF.Sin(_player.Direction) * lookDist);
             }
 
-            if (_mouse.IsButtonPressed(MouseButton.Left) && !_leftPrev)
+            bool leftNow = _mouse.IsButtonPressed(MouseButton.Left);
+            if (leftNow && !_leftPrev)
                 LeftClick?.Invoke(tx, ty);
-            _leftPrev = _mouse.IsButtonPressed(MouseButton.Left);
+            _leftPrev = leftNow;
 
             if (IsPressed(Key.Q, ref _qPrev)) DropItem?.Invoke();
             if (IsPressed(Key.E, ref _ePrev)) PlaceInPocket?.Invoke();

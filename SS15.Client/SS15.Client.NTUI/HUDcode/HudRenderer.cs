@@ -29,6 +29,7 @@ namespace SS15.Client.NTUI
         private DebugPanel _debugPanel;
         private ErrorIndicator _errorIndicator;
         private ErrorPanel _errorPanel;
+        private InteractionMenuRenderer _interactionMenuRenderer;
 
         private Texture2D _slotTexture;
         private Texture2D _whiteTexture;
@@ -80,6 +81,7 @@ namespace SS15.Client.NTUI
             _debugPanel = new DebugPanel(fontRenderer, whiteTexture);
             _errorIndicator = new ErrorIndicator(fontRenderer, whiteTexture);
             _errorPanel = new ErrorPanel(fontRenderer, whiteTexture);
+            _interactionMenuRenderer = new InteractionMenuRenderer(fontRenderer, whiteTexture);
         }
 
         public void Notify(string text, Color? color = null) => _log.Add(text, color);
@@ -124,7 +126,8 @@ namespace SS15.Client.NTUI
             float screenWidth, float screenHeight,
             string hoverName, bool hoverHit, TileType hoverTile,
             int hoverTileX, int hoverTileY,
-            GameRuntime runtime, RuntimeErrorLog errors)
+            GameRuntime runtime, RuntimeErrorLog errors,
+            InteractionMenu interactionMenu)
         {
             var projection = Matrix4x4.CreateOrthographicOffCenter(0, screenWidth, screenHeight, 0, -1, 1);
             var view = Matrix4x4.Identity;
@@ -139,7 +142,7 @@ namespace SS15.Client.NTUI
             // ==== Статус ====
             _statusPanel.Draw(_spriteBatch, _player);
 
-            // ==== Runtime-панель: время + ошибки ====
+            // ==== Runtime ====
             _runtimePanel.Draw(_spriteBatch, runtime, errors);
 
             // ==== Лог событий ====
@@ -148,7 +151,7 @@ namespace SS15.Client.NTUI
             // ==== Прицел ====
             DrawCrosshair(screenWidth, screenHeight);
 
-            // ==== Имя тайла (только если есть цель) ====
+            // ==== Имя тайла ====
             if (hoverHit && !string.IsNullOrEmpty(hoverName))
             {
                 float textW = hoverName.Length * 32f * 0.7f * 0.5f;
@@ -157,10 +160,13 @@ namespace SS15.Client.NTUI
                     0.5f, new Color(1f, 1f, 1f, 0.95f));
             }
 
-            // ==== Контекстные подсказки ====
-            var hints = BuildHints(hoverHit, hoverTile);
-            if (hints.Count > 0)
-                _hints.Draw(_spriteBatch, hints, screenWidth, screenHeight);
+            // ==== Подсказки (только когда меню закрыто) ====
+            if (!interactionMenu.IsOpen)
+            {
+                var hints = BuildHints(hoverHit, hoverTile);
+                if (hints.Count > 0)
+                    _hints.Draw(_spriteBatch, hints, screenWidth, screenHeight);
+            }
 
             // ==== Хотбар ====
             float panelX = (screenWidth - 66) / 2f;
@@ -179,10 +185,10 @@ namespace SS15.Client.NTUI
             float pocketsY = backY;
             _pocketHud.Draw(_spriteBatch, _player.Inventory, new Vector2(pocketsX, pocketsY));
 
-            // ==== Индикатор ошибок (правый нижний) ====
+            // ==== Индикатор ошибок ====
             _errorIndicator.Draw(_spriteBatch, errors, screenWidth, screenHeight);
 
-            // ==== Debug (F12) ====
+            // ==== Debug (Tab) ====
             if (DebugVisible)
             {
                 _debugPanel.Draw(
@@ -192,10 +198,17 @@ namespace SS15.Client.NTUI
                     hoverTileX, hoverTileY, hoverHit);
             }
 
-            // ==== Панель ошибок (F11) ====
+            // ==== Панель ошибок (Esc) ====
             if (ErrorPanelVisible)
             {
                 _errorPanel.Draw(_spriteBatch, errors, screenWidth, screenHeight);
+            }
+
+            // ==== Меню взаимодействий — фиксированное, поверх всего ====
+            if (interactionMenu.IsOpen)
+            {
+                _interactionMenuRenderer.Draw(_spriteBatch, interactionMenu,
+                    screenWidth, screenHeight);
             }
 
             _spriteBatch.End();

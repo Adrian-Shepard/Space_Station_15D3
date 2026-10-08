@@ -68,11 +68,13 @@ void main()
         vec3 L = normalize(-uLightDir);
         float diff = max(dot(N, L), 0.0);
         vec3 lighting = uAmbientColor + uLightColor * diff;
+        lighting = min(lighting, vec3(1.0));
 
         vec3 V = normalize(uViewPos - vWorldPos);
         vec3 H = normalize(L + V);
         float spec = pow(max(dot(N, H), 0.0), 32.0) * 0.15;
         lighting += vec3(spec);
+        lighting = min(lighting, vec3(1.0));
 
         finalColor = texColor.rgb * lighting;
     }
