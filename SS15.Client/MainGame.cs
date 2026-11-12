@@ -6,6 +6,7 @@ using Silk.NET.Input;
 using Silk.NET.Maths;
 using Silk.NET.OpenGL;
 using Silk.NET.Windowing;
+using SS15.Client.Commands;
 using SS15.Client.Core;
 using SS15.Client.Input;
 using SS15.Client.NTUI;
@@ -82,8 +83,18 @@ namespace SS15.Client
                 ViewportHeight = (int)_ctx.ScreenHeight
             };
 
+            _ctx.Commands = new CommandDispatcher(_ctx);
+
             var playerModelPath = System.IO.Path.Combine(
                 AppContext.BaseDirectory, "Assets", "Models", "player.glb");
+
+            if (System.IO.File.Exists(playerModelPath))
+            {
+                var fi = new System.IO.FileInfo(playerModelPath);
+                Logger.Info("MainGame",
+                    $"Loading model: {fi.Name}, size={fi.Length / 1024}KB, modified={fi.LastWriteTime:HH:mm:ss}");
+            }
+
             var playerModel = ModelLoader.Load(Gl, playerModelPath, targetHeight: 2.0f);
 
             _ctx.World = new WorldRenderer3D(

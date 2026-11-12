@@ -82,7 +82,7 @@ namespace SS15.Client.Systems
 
             int x = _ctx.CurrentHit.X;
             int y = _ctx.CurrentHit.Z;
-            var tile = _ctx.State.Map.GetTile(x, y);
+            var tile = _ctx.State.Map.GetTileType(x, y);
 
             _ctx.Menu.Title = $"{GetTileName(tile)} ({x},{y})";
 

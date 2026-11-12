@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Numerics;
+using System.Security.Cryptography;
 using Engine.Rendering;
 using SS15.Client.Core;
 using SharpGLTF.Schema2;
@@ -15,6 +16,11 @@ namespace SS15.Client.Render.Models
 {
     public static class ModelLoader
     {
+        // Кэш: хеш байтов → уже загруженная текстура
+        private static readonly Dictionary<string, Texture2D> _textureCache = new();
+
+        public static int CacheSize => _textureCache.Count;
+
         public static Model Load(GL gl, string path, float targetHeight = 2.0f)
         {
             if (!File.Exists(path))
@@ -31,7 +37,6 @@ namespace SS15.Client.Render.Models
             catch (Exception ex)
             {
                 Logger.Error("ModelLoader", $"Failed to load {path}: {ex.Message}");
-                Logger.Error("ModelLoader", $"Stack: {ex.StackTrace}");
                 return null;
             }
         }
@@ -191,7 +196,7 @@ namespace SS15.Client.Render.Models
             model.Height = targetHeight;
             model.Radius = MathF.Max(size.X, size.Z) * 0.5f * scale;
 
-            Logger.Info("ModelLoader", $"Loaded model: {model.Parts.Count} parts, height={model.Height:F2}");
+            Logger.Info("ModelLoader", $"Loaded model: {model.Parts.Count} parts, height={model.Height:F2}, texture cache: {_textureCache.Count}");
 
             return model;
         }
@@ -268,6 +273,15 @@ namespace SS15.Client.Render.Models
             if (bytes == null || bytes.Length < 4)
                 return null;
 
+            // Кэш по хешу байтов
+            string hash = ComputeHash(bytes);
+
+            if (_textureCache.TryGetValue(hash, out var cached))
+            {
+                Logger.Info("ModelLoader", $"[part {partIndex}] '{matName}' [{channelName}]: cache HIT ({hash.Substring(0, 8)})");
+                return cached;
+            }
+
             Logger.Info("ModelLoader", $"[part {partIndex}] '{matName}' [{channelName}]: bytes={bytes.Length} first4={bytes[0]:X2}{bytes[1]:X2}{bytes[2]:X2}{bytes[3]:X2}");
 
             bool looksLikeImage =
@@ -278,7 +292,7 @@ namespace SS15.Client.Render.Models
 
             if (!looksLikeImage)
             {
-                Logger.Warn("ModelLoader", $"[part {partIndex}] '{matName}' [{channelName}]: not PNG/JPEG/GIF/BMP, skipping (likely WebP/KTX2)");
+                Logger.Warn("ModelLoader", $"[part {partIndex}] '{matName}' [{channelName}]: not PNG/JPEG/GIF/BMP, skipping");
                 return null;
             }
 
@@ -289,13 +303,23 @@ namespace SS15.Client.Render.Models
 
                 Logger.Info("ModelLoader", $"[part {partIndex}] '{matName}' [{channelName}]: decoded {result.Width}x{result.Height}");
 
-                return ToRgbaTexture(gl, result);
+                var texture = ToRgbaTexture(gl, result);
+                _textureCache[hash] = texture;
+                return texture;
             }
             catch (Exception ex)
             {
                 Logger.Warn("ModelLoader", $"[part {partIndex}] '{matName}' [{channelName}]: decode error: {ex.Message}");
                 return null;
             }
+        }
+
+        private static string ComputeHash(byte[] data)
+        {
+            using var sha = SHA256.Create();
+            var hash = sha.ComputeHash(data);
+            // Первые 16 байт достаточно
+            return System.Convert.ToHexString(hash, 0, 16);
         }
 
         private static Texture2D ToRgbaTexture(GL gl, ImageResult result)

@@ -31,8 +31,6 @@ namespace SS15.Client.Render
             _                       => 0f
         };
 
-        /// DDA по XZ-сетке + Y-slab проверка на каждом тайле.
-        /// Полноценный 3D-луч: смотреть вверх — промахнёшься; смотреть в стену — попадёшь.
         public static RaycastHit Cast(GameMap map, Vector3 origin, Vector3 direction, float maxDistance)
         {
             float len = direction.Length();
@@ -98,10 +96,9 @@ namespace SS15.Client.Render
             if (x < 0 || x >= map.Width || z < 0 || z >= map.Height)
                 return RaycastHit.None;
 
-            var tile = map.GetTile(x, z);
+            var tile = map.GetTileType(x, z);
             float height = GetTileHeight(tile);
 
-            // Пол / wire / space: тонкая плоскость на Y=0
             if (tile == TileType.Floor || tile == TileType.Wire || tile == TileType.Space)
             {
                 if (dir.Y >= 0) return RaycastHit.None;
@@ -118,7 +115,6 @@ namespace SS15.Client.Render
 
             if (height <= 0f) return RaycastHit.None;
 
-            // Y-координаты входа/выхода луча в XZ-тайл
             float yEnter = origin.Y + dir.Y * tEnter;
             float yExit  = origin.Y + dir.Y * tExit;
 
@@ -133,13 +129,11 @@ namespace SS15.Client.Render
 
             if (dir.Y > 0 && yEnter < 0f)
             {
-                // Вошли через нижнюю грань
                 tHit = tEnter + (0f - yEnter) / dir.Y;
                 normal = new Vector3(0, -1, 0);
             }
             else if (dir.Y < 0 && yEnter > height)
             {
-                // Вошли через верхнюю грань
                 tHit = tEnter + (height - yEnter) / dir.Y;
                 normal = new Vector3(0, 1, 0);
             }

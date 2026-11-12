@@ -68,12 +68,14 @@ D:\Games\Space_Station_15\SS15.Client\bin\Debug\net10.0\Assets\Sprites\Misc\UI\A
 D:\Games\Space_Station_15\SS15.Client\bin\Debug\net10.0\Assets\Sprites\Misc\UI\UI_Pocket.png
 D:\Games\Space_Station_15\SS15.Client\bin\Debug\net10.0\Assets\Sprites\Misc\UI\UI_Back.png
 D:\Games\Space_Station_15\SS15.Client\bin\Debug\net10.0\Assets\Sprites\Misc\UI\UI_Belt.png
+D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\SS15.Client.exe
 D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\Assets\Machinery\door_closed.png
 D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\Assets\Machinery\door_open.png
 D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\Assets\Machinery\generator.png
 D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\Assets\Machinery\lamp_off.png
 D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\Assets\Machinery\lamp_on.png
 D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\Assets\Machinery\wire.png
+D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\Assets\Models\player.glb
 D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\Assets\Sprites\Misc\UI\Arms\UI_Left_Arm.png
 D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\Assets\Sprites\Misc\UI\Arms\UI_Right_Arm.png
 D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\Assets\Sprites\Misc\UI\Arms_Preview.png
@@ -87,7 +89,6 @@ D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\Asset
 D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\Assets\Sprites\Tiles\Walls\Wall_METAL\Directions\Wall_METAL_North_South.png
 D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\Assets\Sprites\Tiles\Walls\Wall_METAL\Directions\Wall_METAL_West_East.png
 D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\Assets\Sprites\Tiles\Walls\Wall_METAL\Wall_METAL_SINGLE.png
-D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\SS15.Client.exe
 D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\SS15.Client.deps.json
 D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\SS15.Client.runtimeconfig.json
 D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\SS15.Client.dll
@@ -95,6 +96,7 @@ D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\SS15.
 D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\Microsoft.DotNet.PlatformAbstractions.dll
 D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\Microsoft.Extensions.DependencyModel.dll
 D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\Microsoft.Win32.SystemEvents.dll
+D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\SharpGLTF.Core.dll
 D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\Silk.NET.Core.dll
 D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\Silk.NET.GLFW.dll
 D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\Silk.NET.Input.Common.dll
@@ -145,8 +147,3 @@ D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\obj\Debug\net10.0\refin
 D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\obj\Debug\net10.0\SS15.Client.pdb
 D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\obj\Debug\net10.0\SS15.Client.genruntimeconfig.cache
 D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\obj\Debug\net10.0\ref\SS15.Client.dll
-D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\SharpGLTF.Core.dll
-D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\Assets\Models\player.glb
-D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\Assets\Models\player2.glb
-D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\Assets\Models\player3.glb
-D:\Games\Space_Station_15\Space_Station_15D3\SS15.Client\bin\Debug\net10.0\Assets\Models\player1.glb

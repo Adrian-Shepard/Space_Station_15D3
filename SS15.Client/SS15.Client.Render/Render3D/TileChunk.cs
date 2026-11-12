@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Numerics;
 using SS15.Client.Core;
 using Engine.Rendering;
-
 namespace SS15.Client.Render
 {
     public class TileChunk
@@ -19,7 +18,6 @@ namespace SS15.Client.Render
         public bool Dirty { get; set; } = true;
         public bool Empty { get; private set; } = true;
 
-        // 0=floor, 1=wall(+cap), 2=door_open, 3=door_closed, 4=generator
         private readonly Mesh[] _meshes = new Mesh[5];
 
         private const float WallH = 2.4f;
@@ -45,7 +43,7 @@ namespace SS15.Client.Render
             {
                 for (int x = x0; x < x1; x++)
                 {
-                    var tile = map.GetTile(x, z);
+                    var tile = map.GetTileType(x, z);
                     float fx = x, fz = z;
 
                     if (tile != TileType.Space)
@@ -117,7 +115,7 @@ namespace SS15.Client.Render
         private static bool IsWall(GameMap map, int x, int z)
         {
             if (x < 0 || x >= map.Width || z < 0 || z >= map.Height) return false;
-            var t = map.GetTile(x, z);
+            var t = map.GetTileType(x, z);
             return t == TileType.Wall || t == TileType.ReinforcedWall;
         }
 

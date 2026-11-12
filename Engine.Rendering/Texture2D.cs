@@ -50,12 +50,32 @@ namespace Engine.Rendering
                     PixelFormat.Rgba, PixelType.UnsignedByte, ptr);
             }
 
-            _gl.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Nearest);
-            _gl.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Nearest);
+            // Мипмапы — для дальних объектов
+            _gl.GenerateMipmap(TextureTarget.Texture2D);
+
+            // Nearest для мелких пиксель-арт текстур, Linear для крупных
+            bool pixelArt = Width <= 64 && Height <= 64;
+
+            if (pixelArt)
+            {
+                _gl.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter,
+                    (int)TextureMinFilter.NearestMipmapNearest);
+                _gl.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter,
+                    (int)TextureMagFilter.Nearest);
+            }
+            else
+            {
+                _gl.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter,
+                    (int)TextureMinFilter.LinearMipmapLinear);
+                _gl.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter,
+                    (int)TextureMagFilter.Linear);
+            }
 
             var wrap = repeat ? TextureWrapMode.Repeat : TextureWrapMode.ClampToEdge;
             _gl.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapS, (int)wrap);
             _gl.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapT, (int)wrap);
+
+            _gl.BindTexture(TextureTarget.Texture2D, 0);
         }
 
         public void Bind(TextureUnit textureUnit = TextureUnit.Texture0)

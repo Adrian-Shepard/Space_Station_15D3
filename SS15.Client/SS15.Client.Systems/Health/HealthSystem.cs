@@ -20,7 +20,7 @@ namespace SS15.Client.Systems
             // Урон от космоса (вакуума)
             int tileX = (int)(playerPos.X / map.TileSize);
             int tileY = (int)(playerPos.Y / map.TileSize);
-            if (map.GetTile(tileX, tileY) == TileType.Space)
+            if (map.GetTileType(tileX, tileY) == TileType.Space)
             {
                 player.TakeDamage(15);
                 return;

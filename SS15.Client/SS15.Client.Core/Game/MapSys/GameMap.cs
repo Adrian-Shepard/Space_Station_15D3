@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Numerics;
+using SS15.Client.Core.Tiles;
 
 namespace SS15.Client.Core
 {
@@ -10,7 +11,8 @@ namespace SS15.Client.Core
         public int Height { get; }
         public int TileSize { get; }
 
-        private TileType[,] _tiles;
+        private Tile[,] _tiles;
+
         public Dictionary<(int x, int y), List<Item>> ItemsOnGround { get; } = new();
         public Dictionary<(int x, int y), int> DoorGroups { get; } = new();
         public Dictionary<int, bool> DoorGroupStates { get; } = new();
@@ -23,30 +25,54 @@ namespace SS15.Client.Core
             Width = width;
             Height = height;
             TileSize = tileSize;
-            _tiles = new TileType[height, width];
+            _tiles = new Tile[height, width];
         }
 
         public void Fill(TileType type)
         {
+            var proto = TileFactory.Create(type);
             for (int y = 0; y < Height; y++)
                 for (int x = 0; x < Width; x++)
-                    _tiles[y, x] = type;
+                    _tiles[y, x] = TileFactory.Create(type);
+        }
+
+        public Tile GetTile(int x, int y)
+        {
+            if (x < 0 || x >= Width || y < 0 || y >= Height)
+                return new WallTile();
+            return _tiles[y, x];
+        }
+
+        public TileType GetTileType(int x, int y)
+        {
+            var t = GetTile(x, y);
+            return t != null ? t.Type : TileType.Wall;
+        }
+
+        public void SetTile(int x, int y, Tile tile)
+        {
+            if (x < 0 || x >= Width || y < 0 || y >= Height) return;
+            if (tile == null) return;
+
+            var old = _tiles[y, x];
+            old?.OnRemoved(this, x, y);
+
+            _tiles[y, x] = tile;
+            tile.OnPlaced(this, x, y);
+
+            OnTileChanged?.Invoke(x, y);
         }
 
         public void SetTile(int x, int y, TileType type)
         {
-            if (x < 0 || x >= Width || y < 0 || y >= Height) return;
-            if (_tiles[y, x] == type) return;
-
-            _tiles[y, x] = type;
-            OnTileChanged?.Invoke(x, y);
+            SetTile(x, y, TileFactory.Create(type));
         }
 
-        public TileType GetTile(int x, int y)
+        public void Update(float dt)
         {
-            if (x < 0 || x >= Width || y < 0 || y >= Height)
-                return TileType.Wall;
-            return _tiles[y, x];
+            for (int y = 0; y < Height; y++)
+                for (int x = 0; x < Width; x++)
+                    _tiles[y, x]?.Update(this, x, y, dt);
         }
 
         public bool IsWalkable(Vector2 position, float playerHalf)
@@ -63,11 +89,8 @@ namespace SS15.Client.Core
             {
                 int tileX = (int)(corner.X / TileSize);
                 int tileY = (int)(corner.Y / TileSize);
-                TileType tile = GetTile(tileX, tileY);
-                if (tile == TileType.Wall || tile == TileType.ReinforcedWall)
-                    return false;
-                if (tile == TileType.Door && !IsDoorOpen(tileX, tileY))
-                    return false;
+                var tile = GetTile(tileX, tileY);
+                if (tile.IsSolid) return false;
             }
             return true;
         }
@@ -84,6 +107,10 @@ namespace SS15.Client.Core
             DoorGroups[(x, y)] = groupId;
             if (!DoorGroupStates.ContainsKey(groupId))
                 DoorGroupStates[groupId] = false;
+
+            if (_tiles[y, x] is DoorTile door)
+                door.GroupId = groupId;
+
             OnTileChanged?.Invoke(x, y);
         }
 
@@ -94,8 +121,7 @@ namespace SS15.Client.Core
 
         public bool IsDoorOpen(int x, int y)
         {
-            if (DoorGroups.TryGetValue((x, y), out int gid))
-                return DoorGroupStates.TryGetValue(gid, out bool open) && open;
+            if (_tiles[y, x] is DoorTile door) return door.IsOpen;
             return false;
         }
 
@@ -107,8 +133,15 @@ namespace SS15.Client.Core
             DoorGroupStates[gid] = open;
 
             foreach (var kv in DoorGroups)
-                if (kv.Value == gid)
+            {
+                if (kv.Value != gid) continue;
+                var tile = _tiles[kv.Key.y, kv.Key.x] as DoorTile;
+                if (tile != null)
+                {
+                    tile.IsOpen = open;
                     OnTileChanged?.Invoke(kv.Key.x, kv.Key.y);
+                }
+            }
         }
 
         public List<(int x, int y)> GetDoorTilesInGroup(int groupId)

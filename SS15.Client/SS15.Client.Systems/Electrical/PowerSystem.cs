@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using SS15.Client.Core;
+
 namespace SS15.Client.Systems
 {
     public class PowerSystem
@@ -36,12 +37,12 @@ namespace SS15.Client.Systems
             var queue = new Queue<(int x, int y)>();
             var visited = new bool[_map.Width, _map.Height];
 
-            // Находим все генераторы и добавляем их в очередь
             for (int y = 0; y < _map.Height; y++)
             {
                 for (int x = 0; x < _map.Width; x++)
                 {
-                    if (_map.GetTile(x, y) == TileType.Generator)
+                    var tt = _map.GetTileType(x, y);
+                    if (tt == TileType.Generator)
                     {
                         queue.Enqueue((x, y));
                         visited[x, y] = true;
@@ -54,7 +55,6 @@ namespace SS15.Client.Systems
                 }
             }
 
-            // BFS по проводам и лампам
             int[] dx = { 1, -1, 0, 0 };
             int[] dy = { 0, 0, 1, -1 };
 
@@ -72,9 +72,8 @@ namespace SS15.Client.Systems
                     if (visited[nx, ny])
                         continue;
 
-                    TileType tile = _map.GetTile(nx, ny);
-                    // Провода и лампы проводят электричество, если есть сосед с питанием
-                    if (tile == TileType.Wire || tile == TileType.Lamp)
+                    var t = _map.GetTileType(nx, ny);
+                    if (t == TileType.Wire || t == TileType.Lamp)
                     {
                         visited[nx, ny] = true;
                         _powered[nx, ny] = true;

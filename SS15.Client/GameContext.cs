@@ -3,6 +3,7 @@ using Engine.Rendering;
 using Silk.NET.Input;
 using Silk.NET.OpenGL;
 using Silk.NET.Windowing;
+using SS15.Client.Commands;
 using SS15.Client.Input;
 using SS15.Client.NTUI;
 using SS15.Client.Render;
@@ -36,6 +37,8 @@ namespace SS15.Client
         public InputHandler Input;
         public InteractionMenu Menu;
         public RaycastHit CurrentHit;
+
+        public CommandDispatcher Commands;
 
         public float Fps;
         public float PlayerMs;

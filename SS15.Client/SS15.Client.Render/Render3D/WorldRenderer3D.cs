@@ -191,11 +191,11 @@ namespace SS15.Client.Render
                         if (dotN < 0.35f) continue;
                     }
 
-                    var tile = _map.GetTile(x, z);
+                    var tileType = _map.GetTileType(x, z);
 
-                    if (tile == TileType.Wire)
+                    if (tileType == TileType.Wire)
                         DrawWireTile(x, z);
-                    else if (tile == TileType.Lamp)
+                    else if (tileType == TileType.Lamp)
                         DrawLampTile(x, z);
                 }
             }
@@ -386,7 +386,7 @@ namespace SS15.Client.Render
         private bool IsConductive(int x, int z)
         {
             if (x < 0 || x >= _map.Width || z < 0 || z >= _map.Height) return false;
-            var t = _map.GetTile(x, z);
+            var t = _map.GetTileType(x, z);
             return t == TileType.Wire || t == TileType.Generator || t == TileType.Lamp;
         }
     }

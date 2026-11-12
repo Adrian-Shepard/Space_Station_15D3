@@ -34,8 +34,8 @@ namespace SS15.Client.Systems
             {
                 for (int x = 0; x < w; x++)
                 {
-                    var tile = _map.GetTile(x, y);
-                    bool isDoor = tile == TileType.Door;
+                    var tileType = _map.GetTileType(x, y);
+                    bool isDoor = tileType == TileType.Door;
 
                     if (IsWalkable(x, y) || isDoor)
                     {
@@ -123,7 +123,7 @@ namespace SS15.Client.Systems
 
             if (!IsWalkable(x2, y2))
             {
-                if (_map.GetTile(x2, y2) == TileType.Space)
+                if (_map.GetTileType(x2, y2) == TileType.Space)
                 {
                     int spaceCount = CountSpaceNeighbors(x1, y1);
                     if (spaceCount > 0)
@@ -194,7 +194,7 @@ namespace SS15.Client.Systems
         private bool IsSpace(int x, int y)
         {
             return x >= 0 && x < _map.Width && y >= 0 && y < _map.Height &&
-                   _map.GetTile(x, y) == TileType.Space;
+                   _map.GetTileType(x, y) == TileType.Space;
         }
 
         private void AddNeighborActive(int x, int y)
@@ -205,20 +205,18 @@ namespace SS15.Client.Systems
 
         private bool IsWalkable(int x, int y)
         {
-            var tile = _map.GetTile(x, y);
-            return tile != TileType.Wall && tile != TileType.ReinforcedWall && tile != TileType.Space &&
-                   (tile != TileType.Door || _map.IsDoorOpen(x, y));
+            var tileType = _map.GetTileType(x, y);
+            return tileType != TileType.Wall && tileType != TileType.ReinforcedWall &&
+                   tileType != TileType.Space &&
+                   (tileType != TileType.Door || _map.IsDoorOpen(x, y));
         }
-
-        // ======= Публичные методы =======
 
         public AtmosphereData? GetAtmosphereAt(int tx, int ty)
         {
             if (tx < 0 || tx >= _map.Width || ty < 0 || ty >= _map.Height) return null;
 
-            // Дверь хранит атмосферу всегда, даже закрытая.
-            var tile = _map.GetTile(tx, ty);
-            if (tile == TileType.Door) return _readGrid[tx, ty];
+            var tileType = _map.GetTileType(tx, ty);
+            if (tileType == TileType.Door) return _readGrid[tx, ty];
 
             if (!IsWalkable(tx, ty)) return null;
             return _readGrid[tx, ty];
@@ -226,7 +224,7 @@ namespace SS15.Client.Systems
 
         public void ModifyOxygen(int x, int y, float d)
         {
-            if (!IsWalkable(x, y) && _map.GetTile(x, y) != TileType.Door) return;
+            if (!IsWalkable(x, y) && _map.GetTileType(x, y) != TileType.Door) return;
             ref var a = ref _readGrid[x, y];
             a.MolesOxygen = Math.Max(0, a.MolesOxygen + d);
             _activeTiles.Add((x, y));
@@ -236,7 +234,7 @@ namespace SS15.Client.Systems
 
         public void ModifyNitrogen(int x, int y, float d)
         {
-            if (!IsWalkable(x, y) && _map.GetTile(x, y) != TileType.Door) return;
+            if (!IsWalkable(x, y) && _map.GetTileType(x, y) != TileType.Door) return;
             ref var a = ref _readGrid[x, y];
             a.MolesNitrogen = Math.Max(0, a.MolesNitrogen + d);
             _activeTiles.Add((x, y));
@@ -246,7 +244,7 @@ namespace SS15.Client.Systems
 
         public void ModifyCarbonDioxide(int x, int y, float d)
         {
-            if (!IsWalkable(x, y) && _map.GetTile(x, y) != TileType.Door) return;
+            if (!IsWalkable(x, y) && _map.GetTileType(x, y) != TileType.Door) return;
             ref var a = ref _readGrid[x, y];
             a.MolesCarbonDioxide = Math.Max(0, a.MolesCarbonDioxide + d);
             _activeTiles.Add((x, y));
@@ -256,7 +254,7 @@ namespace SS15.Client.Systems
 
         public void ModifyPlasma(int x, int y, float d)
         {
-            if (!IsWalkable(x, y) && _map.GetTile(x, y) != TileType.Door) return;
+            if (!IsWalkable(x, y) && _map.GetTileType(x, y) != TileType.Door) return;
             ref var a = ref _readGrid[x, y];
             a.MolesPlasma = Math.Max(0, a.MolesPlasma + d);
             _activeTiles.Add((x, y));
@@ -266,7 +264,7 @@ namespace SS15.Client.Systems
 
         public void ModifyTemperature(int x, int y, float d)
         {
-            if (!IsWalkable(x, y) && _map.GetTile(x, y) != TileType.Door) return;
+            if (!IsWalkable(x, y) && _map.GetTileType(x, y) != TileType.Door) return;
             ref var a = ref _readGrid[x, y];
             a.Temperature = Math.Clamp(a.Temperature + d, 0f, MaxTemperature);
             _activeTiles.Add((x, y));
@@ -319,18 +317,12 @@ namespace SS15.Client.Systems
             AddNeighborActive(x, y + 1); AddNeighborActive(x, y - 1);
         }
 
-        /// <summary>
-        /// Переключить состояние двери. Атмосфера в тайле двери сохраняется:
-        /// закрытая дверь не диффундирует с соседями (IsWalkable = false), но газ внутри неё остаётся.
-        /// При открытии дверь снова начинает диффундировать.
-        /// </summary>
         public void SetDoorState(int x, int y, bool open)
         {
             if (x < 0 || x >= _map.Width || y < 0 || y >= _map.Height) return;
 
             _map.SetDoorOpen(x, y, open);
 
-            // Атмосферу НЕ трогаем — она остаётся как была.
             _activeTiles.Add((x, y));
             AddNeighborActive(x + 1, y); AddNeighborActive(x - 1, y);
             AddNeighborActive(x, y + 1); AddNeighborActive(x, y - 1);
